@@ -1,0 +1,102 @@
+# Changelog — formato-curso-v6
+
+## 6.5.6 — 2026-10-19
+
+- Tradutor: usa o **tradutor central** (`~/projetos/wifi/scripts/inema-traduz`); o modelo vem de `INEMA_TRADUCAO_MOTOR`/`INEMA_TRADUCAO_MODELO`
+  (`~/.config/inema/modelos.env`, hoje Sonnet 5.5 pela assinatura) em vez do `codex exec -m gpt-6-luna` fixo. `--modelo <id>` sobrescreve.
+  `usage.jsonl` marca `tradutor-central`; reserva Groq igual (desligada por padrão).
+
+## 6.5.5 — 2026-10-06
+
+- Auditor: na edição EN de curso **iniciante** (sem `perfil: tecnico`), upload/download/login/input/output/backup/setup
+  deixam de contar como jargão, como já valia no perfil técnico. Antes, "Upload a skill" (nome real do botão do app)
+  reprovava 5 aulas do Skills v6 em inglês.
+
+## 6.5.4 — 2026-09-29
+
+- Montagem: o rótulo "Na prática · <profissão>" só põe a primeira letra em maiúscula (antes o `capitalize()` baixava o resto:
+  "Analista de RH" virava "Analista de rh"). Achado pelo leitor simulado do curso Áreas INEMA v6.2.
+- Tradutor: o `en/index.html` / `es/index.html` usa o `curso_curto` do `curso.json` (antes vinha "OSWork" fixo).
+
+## 6.5.3 — 2026-09-28
+
+- Tradutor: saiu o motor OpenRouter (GPT por API). Todo GPT vai pela assinatura (`codex exec -m gpt-6-luna`).
+  Reserva Groq com modelo que não é GPT (`llama-3.3-70b-versatile`), **desligada por padrão**: só com `--reserva-groq` ou
+  `RESERVA_GROQ=1`, e só no lote em que o Codex falhou 3 vezes. `usage.jsonl` marca `codex-assinatura` ou `groq-reserva`.
+
+## 6.4.3 — 2026-09-28
+
+- Tradutor: motor padrão passa a ser o **Codex pela assinatura** (`codex exec -m gpt-6-luna --ephemeral --sandbox read-only`,
+  pedido pela entrada padrão, 4 lotes em paralelo), sem chave de API. OpenRouter vira opção (`--motor openrouter`), só com
+  autorização explícita. `--modelo <id>` troca o modelo do Codex. `usage.jsonl` registra motor, modelo e segundos por lote.
+
+## 6.3.3 — 2026-09-25
+
+- Landing com módulos: em vez de listar todas as aulas, mostra só os módulos, fechados (`<details class="mod-lp">`
+  com título, resumo e "N aulas · M min"); o clique abre as aulas. Funciona sem JS; `landing.html#modulo-N` abre o N.
+  O título do módulo continua como `h3` (a tradução em cache é reaproveitada).
+- Menu do curso: item "Trilhas · escolher o módulo" (só com módulos) volta para `landing.html#modulos`. Textos no bloco L.
+- Sem `"modulos"`, a landing e o menu ficam como na 6.2. Verificado no OSWork v6.2: motor 26/26 e auditor 48/48 em PT/EN/ES.
+
+## 6.2.3 — 2026-09-25
+
+- Auditor, edição em inglês: work/skill(s)/script(s)/origin/shell/restore também contam como palavras comuns (a
+  tradução usa "work", "restore" etc. como verbo). Achado ao traduzir os módulos 2–8 do OSWork v6.2.
+- Motor: o "copiar" de um terminal de exemplo (`pre` com `.pr`) copia só as linhas de comando, sem `$` e sem `.out`.
+- CSS: `.psafe` deixou de ser flex (`display:block`, ✓ inline) — `<code>`/`.gterm` dentro não quebram mais em colunas no celular.
+- Tradutor: unidade sem tradução válida após 4 rodadas não aborta mais o idioma; fica em PT, é listada em
+  `i18n/<lang>-faltando.json` e aparece um aviso (traduza no cache e rode `--so-montar`). Cards tolerantes a falta.
+
+## 6.2.2 — 2026-09-24
+
+- Auditor, perfil técnico: plural tolerado na definição ("LLM" no texto vale pelo `.gterm` "LLMs"); na edição em
+  inglês, input/output/download/upload/login/backup/setup contam como palavras comuns. Achado no piloto OSWork v6.2,
+  cujas traduções revisadas do v2 usam esses termos. Teste negativo e regressão (oswork-v6, motion-rise) conferidos.
+
+## 6.2.1 — 2026-09-24
+
+- Tradutor: o modelo traduzia o valor de `data-gl` (âncora do glossário) — agora é restaurado do PT na montagem
+  (`fixa_ids`). Perfil técnico: não introduzir termo técnico ausente do original; glossário "never script/backup" desligado.
+- Auditor, perfil técnico: `pre`/`code` ficam fora da varredura de jargão (o termo é cobrado na prosa).
+- Landing com módulos: `h3.mod-tit` com estilo próprio.
+- Verificado: tradução EN real do curso de teste → 10/10 em todas as aulas, motor 25/25, terminal idêntico, glossário ok.
+
+## 6.2.0 — 2026-09-24
+
+Tudo opcional pelo `curso.json`; sem os campos novos a montagem, o auditor e o tradutor dão o mesmo resultado da 6.1
+(conferido em oswork-v6 e motion-rise: `curso.html`/`landing.html` idênticos, notas iguais, motor 26/26 e 25/25).
+- **Sem limite de aulas.** O teto de 9 saiu; cada aula continua com ~15 min e ≤900 palavras.
+- **Módulos** (`"modulos"`): trilha e landing agrupadas por módulo.
+- **Material complementar** (`details.complementar`, depois do fecho): aprofundamento sem teto, fora do tempo e da
+  contagem de palavras; aberto pelo auditor na checagem de legibilidade dos 3 temas.
+- **Perfil técnico** (`"perfil": "tecnico"`, `"termos"`): critério 8 vira "todo termo técnico definido com `.gterm`
+  na aula"; glossário gerado (`#glossario`, link "ver no glossário" na definição, item no menu); visual `.terminal`
+  conta como visual real; prática pode ser no terminal; tradutor mantém termos técnicos e não traduz comandos.
+
+## 6.1.0 — 2026-09-24
+
+- Cenas pelo **Codex image_gen por padrão** (`gerar-cena.py --gerador auto`), fallback inemaimg/flux2-klein.
+- Capa pela `capa-inema` com `--raw-in` da arte da trilha (evita cena inventada fora das regras).
+- **Trilíngue:** `traduzir-curso.py` (EN/ES em `en/` e `es/`, nano via OpenRouter, cache, validação de tags/{n}/espaços,
+  seletor de idioma no menu e na landing, estado separado por idioma). Textos do motor num bloco JSON único (`L-INICIO/L-FIM`),
+  rótulo da promessa vindo do motor, rótulo "Na prática · X" gravado no HTML pela montagem.
+- Versão no nome do curso em todas as superfícies.
+
+## 6.0.0 — 2026-09-24
+
+Nova skill para iniciante 30+, a partir da análise `../ANALISE-V5-INICIANTE.md`. v5 e v2 ficam intocadas.
+
+- **Visual "mostre, não simbolize":** tela de chat simulada com alternância entre casos, antes/depois com
+  resultado real, passo a passo sobre a tela (`.janela` + `.pin`), cena ilustrada por aula (flux2-klein, sem texto,
+  WebP ≤150 KB), cola da aula. Diagrama abstrato só para mecanismo sem tela. Sem trilho lateral: visual colado ao texto.
+- **Leveza:** aula ~15 min, 3–4 steps, prosa ≤900 palavras, "Em 1 minuto", "Quer saber mais?" para nuance,
+  pool de fixação reduzido (1 teste-se, 3–4 cartões, 1 reflexão por aula).
+- **Primeira tela:** tema papel por padrão; barra com 3 botões (← trilha · Aa · ☰); dica de 1 linha no lugar do
+  modal; "revisar" só aparece quando há pergunta vencida.
+- **Motor:** progresso automático por rolagem; cartões entram na revisão só ao concluir a aula; termos abrem a
+  definição abaixo do parágrafo (funciona no toque); textos do motor em `L` (traduzíveis).
+- **Olhar humano:** `.calma` ("Se travou aqui, é normal"), `.psafe`, regras 9–17 aprendidas com o leitor simulado.
+- **Portão medido:** `auditar-curso.cjs` (rubrica de 10 critérios, 3 temas, celular), `testar-motor.cjs`
+  (26 comportamentos), `capturar-aulas.cjs`, leitor simulado e roteiro de teste humano (`TESTE-HUMANO.md`).
+- **Montagem:** `montar-curso.py` gera `curso.html` e a lista de aulas da trilha e da landing a partir de `aulas/`.
+- Piloto: `~/projetos/oswork-v6` (7 aulas, 10/10 no auditor, 26/26 no motor).
