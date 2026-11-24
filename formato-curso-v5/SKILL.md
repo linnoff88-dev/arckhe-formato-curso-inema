@@ -2,20 +2,20 @@
 name: formato-curso-v5
 disable-model-invocation: true
 description: >-
-  curso INEMA v5 — página única (trilha + até 9 aulas), dark editorial
+  curso ARCKHÉ v5 — página única (trilha + até 9 aulas), dark editorial
   com motor de retenção, feito para PÚBLICO ADULTO 40+ LEIGO, ocupado e
   profissional: promessa + tempo em toda aula, prática multi-modo SEM terminal
   (prompt/tarefa/análise/código), linguagem sem jargão de plataforma, quadros
   escaneáveis, metáforas do mundo real e painel de jornada com progresso em
   capacidade. Use SEMPRE que o usuário pedir curso para leigos, curso 40+,
-  curso INEMA.PRO, "formato de curso v5", curso sem vídeo para profissionais
+  curso ARCKHÉ.PRO, "formato de curso v5", curso sem vídeo para profissionais
   ocupados, curso de IA/automação/marketing para não técnicos, ou mencionar
   promessa/prática profissional/fundamento×ferramenta. NÃO use para curso
   técnico/dev com prática de código como centro — para esses, use a
   formato-curso-v4 (as duas coexistem).
 ---
 
-# Formato Curso v5 — INEMA (40+ leigo, dark editorial, retenção com portão de completude)
+# Formato Curso v5 — ARCKHÉ (40+ leigo, dark editorial, retenção com portão de completude)
 
 O v5 é o v4 (página única, dark editorial, motor de retenção) **+ contrato pedagógico 40+ de primeira classe**: promessa e tempo em toda aula, prática multi-modo sem terminal, segundo registro visual (metáfora do mundo real), cadeia de retenção com cobertura total e anti-genérico como processo bloqueante. v4 continua para cursos técnicos/dev — as duas convivem.
 
@@ -141,15 +141,15 @@ Sob demanda, nunca fixo · tempo restante só existe por causa da cobertura tota
 
 `V5-DESIGN.md` — tokens/temas/cor/ícones/registros visuais/D-09 visual/print. `CONTEUDO-40MAIS.md` — PP1–16, linguagem 40+, jargão, rampa, clímax. `RETENCAO-V5.md` — cadeia de retenção, matriz de dosagem, quando-NÃO-usar, contrato do fecho/anti-duplicação. `CHECKLIST-V5.md` — greps prontos, auditoria anti-clone, template do manifesto. `EXEMPLOS-PROFISSOES.md` — banco por profissão (máx. 1 verbatim/curso).
 
-## Capa oficial — SEMPRE gerar (via skill `capa-inema`)
+## Capa oficial — SEMPRE gerar (via skill `capa-ARCKHÉ`)
 
-Ao terminar de montar o curso, gere a capa 1280×720 chamando a engine da skill `capa-inema`:
+Ao terminar de montar o curso, gere a capa 1280×720 chamando a engine da skill `capa-ARCKHÉ`:
 
 ```bash
-node ~/.claude/skills/capa-inema/assets/gerar-capa.cjs --repo <pasta-do-repo> \
+node ~/.claude/skills/capa-ARCKHÉ/assets/gerar-capa.cjs --repo <pasta-do-repo> \
   --title "<título do curso>" --cat "<categoria>"
 ```
 
 - **Layout default = `split`** (texto à esquerda + imagem à direita). Se o usuário pediu **"capa fb"** (full-bleed), acrescente `--layout fb`.
-- Requer o **inemaimg** no ar (`localhost:8000`). A capa é gravada em `<repo>/capa/capa.png`.
-- Detalhes, opções e uso em lote: skill `capa-inema`.
+- Requer o **ARCKHÉimg** no ar (`localhost:8000`). A capa é gravada em `<repo>/capa/capa.png`.
+- Detalhes, opções e uso em lote: skill `capa-ARCKHÉ`.

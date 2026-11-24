@@ -1,4 +1,4 @@
-# MASTER COMPLETO — guia de construcao formato-curso INEMA v3
+# MASTER COMPLETO — guia de construcao formato-curso ARCKHÉ v3
 
 > **DOCUMENTO UNICO DE CONSTRUCAO.** Tudo que voce precisa para montar uma pagina
 > v3 (landing, trilha, modulo) com markup copia-e-cola que CASA com `assets/learn.css`
@@ -30,7 +30,7 @@
 7. [Sistema de SIDENOTES — snippets copia-e-cola](#7-sistema-de-sidenotes--snippets-copia-e-cola)
 8. ["Pare e preveja" (recall ativo)](#8-pare-e-preveja-recall-ativo)
 9. ["Indo mais fundo" e definicao inline (camadas sob demanda)](#9-indo-mais-fundo-e-definicao-inline-camadas-sob-demanda)
-10. [O PAINEL DO ALUNO na margem (data-inema-rail)](#10-o-painel-do-aluno-na-margem-data-inema-rail)
+10. [O PAINEL DO ALUNO na margem (data-ARCKHÉ-rail)](#10-o-painel-do-aluno-na-margem-data-ARCKHÉ-rail)
 11. [O marcador de PROGRESSO discreto (N de M, sem barras)](#11-o-marcador-de-progresso-discreto-n-de-m-sem-barras)
 12. [Knowledge check e Minha jornada](#12-knowledge-check-e-minha-jornada)
 13. [Anatomia da PAGINA DE TRILHA (indice)](#13-anatomia-da-pagina-de-trilha-indice)
@@ -58,7 +58,7 @@ persistencia (lido/duvida/nota/tema) e monta o painel do aluno.
 | E3 | Coluna larga / sem `max-width` | A medida **62-70ch** e o que **cria** a margem onde a profundidade vive. |
 | E4 | **Barra de progresso** (qualquer), anel, %, chip de stat | Progresso = `N de M` + 1 filete fino. **Zero** das 3 barras do v2. |
 | E5 | Glow ambar/ciano, gradiente em texto, `rounded-xl`, card dentro da licao | Premium = quietude. Cards so no catalogo (trilha/landing), nunca na prosa. |
-| E6 | Nota/duvida em **modal ou drawer** | Vivem na **margem** (`data-inema-rail`), ancoradas ao texto. Nunca popup. |
+| E6 | Nota/duvida em **modal ou drawer** | Vivem na **margem** (`data-ARCKHÉ-rail`), ancoradas ao texto. Nunca popup. |
 | E7 | Empilhar nuance/fonte/edge-case na dobra | Profundidade SEMPRE em camada (sidenote / `go-deeper` / `dfn`). |
 | E8 | Esconder o **essencial** atras de clique | So o raro/aprofundamento dobra. O default ja conta a historia. |
 | E9 | Gamificacao (streak, XP, badge, confete, som, placar) | Anti-Duolingo. Calma > placar. |
@@ -77,9 +77,9 @@ projeto/
 ├── index.html                       # LANDING editorial (entrada)
 ├── assets/
 │   ├── learn.css                    # folha unica v3 (NAO editar por pagina)
-│   ├── learn.js                     # camada de aprendizagem v3 (window.INEMA)
-│   ├── inema-head-snippet.html      # cole no <head> (anti-FOUC + link CSS)
-│   └── inema-init-snippet.html      # cole antes de </body> (carrega + init)
+│   ├── learn.js                     # camada de aprendizagem v3 (window.ARCKHÉ)
+│   ├── ARCKHÉ-head-snippet.html      # cole no <head> (anti-FOUC + link CSS)
+│   └── ARCKHÉ-init-snippet.html      # cole antes de </body> (carrega + init)
 └── curso/
     ├── trilha1/
     │   ├── index.html               # INDICE da trilha (catalogo de modulos)
@@ -93,7 +93,7 @@ projeto/
   Index de trilha: `REL=".."`. Pagina de modulo: `REL="../.."`. Troque `REL` nos dois snippets.
 - **Nomes de arquivo de modulo:** `modulo-<trilha>-<n>.html` (ex.: `modulo-3-2.html`).
   O `learn.js` deriva o `moduleId` (`"3-2"`) e a trilha (`"3"`) desse padrao e dos
-  `data-inema-module` / `data-inema-track` das secoes.
+  `data-ARCKHÉ-module` / `data-ARCKHÉ-track` das secoes.
 
 ---
 
@@ -104,23 +104,23 @@ hooks. Os nomes tem que casar exatamente.
 
 | Papel | Markup canonico | Quem consome |
 |---|---|---|
-| Curso (id global) | `<meta name="inema-course" content="fep">` no `<head>` | `learn.js` (`detectCourseId`) |
-| Secao/topico | `<section data-inema-topic="modulo-3-1#topico-1" data-inema-module="3-1" data-inema-track="3">` | progresso, rail, scrollspy |
-| Bloco com nota | `<div data-inema-block="bloco-1">…</div>` (ancora de grifos/notas) | highlight/notas |
-| Painel do aluno | `<aside data-inema-rail="modulo-3-1#topico-1">` (vazio; o JS injeta dentro) | `renderRail` |
-| Marcar lida | `[data-inema-read-toggle][aria-pressed]` (o JS cria dentro do rail) | `markRead` |
-| Duvida | `[data-inema-doubt-toggle][aria-pressed][data-resolved]` | `toggleDoubt` |
+| Curso (id global) | `<meta name="ARCKHÉ-course" content="fep">` no `<head>` | `learn.js` (`detectCourseId`) |
+| Secao/topico | `<section data-ARCKHÉ-topic="modulo-3-1#topico-1" data-ARCKHÉ-module="3-1" data-ARCKHÉ-track="3">` | progresso, rail, scrollspy |
+| Bloco com nota | `<div data-ARCKHÉ-block="bloco-1">…</div>` (ancora de grifos/notas) | highlight/notas |
+| Painel do aluno | `<aside data-ARCKHÉ-rail="modulo-3-1#topico-1">` (vazio; o JS injeta dentro) | `renderRail` |
+| Marcar lida | `[data-ARCKHÉ-read-toggle][aria-pressed]` (o JS cria dentro do rail) | `markRead` |
+| Duvida | `[data-ARCKHÉ-doubt-toggle][aria-pressed][data-resolved]` | `toggleDoubt` |
 | Grifo do aluno | `<mark class="hl" data-hl="amarelo">…</mark>` (criado por selecao) | highlight/`.selpop` |
-| Progresso | `<span data-inema-meter="curso">` ou `"trilha:3"` ou `"modulo:3-1"` | `renderMeters` |
-| Filete de progresso | `.progress-line` + `<span data-inema-meter-fill>` (le `--inema-pct`) | `renderMeters` |
-| Fracao "N de M" | `<span data-inema-meter-frac>` + `<span data-inema-meter-pct>` | `renderMeters` |
-| Jornada (abrir) | `<button data-inema-journey-open>` (+ `[data-inema-journey-badge]`) | `openJourney` |
-| Reader-bar: tema | `<button data-inema-set-theme="papel\|sepia\|escuro">` | `setPref('theme')` |
-| Reader-bar: fonte | `<button data-inema-set-font="serif\|sans\|hyperlegible">` | `setPref('font')` |
-| Reader-bar: tamanho | `<button data-inema-set-fontscale="90\|100\|112\|125">` | `setPref('fontScale')` |
-| Reader-bar: medida | `<button data-inema-set-linewidth="62\|66\|70">` (ou `estreito/medio/largo`) | `setPref('lineWidth')` |
-| Reader-bar: entrelinha | `<button data-inema-set-leading="1.62\|1.70">` (ou `compacto/confortavel`) | `setPref('leading')` |
-| Ciclar pref (1 botao) | `<button data-inema-cycle="theme">` | `cyclePref` |
+| Progresso | `<span data-ARCKHÉ-meter="curso">` ou `"trilha:3"` ou `"modulo:3-1"` | `renderMeters` |
+| Filete de progresso | `.progress-line` + `<span data-ARCKHÉ-meter-fill>` (le `--ARCKHÉ-pct`) | `renderMeters` |
+| Fracao "N de M" | `<span data-ARCKHÉ-meter-frac>` + `<span data-ARCKHÉ-meter-pct>` | `renderMeters` |
+| Jornada (abrir) | `<button data-ARCKHÉ-journey-open>` (+ `[data-ARCKHÉ-journey-badge]`) | `openJourney` |
+| Reader-bar: tema | `<button data-ARCKHÉ-set-theme="papel\|sepia\|escuro">` | `setPref('theme')` |
+| Reader-bar: fonte | `<button data-ARCKHÉ-set-font="serif\|sans\|hyperlegible">` | `setPref('font')` |
+| Reader-bar: tamanho | `<button data-ARCKHÉ-set-fontscale="90\|100\|112\|125">` | `setPref('fontScale')` |
+| Reader-bar: medida | `<button data-ARCKHÉ-set-linewidth="62\|66\|70">` (ou `estreito/medio/largo`) | `setPref('lineWidth')` |
+| Reader-bar: entrelinha | `<button data-ARCKHÉ-set-leading="1.62\|1.70">` (ou `compacto/confortavel`) | `setPref('leading')` |
+| Ciclar pref (1 botao) | `<button data-ARCKHÉ-cycle="theme">` | `cyclePref` |
 
 > **Importante:** o **acento e FIXO** no v3 (`#2C5282`, azul-ardosia). NAO existe seletor
 > de acento/trilha na reader-bar (isso era v2). A trilha muda so o **hue** de `--accent`
@@ -145,14 +145,14 @@ numa pagina de modulo ele ativa tudo.
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Modulo 3.1 — Engenharia de Prompts · INEMA.CLUB</title>
-  <meta name="inema-course" content="fep"><!-- id do curso: chaveia o localStorage -->
+  <title>Modulo 3.1 — Engenharia de Prompts · ARCKHÉ AI</title>
+  <meta name="ARCKHÉ-course" content="fep"><!-- id do curso: chaveia o localStorage -->
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400;1,8..60,500&family=IBM+Plex+Mono:wght@400;500&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 
-  <!-- COLE AQUI o conteudo de assets/inema-head-snippet.html
+  <!-- COLE AQUI o conteudo de assets/ARCKHÉ-head-snippet.html
        (script bloqueante anti-FOUC que aplica data-theme/medida ANTES do paint
         + <link rel="stylesheet" href="REL/assets/learn.css">). Troque REL. -->
 </head>
@@ -163,19 +163,19 @@ numa pagina de modulo ele ativa tudo.
   <!-- MASTHEAD + WAYFINDING (onde estou)  -->  <!-- secao 5.2 -->
   <main class="spread"> … </main>           <!-- secao 5.3+ -->
 
-  <!-- COLE AQUI o conteudo de assets/inema-init-snippet.html
-       (<script src="REL/assets/learn.js"> + INEMA.init()). Troque REL. -->
+  <!-- COLE AQUI o conteudo de assets/ARCKHÉ-init-snippet.html
+       (<script src="REL/assets/learn.js"> + ARCKHÉ.init()). Troque REL. -->
 </body>
 </html>
 ```
 
-Os dois snippets (`inema-head-snippet.html`, `inema-init-snippet.html`) ja existem em
+Os dois snippets (`ARCKHÉ-head-snippet.html`, `ARCKHÉ-init-snippet.html`) ja existem em
 `assets/` — **cole-os verbatim** e so substitua `REL`. Eles cuidam de: anti-FOUC de
 tema (sem flash a cada navegacao), carregamento de `learn.css`/`learn.js`, e
-`INEMA.init()` (idempotente — chamar duas vezes nao duplica listeners).
+`ARCKHÉ.init()` (idempotente — chamar duas vezes nao duplica listeners).
 
-`init()` aceita opcoes: `INEMA.init({ courseId: "fep" })` (sobrescreve o `<meta>`, raro)
-e `INEMA.init({ autoResume: true })` (rola para "continuar de onde parei" no load).
+`init()` aceita opcoes: `ARCKHÉ.init({ courseId: "fep" })` (sobrescreve o `<meta>`, raro)
+e `ARCKHÉ.init({ autoResume: true })` (rola para "continuar de onde parei" no load).
 
 ---
 
@@ -191,13 +191,13 @@ Ordem de cima para baixo. Esta e a pagina-coracao do v3 — uma **coluna de leit
 │                                                                                 │
 │  <main class="spread"><div class="leaf">                                        │
 │    ┌── .reading (coluna 62-70ch) ──────────┐   ┌── .margin-rail (trilho) ──┐    │
-│    │ .kicker                                │   │ <aside data-inema-rail>   │    │
+│    │ .kicker                                │   │ <aside data-ARCKHÉ-rail>   │    │
 │    │ h1.module-title  +  .deck              │   │   (painel do aluno:       │    │
 │    │ .read-meta (aqui · ~14 min · 7 secoes) │   │    marcar lida, duvida,   │    │
 │    │ .aims  (o que voce vai entender)       │   │    grifos/notas — secao10)│    │
 │    │ nav.toc  (sumario / indice impresso)   │   │ <aside class="sidenote">  │    │
 │    │                                        │   │   (notas de autor — sec7) │    │
-│    │ <section data-inema-topic> ··· Secao 1 │   │ data-inema-meter "N de M" │    │
+│    │ <section data-ARCKHÉ-topic> ··· Secao 1 │   │ data-ARCKHÉ-meter "N de M" │    │
 │    │   .section-mark · h2.head · .prose     │   │   (progresso — secao 11)  │    │
 │    │   .predict · figure · .go-deeper       │   └───────────────────────────┘    │
 │    │ <section> ··· Secao 2 … (respira 96px) │                                    │
@@ -213,27 +213,27 @@ Ordem de cima para baixo. Esta e a pagina-coracao do v3 — uma **coluna de leit
 ## 5.1 Reader bar (controles minimos)
 
 A unica coisa sticky. Wordmark + reading-time + grupos segmentados de aparencia. Os
-botoes usam os `data-inema-set-*` do contrato (secao 3) — o `learn.js` os hidrata.
+botoes usam os `data-ARCKHÉ-set-*` do contrato (secao 3) — o `learn.js` os hidrata.
 
 ```html
 <div class="reader-bar">
   <div class="reader-inner">
-    <a class="wordmark" href="REL/index.html">INEMA<span class="dot">.</span><span class="club">CLUB</span></a>
+    <a class="wordmark" href="REL/index.html">ARCKHÉ<span class="dot">.</span><span class="club">CLUB</span></a>
     <div class="reader-controls">
-      <span class="rc-read" data-inema-readingtime>— min de leitura</span>
+      <span class="rc-read" data-ARCKHÉ-readingtime>— min de leitura</span>
       <div class="rc-group" role="group" aria-label="Tema de leitura">
-        <button class="rc-btn" data-inema-set-theme="papel"  aria-pressed="true">Papel</button>
-        <button class="rc-btn" data-inema-set-theme="sepia"  aria-pressed="false">Sépia</button>
-        <button class="rc-btn" data-inema-set-theme="escuro" aria-pressed="false">Escuro</button>
+        <button class="rc-btn" data-ARCKHÉ-set-theme="papel"  aria-pressed="true">Papel</button>
+        <button class="rc-btn" data-ARCKHÉ-set-theme="sepia"  aria-pressed="false">Sépia</button>
+        <button class="rc-btn" data-ARCKHÉ-set-theme="escuro" aria-pressed="false">Escuro</button>
       </div>
       <div class="rc-group" role="group" aria-label="Tamanho do texto">
-        <button class="rc-btn" data-inema-set-fontscale="90"  aria-pressed="false">A−</button>
-        <button class="rc-btn" data-inema-set-fontscale="100" aria-pressed="true">A</button>
-        <button class="rc-btn" data-inema-set-fontscale="125" aria-pressed="false">A+</button>
+        <button class="rc-btn" data-ARCKHÉ-set-fontscale="90"  aria-pressed="false">A−</button>
+        <button class="rc-btn" data-ARCKHÉ-set-fontscale="100" aria-pressed="true">A</button>
+        <button class="rc-btn" data-ARCKHÉ-set-fontscale="125" aria-pressed="false">A+</button>
       </div>
       <div class="rc-group" role="group" aria-label="Fonte de leitura">
-        <button class="rc-btn" data-inema-set-font="serif"        aria-pressed="true">Serif</button>
-        <button class="rc-btn" data-inema-set-font="hyperlegible" aria-pressed="false"
+        <button class="rc-btn" data-ARCKHÉ-set-font="serif"        aria-pressed="true">Serif</button>
+        <button class="rc-btn" data-ARCKHÉ-set-font="hyperlegible" aria-pressed="false"
                 title="Atkinson Hyperlegible — legibilidade máxima">Aa↹</button>
       </div>
     </div>
@@ -309,7 +309,7 @@ mastery do Khan: quadradinhos, nunca barra).
 </main>
 
 <footer class="colophon">
-  <span>INEMA.CLUB · Caderno do aluno</span>
+  <span>ARCKHÉ AI · Caderno do aluno</span>
   <span class="pg">Módulo 3 — fólio iii</span>
   <span>Composto em Spectral &amp; Source Serif 4</span>
 </footer>
@@ -325,13 +325,13 @@ formalizacao **desce** para a margem (sidenote) ou para `go-deeper`. Densidade d
 **pensamento**, nao de pixels. Separar generos: o "porque" (explainer) vem antes e
 separado do "como" (passo a passo); referencia densa e camada a parte.
 
-A secao DEVE carregar os tres `data-inema-*` (topic/module/track) — sem eles, progresso
+A secao DEVE carregar os tres `data-ARCKHÉ-*` (topic/module/track) — sem eles, progresso
 e painel do aluno nao funcionam.
 
 ```html
 <section class="section" id="s1"
-         data-inema-topic="modulo-3-1#topico-1"
-         data-inema-module="3-1" data-inema-track="3">
+         data-ARCKHÉ-topic="modulo-3-1#topico-1"
+         data-ARCKHÉ-module="3-1" data-ARCKHÉ-track="3">
 
   <div class="section-mark">
     <span class="where">Seção 1 de 7</span><span>·</span><span>Anatomia</span>
@@ -339,7 +339,7 @@ e painel do aluno nao funcionam.
   <h2 class="head"><span class="num">1.</span>Veja a anatomia de um prompt</h2>
 
   <!-- 1) INTUICAO em prosa enxuta. dropcap so na 1a secao. -->
-  <div class="prose" data-inema-block="3-1-b1">
+  <div class="prose" data-ARCKHÉ-block="3-1-b1">
     <p class="lede dropcap">Um prompt não é uma pergunta solta: é um pequeno
       <span class="grif">briefing</span>. Quando o resultado vem morno, quase nunca o
       problema é a redação — é uma <em>peça ausente</em>.</p>
@@ -509,24 +509,24 @@ Para codigo, use `<pre class="codeblock">` com `.c` (comentario, faint) e `.k`
 
 ---
 
-# 10. O PAINEL DO ALUNO na margem (data-inema-rail)
+# 10. O PAINEL DO ALUNO na margem (data-ARCKHÉ-rail)
 
 A camada de aprendizado e **minima e calma** e vive **na margem**, ancorada ao texto —
-NUNCA em modal/drawer. Voce so declara um `<aside data-inema-rail="…">` **vazio** por
+NUNCA em modal/drawer. Voce so declara um `<aside data-ARCKHÉ-rail="…">` **vazio** por
 secao; o `learn.js` (`renderRail`) **injeta** dentro dele: marcar lida, "tenho uma
 duvida", e a lista de grifos/notas daquela secao. O valor do atributo = o `topicId`
-(igual ao `data-inema-topic` da secao).
+(igual ao `data-ARCKHÉ-topic` da secao).
 
 ```html
 <aside class="margin-rail" aria-label="Margem da Seção 1">
   <!-- O JS preenche este aside (marcar lida + duvida + grifos/notas). -->
-  <aside data-inema-rail="modulo-3-1#topico-1"></aside>
+  <aside data-ARCKHÉ-rail="modulo-3-1#topico-1"></aside>
 
   <!-- sidenotes de autor (secao 7) e o meter (secao 11) vao logo abaixo -->
 </aside>
 ```
 
-Persistencia em `localStorage`, por curso (`inema.<courseId>.read|doubts|notes|…`). Tudo
+Persistencia em `localStorage`, por curso (`ARCKHÉ.<courseId>.read|doubts|notes|…`). Tudo
 e progressive enhancement: com JS desligado, o rail fica vazio e a leitura segue perfeita.
 
 ## 10.1 Nota do aluno ancorada (oxblood) — quando voce quer pre-renderizar uma
@@ -548,7 +548,7 @@ Quando o aluno seleciona texto, o `.selpop` (popover de selecao, posicionado pel
 oferece grifar; o JS envolve a selecao em `<mark class="hl" data-hl="amarelo">`. Cores
 disponiveis: `amarelo`, `verde`, `azul`, `rosa`, e `duvida` (oxblood + filete inferior —
 para nao depender so de cor, WCAG 1.4.1). Um pip discreto aparece quando ha nota anexa
-(`data-has-note="true"`). Voce nao escreve isso a mao; so garanta os `data-inema-block`
+(`data-has-note="true"`). Voce nao escreve isso a mao; so garanta os `data-ARCKHÉ-block`
 nos paragrafos para ancorar.
 
 ---
@@ -557,14 +557,14 @@ nos paragrafos para ancorar.
 
 **Zero das 3 barras do v2.** Progresso = um marcador `N de M` em mono + **uma** linha
 fina (`.progress-line`, 2px) — NUNCA tres barras lado a lado, anel ou %. O `learn.js`
-(`renderMeters`) escreve `--inema-pct` (0..100), preenche a fracao e poe ARIA
+(`renderMeters`) escreve `--ARCKHÉ-pct` (0..100), preenche a fracao e poe ARIA
 (`role=progressbar`, `aria-valuetext="N de M (P%)"`).
 
 ```html
-<div data-inema-meter="modulo:3-1" aria-label="Progresso do módulo">
-  <span data-inema-meter-frac><strong>1</strong> de 7</span>
-  <span class="progress-line"><span data-inema-meter-fill></span></span>
-  <span data-inema-meter-pct></span>
+<div data-ARCKHÉ-meter="modulo:3-1" aria-label="Progresso do módulo">
+  <span data-ARCKHÉ-meter-frac><strong>1</strong> de 7</span>
+  <span class="progress-line"><span data-ARCKHÉ-meter-fill></span></span>
+  <span data-ARCKHÉ-meter-pct></span>
 </div>
 ```
 
@@ -601,15 +601,15 @@ para comparar — **sem pontuacao, sem placar** (estilo The Odin Project). Estat
 ## 12.2 Minha jornada (grade silenciosa) + proxima acao
 
 `.journey` consolida progresso **sem barras** (grades `.jgrid`). O botao
-`[data-inema-journey-open]` abre o caderno (o JS monta o overlay com lidos/duvidas/notas).
+`[data-ARCKHÉ-journey-open]` abre o caderno (o JS monta o overlay com lidos/duvidas/notas).
 E **UMA** proxima acao clara (`.nextup`) — engajamento por clareza, nao por contagem.
 
 ```html
 <section class="journey" aria-label="Minha jornada">
   <div class="journey-top">
     <h2><span class="ico">❧</span> Minha jornada</h2>
-    <button class="journey-cta" type="button" data-inema-journey-open>
-      Abrir caderno <span class="inema-journey-badge" data-inema-journey-badge data-count="0"></span>
+    <button class="journey-cta" type="button" data-ARCKHÉ-journey-open>
+      Abrir caderno <span class="ARCKHÉ-journey-badge" data-ARCKHÉ-journey-badge data-count="0"></span>
     </button>
   </div>
   <div class="journey-body">
@@ -778,10 +778,10 @@ testaveis no render/DevTools). Resumo das travas que mais reprovam:
 - [ ] No maximo **1 figura por ideia**; secoes respiram (~96px). (E12)
 - [ ] Profundidade SEMPRE em camada (sidenote / `go-deeper` / `dfn`); essencial nunca dobrado. (E7, E8)
 - [ ] Sidenote funciona na margem (desktop) **e** colapsa inline no mobile **sem JS**.
-- [ ] Nota/duvida na margem (`data-inema-rail`), nunca modal/drawer; `localStorage`. (E6)
-- [ ] Cada `<section>` tem `data-inema-topic` + `-module` + `-track`.
-- [ ] Reader-bar com tema (papel/sepia/escuro), tamanho e fonte (Atkinson) via `data-inema-set-*`.
-- [ ] Progresso = `N de M` (`data-inema-meter`) + 1 filete; grade silenciosa onde couber. (E11)
+- [ ] Nota/duvida na margem (`data-ARCKHÉ-rail`), nunca modal/drawer; `localStorage`. (E6)
+- [ ] Cada `<section>` tem `data-ARCKHÉ-topic` + `-module` + `-track`.
+- [ ] Reader-bar com tema (papel/sepia/escuro), tamanho e fonte (Atkinson) via `data-ARCKHÉ-set-*`.
+- [ ] Progresso = `N de M` (`data-ARCKHÉ-meter`) + 1 filete; grade silenciosa onde couber. (E11)
 - [ ] **Zero** gamificacao (streak/XP/badge/confete/placar). (E9)
 - [ ] Landing = obra editorial: hero tipografico, curriculo-como-indice, CTA unico sem urgencia. (secao 14)
 - [ ] `prefers-reduced-motion` e foco-visivel respeitados; pagina le perfeita com JS desligado.

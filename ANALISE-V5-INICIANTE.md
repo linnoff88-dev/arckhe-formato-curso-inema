@@ -55,7 +55,7 @@ A distância até o 9 é principalmente **visual + leveza + teste com gente**. N
 ### 3.2 Visual: o maior problema
 
 - A regra **D-01 "zero-raster"** (V5-DESIGN §9) proíbe imagem no corpo da aula e só permite raster no hero da landing.
-- A mesma seção **proíbe FLUX por licença non-commercial**. Isso contradiz o CLAUDE.md: o conteúdo INEMA é aberto e gratuito e o `flux2-klein` é o padrão. A v2 já corrigiu isso, a v5 não.
+- A mesma seção **proíbe FLUX por licença non-commercial**. Isso contradiz o CLAUDE.md: o conteúdo ARCKHÉ é aberto e gratuito e o `flux2-klein` é o padrão. A v2 já corrigiu isso, a v5 não.
 - O resultado foram **36 de 36 cursos sem nenhuma imagem**.
 - Os dois registros visuais (metáfora no hero, diagrama no trilho) são bons em teoria. Na prática, o diagrama vira **abstração geométrica**: caixas, tracinhos no lugar de texto, pontos e setas.
   Na aula 1 do IA do Zero, a figura "sem 'quem sou' × com 'quem sou'" mostra caixas com riscos cinza. A figura **deveria mostrar o pedido real e a resposta real**, lado a lado. O conteúdo existe no texto, e o visual joga fora.
@@ -146,7 +146,7 @@ Quatro registros novos, em ordem de prioridade. Os três primeiros são **HTML/C
    - 1 por aula, no cold-open, no lugar da metáfora SVG. Mostra a pessoa da profissão na situação real do exemplo.
    - Regras: **nenhum texto dentro da imagem**, porque os rótulos vão em HTML por cima ou abaixo, senão quebra o fluxo PT/EN/ES que traduz só texto.
    - Formato: webp ≤150KB, `alt` que ensina, arquivo local em `assets/img/`, para funcionar em `file://`.
-   - Custo: ~9 imagens por curso, ~90 créditos Magnific ou grátis no inemaimg.
+   - Custo: ~9 imagens por curso, ~90 créditos Magnific ou grátis no ARCKHÉimg.
    - Proibidos continuam: robô, cérebro-circuito e aperto de mão com robô.
 
 **Regras que entram no `V5-DESIGN.md`:**

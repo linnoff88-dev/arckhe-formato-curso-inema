@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
-"""Traduz um curso v7.2 (conteudo/pt → conteudo/en e conteudo/es) pela ASSINATURA, pelo tradutor central do INEMA
-(`inema-traduz`; motor/modelo em INEMA_TRADUCAO_MOTOR/MODELO, ambiente → ~/.config/inema/modelos.env; hoje Sonnet 5.5).
+"""Traduz um curso v7.2 (conteudo/pt → conteudo/en e conteudo/es) pela ASSINATURA, pelo tradutor central do ARCKHÉ
+(`ARCKHÉ-traduz`; motor/modelo em ARCKHÉ_TRADUCAO_MOTOR/MODELO, ambiente → ~/.config/ARCKHÉ/modelos.env; hoje Sonnet 5.5).
 `--motor`/`--modelo` só sobrescrevem quando passados. Nunca API.
 
     python3 traduzir.py <pasta-do-curso> [en es] [--motor claude|codex] [--modelo ...] [--publico "..."]
@@ -59,16 +59,16 @@ CMD = re.compile(r"^\s*(?:(?:git|cd|ls|mkdir|python3?|pip3?|npm|npx|node|ssh|scp
                  r"|(?:del|set|type|copy|export|dir)(?=\s*$|\s+\S*[./\\\-=$%:\"'])|\./|\$|>|#!)", re.I)
 GLOSSARIO = {
     "en": {"Do chat ao agente": "From chat to agent", "degrau": "step", "pronto quando": "done when",
-           "fila": "queue", "portão": "gate", "INEMA.CLUB": "INEMA.CLUB"},
+           "fila": "queue", "portão": "gate", "ARCKHÉ AI": "ARCKHÉ AI"},
     "es": {"Do chat ao agente": "Del chat al agente", "degrau": "nivel", "pronto quando": "listo cuando",
-           "fila": "cola", "portão": "compuerta", "INEMA.CLUB": "INEMA.CLUB"},
+           "fila": "cola", "portão": "compuerta", "ARCKHÉ AI": "ARCKHÉ AI"},
 }
 SISTEMA = """You translate the text of an online course from Brazilian Portuguese to {nome}.
 Rules:
 - Audience: {publico}, reading on a phone.
   Plain, warm, direct, short sentences; address the reader as "you" ({tu}). Keep the same length and tone; no hype.
 - Keep EXACTLY: HTML tags and attributes (<b>, <code>, <a href="...">, <br>, <pre>, <ul>...), URLs, numbers, emoji,
-  product names (INEMA.CLUB, INEMA.PRO, OSWork, INTELECTO, Jarvis, inemaccbot, Claude Code, Codex, OpenRouter, Ollama,
+  product names (ARCKHÉ AI, ARCKHÉ.PRO, OSWork, INTELECTO, Jarvis, ARCKHÉccbot, Claude Code, Codex, OpenRouter, Ollama,
   Telegram, GitHub, VPS, r7e, r7ex, promoavatar, finviral, advviral, saudeviral), file and folder names
   (README.md, AGENTS.md, .env, meu-jarvis.md, entrada/, rodando/, feito/, falhou/ ...), commands, flags, paths, variables.
 - Text inside <code>...</code> stays as is unless it is plain Portuguese prose. A placeholder in square brackets
@@ -80,12 +80,12 @@ Rules:
 Return ONLY a JSON object with the same keys and the translated strings as values."""
 
 
-# 7.8.11: link para outro curso v7.x (https://inematds.github.io/<repo>-v7N/...) leva à versão do mesmo idioma.
+# 7.8.11: link para outro curso v7.x (https://linnoff88-dev.github.io/ leva à versão do mesmo idioma.
 # O href fica igual na tradução (validação de links); a troca é feita ao gravar conteudo/<lang>/.
 # assets/ (capa reaproveitada do irmão) e caminhos que já têm idioma não mudam.
 # 7.13.18: só página do curso (raiz, aulas/ ou âncora) troca de idioma; arquivo publicado junto (kit/site/, exemplos/)
-# não tem en/ es/ e virava 404 (achado no formacao-cinema-ia-sites-v72: o bloco que verifica kit/site/ no Pages).
-IRMAO = re.compile(r"(https://inematds\.github\.io/[\w.-]+-v7\d+/)(?=aulas/|[#\"'\s<)\],;]|$)")
+# não tem en/ es/ e virava 404 (achado no formacao-cARCKHÉ-ia-sites-v72: o bloco que verifica kit/site/ no Pages).
+IRMAO = re.compile(r"(https://linnoff88-dev\.github\.io/[\w.-]+-v7\d+/)(?=aulas/|[#\"'\s<)\],;]|$)")
 
 
 def localiza(no, lang):
@@ -99,20 +99,20 @@ def localiza(no, lang):
 
 
 PUBLICO_PADRAO = "adults learning to work with AI agents (terminal, Git, Telegram bots, queues, social media)"
-_TRADUTOR = os.path.expanduser("~/projetos/wifi/scripts/inema-traduz")
+_TRADUTOR = os.path.expanduser("~/projetos/wifi/scripts/ARCKHÉ-traduz")
 
 
 def padrao_traducao():
-    """(motor, modelo) de INEMA_TRADUCAO_MOTOR/MODELO: ambiente → ~/.config/inema/modelos.env → claude/Sonnet 5.5."""
+    """(motor, modelo) de ARCKHÉ_TRADUCAO_MOTOR/MODELO: ambiente → ~/.config/ARCKHÉ/modelos.env → claude/Sonnet 5.5."""
     arq = {}
-    f = pathlib.Path.home() / ".config/inema/modelos.env"
+    f = pathlib.Path.home() / ".config/ARCKHÉ/modelos.env"
     if f.exists():
         for linha in f.read_text(encoding="utf-8").splitlines():
-            m = re.match(r"\s*(INEMA_TRADUCAO_\w+)\s*=\s*([^#\s]*)", linha)
+            m = re.match(r"\s*(ARCKHÉ_TRADUCAO_\w+)\s*=\s*([^#\s]*)", linha)
             if m:
                 arq[m.group(1)] = m.group(2).strip("'\"")
-    motor = os.environ.get("INEMA_TRADUCAO_MOTOR") or arq.get("INEMA_TRADUCAO_MOTOR") or "claude"
-    modelo = os.environ.get("INEMA_TRADUCAO_MODELO") or arq.get("INEMA_TRADUCAO_MODELO") or ""
+    motor = os.environ.get("ARCKHÉ_TRADUCAO_MOTOR") or arq.get("ARCKHÉ_TRADUCAO_MOTOR") or "claude"
+    modelo = os.environ.get("ARCKHÉ_TRADUCAO_MODELO") or arq.get("ARCKHÉ_TRADUCAO_MODELO") or ""
     if motor == "claude" and not modelo.startswith("claude-"):
         modelo = "claude-sonnet-5-5"
     elif motor == "codex" and (not modelo or modelo.startswith("claude-")):
@@ -121,7 +121,7 @@ def padrao_traducao():
 
 
 def chamar_tradutor(pedido, motor=None, modelo=None, timeout=900):
-    """Tradução pelo tradutor central do INEMA (INEMA_TRADUCAO_* em ~/.config/inema/modelos.env). Assinatura, nunca API.
+    """Tradução pelo tradutor central do ARCKHÉ (ARCKHÉ_TRADUCAO_* em ~/.config/ARCKHÉ/modelos.env). Assinatura, nunca API.
     motor/modelo só quando o usuário forçou (--motor/--modelo); senão vale a variável central."""
     env = {k: v for k, v in os.environ.items() if k not in ("ANTHROPIC_API_KEY", "OPENAI_API_KEY", "CLAUDECODE")}
     with tempfile.TemporaryDirectory() as d:
@@ -231,14 +231,14 @@ def traduz_lote(itens, lang, modelo, glos, motor=None, publico=PUBLICO_PADRAO):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("pasta"); ap.add_argument("langs", nargs="*", default=["en", "es"])
-    ap.add_argument("--motor", choices=["claude", "codex"], help="força o motor (padrão: INEMA_TRADUCAO_MOTOR)")
-    ap.add_argument("--modelo", help="força o modelo (padrão: INEMA_TRADUCAO_MODELO)")
+    ap.add_argument("--motor", choices=["claude", "codex"], help="força o motor (padrão: ARCKHÉ_TRADUCAO_MOTOR)")
+    ap.add_argument("--modelo", help="força o modelo (padrão: ARCKHÉ_TRADUCAO_MODELO)")
     ap.add_argument("--lote", type=int, default=45)
     ap.add_argument("--publico", default=PUBLICO_PADRAO, help="quem lê o curso (vai no pedido de tradução, em inglês)")
     a = ap.parse_args()
     m_pad, mod_pad = padrao_traducao()
     print(f"tradutor: {a.motor or m_pad} / {a.modelo or (mod_pad if (a.motor or m_pad) == m_pad else 'padrão do motor')}"
-          + ("" if (a.motor or a.modelo) else " (variável central INEMA_TRADUCAO_*)"))
+          + ("" if (a.motor or a.modelo) else " (variável central ARCKHÉ_TRADUCAO_*)"))
     raiz = pathlib.Path(a.pasta).resolve()
     pt = raiz / "conteudo" / "pt"
     arquivos = [pt / "curso.json", *sorted((pt / "aulas").glob("*.json"))]

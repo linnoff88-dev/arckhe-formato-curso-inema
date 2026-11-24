@@ -115,5 +115,5 @@ Cada profissão tem: **dor típica** (o incômodo real que motiva o aluno a abri
 ## Imagens (cena ilustrada)
 
 A cena de cada aula mostra a pessoa da profissão-alvo na **situação concreta** listada acima. Gere com
-`scripts/gerar-cena.py` (flux2-klein, padrão). Conteúdo INEMA é aberto e gratuito: licença non-commercial do FLUX
+`scripts/gerar-cena.py` (flux2-klein, padrão). Conteúdo ARCKHÉ é aberto e gratuito: licença non-commercial do FLUX
 não é bloqueio. Regras completas em `V6-DESIGN.md` §3.4.

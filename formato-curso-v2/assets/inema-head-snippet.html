@@ -1,14 +1,14 @@
 <!--
-  INEMA · SNIPPET DE <head> (anti-FOUC + CSS)
+  ARCKHÉ · SNIPPET DE <head> (anti-FOUC + CSS)
   ============================================
   Cole isto NO TOPO do <head>, ANTES do Tailwind (cdn.tailwindcss.com) e antes
   de qualquer <style>/<link>. O <script> e BLOQUEANTE de proposito: ele aplica
   o tema (.dark + data-theme) e as variaveis de leitura ANTES do primeiro paint,
   matando o flash de tema (FOUC) a cada navegacao.
 
-  - Le inema.prefs (global, cross-curso). Se nao existir, faz fallback ao
+  - Le ARCKHÉ.prefs (global, cross-curso). Se nao existir, faz fallback ao
     localStorage.theme legado do v1 (dark/light).
-  - try/catch total: qualquer erro => default dark (preserva a marca INEMA).
+  - try/catch total: qualquer erro => default dark (preserva a marca ARCKHÉ).
   - Independente do learn.js: se o modulo grande falhar, o tema ja foi aplicado.
   - Troque REL pelo caminho relativo da pasta assets (ex.: "." , ".." , "../..").
 -->
@@ -16,11 +16,11 @@
 (function () {
   try {
     var html = document.documentElement;
-    var DEF = { theme: 'inema-dark', font: 'inter', fontScale: 100, lineWidth: 68, leading: 1.7, accent: 'emerald' };
+    var DEF = { theme: 'ARCKHÉ-dark', font: 'inter', fontScale: 100, lineWidth: 68, leading: 1.7, accent: 'emerald' };
     function clone(o) { var r = {}; for (var x in o) r[x] = o[x]; return r; }
     var p = clone(DEF);
     try {
-      var raw = localStorage.getItem('inema.prefs');
+      var raw = localStorage.getItem('ARCKHÉ.prefs');
       if (raw) {
         var parsed = JSON.parse(raw);
         if (parsed && typeof parsed === 'object') {
@@ -30,19 +30,19 @@
         // fallback ao tema legado do v1
         var legacy = localStorage.getItem('theme');
         if (legacy === 'light') p.theme = 'claro';
-        else if (legacy === 'dark') p.theme = 'inema-dark';
+        else if (legacy === 'dark') p.theme = 'ARCKHÉ-dark';
       }
     } catch (e) { p = clone(DEF); }
 
     // mapa tema -> (.dark on/off, data-theme, color-scheme)
     var THEMES = {
-      'inema-dark': { dark: true,  attr: null,        cs: 'dark'  },
+      'ARCKHÉ-dark': { dark: true,  attr: null,        cs: 'dark'  },
       'claro':      { dark: false, attr: null,        cs: 'light' },
       'sepia':      { dark: false, attr: 'sepia',     cs: 'light' },
       'foco':       { dark: null,  attr: 'foco',      cs: null    },  // herda eixo atual
       'contraste':  { dark: true,  attr: 'contraste', cs: 'dark'  }
     };
-    var t = THEMES[p.theme] || THEMES['inema-dark'];
+    var t = THEMES[p.theme] || THEMES['ARCKHÉ-dark'];
 
     if (t.dark === true) html.classList.add('dark');
     else if (t.dark === false) html.classList.remove('dark');
@@ -59,7 +59,7 @@
     // variaveis de leitura (espelham learn.js / learn.css) ANTES do paint
     var s = html.style;
     var scale = (+p.fontScale || 100);
-    s.setProperty('--inema-font-scale', (scale / 100).toString());
+    s.setProperty('--ARCKHÉ-font-scale', (scale / 100).toString());
     s.setProperty('font-size', scale + '%');               // :root em %, nunca px
     s.setProperty('--measure', (+p.lineWidth || 68) + 'ch');
     s.setProperty('--lh-body', (+p.leading || 1.7).toString());
@@ -86,5 +86,5 @@
 })();
 </script>
 
-<!-- Folha de estilos da camada de aprendizagem (temas, .inema-prose, controles novos). -->
+<!-- Folha de estilos da camada de aprendizagem (temas, .ARCKHÉ-prose, controles novos). -->
 <link rel="stylesheet" href="REL/assets/learn.css">

@@ -1,4 +1,4 @@
-# DESIGN-SYSTEM — formato-curso INEMA v3
+# DESIGN-SYSTEM — formato-curso ARCKHÉ v3
 
 > Condensado de `V3-DESIGN.md`. Fonte canonica para implementacao.
 

@@ -1,4 +1,4 @@
-# CHECKLIST_REVISAO — formato-curso INEMA v3
+# CHECKLIST_REVISAO — formato-curso ARCKHÉ v3
 
 Itens **testaveis** (verificaveis no HTML/CSS render ou via DevTools). Marcar `[x]` so
 quando o teste passa. Reprovar a pagina se qualquer item PRESENTE-OBRIGATORIO faltar ou

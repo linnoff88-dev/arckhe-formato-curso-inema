@@ -2,7 +2,7 @@
 name: formato-curso-v6
 disable-model-invocation: true
 description: >-
-  curso INEMA v6 para INICIANTE 30+ — página única (trilha + aulas curtas de ~15 min, sem teto de aulas, agrupáveis em módulos),
+  curso ARCKHÉ v6 para INICIANTE 30+ — página única (trilha + aulas curtas de ~15 min, sem teto de aulas, agrupáveis em módulos),
   tema papel por padrão, uma coluna, visual colado ao texto: tela de chat simulada com o pedido
   e a resposta reais, antes/depois com resultado real, passo a passo sobre a tela, cena ilustrada
   (flux2-klein, sem texto na imagem) e "cola da aula". Barra com 3 botões, sem modal, progresso
@@ -13,7 +13,7 @@ description: >-
   v5 (40+) e v2 continuam existindo e não são alterados por esta skill.
 ---
 
-# Formato Curso v6 — INEMA (iniciante 30+)
+# Formato Curso v6 — ARCKHÉ (iniciante 30+)
 
 **Uma frase:** o aluno entende cada ideia **olhando** (a figura mostra a coisa real, não um símbolo),
 lê pouco (≤900 palavras por aula), faz algo que funciona em menos de 15 minutos, e nunca é
@@ -49,7 +49,7 @@ Montar: `python3 ~/.claude/skills/formato-curso-v6/scripts/montar-curso.py <curs
 Auditar: `node ~/.claude/skills/formato-curso-v6/scripts/auditar-curso.cjs <curso>/curso.html`.
 Testar o motor: `node ~/.claude/skills/formato-curso-v6/scripts/testar-motor.cjs <curso>/curso.html`.
 Gerar cena: `python3 ~/.claude/skills/formato-curso-v6/scripts/gerar-cena.py <curso>/assets/img/aula-N.webp "<cena>"`
-— **padrão = Codex image_gen (imagem 2.5 da conta OpenAI)**; sem crédito ou com erro, cai sozinho no inemaimg
+— **padrão = Codex image_gen (imagem 2.5 da conta OpenAI)**; sem crédito ou com erro, cai sozinho no ARCKHÉimg
 com o modelo padrão (flux2-klein). `--gerador flux --seed N` força o local. Olhe cada imagem antes de aceitar.
 **Opcionais do `curso.json` (6.2):** `"modulos"` (agrupa a trilha), `"perfil": "tecnico"` + `"termos"` (curso que ensina
 terminal/Git/servidor: jargão permitido desde que definido com `.gterm` em cada aula, glossário gerado — ver
@@ -59,7 +59,7 @@ o clique abre as aulas daquele módulo, e `landing.html#modulo-N` já chega com 
 "Trilhas", que volta para `landing.html#modulos` para escolher o módulo.
 Aprofundamento vai no `details.complementar` depois do fecho (`V6-DESIGN.md` §3.7), fora do tempo e das 900 palavras.
 Traduzir (EN/ES): `python3 ~/.claude/skills/formato-curso-v6/scripts/traduzir-curso.py <curso> en es` — depois de montar;
-gera `en/` e `es/` e o seletor de idioma. **Motor padrão (6.5.6): tradutor central** (`inema-traduz`, variável `INEMA_TRADUCAO_*` em `~/.config/inema/modelos.env`, hoje Sonnet 5.5 da assinatura, sem chave de API; `--modelo <id>` sobrescreve o modelo). Tudo só pela assinatura: não há motor por API. Reserva Groq (modelo que não é GPT) **desligada**: só com `--reserva-groq` ou `RESERVA_GROQ=1`, quando o usuário pedir explicitamente. Cache em `i18n/`, registro em `i18n/usage.jsonl`.
+gera `en/` e `es/` e o seletor de idioma. **Motor padrão (6.5.6): tradutor central** (`ARCKHÉ-traduz`, variável `ARCKHÉ_TRADUCAO_*` em `~/.config/ARCKHÉ/modelos.env`, hoje Sonnet 5.5 da assinatura, sem chave de API; `--modelo <id>` sobrescreve o modelo). Tudo só pela assinatura: não há motor por API. Reserva Groq (modelo que não é GPT) **desligada**: só com `--reserva-groq` ou `RESERVA_GROQ=1`, quando o usuário pedir explicitamente. Cache em `i18n/`, registro em `i18n/usage.jsonl`.
 Sempre na ordem: montar → traduzir (a montagem reescreve o `curso.html` PT e apaga os links de idioma). Depois audite e
 teste também `en/curso.html` e `es/curso.html`. Glossário do curso: `i18n/glossario.json`.
 
@@ -110,11 +110,11 @@ no teste-se a alternativa certa não é a mais longa. Leia também as regras 9�
 
 ## Publicação e capa
 
-Publicar = commit + push do repo do curso (GitHub Pages na raiz). Capa: skill `capa-inema` usando a arte da trilha
+Publicar = commit + push do repo do curso (GitHub Pages na raiz). Capa: skill `capa-ARCKHÉ` usando a arte da trilha
 (já gerada pelo Codex, no estilo do curso): converta `assets/img/trilha.webp` para PNG e rode
-`node ~/.claude/skills/capa-inema/assets/gerar-capa.cjs --repo <pasta> --title "<Nome vN: título>" --cat "<categoria>" --raw-in trilha.png`.
+`node ~/.claude/skills/capa-ARCKHÉ/assets/gerar-capa.cjs --repo <pasta> --title "<Nome vN: título>" --cat "<categoria>" --raw-in trilha.png`.
 Sem `--raw-in` a capa inventa a própria cena (já saiu mão de robô — proibido no v6).
 **Versão no nome:** o curso mostra a versão (ex.: "OSWork v6") no `<title>`, na barra (`curso_curto`), no kicker da trilha,
 na landing e no rodapé das aulas — igual ao card do portal.
 Portal: skill `atualiza-portal` (e, para EN/ES, a seção "Versão traduzida" dela).
-Rodapé da landing com o backlink do inema.club (já no template).
+Rodapé da landing com o backlink do ARCKHÉ AI (já no template).

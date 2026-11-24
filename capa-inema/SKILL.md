@@ -1,16 +1,16 @@
 ---
-name: capa-inema
+name: capa-ARCKHÉ
 disable-model-invocation: true
 description: >-
-  Gera a capa oficial INEMA (1280x720) de um repo de curso ou projeto — imagem por IA + faixa de
+  Gera a capa oficial ARCKHÉ (1280x720) de um repo de curso ou projeto — imagem por IA + faixa de
   título/marca — em `capa/capa.png`. Layouts split (default) e fb. Todo curso ou página de guia
   novo deve produzir a capa por aqui. Também roda em lote em vários repos.
 ---
 
-# capa-inema
+# capa-ARCKHÉ
 
-Gera a **capa oficial INEMA** de um repo de curso/projeto: uma imagem 1280×720, dark
-premium âmbar, com a marca `INEMA.CLUB`, o chip da categoria e o título do curso —
+Gera a **capa oficial ARCKHÉ** de um repo de curso/projeto: uma imagem 1280×720, dark
+premium âmbar, com a marca `ARCKHÉ AI`, o chip da categoria e o título do curso —
 sobre uma imagem gerada por IA que combina com o tema. Sempre gravada em
 `<repo>/capa/capa.png`.
 
@@ -27,7 +27,7 @@ chamam esta skill como passo final da criação da página.
 ## Dois layouts
 
 - **`split`** (DEFAULT) — texto à esquerda (marca + categoria + título + subtítulo + barra âmbar),
-  imagem gerada num card arredondado à direita (paisagem 4:3, sem distorção). É o padrão INEMA.
+  imagem gerada num card arredondado à direita (paisagem 4:3, sem distorção). É o padrão ARCKHÉ.
 - **`fb`** (full-bleed) — imagem gerada preenchendo o quadro todo (16:9) + faixa de título por cima.
 
 **Como o usuário escolhe:** o default é `split`. Se a pessoa disser **"capa fb"** (ou
@@ -39,7 +39,7 @@ chamam esta skill como passo final da criação da página.
 node <skill>/assets/gerar-capa.cjs --repo <caminho-do-repo> \
   [--title "Título do Curso"] [--cat "Categoria"] \
   [--layout split|fb] [--cena "descrição visual da imagem"] \
-  [--catalog /home/nmaldaner/projetos/inemapro-mono/apps/pro/data/catalog.json] \
+  [--catalog /home/nmaldaner/projetos/ARCKHÉpro-mono/apps/pro/data/catalog.json] \
   [--gerador auto|codex|flux]
 ```
 
@@ -50,7 +50,7 @@ node <skill>/assets/gerar-capa.cjs --repo <caminho-do-repo> \
 - **`--layout`** — `split` (default) ou `fb`.
 - **`--cena`** — sobrescreve a descrição visual mandada pro gerador (por padrão vem de um
   mapa por categoria; temas desconhecidos usam o próprio título como assunto).
-- **`--gerador`** — de onde sai a ARTE. `flux` (**default**) = inemaimg local (flux2-klein,
+- **`--gerador`** — de onde sai a ARTE. `flux` (**default**) = ARCKHÉimg local (flux2-klein,
   comportamento historico — vale pras capas de curso e pro lote); `auto` = **Codex CLI
   (`image_gen`)** e cai pro flux se o Codex falhar; `codex` = só Codex (falha dura).
   A skill **`projetos-landing-guia` passa `--gerador auto`** desde 2026-09-21, a pedido do
@@ -66,7 +66,7 @@ node <skill>/assets/gerar-capa.cjs --repo <caminho-do-repo> \
    imagem do Codex (`image_gen`) por padrão, a pedido do usuário. Roda com
    `codex exec --skip-git-repo-check --dangerously-bypass-approvals-and-sandbox` (o bwrap
    do Codex não funciona neste host). Custo: uma geração de imagem na conta OpenAI do Codex.
-2. **inemaimg no ar** — servidor de imagem local em `http://localhost:8000` (flux2-klein).
+2. **ARCKHÉimg no ar** — servidor de imagem local em `http://localhost:8000` (flux2-klein).
    Confirme com `curl -s localhost:8000/health`. Configurável via env `IMG_API`. É o
    **default** da engine e também o fallback do caminho Codex.
 3. **Playwright/chromium** — a engine tenta `node_modules` local e depois o do
@@ -76,12 +76,12 @@ node <skill>/assets/gerar-capa.cjs --repo <caminho-do-repo> \
 
 Pra padronizar vários repos, itere os slugs e chame a engine por repo, resolvendo
 título/categoria pelo `catalog.json`. Lembre: cada repo é um git separado sob a conta
-`inematds` — antes de commitar/pushar a capa, garanta o autor correto no repo
-(`git config user.email inematds@gmail.com`), senão o deploy no Vercel Hobby trava.
+`linnoff88-dev` — antes de commitar/pushar a capa, garanta o autor correto no repo
+(`git config user.email linnoff88-dev@gmail.com`), senão o deploy no Vercel Hobby trava.
 
 ## Padrão visual (não mudar sem pedir)
 
-1280×720 · dark premium · acento âmbar `#f5a623` · fonte Montserrat · marca `INEMA.CLUB`
+1280×720 · dark premium · acento âmbar `#f5a623` · fonte Montserrat · marca `ARCKHÉ AI`
 + chip da categoria · imagem gerada SEM texto (o texto é a camada por cima).
 
 **A imagem NÃO leva direção de estilo** (decidido em 2026-08-13). O prompt manda só a
@@ -89,7 +89,7 @@ título/categoria pelo `catalog.json`. Lembre: cada repo é um git separado sob 
 Não acrescente "editorial premium", "luminoso", "fundo claro", "alto astral" nem
 qualquer adjetivo de humor/iluminação: é uma imagem normal do assunto. A única
 restrição que fica no prompt é técnica — **sem texto e sem virar screenshot** — porque a
-camada de texto INEMA entra por cima depois. Quer mudar o resultado? Mude a cena.
+camada de texto ARCKHÉ entra por cima depois. Quer mudar o resultado? Mude a cena.
 
 O `negative_prompt` **não existe** neste caminho: o flux2-klein ignora (o pipeline FLUX.2
 não suporta — verificado com a mesma seed, imagens byte a byte idênticas com e sem). Toda

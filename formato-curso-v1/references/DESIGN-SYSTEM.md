@@ -142,7 +142,7 @@ Yellow (primary #FACC15) ─ Brand, CTAs, logo, dicas
   ├─ Trilha 5 Teal     ─ Multiagente / Paralelismo
   └─ Trilha 6 Rose     ─ Escala / Negócio
   │
-  ├─ Sky               ─ Links externos (INEMA.CLUB)
+  ├─ Sky               ─ Links externos (ARCKHÉ AI)
   ├─ Red               ─ Erros, "não fazer", alertas
   └─ Neutrals          ─ Texto, fundos, bordas
 ```
@@ -158,7 +158,7 @@ Não é aleatório. Cada cor traz uma psicologia:
 - **Teal (T5):** equilíbrio, fluxo, equipe → multiagente
 - **Rose (T6):** conquista, valor, negócio → escala
 
-Quando criar um novo curso com 6 trilhas, **mantenha a mesma sequência cromática** — ela vira identidade do INEMA.CLUB.
+Quando criar um novo curso com 6 trilhas, **mantenha a mesma sequência cromática** — ela vira identidade do ARCKHÉ AI.
 
 ### 5.3 Light mode: por que cor mais escura?
 

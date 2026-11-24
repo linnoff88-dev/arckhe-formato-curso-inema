@@ -1,12 +1,12 @@
 ---
 name: formato-curso
 disable-model-invocation: true
-description: Template e padroes de design para criar paginas HTML de cursos no formato INEMA.CLUB. Use esta skill SEMPRE que o usuario pedir para criar, editar ou revisar paginas HTML de curso — incluindo index de trilhas, paginas de modulos, componentes como navegacao, cards, topicos expansiveis, modais e slides. Acione tambem quando o usuario mencionar trilhas, modulos, topicos, INEMA.CLUB, ou quando pedir para seguir o "formato de curso" ou "template de curso". Nao deixe de usar esta skill se o usuario mencionar qualquer coisa relacionada a paginas HTML de cursos ou ao projeto skillx.
+description: Template e padroes de design para criar paginas HTML de cursos no formato ARCKHÉ AI. Use esta skill SEMPRE que o usuario pedir para criar, editar ou revisar paginas HTML de curso — incluindo index de trilhas, paginas de modulos, componentes como navegacao, cards, topicos expansiveis, modais e slides. Acione tambem quando o usuario mencionar trilhas, modulos, topicos, ARCKHÉ AI, ou quando pedir para seguir o "formato de curso" ou "template de curso". Nao deixe de usar esta skill se o usuario mencionar qualquer coisa relacionada a paginas HTML de cursos ou ao projeto skillx.
 ---
 
-# Formato Curso - INEMA.CLUB
+# Formato Curso - ARCKHÉ AI
 
-Esta skill garante que todas as paginas de curso sigam o design system padronizado do INEMA.CLUB.
+Esta skill garante que todas as paginas de curso sigam o design system padronizado do ARCKHÉ AI.
 
 ## Referencias
 
@@ -45,13 +45,13 @@ Antes de entregar, percorra o checklist correspondente a pagina criada. Confirme
 
 ---
 
-## Imagens geradas com inemaimg (complementar)
+## Imagens geradas com ARCKHÉimg (complementar)
 
-Para deixar os cursos mais ricos, voce PODE gerar imagens incriveis com o **inemaimg** — servidor de imagem local (FastAPI) que roda na maquina, em `http://localhost:8000` (server em `~/projetos/inemaimg`).
+Para deixar os cursos mais ricos, voce PODE gerar imagens incriveis com o **ARCKHÉimg** — servidor de imagem local (FastAPI) que roda na maquina, em `http://localhost:8000` (server em `~/projetos/ARCKHÉimg`).
 
 **Quando usar:** hero/banner de landing e index de trilha, ilustracoes tematicas de modulo, thumbnails de card, fundos/texturas, imagens de apoio conceitual.
 
-**NAO substitui o SVG inline obrigatorio (erro #17).** Cada modulo de conteudo continua precisando de **≥1 diagrama SVG futurista inline** e cada index de trilha de **1 hero SVG**. As imagens do inemaimg sao um EXTRA decorativo/tematico (PNG raster), nunca o diagrama conceitual do curso.
+**NAO substitui o SVG inline obrigatorio (erro #17).** Cada modulo de conteudo continua precisando de **≥1 diagrama SVG futurista inline** e cada index de trilha de **1 hero SVG**. As imagens do ARCKHÉimg sao um EXTRA decorativo/tematico (PNG raster), nunca o diagrama conceitual do curso.
 
 ### Modelos e licenca (importante)
 
@@ -63,7 +63,7 @@ Para deixar os cursos mais ricos, voce PODE gerar imagens incriveis com o **inem
 | `ernie` | 50 | T2I puro | Aberta |
 
 - **Default = `flux2-klein`** (regra global do usuario), salvo orientacao em contrario.
-- ⚠️ **Curso comercial?** FLUX.2 (klein/dev) e **non-commercial** — para uso comercial prefira `qwen-edit-2511` ou `ernie`. Ver `~/projetos/inemaimg/MODELOS.md`.
+- ⚠️ **Curso comercial?** FLUX.2 (klein/dev) e **non-commercial** — para uso comercial prefira `qwen-edit-2511` ou `ernie`. Ver `~/projetos/ARCKHÉimg/MODELOS.md`.
 
 ### Como chamar
 
@@ -74,10 +74,10 @@ Health antes de um lote grande: `GET http://localhost:8000/health` (ve `prewarm_
 { "model": "flux2-klein", "prompt": "...", "width": 1536, "height": 1024, "steps": 4, "guidance_scale": 1.0, "seed": 12345 }
 ```
 
-**Via helper Node** (ja existe em varios projetos, ex.: `~/projetos/imkt4/pipeline/generate-image-inemaimg.js`):
+**Via helper Node** (ja existe em varios projetos, ex.: `~/projetos/imkt4/pipeline/generate-image-ARCKHÉimg.js`):
 ```bash
-node generate-image-inemaimg.js <output.png> "<prompt>" [model] [aspect_ratio]
-# ex.: node generate-image-inemaimg.js curso/trilha1/assets/hero.png "data center futurista, ciano e roxo, glow" flux2-klein 16:9
+node generate-image-ARCKHÉimg.js <output.png> "<prompt>" [model] [aspect_ratio]
+# ex.: node generate-image-ARCKHÉimg.js curso/trilha1/assets/hero.png "data center futurista, ciano e roxo, glow" flux2-klein 16:9
 ```
 
 Aspect ratios prontos (high): `1:1`=1024², `16:9`=1536×1024, `9:16`=1024×1536, `4:3`=1216×896, `3:4`=896×1216. `width`/`height` devem ser multiplos de 32.
@@ -95,8 +95,8 @@ Estes sao os erros mais frequentes. Verifique sempre antes de entregar:
 | 1 | Botoes | `justify-start` | `justify-center` |
 | 2 | Indicador de topico | Numero em circulo `<span class="w-6 h-6 rounded-full ...">1</span>` | Seta `▶` |
 | 3 | Secoes por topico | 3 secoes: "O que e / Por que aprender / Conceitos-chave" | Menos de 3 |
-| 4 | Link INEMA.CLUB | Presente em TODAS as paginas com `text-sky-400` | Ausente |
-| 4b | Link PRO | Presente ao lado do INEMA.CLUB (separado por `-`), linkando `https://inema.pro`, dourado no light (`text-amber-700`) / prateado no dark (`dark:text-slate-300`) | Ausente |
+| 4 | Link ARCKHÉ AI | Presente em TODAS as paginas com `text-sky-400` | Ausente |
+| 4b | Link PRO | Presente ao lado do ARCKHÉ AI (separado por `-`), linkando `https://ARCKHÉ.pro`, dourado no light (`text-amber-700`) / prateado no dark (`dark:text-slate-300`) | Ausente |
 | 5 | Light mode CSS | Bloco completo: base + cores acento + sem gradiente + especiais + nav | Apenas base sem cores de acento |
 | 6 | Titulo do modulo | `text-2xl font-bold` | `text-lg` |
 | 7 | Modal | Usa `<iframe src="modulo-X-X.html">` | Conteudo duplicado |
@@ -105,7 +105,7 @@ Estes sao os erros mais frequentes. Verifique sempre antes de entregar:
 | 11 | Quantidade de topicos | MINIMO 6 topicos por modulo | Menos de 6 |
 | 10 | Botao "Ver Completo" no index | CADA card de modulo no index da trilha DEVE ter `<a href="modulo-X-X.html" ...>Ver Completo</a>` | Card sem link para a pagina do modulo |
 | 12 | **Mapa da trilha no index** | OBRIGATORIA: secao com h2 `Mapa da trilha` + grid de cards-ancora (#modulo-X-Y). Cada card: header `justify-between` (X.Y esq + duracao dir) + emoji+titulo + subtitulo PUNCHY. Ver Sec. 7.4b do MASTER. | "Navegacao Rapida" (nome errado), circulo numerado extra, subtitulo descritivo, ausencia da secao |
-| 13 | **Nav completo em todas paginas** | TODAS as paginas (landing + curso/index + trilhas + modulos) tem o mesmo nav: Logo + INEMA.CLUB + PRO + 4-6 botoes de trilha + theme toggle. Trilha ativa destacada. Ver Sec. 1.6 do MASTER. | Nav simplificado tipo `← Trilha X | Curso` nas paginas internas |
+| 13 | **Nav completo em todas paginas** | TODAS as paginas (landing + curso/index + trilhas + modulos) tem o mesmo nav: Logo + ARCKHÉ AI + PRO + 4-6 botoes de trilha + theme toggle. Trilha ativa destacada. Ver Sec. 1.6 do MASTER. | Nav simplificado tipo `← Trilha X | Curso` nas paginas internas |
 | 14 | **Profundidade dos modulos** | 500-800 linhas, 6-8 secoes com VARIEDADE de componentes (≥2 grids ✓/✗, ≥1 timeline, ≥2 tip boxes, ≥1 code box quando pratico). Ver Sec. 1.8 do MASTER. | 428 linhas com template repetido 6x; mesma estrutura "O que é/Por que/Conceitos" em todas secoes |
 | 15 | **Bordas suavizadas (dark)** | CSS dark mode: `.dark .border-dark-600 { border-color: #374151 }` E `.dark .divide-dark-600 > :not([hidden]) ~ :not([hidden]) { border-color: #374151 }`. Ver Sec. 1.5 Parte 5 do MASTER. | Apenas border, esquece divide — linhas entre topicos ficam fortes |
 | 16 | **Divisor "Conteudo detalhado"** | `<h2 class="text-2xl font-bold mb-6">Conteudo detalhado</h2>` simples | 2 linhas horizontais (`flex-1 h-px`) com span no meio |
@@ -126,8 +126,8 @@ Estes sao os erros mais frequentes. Verifique sempre antes de entregar:
 
 Cores especiais:
 - **Primary (Yellow):** `#FACC15` / `text-primary` — Logo, CTAs, dicas (light mode: `#a16207`)
-- **Sky:** `text-sky-400` — Link INEMA.CLUB (light mode: `#0369a1`)
-- **PRO:** `text-amber-700 dark:text-slate-300` — Link PRO ao lado do INEMA.CLUB, linkando `https://inema.pro` (dourado no light, prateado no dark)
+- **Sky:** `text-sky-400` — Link ARCKHÉ AI (light mode: `#0369a1`)
+- **PRO:** `text-amber-700 dark:text-slate-300` — Link PRO ao lado do ARCKHÉ AI, linkando `https://ARCKHÉ.pro` (dourado no light, prateado no dark)
 - **Red:** `text-red-400` — "Nao fazer", erros, alertas
 - **Ciano (diagramas):** `#38bdf8` — cor SECUNDARIA dos SVGs futuristas (agentes, ramo paralelo, fluxo de volta). A cor PRIMARIA do diagrama e sempre a cor da trilha. Ver `references/SVG-FUTURISTA.md`.
 
@@ -145,7 +145,7 @@ Cores especiais:
     │   ├── index.html            # Index da trilha (cards de modulos)
     │   ├── modulo-1-1.html       # Modulo completo
     │   ├── modulo-1-2.html
-    │   ├── assets/img/           # Imagens geradas (inemaimg) — hero, thumbs, fundos
+    │   ├── assets/img/           # Imagens geradas (ARCKHÉimg) — hero, thumbs, fundos
     │   └── ...
     ├── trilha2/
     └── ...
@@ -160,8 +160,8 @@ Antes de entregar qualquer pagina, confirmar:
 1. Botoes a ESQUERDA (`justify-start`)
 2. Numeros em circulo (nao setas)
 3. 3 secoes por topico (O que e / Por que / Conceitos-chave)
-4. INEMA.CLUB presente (`text-sky-400`)
-4b. PRO presente ao lado do INEMA.CLUB, linkando `https://inema.pro` (dourado no light / prateado no dark)
+4. ARCKHÉ AI presente (`text-sky-400`)
+4b. PRO presente ao lado do ARCKHÉ AI, linkando `https://ARCKHÉ.pro` (dourado no light / prateado no dark)
 5. Light mode CSS completo (base + cores acento + sem gradiente + especiais + nav)
 6. Titulo do modulo com `text-2xl`
 7. Cores corretas da trilha
@@ -169,21 +169,21 @@ Antes de entregar qualquer pagina, confirmar:
 9. Botao "Ver Completo" em CADA card de modulo no index da trilha
 10. MINIMO 6 topicos por modulo — nunca menos de 6
 11. **MAPA DA TRILHA OBRIGATORIO** no index da trilha — h2 `Mapa da trilha` (NAO "Navegacao Rapida") + grid de cards. Cards com `justify-between` (X.Y esq + duracao dir), emoji no titulo, subtitulo PUNCHY. SEM circulo numerado adicional.
-12. **NAV COMPLETO** em TODAS paginas: Logo + INEMA.CLUB + PRO + 4-6 botoes de trilha + theme toggle. Nunca simplificar.
+12. **NAV COMPLETO** em TODAS paginas: Logo + ARCKHÉ AI + PRO + 4-6 botoes de trilha + theme toggle. Nunca simplificar.
 13. **PROFUNDIDADE**: 500-800 linhas por modulo com VARIEDADE de componentes — nao template repetido 6x.
 14. **BORDAS SUAVIZADAS no dark**: 2 regras CSS (`border-dark-600` E `divide-dark-600 > :not...`) ambas com `#374151`.
 15. **"Conteudo detalhado"**: h2 simples, NAO divisor ornado de 2 linhas com span.
 16. **SVG FUTURISTA**: ≥1 diagrama SVG por modulo de conteudo + 1 hero SVG no index da trilha (cor da trilha + ciano, glow, `role="img"`+`aria-label`, `w-full h-auto`, animacao sob `prefers-reduced-motion`). Ver `references/SVG-FUTURISTA.md`.
 
-## Capa oficial — SEMPRE gerar (via skill `capa-inema`)
+## Capa oficial — SEMPRE gerar (via skill `capa-ARCKHÉ`)
 
-Ao terminar de montar o curso, gere a capa 1280×720 chamando a engine da skill `capa-inema`:
+Ao terminar de montar o curso, gere a capa 1280×720 chamando a engine da skill `capa-ARCKHÉ`:
 
 ```bash
-node ~/.claude/skills/capa-inema/assets/gerar-capa.cjs --repo <pasta-do-repo> \
+node ~/.claude/skills/capa-ARCKHÉ/assets/gerar-capa.cjs --repo <pasta-do-repo> \
   --title "<título do curso>" --cat "<categoria>"
 ```
 
 - **Layout default = `split`** (texto à esquerda + imagem à direita). Se o usuário pediu **"capa fb"** (full-bleed), acrescente `--layout fb`.
-- Requer o **inemaimg** no ar (`localhost:8000`). A capa é gravada em `<repo>/capa/capa.png`.
-- Detalhes, opções e uso em lote: skill `capa-inema`.
+- Requer o **ARCKHÉimg** no ar (`localhost:8000`). A capa é gravada em `<repo>/capa/capa.png`.
+- Detalhes, opções e uso em lote: skill `capa-ARCKHÉ`.

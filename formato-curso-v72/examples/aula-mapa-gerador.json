@@ -58,7 +58,7 @@
           "icone": "fila",
           "quando": "Semana 3",
           "titulo": "Filas",
-          "sub": "inemaccbot e portão",
+          "sub": "ARCKHÉccbot e portão",
           "saida": "Tarefas rodando à noite, com portão no que importa.",
           "passo": "Requer os degraus 1 e 2. A fila no papel e a fila caseira vêm antes do bot; a noite de tarefas mostra quantas saem certas na primeira."
         },
@@ -207,22 +207,22 @@
       "links": [
         {
           "t": "Área Do chat ao agente",
-          "href": "https://eventos.inema.pro/do-chat-ao-agente/",
+          "href": "https://eventos.ARCKHÉ.pro/do-chat-ao-agente/",
           "icone": "camadas"
         },
         {
           "t": "Os 23 exercícios (guia da jornada)",
-          "href": "https://inematds.github.io/jornada-agentes/guia/",
+          "href": "https://linnoff88-dev.github.io/
           "icone": "lista"
         },
         {
           "t": "Série de vídeos com roteiros",
-          "href": "https://inematds.github.io/jornada-agentes/serie/jornada-ia/",
+          "href": "https://linnoff88-dev.github.io/
           "icone": "video"
         },
         {
-          "t": "Cursos abertos no INEMA.CLUB",
-          "href": "https://inema.club/",
+          "t": "Cursos abertos no ARCKHÉ AI",
+          "href": "https://ARCKHÉ AI/",
           "icone": "seta"
         }
       ]

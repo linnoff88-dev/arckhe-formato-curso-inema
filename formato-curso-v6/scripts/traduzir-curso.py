@@ -4,9 +4,9 @@
 Uso (depois do montar-curso.py):
   python3 traduzir-curso.py <pasta-do-curso> [en es] [--so-montar] [--modelo <id>] [--reserva-groq]
 
-Padrão INEMA trilíngue (RELATORIO-CURSOS-TRILINGUES.md): PT na raiz, <lang>/ ao lado; só TEXTO vai para a API
+Padrão ARCKHÉ trilíngue (RELATORIO-CURSOS-TRILINGUES.md): PT na raiz, <lang>/ ao lado; só TEXTO vai para a API
 (blocos com as tags inline preservadas, atributos, cartões e o bloco L do motor); CSS/JS/imagens são reaproveitados.
-Motor padrão (6.5.6): tradutor central do INEMA (`inema-traduz`, INEMA_TRADUCAO_* em ~/.config/inema/modelos.env,
+Motor padrão (6.5.6): tradutor central do ARCKHÉ (`ARCKHÉ-traduz`, ARCKHÉ_TRADUCAO_* em ~/.config/ARCKHÉ/modelos.env,
 hoje Sonnet 5.5) pela ASSINATURA — sem chave de API. `--modelo <id>` sobrescreve o modelo da variável.
 Todo GPT só pela assinatura. Reserva Groq (modelo que não é GPT, chave GROQ_API_KEY) DESLIGADA: só com `--reserva-groq`
 ou RESERVA_GROQ=1, por pedido explícito do usuário; entra só no lote em que o tradutor central falhou 3 vezes. Cache em <curso>/i18n/<lang>.json: unidade já traduzida nunca é reenviada. Unidade inválida
@@ -23,10 +23,10 @@ from bs4 import BeautifulSoup, NavigableString, Comment
 GROQ_MODELO = os.environ.get("GROQ_MODEL", "llama-3.3-70b-versatile")   # reserva (não é GPT)
 PARALELO = 4                      # lotes simultâneos no tradutor central
 try:   # modelo da variável central, só para exibir e registrar no usage.jsonl
-    MODELO_VAR = subprocess.run([os.path.expanduser("~/projetos/wifi/scripts/inema-traduz"), "--mostrar"], capture_output=True,
-                                text=True, timeout=10).stdout.split("\t")[1] or "INEMA_TRADUCAO_MODELO"
+    MODELO_VAR = subprocess.run([os.path.expanduser("~/projetos/wifi/scripts/ARCKHÉ-traduz"), "--mostrar"], capture_output=True,
+                                text=True, timeout=10).stdout.split("\t")[1] or "ARCKHÉ_TRADUCAO_MODELO"
 except (OSError, IndexError, subprocess.TimeoutExpired):
-    MODELO_VAR = os.environ.get("INEMA_TRADUCAO_MODELO", "claude-sonnet-5-5")
+    MODELO_VAR = os.environ.get("ARCKHÉ_TRADUCAO_MODELO", "claude-sonnet-5-5")
 URL = "https://api.groq.com/openai/v1/chat/completions"   # só a reserva Groq
 NOMES = {"en": "English (United States)", "es": "Spanish (Latin America)"}
 ROTULO = {"pt": "Português", "en": "English", "es": "Español"}
@@ -57,7 +57,7 @@ HARD RULES
   translate only the human text. Keep HTML entities like &lt; &gt; &amp; as entities.
 - Keep leading/trailing spaces and line breaks exactly. Keep placeholders like {{n}} untouched.
 - Text between &lt; and &gt; is a fill-in hint for the student: translate the words inside, keep the &lt; &gt;.
-- Brand/product names stay: INEMA.CLUB, INEMA.PRO, PRO, OSWork, ChatGPT, Word, Google Drive.
+- Brand/product names stay: ARCKHÉ AI, ARCKHÉ.PRO, PRO, OSWork, ChatGPT, Word, Google Drive.
 - Audience: adult beginners (30+) who never programmed, reading on a phone. Plain, warm, adult, direct language; short sentences;
   address the reader as "you" ({tu}). No hype, never infantilize.
 - Do not introduce platform jargon: terminal, install, script, server, repository, commit, branch, Git, JSON, pipeline,
@@ -76,14 +76,14 @@ def chave():
                 if m: return m.group(1).strip().strip("'\"")
     sys.exit("GROQ_API_KEY não encontrada nos dois .env conhecidos (pedida a reserva Groq).")
 
-_TRADUTOR = os.path.expanduser("~/projetos/wifi/scripts/inema-traduz")
+_TRADUTOR = os.path.expanduser("~/projetos/wifi/scripts/ARCKHÉ-traduz")
 
 def chamar_tradutor(pedido, modelo=None, timeout=900):
-    """Tradução pelo tradutor central do INEMA (INEMA_TRADUCAO_* em ~/.config/inema/modelos.env). Assinatura, nunca API."""
+    """Tradução pelo tradutor central do ARCKHÉ (ARCKHÉ_TRADUCAO_* em ~/.config/ARCKHÉ/modelos.env). Assinatura, nunca API."""
     if os.path.exists(_TRADUTOR):
         cmd = [_TRADUTOR] + (["--modelo", modelo] if modelo else [])
     else:  # fora da máquina do Nei: Claude Code da assinatura com o modelo da variável (padrão Sonnet 5.5)
-        cmd = ["claude", "-p", "--model", modelo or os.environ.get("INEMA_TRADUCAO_MODELO", "claude-sonnet-5-5"),
+        cmd = ["claude", "-p", "--model", modelo or os.environ.get("ARCKHÉ_TRADUCAO_MODELO", "claude-sonnet-5-5"),
                "--output-format", "text", "--tools", ""]
     env = {k: v for k, v in os.environ.items() if k not in ("ANTHROPIC_API_KEY", "OPENAI_API_KEY", "CLAUDECODE")}
     with tempfile.TemporaryDirectory() as d:

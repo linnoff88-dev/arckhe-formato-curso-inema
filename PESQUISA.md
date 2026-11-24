@@ -1,11 +1,11 @@
-# Pesquisa — Formato de curso INEMA v2 ("aprendizado agradável")
+# Pesquisa — Formato de curso ARCKHÉ v2 ("aprendizado agradável")
 
 - **Data:** 2026-06-14
 - **Fase:** F1 (benchmark/pesquisa) → síntese
 - **Escopo do alvo:** página HTML **self-contained**, sem build, sem backend — Tailwind via CDN, JS inline, estado em `localStorage` (ver `PLANO-FORMATO-CURSO-V2.md` §6, `BASELINE.md`).
 - **Ângulos sintetizados:** (1) docs/textbooks interativos, (2) leitura/tipografia, (3) tracking de progresso, (4) notas/highlight, (5) acessibilidade, (6) visual & temas.
 
-> **Como ler este relatório.** Cada achado traz: a recomendação, a evidência (e o que foi **descartado** por ser marketing/folclore), e a aplicabilidade concreta num HTML self-contained. Onde o achado colide com a realidade da baseline INEMA (Tailwind via CDN, utilitários `dark:`, paleta fixa), o conflito está marcado como **CAVEAT INEMA**. A seção final prioriza por **alto valor / baixo custo**.
+> **Como ler este relatório.** Cada achado traz: a recomendação, a evidência (e o que foi **descartado** por ser marketing/folclore), e a aplicabilidade concreta num HTML self-contained. Onde o achado colide com a realidade da baseline ARCKHÉ (Tailwind via CDN, utilitários `dark:`, paleta fixa), o conflito está marcado como **CAVEAT ARCKHÉ**. A seção final prioriza por **alto valor / baixo custo**.
 
 ---
 
@@ -72,7 +72,7 @@ Fontes: <https://www.theodinproject.com/>; <https://www.freecodecamp.org/> + lit
 
 ### B10. Voz quente, levemente lúdica, com encorajamento genuíno
 Whimsy de bom gosto (Comeau) e microcopy empático (Duolingo) ajudam experiência/persistência — heurística de UX sólida, ligação direta com retenção é mais fraca que os princípios cognitivos.
-**Aplicação:** intros, labels de botão e feedback numa voz amigável consistente. Celebrar conclusão, normalizar o esforço ("isso pega todo mundo"), rotular CTAs pelo benefício ("Ver mexer") não pela mecânica ("Enviar"). Whimsy contido: micro-animação CSS de sucesso, toast de parabéns. **Caveat INEMA:** a marca é sóbria e anti-manipulação — manter contido. **Confiança: média.**
+**Aplicação:** intros, labels de botão e feedback numa voz amigável consistente. Celebrar conclusão, normalizar o esforço ("isso pega todo mundo"), rotular CTAs pelo benefício ("Ver mexer") não pela mecânica ("Enviar"). Whimsy contido: micro-animação CSS de sucesso, toast de parabéns. **Caveat ARCKHÉ:** a marca é sóbria e anti-manipulação — manter contido. **Confiança: média.**
 
 ### B11. Reduzir fricção até o primeiro resultado + divulgação progressiva
 Progressive disclosure (NN/g) e "early win / fast time-to-first-result" reduzem abandono.
@@ -88,7 +88,7 @@ Fontes: <https://www.nngroup.com/articles/progress-indicators/>; web.dev; Odin. 
 
 ## C. Leitura e tipografia
 
-> **Princípio-mestre (C-final):** centralizar TODOS os parâmetros de leitura (medida, tamanho, entrelinha, espaçamento, fonte, cores de tema) em **CSS variables** aplicadas por **um único wrapper de conteúdo**, trocáveis por classe/atributo no `<html>`, persistidas em `localStorage` sob `inema.prefs`. Esse é o ponto único de afinação do curso inteiro e o lar natural dos controles de aparência do plano (§3, §4). (Butterick "Typography in ten minutes"; CSS custom properties / MDN.) **Confiança: alta.**
+> **Princípio-mestre (C-final):** centralizar TODOS os parâmetros de leitura (medida, tamanho, entrelinha, espaçamento, fonte, cores de tema) em **CSS variables** aplicadas por **um único wrapper de conteúdo**, trocáveis por classe/atributo no `<html>`, persistidas em `localStorage` sob `ARCKHÉ.prefs`. Esse é o ponto único de afinação do curso inteiro e o lar natural dos controles de aparência do plano (§3, §4). (Butterick "Typography in ten minutes"; CSS custom properties / MDN.) **Confiança: alta.**
 
 ### C1. Medida (comprimento de linha): ~45–90 caracteres, alvo ~66ch
 Butterick recomenda 45–90 caracteres; Bringhurst ~45–75ch com 66ch confortável; WCAG 1.4.8 (AAA) limita a 80 (40 para CJK).
@@ -107,12 +107,12 @@ Fontes: <https://practicaltypography.com/line-spacing.html>; WCAG 1.4.8 e 1.4.12
 
 ### C4. Ritmo vertical: espaço de parágrafo > espaço de linha
 WCAG 1.4.8 (AAA): espaço de parágrafo ≥ 1.5× o de linha; whitespace ao redor de títulos/seções é o principal motor de hierarquia e chunking.
-**Aplicação:** escala de espaçamento atada à entrelinha: `--space-para:1.5em; --space-section:3rem`. Títulos com **mais margem em cima** que embaixo (grudam no texto que segue). **Caveat INEMA:** o plugin `prose` oficial do Tailwind exige build — **não usar** no setup CDN; replicar o espaçamento à mão (`space-y-6` no artigo, `mt-12/mt-16` em headings de seção).
+**Aplicação:** escala de espaçamento atada à entrelinha: `--space-para:1.5em; --space-section:3rem`. Títulos com **mais margem em cima** que embaixo (grudam no texto que segue). **Caveat ARCKHÉ:** o plugin `prose` oficial do Tailwind exige build — **não usar** no setup CDN; replicar o espaçamento à mão (`space-y-6` no artigo, `mt-12/mt-16` em headings de seção).
 Fonte: WCAG 1.4.8 + guias de hierarquia (NN/g e similares). **Confiança: alta.**
 
 ### C5. Hierarquia por escala modular pequena e consistente
 Hierarquia por tamanho + peso + espaçamento + cor; limitar a ~2–3 níveis visíveis de heading no corpo. Material Design comunica hierarquia por diferenças de peso/tamanho/tracking/caixa.
-**Aplicação:** definir a escala uma vez em variáveis e reusar em todas as páginas. Diferenciar níveis por **tamanho E peso/cor**, não só tamanho. Tracking só em eyebrow/kicker em caixa-alta. **Caveat INEMA:** a baseline já tem escala fixa em utilitários Tailwind (hero `text-4xl/5xl` → seção `text-2xl` → card `text-xl` → corpo `text-base`); **alinhar os nomes de variável à escala existente**, não criar uma concorrente.
+**Aplicação:** definir a escala uma vez em variáveis e reusar em todas as páginas. Diferenciar níveis por **tamanho E peso/cor**, não só tamanho. Tracking só em eyebrow/kicker em caixa-alta. **Caveat ARCKHÉ:** a baseline já tem escala fixa em utilitários Tailwind (hero `text-4xl/5xl` → seção `text-2xl` → card `text-xl` → corpo `text-base`); **alinhar os nomes de variável à escala existente**, não criar uma concorrente.
 Fontes: <https://m2.material.io/design/typography/the-type-system.html>; <https://m3.material.io/styles/typography/type-scale-tokens>. **Confiança: alta.**
 
 ### C6. Contraste de texto: AA 4.5:1 (3:1 grande); mirar AAA 7:1 p/ leitura sustentada
@@ -122,7 +122,7 @@ Fontes: <https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html>; 1.4
 
 ### C7. Dark mode: nada de `#000`+`#fff` puros
 Cinza muito escuro (não preto puro) com off-white. Evitar contraste máximo é prática consolidada (NN/g). O mecanismo "halação" é folclore — a recomendação fica de pé como boa prática.
-**Aplicação:** `--bg:#121212` (ou o dark-900 `#111827` da baseline), `--surface:#1f2937`, `--text:#e6e6e6`, `--text-muted:#a8a8b3`. A baseline **já** usa near-black, então isto confirma a prática INEMA + vira regra para temas novos. Implementar todos os temas com os **mesmos nomes de variável** e trocar via classe/`data-theme` no `<html>`, persistindo em `localStorage`.
+**Aplicação:** `--bg:#121212` (ou o dark-900 `#111827` da baseline), `--surface:#1f2937`, `--text:#e6e6e6`, `--text-muted:#a8a8b3`. A baseline **já** usa near-black, então isto confirma a prática ARCKHÉ + vira regra para temas novos. Implementar todos os temas com os **mesmos nomes de variável** e trocar via classe/`data-theme` no `<html>`, persistindo em `localStorage`.
 Fonte: <https://www.nngroup.com/articles/dark-mode-users-issues/>. **Confiança: média.**
 
 ### C8. Sans-serif legível; "modo dislexia" é opção, não default
@@ -141,7 +141,7 @@ Fontes: WCAG 1.4.8, 1.4.12, 1.4.4, 1.4.10. **Confiança: alta.**
 
 ### D1. Progresso em 3 granularidades; persistir só booleans, DERIVAR percentuais
 **O padrão mais importante deste ângulo.** Mostrar tópico/módulo/curso com medidor de %; persistir apenas os booleans de conclusão e derivar as % no render, para os totais se autocorrigirem se o conteúdo mudar.
-**Aplicação:** `inema.<courseId>.read = {"modulo-1-1#topico-3": true, …}`. No render: `módulo% = concluídosNoMódulo/totalNoMódulo`, `curso% = concluídosTotal/totalTotal`. **Nunca persistir a % derivada, só o conjunto de booleans.** Casa com o modelo do `PLANO-FORMATO-CURSO-V2.md` (§6).
+**Aplicação:** `ARCKHÉ.<courseId>.read = {"modulo-1-1#topico-3": true, …}`. No render: `módulo% = concluídosNoMódulo/totalNoMódulo`, `curso% = concluídosTotal/totalTotal`. **Nunca persistir a % derivada, só o conjunto de booleans.** Casa com o modelo do `PLANO-FORMATO-CURSO-V2.md` (§6).
 Fonte: <https://ui-patterns.com/patterns/CompletenessMeter>. **Confiança: alta.**
 
 ### D2. "Marcar como lido" explícito é o caminho confiável
@@ -155,7 +155,7 @@ Fonte: <https://medium.com/amsterdam-standard/ux-design-for-e-learning-f70ea302e
 Fonte: <https://css-tricks.com/memorize-scroll-position-across-page-loads/>. **Confiança: alta.**
 
 ### D4. Endowed Progress (opcional, só honesto)
-Semear o medidor com um primeiro passo **real** (Nunes & Dreze 2006) — ex.: contar "abriu o módulo / leu a introdução" como 1/N em vez de 0/N. **Caveat INEMA:** marca sóbria, anti-manipulação — aplicar levemente, **nunca inflar a barra**. "Nice to have".
+Semear o medidor com um primeiro passo **real** (Nunes & Dreze 2006) — ex.: contar "abriu o módulo / leu a introdução" como 1/N em vez de 0/N. **Caveat ARCKHÉ:** marca sóbria, anti-manipulação — aplicar levemente, **nunca inflar a barra**. "Nice to have".
 Fonte: <https://learningloop.io/plays/psychology/endowed-progress-effect>. **Confiança: média.**
 
 ### D5. Goal-Gradient como lógica de render
@@ -163,7 +163,7 @@ Quando faltam poucos itens, enfatizar o quanto resta ("Falta 1 tópico para conc
 Fonte: <https://learningloop.io/plays/psychology/goal-gradient-effect>. **Confiança: alta.**
 
 ### D6. Gamificação leve, adulta e intrínseca (se houver)
-Progresso/conclusão + marcador discreto de marco (anel de conclusão estilo LinkedIn, badge sutil ao concluir trilha/curso) em vez de pontos/confete. Cada marco **derivado de uma conclusão real** no mapa `read` (resetar progresso recalcula/limpa). **Caveat INEMA:** o design system **proíbe animação exuberante e neon** — celebração = check/banner sutil, não confete. "Considerar", não requisito.
+Progresso/conclusão + marcador discreto de marco (anel de conclusão estilo LinkedIn, badge sutil ao concluir trilha/curso) em vez de pontos/confete. Cada marco **derivado de uma conclusão real** no mapa `read` (resetar progresso recalcula/limpa). **Caveat ARCKHÉ:** o design system **proíbe animação exuberante e neon** — celebração = check/banner sutil, não confete. "Considerar", não requisito.
 Fonte: <https://medium.com/design-bootcamp/the-zeigarnik-effect-in-ux-why-unfinished-tasks-keep-users-hooked-3330b398321b>. **Confiança: média.**
 
 ### D7. Streaks diários: provavelmente NÃO encaixam — preferir marcos cumulativos
@@ -179,7 +179,7 @@ Re-renderizar no mesmo tick (síncrono = real-time de graça). Liberar o banner/
 Fonte: <https://ui-patterns.com/patterns/CompletenessMeter>. **Confiança: alta.**
 
 ### D10. NÃO travar a espinha sequencial por conclusão
-Usar stepper/"continuar" para o próximo da fila, mas manter o **completeness meter informativo, não como portão**. A própria `ui-patterns` desaconselha o padrão para fluxos estritamente sequenciais/críticos. A estrutura INEMA permite abrir qualquer coisa — gatear quebraria isso e o princípio "abre e lê offline". Modelar tanto o próximo (lista ordenada de módulos + mapa `read`) quanto o medidor livre da trilha/curso.
+Usar stepper/"continuar" para o próximo da fila, mas manter o **completeness meter informativo, não como portão**. A própria `ui-patterns` desaconselha o padrão para fluxos estritamente sequenciais/críticos. A estrutura ARCKHÉ permite abrir qualquer coisa — gatear quebraria isso e o princípio "abre e lê offline". Modelar tanto o próximo (lista ordenada de módulos + mapa `read`) quanto o medidor livre da trilha/curso.
 Fonte: <https://ui-patterns.com/patterns/CompletenessMeter>. **Confiança: média.**
 
 ---
@@ -289,13 +289,13 @@ A baseline **repete o nav completo em todas as páginas** (regra crítica #13) �
 
 ### G1. Arquitetura de tokens em 3 níveis
 (1) **PRIMITIVOS** = canais HSL crus em vars separadas; (2) tokens de **TEMA/semânticos** construídos dos canais; (3) **SEMÂNTICOS GENÉRICOS** que a página consome (`--bg`, `--surface`, `--text`, `--accent`). A página referencia **só** o nível genérico e não sabe qual tema está ativo. (web.dev "Building a color scheme".)
-**CAVEAT INEMA (crítico):** o INEMA renderiza via **Tailwind Play CDN** e o markup está saturado de classes `dark:` e utilitários literais (`dark:bg-dark-800`, `text-amber-400`). Um nível de CSS variable **não alcança** esses utilitários — "refatorar tudo para consumir só genéricos" seria reescrever quase todas as classes para arbitrary-values (`bg-[var(--surface)]`), **um refactor grande, não um swap de token**. **Caminho realista:** definir primitivos + genéricos e aplicá-los ao bloco `<style>` de light-mode escrito à mão e a componentes novos, mantendo os utilitários `dark:` funcionando pela classe `.dark`. "Tema novo = ~10 linhas" só vale para as partes já dirigidas por CSS vars.
+**CAVEAT ARCKHÉ (crítico):** o ARCKHÉ renderiza via **Tailwind Play CDN** e o markup está saturado de classes `dark:` e utilitários literais (`dark:bg-dark-800`, `text-amber-400`). Um nível de CSS variable **não alcança** esses utilitários — "refatorar tudo para consumir só genéricos" seria reescrever quase todas as classes para arbitrary-values (`bg-[var(--surface)]`), **um refactor grande, não um swap de token**. **Caminho realista:** definir primitivos + genéricos e aplicá-los ao bloco `<style>` de light-mode escrito à mão e a componentes novos, mantendo os utilitários `dark:` funcionando pela classe `.dark`. "Tema novo = ~10 linhas" só vale para as partes já dirigidas por CSS vars.
 HSL verificado localmente: `#FACC15 = hsl(48 96% 53%)`, `#38bdf8 = hsl(198 93% 60%)`; dark-900..600 mapeiam num único hue ~215–221.
 Fonte: <https://web.dev/articles/building/a-color-scheme>. **Confiança: média.**
 
 ### G2. `color-scheme` por tema + (com cuidado) `[data-theme]`
 `color-scheme: dark|light` faz a UI nativa (scrollbars, form controls, seleção) seguir o tema. **Win barato e de alto valor** (conserta scrollbars/inputs claros no curso dark), 100% sem framework.
-**AVISO sobre migração para `[data-theme]`:** **não é drop-in** no INEMA. A variante `dark:` do Tailwind chaveia pela classe `.dark`; mover o root para `data-theme` sem reconfigurar `darkMode` quebraria **todo** `dark:` do markup. **Mais seguro:** **manter o toggle de `.dark`** para o Tailwind, e **adicionar** um `data-theme`/`data-variant` ortogonal só para os temas extras (sépia/foco/alto-contraste) tratados por CSS vars à mão, com `color-scheme` em cada. Tratar "N temas só por atributo" como aspiracional. (`:has()` no-JS é real mas desnecessário aqui.)
+**AVISO sobre migração para `[data-theme]`:** **não é drop-in** no ARCKHÉ. A variante `dark:` do Tailwind chaveia pela classe `.dark`; mover o root para `data-theme` sem reconfigurar `darkMode` quebraria **todo** `dark:` do markup. **Mais seguro:** **manter o toggle de `.dark`** para o Tailwind, e **adicionar** um `data-theme`/`data-variant` ortogonal só para os temas extras (sépia/foco/alto-contraste) tratados por CSS vars à mão, com `color-scheme` em cada. Tratar "N temas só por atributo" como aspiracional. (`:has()` no-JS é real mas desnecessário aqui.)
 Fontes: <https://developer.mozilla.org/en-US/docs/Web/CSS/color-scheme>; web.dev; <https://squidfunk.github.io/mkdocs-material/setup/changing-the-colors/>. **Confiança: média.**
 
 ### G3. Script bloqueante no `<head>` contra FOUC de tema (o item mais seguro)
@@ -304,7 +304,7 @@ Inline um script minúsculo, **acima do stylesheet**, que lê `localStorage` e s
 Fontes: <https://cybercafe.dev/prevent-flash-of-default-style/>; <https://github.com/picocss/examples/issues/18>. **Confiança: alta.**
 
 ### G4. Acento como token swappable, ortogonal ao tema de superfície
-Acento (cor por trilha) e tema claro/escuro são dois eixos independentes (MkDocs Material). O INEMA já tem acento por trilha (T1 emerald … T6 rose) + âmbar/ciano. Modelar `--accent-h/-s/-l` + `--accent` genérico é limpo **para CSS à mão**. **Mesmo caveat de G1:** as cores por trilha hoje são utilitários (`text-emerald-400`), então acento "de verdade" swappable por uma variável exige migrar essas para estilos baseados em var. Manter âmbar como `--primary` default (logo/CTA/dica) e ciano como `--accent-2` fixo (diagramas), conforme papéis reservados na baseline.
+Acento (cor por trilha) e tema claro/escuro são dois eixos independentes (MkDocs Material). O ARCKHÉ já tem acento por trilha (T1 emerald … T6 rose) + âmbar/ciano. Modelar `--accent-h/-s/-l` + `--accent` genérico é limpo **para CSS à mão**. **Mesmo caveat de G1:** as cores por trilha hoje são utilitários (`text-emerald-400`), então acento "de verdade" swappable por uma variável exige migrar essas para estilos baseados em var. Manter âmbar como `--primary` default (logo/CTA/dica) e ciano como `--accent-2` fixo (diagramas), conforme papéis reservados na baseline.
 Fonte: <https://squidfunk.github.io/mkdocs-material/setup/changing-the-colors/>. **Confiança: média.**
 
 ### G5. Modo sépia/leitura: creme quente + marrom escuro (não preto puro)
@@ -318,7 +318,7 @@ Fonte: <https://medium.com/greatnote/kindle-sepia-color-code-1fed14b1a5ef> + ver
 Fontes: <https://www.uxpin.com/studio/blog/optimal-line-length-for-readability/>; <https://pimpmytype.com/line-length-line-height/>. **Confiança: alta.**
 
 ### G7. Densidade (confortável vs compacto) — DROPAR por ora
-Conceito real (Fluent), mas **impraticável no INEMA como está:** o espaçamento na baseline é utilitário Tailwind fixo (`mb-16`, `p-8`, `gap-6`), **não** CSS variable — um `[data-density]` não tem o que multiplicar. Tornar densidade um toggle real exigiria migrar a maioria dos utilitários de espaçamento (refactor pesado, feature de baixa prioridade num curso de leitura). **Recomendação: dropar agora**, ou escopar só a font-size (bem mais barato e ajuda mais a11y).
+Conceito real (Fluent), mas **impraticável no ARCKHÉ como está:** o espaçamento na baseline é utilitário Tailwind fixo (`mb-16`, `p-8`, `gap-6`), **não** CSS variable — um `[data-density]` não tem o que multiplicar. Tornar densidade um toggle real exigiria migrar a maioria dos utilitários de espaçamento (refactor pesado, feature de baixa prioridade num curso de leitura). **Recomendação: dropar agora**, ou escopar só a font-size (bem mais barato e ajuda mais a11y).
 Fonte: <https://learn.microsoft.com/en-us/windows/apps/design/style/spacing>. **Confiança: baixa.**
 
 ### G8. Tema "alto-contraste" baseado em escuro (verificado)
@@ -327,7 +327,7 @@ WCAG AA (4.5/3:1), idealmente AAA (7:1), com near-black/near-white (não `#000`/
 Fonte: <https://webaim.org/articles/contrast/> + verificações locais. **Confiança: alta.**
 
 ### G9. Variar paleta por HSL (L/S do mesmo hue) + escada de 4 superfícies
-Derivar dark/dim/sépia mexendo principalmente em lightness/saturation de um hue compartilhado; escada de 4 superfícies para profundidade; opcionalmente tingir sombras com o hue da marca. Verificado: dark-900..600 do INEMA já formam uma escada quase mono-hue (~215–221), mapeando direto. Um tema "dim" é um extra quase de graça.
+Derivar dark/dim/sépia mexendo principalmente em lightness/saturation de um hue compartilhado; escada de 4 superfícies para profundidade; opcionalmente tingir sombras com o hue da marca. Verificado: dark-900..600 do ARCKHÉ já formam uma escada quase mono-hue (~215–221), mapeando direto. Um tema "dim" é um extra quase de graça.
 **Caveats:** (1) as fórmulas do web.dev (`hsl(hue, sat/2, lightness/1.5)`) são ilustrativas — **conferir e checar contraste de cada resultado, não publicar a saída cega**. (2) Sombras tingidas pelo hue são quase imperceptíveis sobre near-black — reservar sombra tingida para light/sépia; no dark, preferir borda sutil ou superfície mais clara (elevação). Mesmo caveat Tailwind: as superfícies mapeiam para o layer CSS à mão; os `dark:bg-dark-*` precisariam apontar para as vars para se beneficiar.
 Fonte: <https://web.dev/articles/building/a-color-scheme>. **Confiança: média.**
 
@@ -337,7 +337,7 @@ Fonte: <https://web.dev/articles/building/a-color-scheme>. **Confiança: média.
 
 Três tensões recorrentes que a skill nova precisa resolver de propósito:
 
-1. **Tailwind CDN vs tokens CSS.** Boa parte das cores/espaçamentos vive em utilitários (`dark:bg-dark-800`, `text-amber-400`, `mb-16`), que CSS variables **não alcançam**. Decisão recomendada: **dois layers convivem** — Tailwind/`.dark` segue dirigindo o que já está em utilitário; CSS variables (`inema.prefs`) governam os **parâmetros de leitura** (medida, fonte, tamanho, entrelinha) e os **temas extras** (sépia/foco/alto-contraste) no `<style>` à mão e em componentes novos. Não prometer "tema novo em 10 linhas" para as partes Tailwind.
+1. **Tailwind CDN vs tokens CSS.** Boa parte das cores/espaçamentos vive em utilitários (`dark:bg-dark-800`, `text-amber-400`, `mb-16`), que CSS variables **não alcançam**. Decisão recomendada: **dois layers convivem** — Tailwind/`.dark` segue dirigindo o que já está em utilitário; CSS variables (`ARCKHÉ.prefs`) governam os **parâmetros de leitura** (medida, fonte, tamanho, entrelinha) e os **temas extras** (sépia/foco/alto-contraste) no `<style>` à mão e em componentes novos. Não prometer "tema novo em 10 linhas" para as partes Tailwind.
 2. **Estático congelado = anchoring fácil.** O DOM não muda entre sessões, então highlight por offset + quote é tratável (E7/E8) e SRS de verdade é impossível (B8). Calibrar ambos.
 3. **Tom sóbrio anti-manipulação.** Endowed progress, goal-gradient, badges e celebração entram **leves e honestos** (derivados de conclusão real), sem confete/neon/streak (design system + marca).
 
@@ -398,4 +398,4 @@ Ordenado por **alto valor / baixo custo primeiro**. "Custo" considera a realidad
 - Troca de tema **aplica e persiste** entre páginas e reloads; **sem FOUC** (script bloqueante).
 - Progresso **agrega corretamente** (tópico→módulo→trilha→curso); celebração só em 100% real.
 - **Self-contained**: nenhuma dependência externa além do CDN permitido; abre via `file://` (clipboard com fallback).
-- Regras Críticas #1–#17 e link **INEMA.CLUB** intactos; `formato-curso` original **byte-a-byte intacta**.
+- Regras Críticas #1–#17 e link **ARCKHÉ AI** intactos; `formato-curso` original **byte-a-byte intacta**.

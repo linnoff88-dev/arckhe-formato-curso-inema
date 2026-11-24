@@ -61,8 +61,8 @@
 - [ ] **Botoes a ESQUERDA** - Verificar `justify-start` (NAO center)
 - [ ] **Numeros em circulo** - NAO esta usando setas nos topicos
 - [ ] **3 secoes por topico** - Cada topico tem: O que e / Por que aprender / Conceitos-chave
-- [ ] **INEMA.CLUB presente** - Link com `text-sky-400` ao lado do logo
-- [ ] **PRO presente** - Link ao lado do INEMA.CLUB (separado por `-`), linkando `https://inema.pro`, dourado no light (`text-amber-700`) / prateado no dark (`dark:text-slate-300`)
+- [ ] **ARCKHÉ AI presente** - Link com `text-sky-400` ao lado do logo
+- [ ] **PRO presente** - Link ao lado do ARCKHÉ AI (separado por `-`), linkando `https://ARCKHÉ.pro`, dourado no light (`text-amber-700`) / prateado no dark (`dark:text-slate-300`)
 - [ ] **Light mode CSS** - Bloco completo: base + cores acento da trilha + sem gradiente + especiais + nav (ver Sec. 1.5)
 - [ ] **Titulo modulo** - Usando `text-2xl font-bold`
 - [ ] **TODOS modulos completos** - TODOS os modulos (1.1 a 1.8) devem ter topicos expandiveis, NAO apenas header+botao
@@ -75,7 +75,7 @@
 - [ ] **Cards do Mapa com EMOJI no titulo + subtitulo PUNCHY** - "🎯 Titulo" + frase-marca de 3-5 palavras, nao descritivo
 - [ ] **IDs nos cards de modulo** - Cada card grande tem `id="modulo-X-Y"` para a navegacao por ancora funcionar
 - [ ] **Divisor "Conteudo detalhado" simples** - `<h2 class="text-2xl font-bold mb-6">Conteudo detalhado</h2>`. NAO usar 2 linhas horizontais (`flex-1 h-px`) com span no meio
-- [ ] **Nav completo em TODAS paginas** - Logo + INEMA.CLUB + PRO + 4-6 botoes de trilha + theme toggle em landing, curso/index, trilhas e modulos. NUNCA simplificar para `← Trilha X | Curso`
+- [ ] **Nav completo em TODAS paginas** - Logo + ARCKHÉ AI + PRO + 4-6 botoes de trilha + theme toggle em landing, curso/index, trilhas e modulos. NUNCA simplificar para `← Trilha X | Curso`
 - [ ] **Bordas suavizadas (dark)** - duas regras CSS: `.dark .border-dark-600 { border-color: #374151 }` + `.dark .divide-dark-600 > :not([hidden]) ~ :not([hidden]) { border-color: #374151 }`
 - [ ] **Profundidade dos modulos** - 500-800 linhas, 6-8 secoes com VARIEDADE de componentes (≥2 ✓/✗ grids, ≥1 timeline, ≥2 tip boxes). NUNCA template uniforme repetido 6x
 
@@ -83,10 +83,10 @@
 
 - [ ] Logo com emoji correto do projeto
 - [ ] Nome do curso visivel (hidden sm:inline em mobile)
-- [ ] Separador `|` entre logo e INEMA.CLUB
-- [ ] Link INEMA.CLUB com `text-sky-400 hover:text-sky-300`
-- [ ] Separador `-` entre INEMA.CLUB e PRO
-- [ ] Link PRO com `text-amber-700 hover:text-amber-600 dark:text-slate-300 dark:hover:text-slate-200`, linkando `https://inema.pro`
+- [ ] Separador `|` entre logo e ARCKHÉ AI
+- [ ] Link ARCKHÉ AI com `text-sky-400 hover:text-sky-300`
+- [ ] Separador `-` entre ARCKHÉ AI e PRO
+- [ ] Link PRO com `text-amber-700 hover:text-amber-600 dark:text-slate-300 dark:hover:text-slate-200`, linkando `https://ARCKHÉ.pro`
 - [ ] Todas as trilhas listadas com nomes completos
 - [ ] Trilha atual com cor ativa (`text-[cor]-400 bg-[cor]-500/10`)
 - [ ] Outras trilhas com hover correto
@@ -144,8 +144,8 @@ Para cada modulo verificar:
 
 - [ ] **Botoes navegacao** - Verificar alinhamento
 - [ ] **Numeros em circulo GRANDE** - `w-12 h-12` nas secoes
-- [ ] **INEMA.CLUB presente** - Link com `text-sky-400`
-- [ ] **PRO presente** - Link ao lado do INEMA.CLUB, linkando `https://inema.pro`, dourado no light / prateado no dark
+- [ ] **ARCKHÉ AI presente** - Link com `text-sky-400`
+- [ ] **PRO presente** - Link ao lado do ARCKHÉ AI, linkando `https://ARCKHÉ.pro`, dourado no light / prateado no dark
 - [ ] **Light mode CSS** - Bloco completo: base + cores acento da trilha + sem gradiente + especiais + nav (ver Sec. 1.5)
 
 ## 2. NAVIGATION
@@ -342,8 +342,8 @@ Data: ____/____/____
 - [ ] Botoes ESQUERDA
 - [ ] Numeros em circulo
 - [ ] 3 secoes por topico
-- [ ] INEMA.CLUB
-- [ ] PRO (ao lado do INEMA.CLUB, linkando `https://inema.pro`)
+- [ ] ARCKHÉ AI
+- [ ] PRO (ao lado do ARCKHÉ AI, linkando `https://ARCKHÉ.pro`)
 - [ ] Light mode CSS completo (4 partes)
 - [ ] Titulo text-2xl
 - [ ] Modulos completos (index)
@@ -373,8 +373,8 @@ Data: ____/____/____
 |------|-----------------|
 | Botoes centralizados | Procurar por `justify-center` nos botoes de modulo |
 | Setas em vez de numeros | Procurar por `▶` ou `→` nos topicos |
-| Faltando INEMA.CLUB | Verificar navigation |
-| Faltando PRO | Verificar se o link `https://inema.pro` esta ao lado do INEMA.CLUB no nav |
+| Faltando ARCKHÉ AI | Verificar navigation |
+| Faltando PRO | Verificar se o link `https://ARCKHÉ.pro` esta ao lado do ARCKHÉ AI no nav |
 | Light mode quebrado | Testar alternando o tema |
 | Titulo pequeno | Verificar se h3 do modulo tem `text-2xl` |
 | Cor errada | Comparar com tabela de cores da trilha |
@@ -391,7 +391,7 @@ Data: ____/____/____
 
 > **Escopo:** itens NOVOS da v2 (camada de aprendizagem + temas + a11y). NAO substituem
 > os Erros Criticos #1-#17 acima — apenas se SOMAM. Recursos novos so podem ADICIONAR;
-> se algum quebrar #1-#17 (botao `justify-center`, seta perto de topico, nav/INEMA.CLUB/
+> se algum quebrar #1-#17 (botao `justify-center`, seta perto de topico, nav/ARCKHÉ AI/
 > mapa-da-trilha/SVG/profundidade), reprovar. Espelhado na skill irma `revisar-curso`.
 >
 > Cada item abaixo e TESTAVEL: descreve a verificacao manual (DevTools / teclado / reload)
@@ -401,20 +401,20 @@ Data: ____/____/____
 
 ## ERRO #18 — Anti-FOUC (sem flash de tema entre paginas)
 
-- [ ] **Script bloqueante SEPARADO no topo do `<head>`** - existe um `<script>` curto com try/catch ACIMA do Tailwind/CDN, distinto do bloco grande `window.INEMA`
+- [ ] **Script bloqueante SEPARADO no topo do `<head>`** - existe um `<script>` curto com try/catch ACIMA do Tailwind/CDN, distinto do bloco grande `window.ARCKHÉ`
 - [ ] **Aplica antes do primeiro paint** - o script seta `.dark` no `<html>` E o atributo `data-theme` E as classes de leitura ANTES de qualquer `<link>`/`<style>` pesado
 - [ ] **TESTE sem flash** - navegando de uma pagina (ex.: index da trilha) para outra (modulo) em tema claro/sepia/foco/contraste, NAO ha flash escuro/branco no carregamento
-- [ ] **Default dark no erro** - se `inema.prefs` estiver corrompido/ausente, o `catch` aplica dark (marca preservada), nunca pagina sem tema
-- [ ] **Independente do modulo grande** - desabilitando (comentando) o bloco `window.INEMA`, o tema correto AINDA e aplicado pelo script anti-FOUC
+- [ ] **Default dark no erro** - se `ARCKHÉ.prefs` estiver corrompido/ausente, o `catch` aplica dark (marca preservada), nunca pagina sem tema
+- [ ] **Independente do modulo grande** - desabilitando (comentando) o bloco `window.ARCKHÉ`, o tema correto AINDA e aplicado pelo script anti-FOUC
 
 ## ERRO #19 — IDs / `data-*` estaveis presentes (contrato de ancoragem)
 
-- [ ] **`<meta name="inema-course" content="...">`** presente no `<head>` de TODA pagina (define o `courseId`; fallback = slug da pasta)
-- [ ] **Modulo** - elemento exterior com `id="modulo-X-Y"` + `data-inema-module="X-Y"` + `data-inema-track="N"`
-- [ ] **Topico/secao** - `<section id="topico-N" data-inema-topic="modulo-X-Y#topico-N">` (o `data-inema-topic` e o id ESTAVEL de progresso/notas)
-- [ ] **Bloco anotavel** - paragrafos de prosa com `data-inema-block="mX-Y-tN-pK"` (deterministico); sem `blockId` o bloco apenas NAO e anotavel (degrada, nao quebra)
-- [ ] **Hooks de controle** - `data-inema-read-toggle`, `data-inema-doubt-toggle`, `data-inema-meter="scope"`, `data-inema-toc`, `data-inema-journey-open` presentes onde a feature existe
-- [ ] **TESTE de estabilidade** - os `data-inema-topic` NAO dependem de classe visual; trocar de tema/layout NAO altera o id de estado
+- [ ] **`<meta name="ARCKHÉ-course" content="...">`** presente no `<head>` de TODA pagina (define o `courseId`; fallback = slug da pasta)
+- [ ] **Modulo** - elemento exterior com `id="modulo-X-Y"` + `data-ARCKHÉ-module="X-Y"` + `data-ARCKHÉ-track="N"`
+- [ ] **Topico/secao** - `<section id="topico-N" data-ARCKHÉ-topic="modulo-X-Y#topico-N">` (o `data-ARCKHÉ-topic` e o id ESTAVEL de progresso/notas)
+- [ ] **Bloco anotavel** - paragrafos de prosa com `data-ARCKHÉ-block="mX-Y-tN-pK"` (deterministico); sem `blockId` o bloco apenas NAO e anotavel (degrada, nao quebra)
+- [ ] **Hooks de controle** - `data-ARCKHÉ-read-toggle`, `data-ARCKHÉ-doubt-toggle`, `data-ARCKHÉ-meter="scope"`, `data-ARCKHÉ-toc`, `data-ARCKHÉ-journey-open` presentes onde a feature existe
+- [ ] **TESTE de estabilidade** - os `data-ARCKHÉ-topic` NAO dependem de classe visual; trocar de tema/layout NAO altera o id de estado
 
 ## ERRO #20 — Marcar-lido acessivel (aria-pressed, justify-start, teclado)
 
@@ -427,23 +427,23 @@ Data: ____/____/____
 
 ## ERRO #21 — Progresso DERIVADO agrega topico->modulo->trilha->curso e bate "N de M"
 
-- [ ] **Persistir so booleans** - `inema.<courseId>.read` guarda apenas `id:true`; ausencia = nao-lido (nunca grava `false`)
+- [ ] **Persistir so booleans** - `ARCKHÉ.<courseId>.read` guarda apenas `id:true`; ausencia = nao-lido (nunca grava `false`)
 - [ ] **Percentual DERIVADO do DOM** - nenhum percentual/contagem persistido; `progress(scope)` conta itens reais via `domTotals(scope)`
-- [ ] **Agrega 3+ granularidades** - anel/barra por `modulo:X-Y`, por `trilha:N` e por `curso`, todos via `data-inema-meter="scope"`
+- [ ] **Agrega 3+ granularidades** - anel/barra por `modulo:X-Y`, por `trilha:N` e por `curso`, todos via `data-ARCKHÉ-meter="scope"`
 - [ ] **Soma sobe ao marcar** - marcar 1 topico lido sobe o medidor do modulo, da trilha E do curso na mesma acao
 - [ ] **Exibe "N de M" alem do %** - cada medidor mostra "N de M" (ex.: "3 de 8") junto do percentual
-- [ ] **TESTE de auto-correcao** - removendo um `data-inema-topic` do DOM, o "de M" diminui e o % se recalcula (nada hardcoded)
+- [ ] **TESTE de auto-correcao** - removendo um `data-ARCKHÉ-topic` do DOM, o "de M" diminui e o % se recalcula (nada hardcoded)
 - [ ] **Marcar TODOS = 100% genuino** - so atinge 100% quando todos os itens reais do escopo estao lidos (alimenta `completedAt`/celebracao)
-- [ ] **MANIFESTO presente em TODA pagina** - `<script type="application/json" data-inema-manifest>` no `<head>` de cada pagina (landing, index de trilha e modulos), identico, com `course` + `tracks[].modules[]` (`id`/`title`/`topics`/`href`)
-- [ ] **`topics` bate com o DOM real** - o `topics` de cada modulo no manifesto = a CONTAGEM de `[data-inema-topic]` reais daquele modulo na sua pagina (se divergir, o % do curso fica errado)
-- [ ] **TESTE de agregacao cross-modulo** - numa pagina de modulo, marcar topicos lidos em modulos diferentes (via navegacao) e confirmar que `data-inema-meter="curso"` e `="trilha:N"` somam o curso INTEIRO (do read-map persistido sobre o total do manifesto), nao so o modulo da pagina atual
-- [ ] **TESTE de degradacao sem manifesto** - removendo o `<script data-inema-manifest>`, o progresso de curso/trilha CAI para o DOM da pagina atual (so o modulo corrente) — confirma que a agregacao cross-pagina depende do manifesto
+- [ ] **MANIFESTO presente em TODA pagina** - `<script type="application/json" data-ARCKHÉ-manifest>` no `<head>` de cada pagina (landing, index de trilha e modulos), identico, com `course` + `tracks[].modules[]` (`id`/`title`/`topics`/`href`)
+- [ ] **`topics` bate com o DOM real** - o `topics` de cada modulo no manifesto = a CONTAGEM de `[data-ARCKHÉ-topic]` reais daquele modulo na sua pagina (se divergir, o % do curso fica errado)
+- [ ] **TESTE de agregacao cross-modulo** - numa pagina de modulo, marcar topicos lidos em modulos diferentes (via navegacao) e confirmar que `data-ARCKHÉ-meter="curso"` e `="trilha:N"` somam o curso INTEIRO (do read-map persistido sobre o total do manifesto), nao so o modulo da pagina atual
+- [ ] **TESTE de degradacao sem manifesto** - removendo o `<script data-ARCKHÉ-manifest>`, o progresso de curso/trilha CAI para o DOM da pagina atual (so o modulo corrente) — confirma que a agregacao cross-pagina depende do manifesto
 - [ ] **Manifesto e DADO, nao estado** - nao persiste no `localStorage` nem entra no export/import
 
 ## ERRO #22 — Export -> Import faz round-trip SEM perda; merge nao-destrutivo
 
 - [ ] **Export sempre valido** - `exportJSON()` produz `.json` com `schemaVersion`, `courseId`, `exportedAt` + blocos `read/doubts/notes/checks/meta` (mesmo com estado vazio)
-- [ ] **`inema.prefs` separado** - prefs globais NAO entram no export por-curso (bloco separado/opcional)
+- [ ] **`ARCKHÉ.prefs` separado** - prefs globais NAO entram no export por-curso (bloco separado/opcional)
 - [ ] **TESTE round-trip lossless** - export -> reset -> import do MESMO arquivo restaura EXATAMENTE lidos, duvidas, notas (quote+nota+cor+tag), checks e meta
 - [ ] **Campos desconhecidos preservados** - chaves de versoes futuras sobrevivem ao round-trip (nao sao descartadas)
 - [ ] **Import defensivo** - parse em var TEMPORARIA -> valida `schemaVersion` -> so commita se valido; arquivo invalido = NO-OP com mensagem, estado atual intacto
@@ -454,14 +454,14 @@ Data: ____/____/____
 
 ## ERRO #23 — Contraste AA por tema (muted incluso; ambar nunca texto em superficie clara)
 
-- [ ] **AA 4.5:1 em todos os temas** - `--text` e `--text-muted` sobre `--bg` passam AA em inema-dark, claro, sepia, foco e alto-contraste (mirar AAA 7:1 na leitura longa)
+- [ ] **AA 4.5:1 em todos os temas** - `--text` e `--text-muted` sobre `--bg` passam AA em ARCKHÉ-dark, claro, sepia, foco e alto-contraste (mirar AAA 7:1 na leitura longa)
 - [ ] **`--text-muted` testado** - o par muted/legenda (o que mais falha) verificado em CADA tema, nao so o texto principal
 - [ ] **Bordas/anel/icones ≥3:1** - `--border`, anel de foco e icones atingem 3:1 por tema
 - [ ] **AMBAR NUNCA como TEXTO em superficie clara** - em claro/sepia, texto de acento cai para `amber-700/-800` (ou marrom escurecido); ambar saturado SO em fill/borda decorativa
 - [ ] **TESTE no claro** - nenhum texto ambar-400/-500 sobre `--bg` branco/`#FBF0D9` (reprovar: 1.53:1 no branco, 1.35:1 no sepia)
 - [ ] **Sem `#000`/`#fff` puros** - dark usa `#111827`/`#e6e6e6`, nao preto/branco cravados
 - [ ] **Alto-contraste = caminho a11y principal** - tema `contraste` com pares AAA (texto ~18:1, ambar ~12:1, ciano ~9:1) e bordas visiveis em todos os cards/toggles
-- [ ] **Bridge de chrome (sepia/contraste pintam a PAGINA inteira)** - trocar para "sepia"/"contraste" recolore tambem o chrome v1 (body/nav/cards via `bg-dark-*`/`text-neutral-*`/`border-dark-*`), nao so a `.inema-prose`; a `learn.css` mapeia essas classes para os tokens sob `html[data-theme="sepia"]`/`[contraste"]` (secao "3b. BRIDGE DE CHROME"). `claro`/`inema-dark` continuam pelo mecanismo v1 intacto (nao tocados — Erro #5)
+- [ ] **Bridge de chrome (sepia/contraste pintam a PAGINA inteira)** - trocar para "sepia"/"contraste" recolore tambem o chrome v1 (body/nav/cards via `bg-dark-*`/`text-neutral-*`/`border-dark-*`), nao so a `.ARCKHÉ-prose`; a `learn.css` mapeia essas classes para os tokens sob `html[data-theme="sepia"]`/`[contraste"]` (secao "3b. BRIDGE DE CHROME"). `claro`/`ARCKHÉ-dark` continuam pelo mecanismo v1 intacto (nao tocados — Erro #5)
 
 ## ERRO #24 — Popover / highlight nao quebra em selecao cross-node
 
@@ -482,13 +482,13 @@ Data: ____/____/____
 - [ ] **Foco preso** - Tab/Shift+Tab circulam SO dentro do dialogo enquanto aberto
 - [ ] **ESC fecha** - tecla ESC fecha a jornada (reusa o padrao `openModal`/`closeModal` do v1)
 - [ ] **`inert` no resto** - o conteudo fora do dialogo recebe `inert` (ou equivalente) e nao e focavel/lido por leitor de tela
-- [ ] **Devolucao de foco** - ao fechar, o foco volta ao botao gatilho (`data-inema-journey-open`)
+- [ ] **Devolucao de foco** - ao fechar, o foco volta ao botao gatilho (`data-ARCKHÉ-journey-open`)
 - [ ] **View pura / so leitura** - a jornada AGREGA `read/doubts/notes/meta` + progresso sem mutar estado; nao duplica conteudo nem dessincroniza
 - [ ] **Conteudo da jornada** - barras (curso/trilhas/modulos), duvidas filtraveis com link de volta (via `scroll-margin-top`), notas filtraveis por cor "duvida", CTA "continuar de onde parei", Export/Import/Reset
 
 ## ERRO #26 — Storage indisponivel cai em modo efemero (curso continua legivel)
 
-- [ ] **Probe de storage no boot** - try set/get/remove de chave-sonda em `INEMA.init`
+- [ ] **Probe de storage no boot** - try set/get/remove de chave-sonda em `ARCKHÉ.init`
 - [ ] **Modo efemero** - storage bloqueado (modo privado/cota/`file://` restrito) => estado em memoria + aviso DISCRETO e NAO-bloqueante
 - [ ] **TESTE curso legivel sem storage** - com localStorage desabilitado (DevTools) ou bloqueado, a pagina abre, le-se 100% do conteudo, navegacao e topicos funcionam
 - [ ] **Toda I/O em wrappers no-throw** - `storageGet`/`storageSet` com try/catch + `JSON.parse` defensivo; excecao nunca chega a UI (no maximo `console.warn`)
@@ -503,15 +503,15 @@ Data: ____/____/____
 - [ ] **Estado final preservado** - com motion reduzido, o ESTADO FINAL e o mesmo (lido fica lido, highlight aparece); so a animacao some
 - [ ] **TESTE com reduce ligado** - ativando "Reduce motion" no OS/DevTools, nenhuma transicao/animacao perceptivel dispara; sem regressao de funcionalidade
 - [ ] **Anti-padroes do baseline mantidos** - nada de scale/translate no hover, bounce, rotate, `shadow-2xl`, neon saturado, confete ou streak (marca sobria)
-- [ ] **`reducedMotionOverride` opcional** - se existir override em `inema.prefs`, respeita-o sem ferir o default do sistema
+- [ ] **`reducedMotionOverride` opcional** - se existir override em `ARCKHÉ.prefs`, respeita-o sem ferir o default do sistema
 
 ## ERRO #28 — Manifesto do curso presente (progresso cross-pagina depende dele)
 
-- [ ] **`<script type="application/json" data-inema-manifest>` em TODA pagina** - landing, index de trilha e modulos, identico, no `<head>`
-- [ ] **Estrutura completa** - `course` (== `<meta name="inema-course">`) + `tracks[]` com `n`/`title` + `modules[]` com `id` (== `data-inema-module`), `title`, `topics` (inteiro) e `href` (opcional)
-- [ ] **`topics` bate com os topicos reais** - o `topics` de cada modulo = a CONTAGEM de `[data-inema-topic]` daquele modulo na sua pagina; divergencia => % do curso errado
-- [ ] **TESTE de agregacao cross-modulo** - lidos marcados em modulos diferentes somam no `data-inema-meter="curso"`/`="trilha:N"` (read-map persistido sobre o total do manifesto), nao so o modulo da pagina atual
-- [ ] **TESTE de degradacao** - sem o `<script data-inema-manifest>`, progresso curso/trilha cai para o DOM da pagina atual (so o modulo corrente) — confirma a dependencia
+- [ ] **`<script type="application/json" data-ARCKHÉ-manifest>` em TODA pagina** - landing, index de trilha e modulos, identico, no `<head>`
+- [ ] **Estrutura completa** - `course` (== `<meta name="ARCKHÉ-course">`) + `tracks[]` com `n`/`title` + `modules[]` com `id` (== `data-ARCKHÉ-module`), `title`, `topics` (inteiro) e `href` (opcional)
+- [ ] **`topics` bate com os topicos reais** - o `topics` de cada modulo = a CONTAGEM de `[data-ARCKHÉ-topic]` daquele modulo na sua pagina; divergencia => % do curso errado
+- [ ] **TESTE de agregacao cross-modulo** - lidos marcados em modulos diferentes somam no `data-ARCKHÉ-meter="curso"`/`="trilha:N"` (read-map persistido sobre o total do manifesto), nao so o modulo da pagina atual
+- [ ] **TESTE de degradacao** - sem o `<script data-ARCKHÉ-manifest>`, progresso curso/trilha cai para o DOM da pagina atual (so o modulo corrente) — confirma a dependencia
 - [ ] **"Minha jornada" enumera o curso inteiro** - com manifesto, o painel lista todas as trilhas/modulos do curso (nao so os do DOM da pagina); sem ele, lista so o que esta no DOM
 - [ ] **Manifesto e DADO** - nao persiste no `localStorage` nem entra no export/import
 
@@ -537,7 +537,7 @@ Data: ____/____/____
 - [ ] #28 Manifesto do curso em TODA pagina (progresso cross-pagina; topics bate com o DOM)
 
 ### Nao-regressao
-- [ ] #1-#17 intactos (botoes ESQUERDA, numeros em circulo, INEMA.CLUB, mapa, SVG, profundidade)
+- [ ] #1-#17 intactos (botoes ESQUERDA, numeros em circulo, ARCKHÉ AI, mapa, SVG, profundidade)
 
 ### Status: [ ] APROVADO / [ ] PENDENTE
 ```
@@ -549,7 +549,7 @@ Data: ____/____/____
 | Erro | O que verificar |
 |------|-----------------|
 | Flash de tema ao navegar | Anti-FOUC nao esta no `<head>` acima do Tailwind, ou esta dentro do modulo grande (#18) |
-| `data-*` ausentes/instaveis | Faltou `<meta name="inema-course">` ou `data-inema-topic`; id depende de classe visual (#19) |
+| `data-*` ausentes/instaveis | Faltou `<meta name="ARCKHÉ-course">` ou `data-ARCKHÉ-topic`; id depende de classe visual (#19) |
 | Marcar-lido sem semantica | `<div onclick>` em vez de `<button aria-pressed>`, ou `justify-center` (#20) |
 | Percentual hardcoded | % persistido em vez de derivado do DOM; nao mostra "N de M" (#21) |
 | Import destrutivo | Merge apaga estado existente, ou import invalido muta estado (#22) |
@@ -558,8 +558,8 @@ Data: ____/____/____
 | Jornada sem foco preso | Tab escapa do dialogo, ESC nao fecha, falta `inert` (#25) |
 | Quebra sem storage | Pagina trava em modo privado/`file://` em vez de cair em efemero (#26) |
 | Animacao ignora reduce | Sem bloco `@media prefers-reduced-motion` (#27) |
-| Progresso curso/trilha so conta o modulo atual | Falta `<script data-inema-manifest>` (ou esta so em algumas paginas); progresso degrada para o DOM da pagina (#28) |
-| % do curso errado | `topics` do manifesto nao bate com a contagem real de `data-inema-topic` do modulo (#28) |
+| Progresso curso/trilha so conta o modulo atual | Falta `<script data-ARCKHÉ-manifest>` (ou esta so em algumas paginas); progresso degrada para o DOM da pagina (#28) |
+| % do curso errado | `topics` do manifesto nao bate com a contagem real de `data-ARCKHÉ-topic` do modulo (#28) |
 | Sepia/contraste so recoloram a prosa | `learn.css` ausente ou bridge de chrome (secao 3b) faltando — chrome v1 nao consome os tokens de tema (#23) |
 
 ---

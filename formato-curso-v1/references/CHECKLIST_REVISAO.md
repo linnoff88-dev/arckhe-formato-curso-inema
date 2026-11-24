@@ -20,8 +20,8 @@
 - [ ] **Botoes a ESQUERDA** - Verificar `justify-start` (NAO center)
 - [ ] **Numeros em circulo** - NAO esta usando setas nos topicos
 - [ ] **3 secoes por topico** - Cada topico tem: O que e / Por que aprender / Conceitos-chave
-- [ ] **INEMA.CLUB presente** - Link com `text-sky-400` ao lado do logo
-- [ ] **PRO presente** - Link ao lado do INEMA.CLUB (separado por `-`), linkando `https://inema.pro`, dourado no light (`text-amber-700`) / prateado no dark (`dark:text-slate-300`)
+- [ ] **ARCKHÉ AI presente** - Link com `text-sky-400` ao lado do logo
+- [ ] **PRO presente** - Link ao lado do ARCKHÉ AI (separado por `-`), linkando `https://ARCKHÉ.pro`, dourado no light (`text-amber-700`) / prateado no dark (`dark:text-slate-300`)
 - [ ] **Light mode CSS** - Bloco completo: base + cores acento da trilha + sem gradiente + especiais + nav (ver Sec. 1.5)
 - [ ] **Titulo modulo** - Usando `text-2xl font-bold`
 - [ ] **TODOS modulos completos** - TODOS os modulos (1.1 a 1.8) devem ter topicos expandiveis, NAO apenas header+botao
@@ -34,7 +34,7 @@
 - [ ] **Cards do Mapa com EMOJI no titulo + subtitulo PUNCHY** - "🎯 Titulo" + frase-marca de 3-5 palavras, nao descritivo
 - [ ] **IDs nos cards de modulo** - Cada card grande tem `id="modulo-X-Y"` para a navegacao por ancora funcionar
 - [ ] **Divisor "Conteudo detalhado" simples** - `<h2 class="text-2xl font-bold mb-6">Conteudo detalhado</h2>`. NAO usar 2 linhas horizontais (`flex-1 h-px`) com span no meio
-- [ ] **Nav completo em TODAS paginas** - Logo + INEMA.CLUB + PRO + 4-6 botoes de trilha + theme toggle em landing, curso/index, trilhas e modulos. NUNCA simplificar para `← Trilha X | Curso`
+- [ ] **Nav completo em TODAS paginas** - Logo + ARCKHÉ AI + PRO + 4-6 botoes de trilha + theme toggle em landing, curso/index, trilhas e modulos. NUNCA simplificar para `← Trilha X | Curso`
 - [ ] **Bordas suavizadas (dark)** - duas regras CSS: `.dark .border-dark-600 { border-color: #374151 }` + `.dark .divide-dark-600 > :not([hidden]) ~ :not([hidden]) { border-color: #374151 }`
 - [ ] **Profundidade dos modulos** - 500-800 linhas, 6-8 secoes com VARIEDADE de componentes (≥2 ✓/✗ grids, ≥1 timeline, ≥2 tip boxes). NUNCA template uniforme repetido 6x
 
@@ -42,10 +42,10 @@
 
 - [ ] Logo com emoji correto do projeto
 - [ ] Nome do curso visivel (hidden sm:inline em mobile)
-- [ ] Separador `|` entre logo e INEMA.CLUB
-- [ ] Link INEMA.CLUB com `text-sky-400 hover:text-sky-300`
-- [ ] Separador `-` entre INEMA.CLUB e PRO
-- [ ] Link PRO com `text-amber-700 hover:text-amber-600 dark:text-slate-300 dark:hover:text-slate-200`, linkando `https://inema.pro`
+- [ ] Separador `|` entre logo e ARCKHÉ AI
+- [ ] Link ARCKHÉ AI com `text-sky-400 hover:text-sky-300`
+- [ ] Separador `-` entre ARCKHÉ AI e PRO
+- [ ] Link PRO com `text-amber-700 hover:text-amber-600 dark:text-slate-300 dark:hover:text-slate-200`, linkando `https://ARCKHÉ.pro`
 - [ ] Todas as trilhas listadas com nomes completos
 - [ ] Trilha atual com cor ativa (`text-[cor]-400 bg-[cor]-500/10`)
 - [ ] Outras trilhas com hover correto
@@ -103,8 +103,8 @@ Para cada modulo verificar:
 
 - [ ] **Botoes navegacao** - Verificar alinhamento
 - [ ] **Numeros em circulo GRANDE** - `w-12 h-12` nas secoes
-- [ ] **INEMA.CLUB presente** - Link com `text-sky-400`
-- [ ] **PRO presente** - Link ao lado do INEMA.CLUB, linkando `https://inema.pro`, dourado no light / prateado no dark
+- [ ] **ARCKHÉ AI presente** - Link com `text-sky-400`
+- [ ] **PRO presente** - Link ao lado do ARCKHÉ AI, linkando `https://ARCKHÉ.pro`, dourado no light / prateado no dark
 - [ ] **Light mode CSS** - Bloco completo: base + cores acento da trilha + sem gradiente + especiais + nav (ver Sec. 1.5)
 
 ## 2. NAVIGATION
@@ -301,8 +301,8 @@ Data: ____/____/____
 - [ ] Botoes ESQUERDA
 - [ ] Numeros em circulo
 - [ ] 3 secoes por topico
-- [ ] INEMA.CLUB
-- [ ] PRO (ao lado do INEMA.CLUB, linkando `https://inema.pro`)
+- [ ] ARCKHÉ AI
+- [ ] PRO (ao lado do ARCKHÉ AI, linkando `https://ARCKHÉ.pro`)
 - [ ] Light mode CSS completo (4 partes)
 - [ ] Titulo text-2xl
 - [ ] Modulos completos (index)
@@ -332,8 +332,8 @@ Data: ____/____/____
 |------|-----------------|
 | Botoes centralizados | Procurar por `justify-center` nos botoes de modulo |
 | Setas em vez de numeros | Procurar por `▶` ou `→` nos topicos |
-| Faltando INEMA.CLUB | Verificar navigation |
-| Faltando PRO | Verificar se o link `https://inema.pro` esta ao lado do INEMA.CLUB no nav |
+| Faltando ARCKHÉ AI | Verificar navigation |
+| Faltando PRO | Verificar se o link `https://ARCKHÉ.pro` esta ao lado do ARCKHÉ AI no nav |
 | Light mode quebrado | Testar alternando o tema |
 | Titulo pequeno | Verificar se h3 do modulo tem `text-2xl` |
 | Cor errada | Comparar com tabela de cores da trilha |

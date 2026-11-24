@@ -91,7 +91,7 @@ Classes de item: `.pasta`, `.doc`, `.botao`, `.dentro` (recuo). Não imite a mar
   alt="Frase que descreve a situação e ensina (quem, onde, o que está acontecendo)."></figure>
 ```
 - Gerada com `scripts/gerar-cena.py`: **padrão Codex image_gen** (imagem 2.5; ~1 min por imagem; rode até 4 em paralelo),
-  com **fallback automático** para o inemaimg local (flux2-klein) quando o Codex falha ou fica sem crédito. Estilo
+  com **fallback automático** para o ARCKHÉimg local (flux2-klein) quando o Codex falha ou fica sem crédito. Estilo
   "editorial" fixo no curso. No piloto OSWork o Codex manteve até os mesmos personagens entre aulas (sem seed).
   Magnific com imagem de referência continua como opção para personagem recorrente exato.
 - **Nenhum texto dentro da imagem** (o PT/EN/ES traduz só o HTML). Telas na imagem = formas borradas.

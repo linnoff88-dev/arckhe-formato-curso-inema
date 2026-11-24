@@ -1,7 +1,7 @@
 # LEARN-LAYER — contrato técnico (formato-curso-v3)
 
 Contrato fiel da camada de aprendizagem do **formato-curso-v3**. Reflete o que
-`assets/learn.js` (IIFE `window.INEMA`, sem build, sem deps) realmente faz e o
+`assets/learn.js` (IIFE `window.ARCKHÉ`, sem build, sem deps) realmente faz e o
 que `assets/learn.css` espera. Nada aqui é aspiracional: cada nome de chave,
 atributo e método existe no código.
 
@@ -10,9 +10,9 @@ Princípios do motor (portados do v2, blindados):
 - **Enhancement progressivo.** Se o JS quebrar ou o `localStorage` estiver
   bloqueado, o curso continua 100% legível. Toda I/O passa por wrappers no-throw;
   falha sempre cai no estado seguro.
-- **Idempotente / re-entrant.** `INEMA.init()` pode rodar em qualquer página
+- **Idempotente / re-entrant.** `ARCKHÉ.init()` pode rodar em qualquer página
   (landing, trilha, módulo) e mais de uma vez — guard `S.bound`/`S.inited` evita
-  duplicar listeners. Feature-detect por presença de `data-inema-*`: só ativa o
+  duplicar listeners. Feature-detect por presença de `data-ARCKHÉ-*`: só ativa o
   que existe na página.
 - **Anti-XSS.** Todo texto do usuário entra via `textContent`; grifo é
   `<mark>` com `appendChild(textNode)`, nunca `innerHTML` de dado.
@@ -23,20 +23,20 @@ Princípios do motor (portados do v2, blindados):
 
 ### 1.1 Namespace de chaves
 
-Estado **por curso** usa o prefixo `inema.<courseId>.<nome>`. O `courseId` vem de
-`<meta name="inema-course" content="...">`; sem meta, é derivado do último
+Estado **por curso** usa o prefixo `ARCKHÉ.<courseId>.<nome>`. O `courseId` vem de
+`<meta name="ARCKHÉ-course" content="...">`; sem meta, é derivado do último
 segmento do `pathname` (sanitizado, lowercase) — fallback final `"curso"`.
 
 `SCHEMA_VERSION = 1`.
 
 | Chave | Conteúdo | Reuso v2 |
 |---|---|---|
-| `inema.<courseId>.read` | progresso de leitura por tópico | sim |
-| `inema.<courseId>.doubts` | dúvidas declaradas por tópico | sim |
-| `inema.<courseId>.notes` | grifos/notas por bloco | sim |
-| `inema.<courseId>.checks` | respostas de checagem leve | sim |
-| `inema.<courseId>.meta` | checkpoint / "continuar de onde parei" | sim |
-| `inema.prefs` | **GLOBAL** (cross-curso): tema, fonte, leitura | sim (com adaptações v3) |
+| `ARCKHÉ.<courseId>.read` | progresso de leitura por tópico | sim |
+| `ARCKHÉ.<courseId>.doubts` | dúvidas declaradas por tópico | sim |
+| `ARCKHÉ.<courseId>.notes` | grifos/notas por bloco | sim |
+| `ARCKHÉ.<courseId>.checks` | respostas de checagem leve | sim |
+| `ARCKHÉ.<courseId>.meta` | checkpoint / "continuar de onde parei" | sim |
+| `ARCKHÉ.prefs` | **GLOBAL** (cross-curso): tema, fonte, leitura | sim (com adaptações v3) |
 
 Regra de robustez: leitura via `storageGet` faz `JSON.parse` defensivo; se o
 valor está corrompido, **só aquela chave** é removida e devolve o fallback (`{}`).
@@ -54,7 +54,7 @@ toast avisa "Modo leitura: seu progresso não será salvo neste navegador."
 ```
 
 Mapa `topicId → true`. **Ausência = não-lido**; o código nunca grava `false`
-(desmarcar faz `delete`). O `topicId` é o valor de `data-inema-topic` da seção.
+(desmarcar faz `delete`). O `topicId` é o valor de `data-ARCKHÉ-topic` da seção.
 
 ### 1.3 `doubts` — dúvidas por tópico
 
@@ -69,7 +69,7 @@ filtro "só não resolvidas" na jornada. Toggle remove a chave inteira.
 
 ### 1.4 `notes` — grifos e notas por bloco
 
-Mapa `blockId → array de registros`. `blockId` = `data-inema-block` do parágrafo.
+Mapa `blockId → array de registros`. `blockId` = `data-ARCKHÉ-block` do parágrafo.
 
 ```jsonc
 {
@@ -100,7 +100,7 @@ jornada, mas sem botão "ir ao trecho".
 ```
 
 Nunca bloqueia o aluno; apenas registra a escolha e se bateu com a resposta
-declarada via `INEMA.registerCheck`.
+declarada via `ARCKHÉ.registerCheck`.
 
 ### 1.6 `meta` — checkpoint
 
@@ -118,7 +118,7 @@ declarada via `INEMA.registerCheck`.
 (hidden) e `pagehide`. `completedAt` é gravado uma única vez quando o curso chega
 a 100% (toast de parabéns).
 
-### 1.7 `inema.prefs` — GLOBAL, cross-curso
+### 1.7 `ARCKHÉ.prefs` — GLOBAL, cross-curso
 
 ```jsonc
 {
@@ -165,9 +165,9 @@ Slugs: `lineWidthSlug` (≤62 estreito / ≥70 largo / senão medio);
 
 ---
 
-## 2. API pública — `window.INEMA`
+## 2. API pública — `window.ARCKHÉ`
 
-IIFE auto-bootstrap. Guard de idempotência: se `window.INEMA.__core` já existe,
+IIFE auto-bootstrap. Guard de idempotência: se `window.ARCKHÉ.__core` já existe,
 não recria. Auto-aplica prefs no `DOMContentLoaded` mesmo sem `init()`.
 
 ### Boot
@@ -175,10 +175,10 @@ não recria. Auto-aplica prefs no `DOMContentLoaded` mesmo sem `init()`.
 - `applyPrefs() → prefs` — reaplica `data-*` + CSS vars no `<html>`.
 
 ### Progresso
-- `markRead(itemId, bool?) → void` — marca/desmarca leitura (default `true`). Repinta controles + medidores, salva checkpoint, dispara `inema:read` e `inema:progress`.
+- `markRead(itemId, bool?) → void` — marca/desmarca leitura (default `true`). Repinta controles + medidores, salva checkpoint, dispara `ARCKHÉ:read` e `ARCKHÉ:progress`.
 - `isRead(itemId) → boolean`
-- `progress(scope) → { done, total, pct }` — `scope`: `"curso"` (default) | `"trilha:N"` | `"modulo:X-Y"`. Usa o manifesto se houver; senão deriva do DOM (`data-inema-topic` no escopo).
-- `renderMeters() → void` — repinta todos os `[data-inema-meter]` visíveis.
+- `progress(scope) → { done, total, pct }` — `scope`: `"curso"` (default) | `"trilha:N"` | `"modulo:X-Y"`. Usa o manifesto se houver; senão deriva do DOM (`data-ARCKHÉ-topic` no escopo).
+- `renderMeters() → void` — repinta todos os `[data-ARCKHÉ-meter]` visíveis.
 
 ### Dúvida
 - `toggleDoubt(itemId) → boolean` — liga/desliga a dúvida do tópico.
@@ -187,14 +187,14 @@ não recria. Auto-aplica prefs no `DOMContentLoaded` mesmo sem `init()`.
 - `listDoubts() → array` — consolida dúvidas de tópico **+** grifos `color:doubt`, ordenado por `ts` desc.
 
 ### Notas / highlight
-- `highlight(range, opts) → id|null` — cria grifo a partir de um `Range`. `opts`: `{ color?, note?, tags? }`. Recusa fora de `[data-inema-block]`; limita a um bloco. Usa `TreeWalker` + replace de text nodes, **nunca** `Range.surroundContents`.
+- `highlight(range, opts) → id|null` — cria grifo a partir de um `Range`. `opts`: `{ color?, note?, tags? }`. Recusa fora de `[data-ARCKHÉ-block]`; limita a um bloco. Usa `TreeWalker` + replace de text nodes, **nunca** `Range.surroundContents`.
 - `promoteToNote(id, text) → boolean` — adiciona/edita o texto da nota de um grifo.
 - `editNote(id, patch) → boolean` — `patch`: `{ note?, color?, tags? }`.
 - `removeNote(id) → boolean` — desfaz os `<mark>` (replace por text node + `normalize`) e remove o registro.
 - `renderHighlights(container?) → void` — reaplica grifos do storage (tolerante por nota; marca `orphan` quando não reancorou).
 
 ### Painel do aluno por seção (NOVO no v3)
-- `renderRail(sectionId) → void` — (re)monta o `<aside data-inema-rail>` da seção. Ver §3.
+- `renderRail(sectionId) → void` — (re)monta o `<aside data-ARCKHÉ-rail>` da seção. Ver §3.
 - `renderAllRails() → void` — monta o rail de todas as seções.
 
 ### Jornada (modal acessível)
@@ -208,7 +208,7 @@ não recria. Auto-aplica prefs no `DOMContentLoaded` mesmo sem `init()`.
 ### Export / Import (round-trip lossless)
 - `exportJSON() → string` — `{ schemaVersion, courseId, exportedAt, read, doubts, notes, checks, meta }`.
 - `importJSON(text, opts) → { ok, applied, skipped, errors }` — `opts.mode`: `"merge"` (default, dedup por id) | `"replace"` (confirma antes). Rejeita `schemaVersion` ausente ou mais nova.
-- `downloadJSON() → void` — baixa `inema-<courseId>-<data>.json` (fallback data-URI).
+- `downloadJSON() → void` — baixa `ARCKHÉ-<courseId>-<data>.json` (fallback data-URI).
 
 ### Tema / prefs (só tema/fonte/tamanho/largura/entrelinha — **acento é fixo**)
 - `setPref(key, val) → prefs` — `key` ∈ `theme|font|fontScale|lineWidth|leading|reducedMotionOverride`.
@@ -219,84 +219,84 @@ não recria. Auto-aplica prefs no `DOMContentLoaded` mesmo sem `init()`.
 - `registerCheck(id, def) → void` — `def`: `{ q, options, answer, explain }`.
 - `submitCheck(id, choice) → { correct }`.
 
-### Interno (uso avançado / testes) — `INEMA._internal`
+### Interno (uso avançado / testes) — `ARCKHÉ._internal`
 `storageGet, storageSet, safeJSON, probeStorage, migrate, domTotals, coreVars,
 resetCourse, courseId()`.
 
 ### Eventos (`CustomEvent` em `document`, `bubbles`)
-`inema:read`, `inema:doubt`, `inema:note`, `inema:progress` (com `detail.kind`:
-`init|read|prefs|check`). Para reagir: `document.addEventListener('inema:progress', fn)`.
+`ARCKHÉ:read`, `ARCKHÉ:doubt`, `ARCKHÉ:note`, `ARCKHÉ:progress` (com `detail.kind`:
+`init|read|prefs|check`). Para reagir: `document.addEventListener('ARCKHÉ:progress', fn)`.
 
 ---
 
-## 3. Painel da margem — `[data-inema-rail]` + `renderRail`
+## 3. Painel da margem — `[data-ARCKHÉ-rail]` + `renderRail`
 
 `renderRail(sectionId)` é **idempotente** (limpa `rail.innerHTML` e remonta). Para
-cada seção `<section data-inema-topic="...">`, encontra o `<aside>` da margem por
+cada seção `<section data-ARCKHÉ-topic="...">`, encontra o `<aside>` da margem por
 duas rotas:
 
-1. `[data-inema-rail="<topicId>"]` em qualquer lugar do documento; ou
-2. um `[data-inema-rail]` **dentro** da própria seção, sem valor (ancorado por containment).
+1. `[data-ARCKHÉ-rail="<topicId>"]` em qualquer lugar do documento; ou
+2. um `[data-ARCKHÉ-rail]` **dentro** da própria seção, sem valor (ancorado por containment).
 
 ### 3.1 Markup que o autor escreve
 
 ```html
-<section data-inema-topic="modulo-1-1#topico-3"
-         data-inema-module="1-1"
-         data-inema-track="1">
+<section data-ARCKHÉ-topic="modulo-1-1#topico-3"
+         data-ARCKHÉ-module="1-1"
+         data-ARCKHÉ-track="1">
   <h2 id="topico-3">Título do tópico</h2>
 
-  <p data-inema-block="m1-1-p1">Parágrafo anotável…</p>
-  <p data-inema-block="m1-1-p2">Outro parágrafo anotável…</p>
+  <p data-ARCKHÉ-block="m1-1-p1">Parágrafo anotável…</p>
+  <p data-ARCKHÉ-block="m1-1-p2">Outro parágrafo anotável…</p>
 
   <!-- o JS injeta o painel do aluno AQUI dentro -->
-  <aside data-inema-rail="modulo-1-1#topico-3"></aside>
+  <aside data-ARCKHÉ-rail="modulo-1-1#topico-3"></aside>
 </section>
 ```
 
 Regras do contrato:
-- `data-inema-topic` é o **topicId** (chave de `read`/`doubts`). Convenção:
+- `data-ARCKHÉ-topic` é o **topicId** (chave de `read`/`doubts`). Convenção:
   `modulo-<X-Y>#topico-<N>` — o parser extrai módulo/trilha daí.
-- `data-inema-block` é **obrigatório** em todo parágrafo que se quer anotável;
+- `data-ARCKHÉ-block` é **obrigatório** em todo parágrafo que se quer anotável;
   sem ele o trecho não é grifável ("Este trecho não é anotável.").
-- O `<aside data-inema-rail>` começa **vazio**; o JS preenche.
+- O `<aside data-ARCKHÉ-rail>` começa **vazio**; o JS preenche.
 
 ### 3.2 O que `renderRail` injeta (estrutura)
 
 ```html
-<aside data-inema-rail="modulo-1-1#topico-3">
+<aside data-ARCKHÉ-rail="modulo-1-1#topico-3">
   <div class="control">
     <div class="lbl">Esta secao</div>
 
-    <button class="read-toggle" data-inema-read-toggle="modulo-1-1#topico-3"
+    <button class="read-toggle" data-ARCKHÉ-read-toggle="modulo-1-1#topico-3"
             aria-pressed="false">
       <span class="read-box"><svg …><path d="M5 12.5l4.2 4.2L19 7"/></svg></span>
       <span class="read-txt">
-        <b data-inema-read-label>Marcar como lida</b>
+        <b data-ARCKHÉ-read-label>Marcar como lida</b>
         <span class="read-sub">guarda seu progresso</span>
       </span>
     </button>
 
-    <button class="doubt-btn" data-inema-doubt-toggle="modulo-1-1#topico-3"
+    <button class="doubt-btn" data-ARCKHÉ-doubt-toggle="modulo-1-1#topico-3"
             aria-pressed="false">
       <span class="q">?</span><span class="txt">Tenho uma duvida</span>
     </button>
 
-    <div class="doubt-note" data-inema-doubt-note="modulo-1-1#topico-3">
-      <textarea data-inema-doubt-field="modulo-1-1#topico-3"
+    <div class="doubt-note" data-ARCKHÉ-doubt-note="modulo-1-1#topico-3">
+      <textarea data-ARCKHÉ-doubt-field="modulo-1-1#topico-3"
                 placeholder="O que ficou confuso? (so voce ve)"></textarea>
     </div>
   </div>
 
   <!-- uma .note-hand por grifo/nota ancorado nos blocos desta seção -->
-  <div class="note-hand" data-inema-handnote="n_…">
+  <div class="note-hand" data-ARCKHÉ-handnote="n_…">
     <div class="tag">Grifo</div>            <!-- ou "Duvida" -->
     <span>“trecho grifado”</span>
     <span class="body">texto da nota</span> <!-- se houver -->
     <span class="meta">
-      <button class="inema-link" data-inema-handnote-go="n_…">ir ao trecho</button>
-      <button class="inema-link" data-inema-handnote-note="n_…">anotar</button>
-      <button class="inema-link" data-inema-handnote-del="n_…">excluir</button>
+      <button class="ARCKHÉ-link" data-ARCKHÉ-handnote-go="n_…">ir ao trecho</button>
+      <button class="ARCKHÉ-link" data-ARCKHÉ-handnote-note="n_…">anotar</button>
+      <button class="ARCKHÉ-link" data-ARCKHÉ-handnote-del="n_…">excluir</button>
     </span>
   </div>
 </aside>
@@ -304,11 +304,11 @@ Regras do contrato:
 
 Comportamento ligado pelos atributos (delegação em um único listener no `<main>`):
 
-- **`[data-inema-read-toggle]`** — `aria-pressed`, classe `is-read`; o label
+- **`[data-ARCKHÉ-read-toggle]`** — `aria-pressed`, classe `is-read`; o label
   alterna "Marcar como lida" ↔ "Lido"; a seção ganha `.is-read`.
-- **`[data-inema-doubt-toggle]`** — `aria-pressed`, classe `is-doubt`,
+- **`[data-ARCKHÉ-doubt-toggle]`** — `aria-pressed`, classe `is-doubt`,
   `data-resolved` quando resolvida; abre/fecha o campo inline (`data-open` no
-  `.doubt-note`). O `textarea` (`[data-inema-doubt-field]`) salva via `input`
+  `.doubt-note`). O `textarea` (`[data-ARCKHÉ-doubt-field]`) salva via `input`
   debounced (`setDoubtNote`). Nunca abre modal — a dúvida vive na margem.
 - **`.note-hand`** — uma por grifo/nota dos blocos da seção, ordenadas por `ts`
   asc; ações ir/anotar/excluir. Grifos sem trecho mostram "nota sem ancora".
@@ -319,10 +319,10 @@ todas as seções (chamado no `init`/import/reset).
 
 ### 3.3 Seleção → popover de grifo
 
-Ao selecionar texto dentro de um `[data-inema-block]`, o JS posiciona um
-`.selpop` (`[data-inema-selpop]`, `role="toolbar"`) com 5 swatches
-(`[data-inema-swatch]` = `yellow|green|blue|pink|doubt`) + ações **Anotar** /
-**Copiar** (`[data-inema-act="note"|"copy"]`). Clicar num swatch chama
+Ao selecionar texto dentro de um `[data-ARCKHÉ-block]`, o JS posiciona um
+`.selpop` (`[data-ARCKHÉ-selpop]`, `role="toolbar"`) com 5 swatches
+(`[data-ARCKHÉ-swatch]` = `yellow|green|blue|pink|doubt`) + ações **Anotar** /
+**Copiar** (`[data-ARCKHÉ-act="note"|"copy"]`). Clicar num swatch chama
 `highlight(range, { color })`. Clicar num `mark.hl` abre o mini-menu Nota/Excluir.
 
 ---
@@ -330,17 +330,17 @@ Ao selecionar texto dentro de um `[data-inema-block]`, o JS posiciona um
 ## 4. Manifesto (agregação de progresso cross-página)
 
 Sem manifesto, `progress()` deriva do DOM da **página atual** (conta
-`[data-inema-topic]` no escopo). Com manifesto, agrega o curso inteiro
+`[data-ARCKHÉ-topic]` no escopo). Com manifesto, agrega o curso inteiro
 (útil em páginas de módulo que não contêm todos os tópicos).
 
 Duas formas de fornecer (a global vence):
 
 ```html
 <!-- 1) global -->
-<script>window.INEMA_MANIFEST = { /* … */ };</script>
+<script>window.ARCKHÉ_MANIFEST = { /* … */ };</script>
 
 <!-- 2) inline -->
-<script type="application/json" data-inema-manifest>
+<script type="application/json" data-ARCKHÉ-manifest>
 { "tracks": [ … ] }
 </script>
 ```
@@ -370,22 +370,22 @@ chaves `read=true` cujo `topicId` (`modulo-<id>#…`) cai no escopo. Medidor é 
 ### Markup de medidor
 
 ```html
-<div data-inema-meter="curso">
-  <span data-inema-meter-frac></span>   <!-- "<strong>N</strong> de M" -->
-  <span data-inema-meter-pct></span>    <!-- "P%" (opcional) -->
+<div data-ARCKHÉ-meter="curso">
+  <span data-ARCKHÉ-meter-frac></span>   <!-- "<strong>N</strong> de M" -->
+  <span data-ARCKHÉ-meter-pct></span>    <!-- "P%" (opcional) -->
   <div class="progress-line">
-    <span class="progress-line__fill" data-inema-meter-fill></span>
+    <span class="progress-line__fill" data-ARCKHÉ-meter-fill></span>
   </div>
 </div>
 ```
 
-O JS escreve `--inema-pct` (o CSS calcula a largura), `role="progressbar"`,
+O JS escreve `--ARCKHÉ-pct` (o CSS calcula a largura), `role="progressbar"`,
 `aria-valuenow`/`aria-valuetext` ("N de M (P%)"), e `data-complete="true"` em 100%.
 
 ### Jornada e contador de dúvidas
 
-- `[data-inema-journey-open]` — abre o modal "Minha jornada".
-- `[data-inema-journey-badge]` — recebe `textContent`/`data-count` com o nº de
+- `[data-ARCKHÉ-journey-open]` — abre o modal "Minha jornada".
+- `[data-ARCKHÉ-journey-badge]` — recebe `textContent`/`data-count` com o nº de
   dúvidas não resolvidas (`data-count="0"` esconde via CSS).
 
 ---
@@ -393,13 +393,13 @@ O JS escreve `--inema-pct` (o CSS calcula a largura), `role="progressbar"`,
 ## 5. Como incluir numa página
 
 A ordem importa por causa do **anti-FOUC**. Os snippets prontos estão em
-`assets/inema-head-snippet.html` e `assets/inema-init-snippet.html`. Troque `REL`
+`assets/ARCKHÉ-head-snippet.html` e `assets/ARCKHÉ-init-snippet.html`. Troque `REL`
 pelo caminho relativo até `assets/` (ex.: `"."`, `".."`, `"../.."`).
 
-### 5.1 No topo do `<head>` (anti-FOUC + CSS) — `inema-head-snippet.html`
+### 5.1 No topo do `<head>` (anti-FOUC + CSS) — `ARCKHÉ-head-snippet.html`
 
 Cole **antes** de qualquer `<style>`/`<link>`/fonte. É um `<script>` **bloqueante
-de propósito**: lê `inema.prefs` e aplica `data-theme` + CSS vars no `<html>`
+de propósito**: lê `ARCKHÉ.prefs` e aplica `data-theme` + CSS vars no `<html>`
 **antes do primeiro paint**, matando o flash de tema a cada navegação. É
 independente do `learn.js` — se o módulo grande falhar, o tema já foi aplicado;
 qualquer erro cai no default `papel`. Logo após, o `<link>` do CSS:
@@ -407,21 +407,21 @@ qualquer erro cai no default `papel`. Logo após, o `<link>` do CSS:
 ```html
 <head>
   <!-- 1º: anti-FOUC bloqueante (script do snippet de head) -->
-  <script> /* lê inema.prefs → data-theme/data-font/--fontscale/--measure/--leading */ </script>
+  <script> /* lê ARCKHÉ.prefs → data-theme/data-font/--fontscale/--measure/--leading */ </script>
   <!-- 2º: a folha de estilos -->
   <link rel="stylesheet" href="REL/assets/learn.css">
   <!-- meta do curso (define o courseId; senão é derivado do path) -->
-  <meta name="inema-course" content="fep">
+  <meta name="ARCKHÉ-course" content="fep">
 </head>
 ```
 
-### 5.2 Imediatamente antes de `</body>` (carrega + init) — `inema-init-snippet.html`
+### 5.2 Imediatamente antes de `</body>` (carrega + init) — `ARCKHÉ-init-snippet.html`
 
 ```html
   <script src="REL/assets/learn.js"></script>
   <script>
-    if (window.INEMA && typeof window.INEMA.init === 'function') {
-      window.INEMA.init();               // ou INEMA.init({ autoResume: true })
+    if (window.ARCKHÉ && typeof window.ARCKHÉ.init === 'function') {
+      window.ARCKHÉ.init();               // ou ARCKHÉ.init({ autoResume: true })
     }
   </script>
 </body>
@@ -436,11 +436,11 @@ reforça a consistência via `applyPrefs()` (o anti-FOUC já aplicou o tema).
 
 - [ ] Snippet anti-FOUC no topo do `<head>`, antes de tudo.
 - [ ] `<link>` para `learn.css`.
-- [ ] `<meta name="inema-course" content="…">` (recomendado).
-- [ ] Seções com `data-inema-topic` (+ `data-inema-module`/`data-inema-track`).
-- [ ] Parágrafos anotáveis com `data-inema-block`.
-- [ ] `<aside data-inema-rail="<topicId>"></aside>` vazio por seção.
-- [ ] Opcional: `[data-inema-meter]`, `[data-inema-journey-open]`,
-      `[data-inema-journey-badge]`, manifesto, painel de aparência
-      (`[data-inema-appearance]` + `[data-inema-set-*]`).
-- [ ] Snippet de `learn.js` + `INEMA.init()` antes de `</body>`.
+- [ ] `<meta name="ARCKHÉ-course" content="…">` (recomendado).
+- [ ] Seções com `data-ARCKHÉ-topic` (+ `data-ARCKHÉ-module`/`data-ARCKHÉ-track`).
+- [ ] Parágrafos anotáveis com `data-ARCKHÉ-block`.
+- [ ] `<aside data-ARCKHÉ-rail="<topicId>"></aside>` vazio por seção.
+- [ ] Opcional: `[data-ARCKHÉ-meter]`, `[data-ARCKHÉ-journey-open]`,
+      `[data-ARCKHÉ-journey-badge]`, manifesto, painel de aparência
+      (`[data-ARCKHÉ-appearance]` + `[data-ARCKHÉ-set-*]`).
+- [ ] Snippet de `learn.js` + `ARCKHÉ.init()` antes de `</body>`.

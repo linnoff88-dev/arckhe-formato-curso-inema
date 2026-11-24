@@ -6,8 +6,8 @@ Uso:
 
 Gerador (desde 2026-09-24, pedido do usuário):
   auto  (padrão) = Codex CLI image_gen (imagem 2.5 da conta OpenAI); se falhar (sem crédito, erro, timeout)
-                   cai no inemaimg local com o modelo padrão (flux2-klein).
-  codex = só Codex (falha se não gerar).   flux = só inemaimg local (usa --seed, reprodutível).
+                   cai no ARCKHÉimg local com o modelo padrão (flux2-klein).
+  codex = só Codex (falha se não gerar).   flux = só ARCKHÉimg local (usa --seed, reprodutível).
 
 Regras v6 (V6-DESIGN.md §3.4): pessoa real da profissão-alvo na situação do exemplo, NENHUM texto legível na
 imagem (o PT/EN/ES traduz só o HTML), sem robô/cérebro-circuito/aperto de mão com robô, 16:9, WebP <= 150 KB.
@@ -73,7 +73,7 @@ def main():
         except Exception as e:
             if a.gerador == "codex":
                 sys.exit(f"codex falhou: {e}")
-            print(f"[cena] codex falhou ({str(e)[:160]}) — fallback inemaimg flux2-klein", file=sys.stderr)
+            print(f"[cena] codex falhou ({str(e)[:160]}) — fallback ARCKHÉimg flux2-klein", file=sys.stderr)
     if fonte is None:
         img = via_flux(a.cena, a.estilo, a.seed, a.url); fonte = "flux2-klein" + (" (fallback)" if a.gerador == "auto" else "")
     img = cover_16x9(img)

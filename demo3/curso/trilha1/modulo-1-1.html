@@ -6,10 +6,10 @@
 
   <!-- ===================================================================
        1) ANTI-FOUC — script BLOQUEANTE, PRIMEIRO no <head>, ANTES das fontes
-          e do learn.css. Le inema.prefs (global, cross-curso) e aplica
+          e do learn.css. Le ARCKHÉ.prefs (global, cross-curso) e aplica
           data-theme + color-scheme + --measure/--leading/--fontscale +
           data-font/--font-disp/--font-body ANTES do primeiro paint.
-          try/catch total => default papel no erro (preserva a marca INEMA).
+          try/catch total => default papel no erro (preserva a marca ARCKHÉ).
           (REL = "../.." — caminho ate a pasta com assets/.)
        =================================================================== -->
   <script>
@@ -20,7 +20,7 @@
       function clone(o) { var r = {}; for (var x in o) r[x] = o[x]; return r; }
       var p = clone(DEF);
       try {
-        var raw = localStorage.getItem('inema.prefs');
+        var raw = localStorage.getItem('ARCKHÉ.prefs');
         if (raw) {
           var parsed = JSON.parse(raw);
           if (parsed && typeof parsed === 'object') {
@@ -77,8 +77,8 @@
   </script>
 
   <!-- 2) Identidade do curso + manifesto (courseId estavel + estrutura completa) -->
-  <meta name="inema-course" content="demo3" />
-  <script type="application/json" data-inema-manifest>
+  <meta name="ARCKHÉ-course" content="demo3" />
+  <script type="application/json" data-ARCKHÉ-manifest>
   {
     "course": "demo3",
     "tracks": [
@@ -109,28 +109,28 @@
   <!-- ===================== READER BAR — controles minimos ===================== -->
   <div class="reader-bar">
     <div class="reader-inner">
-      <a class="wordmark" href="https://inema.club" target="_blank" rel="noopener">INEMA<span class="dot">.</span><span class="club">CLUB</span></a>
-      <div class="reader-controls" data-inema-appearance>
-        <span class="rc-read"><span data-inema-meter="modulo:1-1"><span data-inema-meter-frac><strong>0</strong> de 7</span></span> lidas</span>
+      <a class="wordmark" href="https://ARCKHÉ AI" target="_blank" rel="noopener">ARCKHÉ<span class="dot">.</span><span class="club">CLUB</span></a>
+      <div class="reader-controls" data-ARCKHÉ-appearance>
+        <span class="rc-read"><span data-ARCKHÉ-meter="modulo:1-1"><span data-ARCKHÉ-meter-frac><strong>0</strong> de 7</span></span> lidas</span>
         <div class="rc-group" role="group" aria-label="Tema de leitura">
-          <button type="button" class="rc-btn" data-inema-set-theme="papel" aria-pressed="true">Papel</button>
-          <button type="button" class="rc-btn" data-inema-set-theme="sepia" aria-pressed="false">Sepia</button>
-          <button type="button" class="rc-btn" data-inema-set-theme="escuro" aria-pressed="false">Escuro</button>
+          <button type="button" class="rc-btn" data-ARCKHÉ-set-theme="papel" aria-pressed="true">Papel</button>
+          <button type="button" class="rc-btn" data-ARCKHÉ-set-theme="sepia" aria-pressed="false">Sepia</button>
+          <button type="button" class="rc-btn" data-ARCKHÉ-set-theme="escuro" aria-pressed="false">Escuro</button>
         </div>
         <div class="rc-group" role="group" aria-label="Fonte de leitura">
-          <button type="button" class="rc-btn" data-inema-set-font="serif" aria-pressed="true">Serif</button>
-          <button type="button" class="rc-btn" data-inema-set-font="sans" aria-pressed="false">Sans</button>
-          <button type="button" class="rc-btn" data-inema-set-font="hyperlegible" aria-pressed="false" title="Atkinson Hyperlegible — legibilidade maxima">Aa&#8633;</button>
+          <button type="button" class="rc-btn" data-ARCKHÉ-set-font="serif" aria-pressed="true">Serif</button>
+          <button type="button" class="rc-btn" data-ARCKHÉ-set-font="sans" aria-pressed="false">Sans</button>
+          <button type="button" class="rc-btn" data-ARCKHÉ-set-font="hyperlegible" aria-pressed="false" title="Atkinson Hyperlegible — legibilidade maxima">Aa&#8633;</button>
         </div>
         <div class="rc-group" role="group" aria-label="Tamanho do texto">
-          <button type="button" class="rc-btn" data-inema-set-fontscale="100" aria-pressed="true">A</button>
-          <button type="button" class="rc-btn" data-inema-set-fontscale="112" aria-pressed="false">A+</button>
-          <button type="button" class="rc-btn" data-inema-set-fontscale="125" aria-pressed="false">A++</button>
+          <button type="button" class="rc-btn" data-ARCKHÉ-set-fontscale="100" aria-pressed="true">A</button>
+          <button type="button" class="rc-btn" data-ARCKHÉ-set-fontscale="112" aria-pressed="false">A+</button>
+          <button type="button" class="rc-btn" data-ARCKHÉ-set-fontscale="125" aria-pressed="false">A++</button>
         </div>
         <div class="rc-group" role="group" aria-label="Largura da linha">
-          <button type="button" class="rc-btn" data-inema-set-linewidth="62" aria-pressed="false">Estreito</button>
-          <button type="button" class="rc-btn" data-inema-set-linewidth="66" aria-pressed="true">Medio</button>
-          <button type="button" class="rc-btn" data-inema-set-linewidth="70" aria-pressed="false">Largo</button>
+          <button type="button" class="rc-btn" data-ARCKHÉ-set-linewidth="62" aria-pressed="false">Estreito</button>
+          <button type="button" class="rc-btn" data-ARCKHÉ-set-linewidth="66" aria-pressed="true">Medio</button>
+          <button type="button" class="rc-btn" data-ARCKHÉ-set-linewidth="70" aria-pressed="false">Largo</button>
         </div>
       </div>
     </div>
@@ -145,10 +145,10 @@
       <span class="sep">&middot;</span>
       <span>Modulo <b>1.1</b> / 2</span>
       <span class="sep">&middot;</span>
-      <span data-inema-section-counter>Secao 1 de 7</span>
+      <span data-ARCKHÉ-section-counter>Secao 1 de 7</span>
       <span class="sep">&middot;</span>
-      <button type="button" data-inema-journey-open>
-        Minha jornada <span class="inema-journey-badge" data-inema-journey-badge data-count="0">0</span>
+      <button type="button" data-ARCKHÉ-journey-open>
+        Minha jornada <span class="ARCKHÉ-journey-badge" data-ARCKHÉ-journey-badge data-count="0">0</span>
       </button>
     </nav>
   </header>
@@ -183,7 +183,7 @@
         </section>
 
         <!-- SUMARIO -->
-        <nav class="toc" aria-label="Sumario do modulo" data-inema-toc>
+        <nav class="toc" aria-label="Sumario do modulo" data-ARCKHÉ-toc>
           <p class="toc-head">Sumario &mdash; sete movimentos</p>
           <ol>
             <li class="current"><span class="dot-now"></span><span class="n">1</span>
@@ -199,22 +199,22 @@
 
         <!-- ============================= SECAO 1 ============================= -->
         <section id="topico-1"
-                 data-inema-topic="modulo-1-1#topico-1"
-                 data-inema-module="1-1"
-                 data-inema-track="1">
+                 data-ARCKHÉ-topic="modulo-1-1#topico-1"
+                 data-ARCKHÉ-module="1-1"
+                 data-ARCKHÉ-track="1">
           <div class="section-mark">
             <span class="where">Secao 1 de 7</span><span>&middot;</span><span>Anatomia</span>
           </div>
           <h2 class="head"><span class="num">1.</span>Veja a anatomia de um prompt</h2>
 
           <div class="prose">
-            <p class="lede dropcap" data-inema-block="m1-1-t1-p1">Um prompt nao e uma pergunta solta jogada na
+            <p class="lede dropcap" data-ARCKHÉ-block="m1-1-t1-p1">Um prompt nao e uma pergunta solta jogada na
               caixa de texto: e um pequeno <span class="sidenote-ref">1</span>briefing. Quando o resultado vem
               morno, generico ou simplesmente errado, quase nunca o problema e a redacao &mdash; e uma <em>peca
               ausente</em>. Falta uma das informacoes que o modelo precisava para decidir o que fazer, e ele
               preencheu o buraco com a media de tudo que ja viu.</p>
 
-            <p data-inema-block="m1-1-t1-p2">Pense no que acontece do outro lado. O modelo recebe seu texto e,
+            <p data-ARCKHÉ-block="m1-1-t1-p2">Pense no que acontece do outro lado. O modelo recebe seu texto e,
               palavra apos palavra, estima qual continuacao e mais provavel dado <em>tudo</em> que voce escreveu.
               Ele nao tem acesso a sua intencao, ao seu projeto, ao seu leitor &mdash; so ao que esta na janela.
               Por isso a qualidade da saida e, antes de mais nada, uma funcao de quanto do
@@ -223,7 +223,7 @@
 
             <h3 class="sub">As cinco pecas que um pedido completo carrega</h3>
 
-            <p data-inema-block="m1-1-t1-p3">Um prompt completo tende a carregar cinco pecas. Nao e uma formula
+            <p data-ARCKHÉ-block="m1-1-t1-p3">Um prompt completo tende a carregar cinco pecas. Nao e uma formula
               rigida &mdash; e uma lista de verificacao mental. <strong>Contexto</strong> situa o cenario e quem
               fala. <strong>Tarefa</strong> e o pedido unico e explicito. <strong>Formato</strong> diz a forma da
               resposta. <strong>Exemplos</strong> mostram, em vez de descrever. E <strong>iteracao</strong> fecha
@@ -300,7 +300,7 @@
           </figure>
 
           <div class="prose">
-            <p data-inema-block="m1-1-t1-p4">Repare na seta tracejada: a iteracao nao e um sexto passo no fim da
+            <p data-ARCKHÉ-block="m1-1-t1-p4">Repare na seta tracejada: a iteracao nao e um sexto passo no fim da
               fila, e o que devolve informacao para o comeco. Voce le a saida, descobre qual peca estava vaga e a
               recoloca no contexto. Engenharia de prompt madura e quase toda feita desse laco curto &mdash; nao
               de acertar tudo na primeira tentativa.</p>
@@ -335,22 +335,22 @@ Escreva um email de cobranca.
 
         <!-- ============================= SECAO 2 ============================= -->
         <section id="topico-2"
-                 data-inema-topic="modulo-1-1#topico-2"
-                 data-inema-module="1-1"
-                 data-inema-track="1">
+                 data-ARCKHÉ-topic="modulo-1-1#topico-2"
+                 data-ARCKHÉ-module="1-1"
+                 data-ARCKHÉ-track="1">
           <div class="section-mark">
             <span class="where">Secao 2 de 7</span><span>&middot;</span><span>Contexto e papel</span>
           </div>
           <h2 class="head"><span class="num">2.</span>Defina o papel e o contexto</h2>
 
           <div class="prose">
-            <p class="lede" data-inema-block="m1-1-t2-p1">Antes de pedir qualquer coisa, voce decide <em>de
+            <p class="lede" data-ARCKHÉ-block="m1-1-t2-p1">Antes de pedir qualquer coisa, voce decide <em>de
               onde</em> a resposta vem. Dois prompts com a mesma tarefa &mdash; "explique recursao" &mdash;
               produzem textos completamente diferentes se um diz "para uma crianca de dez anos" e o outro diz
               "para um colega que ja programa". A tarefa nao mudou. Mudou o <em>papel</em> de quem responde e o
               leitor a quem responde. Esse e o controle mais barato e mais subutilizado da engenharia de prompt.</p>
 
-            <p data-inema-block="m1-1-t2-p2">Definir um papel nao e vestir o modelo de fantasia ("voce e um
+            <p data-ARCKHÉ-block="m1-1-t2-p2">Definir um papel nao e vestir o modelo de fantasia ("voce e um
               especialista mundial"). E estreitar o espaco de respostas plausiveis: ao nomear <em>quem fala</em>
               e <em>para quem</em>, voce descarta de antemao o registro errado, o nivel de detalhe errado e os
               exemplos fora de lugar.<span class="sidenote-ref">2</span> O papel funciona porque carrega, de
@@ -358,7 +358,7 @@ Escreva um email de cobranca.
 
             <h3 class="sub">Contexto e o que muda a resposta &mdash; nada mais</h3>
 
-            <p data-inema-block="m1-1-t2-p3">A tentacao e despejar tudo o que voce sabe. Resista. Bom contexto e
+            <p data-ARCKHÉ-block="m1-1-t2-p3">A tentacao e despejar tudo o que voce sabe. Resista. Bom contexto e
               <em>seletivo</em>: contem os fatos, as restricoes e o objetivo que, se ausentes, deixariam a tarefa
               ambigua &mdash; e <em>so</em> isso. Um teste simples antes de colar um paragrafo no prompt:
               <strong>se eu apagar esta frase, a resposta certa muda?</strong> Se nao muda, ela esta disputando
@@ -399,7 +399,7 @@ Escreva um email de cobranca.
           </figure>
 
           <div class="prose">
-            <p data-inema-block="m1-1-t2-p4">O leque da esquerda e o que voce recebe quando deixa o modelo
+            <p data-ARCKHÉ-block="m1-1-t2-p4">O leque da esquerda e o que voce recebe quando deixa o modelo
               escolher o registro. O da direita e o que acontece quando voce decide por ele. Note que nao e
               "menos liberdade" &mdash; e menos <em>ambiguidade</em>. O modelo continua criativo dentro do leque
               estreito; ele so para de gastar criatividade adivinhando o que voce queria.</p>
@@ -439,21 +439,21 @@ Escreva um email de cobranca.
 
         <!-- ============================= SECAO 3 ============================= -->
         <section id="topico-3"
-                 data-inema-topic="modulo-1-1#topico-3"
-                 data-inema-module="1-1"
-                 data-inema-track="1">
+                 data-ARCKHÉ-topic="modulo-1-1#topico-3"
+                 data-ARCKHÉ-module="1-1"
+                 data-ARCKHÉ-track="1">
           <div class="section-mark">
             <span class="where">Secao 3 de 7</span><span>&middot;</span><span>A tarefa</span>
           </div>
           <h2 class="head"><span class="num">3.</span>Escreva a tarefa como um pedido unico</h2>
 
           <div class="prose">
-            <p class="lede" data-inema-block="m1-1-t3-p1">O coracao do prompt e o <em>verbo de acao</em>: resuma,
+            <p class="lede" data-ARCKHÉ-block="m1-1-t3-p1">O coracao do prompt e o <em>verbo de acao</em>: resuma,
               classifique, extraia, reescreva, compare. Quanto mais especifico o verbo, menor a chance de o
               modelo escolher uma tarefa diferente da que voce tinha em mente. "Fale sobre X" abre demais;
               "liste tres riscos de X em ate 200 palavras" fecha.<span class="sidenote-ref">3</span></p>
 
-            <p data-inema-block="m1-1-t3-p2">O erro mais comum aqui nao e escrever mal &mdash; e empilhar. Um
+            <p data-ARCKHÉ-block="m1-1-t3-p2">O erro mais comum aqui nao e escrever mal &mdash; e empilhar. Um
               paragrafo que pede "resuma, depois critique, depois sugira melhorias e ja escreva a versao final"
               forca o modelo a equilibrar quatro tarefas concorrentes numa resposta so, e nenhuma sai bem feita.
               Quando voce precisa de varias coisas, numere-as ou faca em turnos: um pedido, leia, o proximo. A
@@ -461,7 +461,7 @@ Escreva um email de cobranca.
 
             <h3 class="sub">Quantifique sempre que der</h3>
 
-            <p data-inema-block="m1-1-t3-p3">Numeros sao o jeito mais barato de fechar a tarefa: "tres riscos",
+            <p data-ARCKHÉ-block="m1-1-t3-p3">Numeros sao o jeito mais barato de fechar a tarefa: "tres riscos",
               "no maximo 200 palavras", "duas alternativas", "uma frase". Sem eles, o modelo escolhe o tamanho e
               a quantidade pela media do corpus &mdash; que raramente coincide com o que voce precisa. Um limite
               explicito tambem te poupa de cortar a resposta depois.</p>
@@ -509,21 +509,21 @@ Escreva um email de cobranca.
 
         <!-- ============================= SECAO 4 ============================= -->
         <section id="topico-4"
-                 data-inema-topic="modulo-1-1#topico-4"
-                 data-inema-module="1-1"
-                 data-inema-track="1">
+                 data-ARCKHÉ-topic="modulo-1-1#topico-4"
+                 data-ARCKHÉ-module="1-1"
+                 data-ARCKHÉ-track="1">
           <div class="section-mark">
             <span class="where">Secao 4 de 7</span><span>&middot;</span><span>Formato</span>
           </div>
           <h2 class="head"><span class="num">4.</span>Especifique o formato da resposta</h2>
 
           <div class="prose">
-            <p class="lede" data-inema-block="m1-1-t4-p1">Se a resposta vai ser lida por uma pessoa, peca
+            <p class="lede" data-ARCKHÉ-block="m1-1-t4-p1">Se a resposta vai ser lida por uma pessoa, peca
               <em>prosa curta</em>; se vai alimentar um sistema, peca <em>JSON</em> com chaves fixas. Definir o
               formato e a alavanca mais barata para tornar a saida util de imediato, sem retrabalho. O formato
               responde a uma pergunta que o modelo, sozinho, sempre chuta: "em que forma voce quer isto?"</p>
 
-            <p data-inema-block="m1-1-t4-p2">A regra que mais economiza tempo: <strong>peca o formato que o
+            <p data-ARCKHÉ-block="m1-1-t4-p2">A regra que mais economiza tempo: <strong>peca o formato que o
               destino consome.</strong> Se a saida vai para outro programa, descreva o esquema exato &mdash;
               chaves, tipos, valores permitidos &mdash; e peca "responda apenas com isto, sem texto ao redor".
               Cada frase de cortesia que o modelo adiciona ("Claro! Aqui esta...") vira um bug a jusante quando
@@ -553,7 +553,7 @@ Escreva um email de cobranca.
           </figure>
 
           <div class="prose">
-            <p data-inema-block="m1-1-t4-p3">Veja a diferenca entre deixar a forma em aberto e fixar o esquema:</p>
+            <p data-ARCKHÉ-block="m1-1-t4-p3">Veja a diferenca entre deixar a forma em aberto e fixar o esquema:</p>
             <div class="codeblock"><span class="c"># Aberto — o modelo escolhe a forma (e adiciona cortesia)</span>
 Analise o sentimento deste comentario.
 
@@ -578,29 +578,29 @@ Analise o sentimento deste comentario.
 
         <!-- ============================= SECAO 5 ============================= -->
         <section id="topico-5"
-                 data-inema-topic="modulo-1-1#topico-5"
-                 data-inema-module="1-1"
-                 data-inema-track="1">
+                 data-ARCKHÉ-topic="modulo-1-1#topico-5"
+                 data-ARCKHÉ-module="1-1"
+                 data-ARCKHÉ-track="1">
           <div class="section-mark">
             <span class="where">Secao 5 de 7</span><span>&middot;</span><span>Exemplos</span>
           </div>
           <h2 class="head"><span class="num">5.</span>Ensine com poucos exemplos</h2>
 
           <div class="prose">
-            <p class="lede" data-inema-block="m1-1-t5-p1">Mostrar um ou dois <em>exemplos resolvidos</em>
+            <p class="lede" data-ARCKHÉ-block="m1-1-t5-p1">Mostrar um ou dois <em>exemplos resolvidos</em>
               (few-shot) ensina o padrao melhor do que paragrafos de instrucao. O modelo aprende o formato, o tom
               e o nivel de detalhe imitando a demonstracao &mdash; e exemplos costumam ser mais curtos do que
               descrever todas as regras em palavras. Quando voce nao consegue <em>explicar</em> uma preferencia
               de estilo, muitas vezes consegue <em>mostra-la</em>.</p>
 
-            <p data-inema-block="m1-1-t5-p2">Os exemplos carregam o que a instrucao deixa implicito. Se os seus
+            <p data-ARCKHÉ-block="m1-1-t5-p2">Os exemplos carregam o que a instrucao deixa implicito. Se os seus
               pares de entrada e saida sao curtos, diretos e no tom certo, a nova entrada herda exatamente isso.
               Por isso vale escolher exemplos que sejam <em>tipicos</em> do caso real &mdash; e nao os mais
               faceis &mdash; e cobrir ao menos um caso de borda quando ele importa.<span class="sidenote-ref">5</span></p>
 
             <h3 class="sub">Quanto e suficiente?</h3>
 
-            <p data-inema-block="m1-1-t5-p3">Para a maioria das tarefas de classificacao e formatacao,
+            <p data-ARCKHÉ-block="m1-1-t5-p3">Para a maioria das tarefas de classificacao e formatacao,
               <strong>dois a cinco exemplos</strong> ja capturam o padrao. Acrescentar mais raramente ajuda e
               gasta a janela de contexto &mdash; comece pequeno e so adicione um exemplo quando ele corrigir um
               erro que voce viu de fato na saida.</p>
@@ -651,21 +651,21 @@ Analise o sentimento deste comentario.
 
         <!-- ============================= SECAO 6 ============================= -->
         <section id="topico-6"
-                 data-inema-topic="modulo-1-1#topico-6"
-                 data-inema-module="1-1"
-                 data-inema-track="1">
+                 data-ARCKHÉ-topic="modulo-1-1#topico-6"
+                 data-ARCKHÉ-module="1-1"
+                 data-ARCKHÉ-track="1">
           <div class="section-mark">
             <span class="where">Secao 6 de 7</span><span>&middot;</span><span>Iteracao</span>
           </div>
           <h2 class="head"><span class="num">6.</span>Itere lendo a saida</h2>
 
           <div class="prose">
-            <p class="lede" data-inema-block="m1-1-t6-p1">O primeiro resultado raramente e o final &mdash; e tudo
+            <p class="lede" data-ARCKHÉ-block="m1-1-t6-p1">O primeiro resultado raramente e o final &mdash; e tudo
               bem. A habilidade que separa quem usa bem de quem se frustra nao e acertar de primeira: e <em>ler a
               saida como diagnostico</em>. Cada resposta imperfeita aponta, com precisao, qual peca do briefing
               estava vaga. Voce nao reescreve tudo; voce conserta a peca e tenta de novo.</p>
 
-            <p data-inema-block="m1-1-t6-p2">Ha uma pergunta unica que destrava quase todo caso ruim:
+            <p data-ARCKHÉ-block="m1-1-t6-p2">Ha uma pergunta unica que destrava quase todo caso ruim:
               <strong>o que, na minha saida, eu nao pedi explicitamente?</strong> Se a resposta veio longa
               demais, faltou um limite de tamanho. Se veio no tom errado, faltou papel ou leitor. Se inventou um
               fato, faltou restringir as fontes ou pedir verificacao. O defeito da saida e um mapa que aponta de
@@ -673,7 +673,7 @@ Analise o sentimento deste comentario.
 
             <h3 class="sub">Mude uma coisa de cada vez</h3>
 
-            <p data-inema-block="m1-1-t6-p3">Quando voce altera tres coisas no prompt entre uma tentativa e outra
+            <p data-ARCKHÉ-block="m1-1-t6-p3">Quando voce altera tres coisas no prompt entre uma tentativa e outra
               e a saida melhora, voce nao sabe qual delas funcionou &mdash; e nao consegue repetir o acerto. Trate
               cada iteracao como um pequeno experimento: mude uma variavel, leia o efeito, decida. E mais lento por
               tentativa, porem muito mais rapido ate o resultado estavel.</p>
@@ -718,21 +718,21 @@ Analise o sentimento deste comentario.
 
         <!-- ============================= SECAO 7 ============================= -->
         <section id="topico-7"
-                 data-inema-topic="modulo-1-1#topico-7"
-                 data-inema-module="1-1"
-                 data-inema-track="1">
+                 data-ARCKHÉ-topic="modulo-1-1#topico-7"
+                 data-ARCKHÉ-module="1-1"
+                 data-ARCKHÉ-track="1">
           <div class="section-mark">
             <span class="where">Secao 7 de 7</span><span>&middot;</span><span>Checklist</span>
           </div>
           <h2 class="head"><span class="num">7.</span>Monte seu checklist de revisao</h2>
 
           <div class="prose">
-            <p class="lede" data-inema-block="m1-1-t7-p1">Tudo o que vimos cabe numa lista curta que voce passa
+            <p class="lede" data-ARCKHÉ-block="m1-1-t7-p1">Tudo o que vimos cabe numa lista curta que voce passa
               por cima de qualquer prompt antes de envia-lo &mdash; e de novo quando a saida desaponta. Nao e
               burocracia: e o mesmo laco da Secao 6, so que <em>antecipado</em>. A maioria dos defeitos some
               quando voce confere as cinco pecas uma vez, na ordem.</p>
 
-            <p data-inema-block="m1-1-t7-p2">Use a lista nas duas direcoes. <strong>Antes</strong> de enviar, ela
+            <p data-ARCKHÉ-block="m1-1-t7-p2">Use a lista nas duas direcoes. <strong>Antes</strong> de enviar, ela
               evita o resultado morno. <strong>Depois</strong>, ela vira diagnostico: o defeito na saida aponta a
               linha exata que ficou vaga. Com o tempo, voce para de consultar a lista de forma consciente &mdash;
               ela vira o jeito como voce le um pedido.<span class="sidenote-ref">7</span></p>
@@ -780,7 +780,7 @@ Analise o sentimento deste comentario.
           </figure>
 
           <div class="prose">
-            <p data-inema-block="m1-1-t7-p3">Guarde este modulo como uma unica frase: <em>um prompt e um briefing,
+            <p data-ARCKHÉ-block="m1-1-t7-p3">Guarde este modulo como uma unica frase: <em>um prompt e um briefing,
               e quase todo resultado ruim e uma peca ausente que a saida te ajuda a encontrar.</em> O proximo
               modulo pega esse laco e o aplica a tarefas reais, da ideia solta ate um prompt que voce coloca em
               producao.</p>
@@ -835,28 +835,28 @@ Analise o sentimento deste comentario.
         <section class="journey" aria-label="Minha jornada — progresso consolidado">
           <div class="journey-top">
             <h2><span class="ico">&#10087;</span> Minha jornada</h2>
-            <button class="journey-cta" type="button" data-inema-journey-open>Abrir caderno &rarr;</button>
+            <button class="journey-cta" type="button" data-ARCKHÉ-journey-open>Abrir caderno &rarr;</button>
           </div>
           <div class="journey-body">
             <div class="jstat">
               <div class="k">Neste modulo</div>
-              <div class="v" data-inema-meter="modulo:1-1">
-                <span data-inema-meter-frac><strong>0</strong> de 7</span> <span class="nm">secoes lidas</span>
-                <div class="progress-line"><span class="progress-line__fill" data-inema-meter-fill></span></div>
+              <div class="v" data-ARCKHÉ-meter="modulo:1-1">
+                <span data-ARCKHÉ-meter-frac><strong>0</strong> de 7</span> <span class="nm">secoes lidas</span>
+                <div class="progress-line"><span class="progress-line__fill" data-ARCKHÉ-meter-fill></span></div>
               </div>
             </div>
             <div class="jstat">
               <div class="k">Na trilha 1</div>
-              <div class="v" data-inema-meter="trilha:1">
-                <span data-inema-meter-frac><strong>0</strong> de 14</span> <span class="nm">topicos</span>
-                <div class="progress-line"><span class="progress-line__fill" data-inema-meter-fill></span></div>
+              <div class="v" data-ARCKHÉ-meter="trilha:1">
+                <span data-ARCKHÉ-meter-frac><strong>0</strong> de 14</span> <span class="nm">topicos</span>
+                <div class="progress-line"><span class="progress-line__fill" data-ARCKHÉ-meter-fill></span></div>
               </div>
             </div>
             <div class="jstat">
               <div class="k">No curso</div>
-              <div class="v" data-inema-meter="curso">
-                <span data-inema-meter-frac><strong>0</strong> de 14</span> <span class="nm">percorrido</span>
-                <div class="progress-line"><span class="progress-line__fill" data-inema-meter-fill></span></div>
+              <div class="v" data-ARCKHÉ-meter="curso">
+                <span data-ARCKHÉ-meter-frac><strong>0</strong> de 14</span> <span class="nm">percorrido</span>
+                <div class="progress-line"><span class="progress-line__fill" data-ARCKHÉ-meter-fill></span></div>
               </div>
             </div>
           </div>
@@ -887,7 +887,7 @@ Analise o sentimento deste comentario.
         </nav>
 
         <!-- ---- SECAO 1: painel do aluno (vazio; learn.js preenche) + sidenotes de autor ---- -->
-        <aside data-inema-rail="modulo-1-1#topico-1"></aside>
+        <aside data-ARCKHÉ-rail="modulo-1-1#topico-1"></aside>
 
         <aside class="sidenote" data-kind="definicao">
           <div class="tag">Definicao</div>
@@ -907,7 +907,7 @@ Analise o sentimento deste comentario.
         </aside>
 
         <!-- ---- SECAO 2 ---- -->
-        <aside data-inema-rail="modulo-1-1#topico-2"></aside>
+        <aside data-ARCKHÉ-rail="modulo-1-1#topico-2"></aside>
 
         <aside class="sidenote" data-kind="definicao">
           <div class="tag">Definicao</div>
@@ -921,7 +921,7 @@ Analise o sentimento deste comentario.
         </aside>
 
         <!-- ---- SECAO 3 ---- -->
-        <aside data-inema-rail="modulo-1-1#topico-3"></aside>
+        <aside data-ARCKHÉ-rail="modulo-1-1#topico-3"></aside>
 
         <aside class="sidenote" data-kind="fundo">
           <div class="tag">Indo mais fundo</div>
@@ -935,7 +935,7 @@ Analise o sentimento deste comentario.
         </aside>
 
         <!-- ---- SECAO 4 ---- -->
-        <aside data-inema-rail="modulo-1-1#topico-4"></aside>
+        <aside data-ARCKHÉ-rail="modulo-1-1#topico-4"></aside>
 
         <aside class="sidenote" data-kind="definicao">
           <div class="tag">Definicao</div>
@@ -949,7 +949,7 @@ Analise o sentimento deste comentario.
         </aside>
 
         <!-- ---- SECAO 5 ---- -->
-        <aside data-inema-rail="modulo-1-1#topico-5"></aside>
+        <aside data-ARCKHÉ-rail="modulo-1-1#topico-5"></aside>
 
         <aside class="sidenote" data-kind="definicao">
           <div class="tag">Definicao</div>
@@ -963,7 +963,7 @@ Analise o sentimento deste comentario.
         </aside>
 
         <!-- ---- SECAO 6 ---- -->
-        <aside data-inema-rail="modulo-1-1#topico-6"></aside>
+        <aside data-ARCKHÉ-rail="modulo-1-1#topico-6"></aside>
 
         <aside class="sidenote" data-kind="definicao">
           <div class="tag">Definicao</div>
@@ -977,7 +977,7 @@ Analise o sentimento deste comentario.
         </aside>
 
         <!-- ---- SECAO 7 ---- -->
-        <aside data-inema-rail="modulo-1-1#topico-7"></aside>
+        <aside data-ARCKHÉ-rail="modulo-1-1#topico-7"></aside>
 
         <aside class="sidenote" data-kind="fundo">
           <div class="tag">Indo mais fundo</div>
@@ -997,7 +997,7 @@ Analise o sentimento deste comentario.
 
   <!-- COLOFAO -->
   <footer class="colophon">
-    <span>INEMA.CLUB &middot; Caderno do aluno</span>
+    <span>ARCKHÉ AI &middot; Caderno do aluno</span>
     <span class="pg">Modulo 1.1 &mdash; folio i</span>
     <span>Composto em Spectral &amp; Source Serif 4</span>
   </footer>
@@ -1008,8 +1008,8 @@ Analise o sentimento deste comentario.
        =================================================================== -->
   <script src="../../assets/learn.js"></script>
   <script>
-    if (window.INEMA && typeof window.INEMA.init === 'function') {
-      window.INEMA.init();
+    if (window.ARCKHÉ && typeof window.ARCKHÉ.init === 'function') {
+      window.ARCKHÉ.init();
     }
   </script>
 </body>

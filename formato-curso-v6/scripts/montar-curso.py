@@ -110,7 +110,7 @@ if com_glossario and glos:
 {chr(10).join(itens)}
     </dl>
   </div>
-  <footer class="pe">{c.get("rodape","INEMA.CLUB PRO")}</footer>
+  <footer class="pe">{c.get("rodape","ARCKHÉ AI PRO")}</footer>
 </section>
 
 '''
@@ -125,7 +125,7 @@ out = f'''<!doctype html>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="curso" content="{c["id"]}">
 <meta name="formato" content="formato-curso-v6">{meta_extra}
-<title>{html.escape(c["titulo"])} · INEMA.CLUB PRO</title>
+<title>{html.escape(c["titulo"])} · ARCKHÉ AI PRO</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400;1,6..72,500&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/aula.css">
@@ -133,7 +133,7 @@ out = f'''<!doctype html>
 </head>
 <body>
 <header class="bar"><div class="bar-inner">
-  <span class="brand"><a class="mark" href="https://inema.club" target="_blank" rel="noopener">INEMA.CLUB</a><a class="pro" href="https://inema.pro" target="_blank" rel="noopener">PRO</a><a class="course" href="{c.get("landing","landing.html")}">{html.escape(c.get("curso_curto",c["titulo"]))}</a></span>
+  <span class="brand"><a class="mark" href="https://ARCKHÉ AI" target="_blank" rel="noopener">ARCKHÉ AI</a><a class="pro" href="https://ARCKHÉ.pro" target="_blank" rel="noopener">PRO</a><a class="course" href="{c.get("landing","landing.html")}">{html.escape(c.get("curso_curto",c["titulo"]))}</a></span>
   <a class="btn back" href="#trilha" hidden>← <span class="t">trilha</span></a>
   <button class="btn" id="revbtn" hidden>revisar</button>
   <button class="btn" id="prefsbtn" aria-label="Tamanho da letra e tema">Aa</button>
@@ -152,7 +152,7 @@ out = f'''<!doctype html>
     <a class="continuar" href="#aula-1"></a>
 {lista_aulas()}{gl_link}
   </div>
-  <footer class="pe">{c.get("rodape","INEMA.CLUB PRO")}</footer>
+  <footer class="pe">{c.get("rodape","ARCKHÉ AI PRO")}</footer>
 </section>
 
 {gl_view}{chr(10).join(corpos)}

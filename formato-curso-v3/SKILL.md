@@ -1,10 +1,10 @@
 ---
 name: formato-curso-v3
 disable-model-invocation: true
-description: curso INEMA v3 — pagina de LEITURA editorial, papel quente + serif + 1 acento azul-ardosia, profundidade na MARGEM via sidenotes, camada de aprendizagem minima, self-contained; rompe com o dark-ambar do v1/v2. Use SEMPRE que o usuario pedir para criar, editar ou revisar paginas HTML de curso no estilo v3 / editorial / reading-mode — landing, index de trilha, ou pagina de aula/modulo — e tambem ao mencionar sidenotes na margem, "indo mais fundo", marcar lido/duvida/nota na margem, "minha jornada", temas papel/sepia/escuro, ou quando disser "formato de curso v3", "reading-mode", "leitura editorial". Acione tambem quando o usuario quiser romper com o dark premium ambar/ciano do v1/v2 e ir para a pagina de leitura calma.
+description: curso ARCKHÉ v3 — pagina de LEITURA editorial, papel quente + serif + 1 acento azul-ardosia, profundidade na MARGEM via sidenotes, camada de aprendizagem minima, self-contained; rompe com o dark-ambar do v1/v2. Use SEMPRE que o usuario pedir para criar, editar ou revisar paginas HTML de curso no estilo v3 / editorial / reading-mode — landing, index de trilha, ou pagina de aula/modulo — e tambem ao mencionar sidenotes na margem, "indo mais fundo", marcar lido/duvida/nota na margem, "minha jornada", temas papel/sepia/escuro, ou quando disser "formato de curso v3", "reading-mode", "leitura editorial". Acione tambem quando o usuario quiser romper com o dark premium ambar/ciano do v1/v2 e ir para a pagina de leitura calma.
 ---
 
-# Formato Curso v3 — INEMA (pagina de leitura editorial)
+# Formato Curso v3 — ARCKHÉ (pagina de leitura editorial)
 
 A **v3 rompe com o v1/v2** (dark premium ambar/ciano, Inter, dashboard de curso com 3 barras de progresso). A pagina de aula agora **abre parecendo um reader-mode** (Safari Reader / Gwern / Tufte): **papel quente** (nunca `#fff`/`#000`), **serif no corpo** (Source Serif 4) + display serif (Spectral), **um unico acento de tinta** azul-ardosia (`#2C5282`) reservado a estados, e a **profundidade desce para a MARGEM** (sidenotes a la Tufte, CSS puro) ou para `<details>` "Indo mais fundo". A camada de aprendizagem e **minima e calma** (marcar lido, duvida e nota ancoradas na margem, marcador de percurso silencioso "N de M", zero gamificacao). Tese: **simplicidade radical no layout + profundidade no conteudo**.
 
@@ -12,7 +12,7 @@ Tudo continua **self-contained**: 1 `.html` por pagina, Google Fonts via CDN, `l
 
 ## Referencia obrigatoria
 
-**SEMPRE leia `/home/nmaldaner/projetos/formato-curso-inema/V3-DESIGN.md` antes de criar ou editar qualquer pagina v3.** Ele e a fonte-de-verdade do design language: tese e os 5 principios, tokens em OKLCH (papel/tinta/acento), tipografia (numeros duros de Butterick), o modelo de leitura+profundidade (sidenotes / `<details>` / def inline), a camada de aprendizagem minima, a tabela "v2 -> v3" e o checklist de aceitacao. Esta skill resume o **contrato de markup**; o V3-DESIGN.md tem o **porque** e a calibracao.
+**SEMPRE leia `/home/nmaldaner/projetos/formato-curso-ARCKHÉ/V3-DESIGN.md` antes de criar ou editar qualquer pagina v3.** Ele e a fonte-de-verdade do design language: tese e os 5 principios, tokens em OKLCH (papel/tinta/acento), tipografia (numeros duros de Butterick), o modelo de leitura+profundidade (sidenotes / `<details>` / def inline), a camada de aprendizagem minima, a tabela "v2 -> v3" e o checklist de aceitacao. Esta skill resume o **contrato de markup**; o V3-DESIGN.md tem o **porque** e a calibracao.
 
 ## Assets da camada (assets/) e como plugar
 
@@ -21,16 +21,16 @@ A camada v3 vive em **dois assets** + **dois snippets** copia-e-cola (em `assets
 | Arquivo / snippet | O que e | Onde vai |
 |---|---|---|
 | **`assets/learn.css`** | Tokens OKLCH + 3 temas (`data-theme`: papel/sepia/escuro), prefs de leitura (`data-font`/`data-line-width`/`data-leading`/`data-fontscale`), layout `.reading` + `.margin-rail`, `.sidenote`/`.sidenote-ref`, `.go-deeper`, `.progress-line`, `mark.hl`, painel do aluno, acento FIXO `#2C5282`. | No `<head>`, via `<link rel="stylesheet" href="REL/assets/learn.css">`, **depois** do anti-FOUC e das fontes. |
-| **`assets/learn.js`** | IIFE `window.INEMA`. Feature-detect por presenca de `data-inema-*`: monta o painel do aluno de cada secao (`<aside data-inema-rail>`), re-aplica grifos, hidrata medidores "N de M" + `.progress-line`, monta jornada e seletor de aparencia. Idempotente. | `<script src="REL/assets/learn.js">` imediatamente antes de `</body>`. |
-| **Snippet anti-FOUC** (`assets/inema-head-snippet.html`) | Script **bloqueante** minusculo, com try/catch: le `inema.prefs` (global, cross-curso) e seta `data-theme` + `color-scheme` + `--measure`/`--leading`/`--fontscale` + `data-font`/`--font-disp`/`--font-body` ANTES do primeiro paint. Default `papel` no erro. | **PRIMEIRO no `<head>`**, ACIMA de fontes e do `learn.css`. |
-| **Snippet init** (`assets/inema-init-snippet.html`) | `learn.js` + `INEMA.init()` (probe de storage, le `<meta name="inema-course">`, monta tudo). | No FIM da pagina, antes de `</body>`. |
+| **`assets/learn.js`** | IIFE `window.ARCKHÉ`. Feature-detect por presenca de `data-ARCKHÉ-*`: monta o painel do aluno de cada secao (`<aside data-ARCKHÉ-rail>`), re-aplica grifos, hidrata medidores "N de M" + `.progress-line`, monta jornada e seletor de aparencia. Idempotente. | `<script src="REL/assets/learn.js">` imediatamente antes de `</body>`. |
+| **Snippet anti-FOUC** (`assets/ARCKHÉ-head-snippet.html`) | Script **bloqueante** minusculo, com try/catch: le `ARCKHÉ.prefs` (global, cross-curso) e seta `data-theme` + `color-scheme` + `--measure`/`--leading`/`--fontscale` + `data-font`/`--font-disp`/`--font-body` ANTES do primeiro paint. Default `papel` no erro. | **PRIMEIRO no `<head>`**, ACIMA de fontes e do `learn.css`. |
+| **Snippet init** (`assets/ARCKHÉ-init-snippet.html`) | `learn.js` + `ARCKHÉ.init()` (probe de storage, le `<meta name="ARCKHÉ-course">`, monta tudo). | No FIM da pagina, antes de `</body>`. |
 
 **Regra de ouro de ordem:**
 1. **Anti-FOUC PRIMEIRO** no `<head>` (mata o flash de tema a cada navegacao; default `papel`).
 2. **Fontes** (Spectral + Source Serif 4 + IBM Plex Mono via Google Fonts CDN).
 3. **`learn.css`** no `<head>`, depois das fontes.
 4. **`learn.js`** antes de `</body>`.
-5. **`INEMA.init()`** por ultimo (no snippet init).
+5. **`ARCKHÉ.init()`** por ultimo (no snippet init).
 
 Troque `REL` pelo caminho relativo da pasta `assets` (`.`, `..`, `../..`). Para `file://` 100% offline, pode colar `learn.css`/`learn.js` inline (mantendo o padrao copia-e-cola); o anti-FOUC e o init sao sempre inline. **Diferenca-chave vs v2:** v3 e **CSS proprio, NAO Tailwind**, e **NAO usa `.dark`** — o eixo de tema mora inteiro em `data-theme`. O acento e **fixo no CSS** (`#2C5282`); nao ha preferencia de acento.
 
@@ -39,11 +39,11 @@ Troque `REL` pelo caminho relativo da pasta `assets` (`.`, `..`, `../..`). Para 
 O `learn.css` e o `learn.js` so reconhecem estes atributos/classes. Mudar nomes quebra o estado e o layout. Tudo abaixo bate com o que esta nos assets reais.
 
 ### Identidade e manifesto (em TODA pagina)
-- `<meta name="inema-course" content="demo3">` no `<head>` — courseId estavel.
-- `<script type="application/json" data-inema-manifest>{course, tracks[].modules[]{id,title,topics,href}}</script>` — estrutura COMPLETA do curso, no `<head>` de **toda** pagina. O progresso cross-pagina ("N de M" do curso/trilha, "minha jornada") agrega o read-map sobre o `total` do manifesto; `topics` deve bater com os `data-inema-topic` reais de cada modulo. O manifesto e a fonte-de-verdade da **hierarquia** curso -> trilhas -> modulos -> secoes; a landing lista as **trilhas**, o indice da trilha lista os **modulos**, e a aula lista os modulos irmaos (ver "Nesta trilha").
+- `<meta name="ARCKHÉ-course" content="demo3">` no `<head>` — courseId estavel.
+- `<script type="application/json" data-ARCKHÉ-manifest>{course, tracks[].modules[]{id,title,topics,href}}</script>` — estrutura COMPLETA do curso, no `<head>` de **toda** pagina. O progresso cross-pagina ("N de M" do curso/trilha, "minha jornada") agrega o read-map sobre o `total` do manifesto; `topics` deve bater com os `data-ARCKHÉ-topic` reais de cada modulo. O manifesto e a fonte-de-verdade da **hierarquia** curso -> trilhas -> modulos -> secoes; a landing lista as **trilhas**, o indice da trilha lista os **modulos**, e a aula lista os modulos irmaos (ver "Nesta trilha").
 
 ### Barra de leitura + marca (em TODA pagina)
-- Topo fixo `.reader-bar` com o **wordmark** `INEMA.CLUB` + os controles de aparencia (`data-inema-appearance`). O wordmark **linka o portal externo** em **todas** as paginas (igual ao v2): `<a class="wordmark" href="https://inema.club" target="_blank" rel="noopener">`.
+- Topo fixo `.reader-bar` com o **wordmark** `ARCKHÉ AI` + os controles de aparencia (`data-ARCKHÉ-appearance`). O wordmark **linka o portal externo** em **todas** as paginas (igual ao v2): `<a class="wordmark" href="https://ARCKHÉ AI" target="_blank" rel="noopener">`.
 - O **"voltar ao curso"** mora no **breadcrumb** `.wayfind` do `.masthead` (link para o `index.html` do curso), **nao** no wordmark.
 
 ### Layout: coluna de leitura + trilho de margem
@@ -54,11 +54,11 @@ O `learn.css` e o `learn.js` so reconhecem estes atributos/classes. Mudar nomes 
 Cada secao:
 ```html
 <section id="topico-N"
-         data-inema-topic="modulo-1-1#topico-N"
-         data-inema-module="1-1"
-         data-inema-track="1"> … </section>
+         data-ARCKHÉ-topic="modulo-1-1#topico-N"
+         data-ARCKHÉ-module="1-1"
+         data-ARCKHÉ-track="1"> … </section>
 ```
-`data-inema-topic` e o id estavel de progresso/notas — mudar o layout visual NAO pode quebrar o estado.
+`data-ARCKHÉ-topic` e o id estavel de progresso/notas — mudar o layout visual NAO pode quebrar o estado.
 
 ### Sidenotes de AUTOR (estaticas, CSS-only, na margem)
 Profundidade editorial escrita por quem fez a aula, sem JS:
@@ -87,29 +87,29 @@ Toda pagina de aula lista, no **topo do trilho de margem**, os modulos irmaos da
 ### Painel do ALUNO por secao (dinamico, montado pelo learn.js)
 Cada secao tem, no trilho, um ponto de montagem:
 ```html
-<aside data-inema-rail="modulo-1-1#topico-N"></aside>
+<aside data-ARCKHÉ-rail="modulo-1-1#topico-N"></aside>
 ```
 O `learn.js` renderiza ali:
-- botao **"marcar como lida"** — `data-inema-read-toggle` (com `aria-pressed`);
-- botao **"tenho uma duvida"** — `data-inema-doubt-toggle`;
+- botao **"marcar como lida"** — `data-ARCKHÉ-read-toggle` (com `aria-pressed`);
+- botao **"tenho uma duvida"** — `data-ARCKHÉ-doubt-toggle`;
 - a **lista de grifos/notas do aluno** daquela secao.
 
 ### Bloco anotavel + grifo do aluno
-- Bloco que aceita grifo/nota: `data-inema-block="…"`.
-- Grifo cria `<mark class="hl" data-hl="…">`; a selecao dispara um **popover minimo** (`data-inema-selpop`) OU acao na margem. O `quote` e sempre gravado (re-ancora ao reabrir).
+- Bloco que aceita grifo/nota: `data-ARCKHÉ-block="…"`.
+- Grifo cria `<mark class="hl" data-hl="…">`; a selecao dispara um **popover minimo** (`data-ARCKHÉ-selpop`) OU acao na margem. O `quote` e sempre gravado (re-ancora ao reabrir).
 
 ### Progresso — silencioso (mata as 3 barras)
 - **NAO** ha 3 barras lado a lado, nem anel, nem percentual gritante.
 - Um marcador discreto **"N de M"** + uma barra fina:
 ```html
-<span data-inema-meter="curso"></span>
-<div class="progress-line" data-inema-meter="trilha:1"></div>
-<div class="progress-line" data-inema-meter="modulo:1-1"></div>
+<span data-ARCKHÉ-meter="curso"></span>
+<div class="progress-line" data-ARCKHÉ-meter="trilha:1"></div>
+<div class="progress-line" data-ARCKHÉ-meter="modulo:1-1"></div>
 ```
 Escopos aceitos: `curso`, `trilha:N`, `modulo:X-Y`. **Um** marcador discreto por tela.
 
 ### "Minha jornada" (painel consolidado)
-- Gatilho `data-inema-journey-open`; abre painel acessivel (role=dialog) consolidando lidos / duvidas / notas. So leitura do estado.
+- Gatilho `data-ARCKHÉ-journey-open`; abre painel acessivel (role=dialog) consolidando lidos / duvidas / notas. So leitura do estado.
 
 ### Divulgacao progressiva
 - `<details class="go-deeper"><summary>Indo mais fundo (opcional)</summary>…</details>` para edge cases, prova, derivacao, referencia densa. Nativo, sem JS. Maximo 1-2 niveis.
@@ -131,9 +131,9 @@ Escopos aceitos: `curso`, `trilha:N`, `modulo:X-Y`. **Um** marcador discreto por
 | 6 | **UMA ideia / UMA figura por secao** | Cada secao isola 1 conceito + no maximo 1 figura; sequencia visual->intuicao->formal | Varias ideias e figuras empilhadas; muro de texto |
 | 7 | **Progressive disclosure** | Caminho-feliz no corpo; o resto em camada sob demanda (sidenote / `<details>` / def inline) | Tudo na dobra; essencial escondido atras de clique |
 | 8 | **NUNCA dashboard / 3-barras / cards-na-licao / gamificacao** | "N de M" + barra fina unica; cards so em catalogo/indice; recall por "pare e preveja" + knowledge check | 3 barras lado a lado, aneis, chips de stat; cards coloridos dentro da licao; streak/XP/badge/leaderboard/confete |
-| 9 | **Manifesto em TODA pagina** | `<script data-inema-manifest>` + `<meta name="inema-course">` no `<head>` de cada pagina | Manifesto so em algumas paginas; `topics` divergindo do DOM |
+| 9 | **Manifesto em TODA pagina** | `<script data-ARCKHÉ-manifest>` + `<meta name="ARCKHÉ-course">` no `<head>` de cada pagina | Manifesto so em algumas paginas; `topics` divergindo do DOM |
 | 10 | **Conteudo integral** | Cada modulo do manifesto tem **pagina real e completa** (aula escrita ponta a ponta), cada secao com texto integral | Placeholder/lorem/"resumo", esqueleto, modulo listado sem pagina, secao vazia |
-| 11 | **Marca + navegacao de trilha** | Wordmark `INEMA.CLUB` -> portal externo (`https://inema.club`) em toda pagina; toda aula com o mapa `.rail-modules` na margem | Wordmark apontando so pro index do curso; aula sem a lista dos modulos irmaos |
+| 11 | **Marca + navegacao de trilha** | Wordmark `ARCKHÉ AI` -> portal externo (`https://ARCKHÉ AI`) em toda pagina; toda aula com o mapa `.rail-modules` na margem | Wordmark apontando so pro index do curso; aula sem a lista dos modulos irmaos |
 
 ## EVITAR (anexo do V3-DESIGN.md — anti-padrao "curso online")
 
@@ -141,11 +141,11 @@ Dashboard de XP / streak / ranking · mascote / confete / badges · cards colori
 
 ## Fluxo de trabalho
 
-1. **Ler `/home/nmaldaner/projetos/formato-curso-inema/V3-DESIGN.md`** (sempre, antes de tudo).
+1. **Ler `/home/nmaldaner/projetos/formato-curso-ARCKHÉ/V3-DESIGN.md`** (sempre, antes de tudo).
 2. **Entender o que sera criado:** landing/index, index de trilha (cards = catalogo, OK), ou pagina de aula (reading-mode, sem cards na licao). Identificar trilha (define so o **hue** do acento, croma baixo — nao banha a pagina) e quantas secoes.
-3. **Montar o esqueleto** com os snippets em ordem: anti-FOUC -> fontes -> `learn.css` -> conteudo -> `learn.js` -> `INEMA.init()`. Incluir `<meta name="inema-course">` + `data-inema-manifest` no `<head>`.
-4. **Escrever o conteudo** seguindo o contrato: coluna `.reading` (62-70ch) + `.margin-rail`; cada `<section>` com os `data-inema-topic/-module/-track`; uma ideia + no maximo uma figura por secao (sequencia fenomeno -> intuicao -> formal, o formal descendo para sidenote/`<details>`); cada secao com `<aside data-inema-rail>`; sidenotes de autor onde couber; `<details class="go-deeper">` para o aprofundamento.
-5. **Progresso e jornada:** marcador "N de M" + `.progress-line` (sem 3 barras); gatilho `data-inema-journey-open`.
+3. **Montar o esqueleto** com os snippets em ordem: anti-FOUC -> fontes -> `learn.css` -> conteudo -> `learn.js` -> `ARCKHÉ.init()`. Incluir `<meta name="ARCKHÉ-course">` + `data-ARCKHÉ-manifest` no `<head>`.
+4. **Escrever o conteudo** seguindo o contrato: coluna `.reading` (62-70ch) + `.margin-rail`; cada `<section>` com os `data-ARCKHÉ-topic/-module/-track`; uma ideia + no maximo uma figura por secao (sequencia fenomeno -> intuicao -> formal, o formal descendo para sidenote/`<details>`); cada secao com `<aside data-ARCKHÉ-rail>`; sidenotes de autor onde couber; `<details class="go-deeper">` para o aprofundamento.
+5. **Progresso e jornada:** marcador "N de M" + `.progress-line` (sem 3 barras); gatilho `data-ARCKHÉ-journey-open`.
 6. **Verificar contra o checklist de aceitacao do V3-DESIGN.md** (sec. 6) e as REGRAS CRITICAS acima — em especial: papel nunca `#fff`/`#000`, serif no corpo, 1 acento, sidenotes na margem, profundidade sempre em camada, zero gamificacao, le perfeita com JS desligado, 1 `.html` que abre em `file://`.
 
 ## Estrutura de arquivos
@@ -163,17 +163,17 @@ Dashboard de XP / streak / ranking · mascote / confete / badges · cards colori
         └── …
 ```
 
-Toda pagina precisa, no `<head>`: anti-FOUC PRIMEIRO, depois fontes, depois `learn.css`; `<meta name="inema-course">` + `data-inema-manifest`. No fim: `learn.js` + `INEMA.init()`.
+Toda pagina precisa, no `<head>`: anti-FOUC PRIMEIRO, depois fontes, depois `learn.css`; `<meta name="ARCKHÉ-course">` + `data-ARCKHÉ-manifest`. No fim: `learn.js` + `ARCKHÉ.init()`.
 
-## Capa oficial — SEMPRE gerar (via skill `capa-inema`)
+## Capa oficial — SEMPRE gerar (via skill `capa-ARCKHÉ`)
 
-Ao terminar de montar o curso, gere a capa 1280×720 chamando a engine da skill `capa-inema`:
+Ao terminar de montar o curso, gere a capa 1280×720 chamando a engine da skill `capa-ARCKHÉ`:
 
 ```bash
-node ~/.claude/skills/capa-inema/assets/gerar-capa.cjs --repo <pasta-do-repo> \
+node ~/.claude/skills/capa-ARCKHÉ/assets/gerar-capa.cjs --repo <pasta-do-repo> \
   --title "<título do curso>" --cat "<categoria>"
 ```
 
 - **Layout default = `split`** (texto à esquerda + imagem à direita). Se o usuário pediu **"capa fb"** (full-bleed), acrescente `--layout fb`.
-- Requer o **inemaimg** no ar (`localhost:8000`). A capa é gravada em `<repo>/capa/capa.png`.
-- Detalhes, opções e uso em lote: skill `capa-inema`.
+- Requer o **ARCKHÉimg** no ar (`localhost:8000`). A capa é gravada em `<repo>/capa/capa.png`.
+- Detalhes, opções e uso em lote: skill `capa-ARCKHÉ`.

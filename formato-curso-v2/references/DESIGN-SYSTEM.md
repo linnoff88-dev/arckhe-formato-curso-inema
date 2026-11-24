@@ -33,7 +33,7 @@
 ### 2.1 Princípios não-negociáveis
 
 1. **Dark mode primeiro** — toda decisão visual nasce em dark; light é override.
-2. **Zero imagens raster (padrão)** — sem PNG/JPG. Tudo é texto, SVG inline, CSS ou animação em código. Raster só quando o usuário pedir explicitamente (ver seção inemaimg do `SKILL.md`).
+2. **Zero imagens raster (padrão)** — sem PNG/JPG. Tudo é texto, SVG inline, CSS ou animação em código. Raster só quando o usuário pedir explicitamente (ver seção ARCKHÉimg do `SKILL.md`).
 3. **Acentos de cor por contexto** — cada trilha tem sua cor; nunca misturar trilhas em uma página.
 4. **Bordas finas, cantos arredondados** — `border` (1px) + `rounded-xl` (12px). Sem sombras pesadas.
 5. **Tipografia generosa, sem decoração** — Inter, sem serifs, sem itálicos cosméticos.
@@ -142,7 +142,7 @@ Yellow (primary #FACC15) ─ Brand, CTAs, logo, dicas
   ├─ Trilha 5 Teal     ─ Multiagente / Paralelismo
   └─ Trilha 6 Rose     ─ Escala / Negócio
   │
-  ├─ Sky               ─ Links externos (INEMA.CLUB)
+  ├─ Sky               ─ Links externos (ARCKHÉ AI)
   ├─ Red               ─ Erros, "não fazer", alertas
   └─ Neutrals          ─ Texto, fundos, bordas
 ```
@@ -158,7 +158,7 @@ Não é aleatório. Cada cor traz uma psicologia:
 - **Teal (T5):** equilíbrio, fluxo, equipe → multiagente
 - **Rose (T6):** conquista, valor, negócio → escala
 
-Quando criar um novo curso com 6 trilhas, **mantenha a mesma sequência cromática** — ela vira identidade do INEMA.CLUB.
+Quando criar um novo curso com 6 trilhas, **mantenha a mesma sequência cromática** — ela vira identidade do ARCKHÉ AI.
 
 ### 5.3 Light mode: por que cor mais escura?
 
@@ -333,7 +333,7 @@ A v2 vive em **dois layers que não colidem** (decisão travada):
 - **Layer Tailwind (`.dark`)** — tudo que já é utilitário (`dark:bg-dark-800`). Continua intacto, dirigido pela classe `.dark`. **Não troca por variável sem refactor.**
 - **Layer CSS-vars (`data-theme`)** — bloco `<style>` à mão + componentes novos (prosa, controles de leitura, painel jornada, callouts). É **aqui** que os 9 tokens governam, e é **aqui** que "tema novo é barato" vale.
 
-> **Não prometa "tema novo em 10 linhas" para o markup Tailwind.** Os temas de leitura extras (sépia/foco/alto-contraste) afetam **a prosa e os componentes novos**, não cada `dark:` espalhado. Diga isso ao cliente como está: a identidade INEMA é o **default e o contrato**; os temas extras são **conforto de leitura sobre a prosa**.
+> **Não prometa "tema novo em 10 linhas" para o markup Tailwind.** Os temas de leitura extras (sépia/foco/alto-contraste) afetam **a prosa e os componentes novos**, não cada `dark:` espalhado. Diga isso ao cliente como está: a identidade ARCKHÉ é o **default e o contrato**; os temas extras são **conforto de leitura sobre a prosa**.
 
 ### 11.5 Por que `.dark` e `data-theme` são ORTOGONAIS
 
@@ -352,7 +352,7 @@ Pensar assim: `.dark` responde "fundo claro ou escuro?"; `data-theme` responde "
 
 | Tema | `data-theme` / classe | Base | Para que serve |
 |---|---|---|---|
-| **inema-dark** *(DEFAULT, = a identidade)* | `.dark`, sem `data-theme` | escuro | A marca. Tudo nasce aqui. É o contrato visual INEMA. |
+| **ARCKHÉ-dark** *(DEFAULT, = a identidade)* | `.dark`, sem `data-theme` | escuro | A marca. Tudo nasce aqui. É o contrato visual ARCKHÉ. |
 | **claro** | `.dark` off | claro | Ambiente muito iluminado, impressão, preferência pessoal por light. |
 | **sépia** | `data-theme="sepia"` | claro quente | Leitura longa e confortável; menos azul, menos cansaço em sessões extensas. |
 | **foco** | `data-theme="foco"` | herda dark/claro | "Modo concentração": coluna estreita, prosa centralizada, cromo lateral escondido. |
@@ -361,7 +361,7 @@ Pensar assim: `.dark` responde "fundo claro ou escuro?"; `data-theme` responde "
 ### 12.2 Quando escolher cada tema (árvore de decisão)
 
 ```
-┌─ É a experiência padrão / a marca? ............... inema-dark (não mexe)
+┌─ É a experiência padrão / a marca? ............... ARCKHÉ-dark (não mexe)
 │
 ├─ Aluno num ambiente claro / quer light / vai imprimir? ... claro
 │
@@ -374,7 +374,7 @@ Pensar assim: `.dark` responde "fundo claro ou escuro?"; `data-theme` responde "
 
 ### 12.3 Caráter de cada tema (o "o quê é")
 
-- **inema-dark** — premium, sóbrio, técnico. Âmbar (`--primary`) explode sobre escuro; ciano (`--accent-2`) nos links/foco. **Nunca `#000`/`#fff` puros** — sempre os cinzas calibrados (`#111827`, `#1f2937`, `#e6e6e6`). É o que comunica "ferramenta de profissional".
+- **ARCKHÉ-dark** — premium, sóbrio, técnico. Âmbar (`--primary`) explode sobre escuro; ciano (`--accent-2`) nos links/foco. **Nunca `#000`/`#fff` puros** — sempre os cinzas calibrados (`#111827`, `#1f2937`, `#e6e6e6`). É o que comunica "ferramenta de profissional".
 - **claro** — limpo, neutro, de dia. Surfaces **sólidas** (`#f8fafc`/`#f3f4f6`, **nunca gradiente** — regra de light-mode da Parte I). **Âmbar de TEXTO vira amber-700/-800**; âmbar saturado fica só decorativo (fill/borda).
 - **sépia** — papel quente, baixo glare. Fundo `#FBF0D9`, texto marrom `#5F4B32`. Acento de texto = marrom escurecido ou amber-800; âmbar saturado **só** preenchimento/borda, nunca como texto.
 - **foco** — mesmo esquema de cor do tema-base, **muda densidade não cor**: reduz `--measure` (coluna estreita), aumenta `--leading`, esconde stats decorativos e nav cheia, centraliza a prosa. É um recorte, não uma paleta nova.
@@ -382,7 +382,7 @@ Pensar assim: `.dark` responde "fundo claro ou escuro?"; `data-theme` responde "
 
 ### 12.4 Regras de tema que não se quebram
 
-- **Default é sempre inema-dark.** Tema desconhecido/erro ⇒ cai para dark (preserva a marca).
+- **Default é sempre ARCKHÉ-dark.** Tema desconhecido/erro ⇒ cai para dark (preserva a marca).
 - **Cada tema declara `color-scheme: dark|light`** — conserta scrollbars, inputs e selects nativos de graça (1 linha por tema).
 - **Âmbar NUNCA como TEXTO em superfície clara** (1.35:1 no sépia, 1.53:1 no branco). Vira fill/borda; texto de acento cai para `-700/-800`. (Ver §15.)
 - Os temas extras **não recriam a paleta da Parte I** — herdam o vocabulário de cor de trilha; só ajustam tokens e densidade.
@@ -391,7 +391,7 @@ Pensar assim: `.dark` responde "fundo claro ou escuro?"; `data-theme` responde "
 
 ## 13. PREFERÊNCIAS DE LEITURA (o que o aluno ajusta)
 
-Independente do tema, o aluno afina **como o texto se comporta** na prosa. Tudo vive em **CSS variables** num wrapper `.inema-prose`, em **unidades relativas** (sobrevive a zoom 200% e overrides do usuário). São 5 controles + 1 rebaixado:
+Independente do tema, o aluno afina **como o texto se comporta** na prosa. Tudo vive em **CSS variables** num wrapper `.ARCKHÉ-prose`, em **unidades relativas** (sobrevive a zoom 200% e overrides do usuário). São 5 controles + 1 rebaixado:
 
 | Pref | O que faz | Opções | Mecânica (resumo) |
 |---|---|---|---|
@@ -399,20 +399,20 @@ Independente do tema, o aluno afina **como o texto se comporta** na prosa. Tudo 
 | **Tamanho** (escala da fonte) | Texto maior/menor sem zoom do navegador | `100%` · `112%` · `125%` | `:root` font-size em %; o resto em `rem` escala junto. **Nunca** fixar `:root` em px. |
 | **Entrelinha** | Respiro entre linhas | compacto `1.45` · confortável `1.7` | `--lh-body` multiplicador **sem unidade** (herda e sobrevive a override). |
 | **Fonte** | Família do corpo | inter · system · leitura | `--font-body`. Default **Inter** (já atende). "leitura" = sans de counters abertos + spacing maior — **escolha, não default, sem prometer "resolve dislexia"**; só fontes embutidas/permitidas. |
-| **Acento** | Cor de destaque dos componentes novos | 6 cores de trilha INEMA (emerald/blue/purple/amber/teal/rose) | `--accent` via `--accent-h/-s/-l`. **Travado na família INEMA** (sem color-picker livre). Em claro/sépia usa o degrau `-700/-800` p/ passar contraste. |
+| **Acento** | Cor de destaque dos componentes novos | 6 cores de trilha ARCKHÉ (emerald/blue/purple/amber/teal/rose) | `--accent` via `--accent-h/-s/-l`. **Travado na família ARCKHÉ** (sem color-picker livre). Em claro/sépia usa o degrau `-700/-800` p/ passar contraste. |
 | ~~Densidade~~ *(rebaixado)* | espaçamento entre blocos | — | Espaçamento da Parte I é Tailwind fixo (`mb-16`,`p-8`) — não há o que multiplicar sem refactor. No MVP "densidade" = só Tamanho + Entrelinha. |
 
 ### 13.1 Princípios das preferências
 
-- **Clampam só a prosa.** Medida e entrelinha tocam `.inema-prose`, nunca code blocks, tabelas, grids de card ou SVG (que têm geometria própria).
+- **Clampam só a prosa.** Medida e entrelinha tocam `.ARCKHÉ-prose`, nunca code blocks, tabelas, grids de card ou SVG (que têm geometria própria).
 - **Relativas, não absolutas.** Tudo em `ch`/`rem`/multiplicador. Zoom do navegador e overrides do aluno continuam funcionando (1.4.12).
-- **Globais ao aluno, não por curso.** Vivem em `inema.prefs` (cross-curso): ajustou uma vez, vale em todos os cursos. Aplicadas no load **antes do paint** (anti-FOUC).
+- **Globais ao aluno, não por curso.** Vivem em `ARCKHÉ.prefs` (cross-curso): ajustou uma vez, vale em todos os cursos. Aplicadas no load **antes do paint** (anti-FOUC).
 - **Acento é escolha contida.** Só as 6 cores de trilha, nunca paleta aberta — mantém a identidade e garante contraste pré-verificado.
 - **Onde o acento pega:** só componentes novos e o `<style>` à mão. Não repinta o markup Tailwind da Parte I.
 
 ### 13.2 Onde isso aparece para o aluno
 
-Seletor de aparência **`<button>`-based** (não `<select>` frágil) na nav, **ao lado** do toggle sol/lua existente (que é **absorvido** — o eixo claro/escuro continua). Abre um painel com: os 4–5 temas + tipografia/tamanho/entrelinha + medida + paleta de acento. Estado refletido por **ícone + texto, não só cor** (1.4.1). Tudo salvo em `inema.prefs` e re-aplicado em todas as páginas.
+Seletor de aparência **`<button>`-based** (não `<select>` frágil) na nav, **ao lado** do toggle sol/lua existente (que é **absorvido** — o eixo claro/escuro continua). Abre um painel com: os 4–5 temas + tipografia/tamanho/entrelinha + medida + paleta de acento. Estado refletido por **ícone + texto, não só cor** (1.4.1). Tudo salvo em `ARCKHÉ.prefs` e re-aplicado em todas as páginas.
 
 ---
 
@@ -458,7 +458,7 @@ Contraste não é polish — é **portão**. Um tema só publica depois de passa
 
 | Tema | `--text` / `--bg` | Contraste | Acentos |
 |---|---|---|---|
-| **inema-dark** | `#e6e6e6` / `#111827` | AAA | âmbar `#FACC15`, ciano `#38bdf8` sobre escuro |
+| **ARCKHÉ-dark** | `#e6e6e6` / `#111827` | AAA | âmbar `#FACC15`, ciano `#38bdf8` sobre escuro |
 | **claro** | `#1a1a1a` / `#ffffff` | ~16:1 (AAA) | muted piso `#6e6e6e`; **âmbar-texto → amber-700/-800** |
 | **sépia** | `#5F4B32` / `#FBF0D9` | 7.31:1 (AAA) | muted `#7A6650`; acento-texto = marrom escuro/amber-800 |
 | **alto-contraste** | `#F5F7FA` / `#0A0E14` | 18.02:1 | âmbar `#FACC15` (12.63:1), ciano `#38bdf8` (9.03:1) — todos AAA |

@@ -1,4 +1,4 @@
-# BASELINE — Skill `formato-curso` (INEMA.CLUB)
+# BASELINE — Skill `formato-curso` (ARCKHÉ AI)
 
 > Mapa estruturado do estado atual (baseline) da skill `formato-curso` localizada em
 > `/home/nmaldaner/.claude/skills/formato-curso/`. Documento de leitura/analise — nada foi editado na skill.
@@ -15,7 +15,7 @@
 ## 1. O QUE A SKILL FAZ HOJE
 
 A skill e um **design system documental** (nao um gerador de codigo nem um tema CSS empacotado) para
-produzir **paginas HTML estaticas de curso** no padrao visual INEMA.CLUB. Saida = HTML self-contained
+produzir **paginas HTML estaticas de curso** no padrao visual ARCKHÉ AI. Saida = HTML self-contained
 com **Tailwind via CDN** (`cdn.tailwindcss.com`), dark-mode por classe, sem framework de componentes,
 sem build step.
 
@@ -35,7 +35,7 @@ sem build step.
 3. Construir a partir dos templates do MASTER.
 4. Revisar com `CHECKLIST_REVISAO.md`.
 
-**Complemento opcional — `inemaimg`**: servidor local FastAPI (`localhost:8000`, modelo default
+**Complemento opcional — `ARCKHÉimg`**: servidor local FastAPI (`localhost:8000`, modelo default
 `flux2-klein`) para gerar PNGs decorativos (hero/banner/thumbs/texturas). **Nunca** substitui o
 SVG inline obrigatorio (erro #17). Aviso de licenca: FLUX.2 e non-commercial; cursos comerciais
 usam `qwen-edit-2511` ou `ernie`.
@@ -53,7 +53,7 @@ Inventario completo dos componentes que a skill especifica (com a secao-fonte no
 | Componente | Descricao | Fonte |
 |---|---|---|
 | **Base HTML** | Documento completo: `<head>` com Tailwind config (cores `primary`+`dark.900-600`), Inter, bloco `<style>` de light-mode; `<body>` com nav + main + footer + scripts | MASTER 8.1 |
-| **Nav global (completo)** | Sticky, `backdrop-blur`, Logo (emoji+nome, yellow) + `\|` + INEMA.CLUB (sky) + 4-6 botoes de trilha (ativa destacada) + theme toggle SVG sun/moon. IDENTICO em todas as paginas | MASTER 5.2 |
+| **Nav global (completo)** | Sticky, `backdrop-blur`, Logo (emoji+nome, yellow) + `\|` + ARCKHÉ AI (sky) + 4-6 botoes de trilha (ativa destacada) + theme toggle SVG sun/moon. IDENTICO em todas as paginas | MASTER 5.2 |
 | **Theme toggle** | Botao com 2 SVGs (sol/lua), `localStorage`, alterna classe `.dark` no `<html>` | MASTER 5.2 / 9.2 |
 | **Breadcrumb** | "Inicio / Trilha X / Modulo X.Y" (so em paginas de modulo) | MASTER 7.6 |
 | **Footer** | Borda superior + nome do curso + ano, centralizado | MASTER 8.1 |
@@ -125,7 +125,7 @@ de conformidade da skill — qualquer evolucao precisa mante-las intactas.
 | 1 | **Botoes** | `justify-start` (esquerda) | `justify-center` |
 | 2 | **Indicador de topico** | Numero em circulo `w-6 h-6 rounded-full` | Seta `▶` / `→` |
 | 3 | **Secoes por topico** | 3 secoes: O que e / Por que aprender / Conceitos-chave | Menos de 3 |
-| 4 | **Link INEMA.CLUB** | Presente em TODAS as paginas, `text-sky-400`, ao lado do logo | Ausente |
+| 4 | **Link ARCKHÉ AI** | Presente em TODAS as paginas, `text-sky-400`, ao lado do logo | Ausente |
 | 5 | **Light mode CSS** | Bloco completo: base + cores acento + sem gradiente + especiais + nav (+ Parte 5 bordas dark) | So base, sem cores de acento |
 | 6 | **Titulo do modulo** | `text-2xl font-bold` | `text-lg` |
 | 7 | **Modal** | `<iframe src="modulo-X-X.html">` | Conteudo duplicado |
@@ -134,7 +134,7 @@ de conformidade da skill — qualquer evolucao precisa mante-las intactas.
 | 10 | **Botao "Ver Completo"** | CADA card de modulo tem `<a href="modulo-X-X.html">Ver Completo</a>` | Card sem link |
 | 11 | **Qtd de topicos** | MINIMO 6 topicos por modulo | Menos de 6 |
 | 12 | **Mapa da trilha no index** | OBRIGATORIO: h2 `Mapa da trilha` + grid cards-ancora (header justify-between, emoji, subtitulo PUNCHY) | "Navegacao Rapida", circulo numerado extra, subtitulo descritivo, ausencia |
-| 13 | **Nav completo em todas paginas** | Mesmo nav (logo + INEMA.CLUB + 4-6 trilhas + toggle), trilha ativa destacada | Nav simplificado `← Trilha X \| Curso` |
+| 13 | **Nav completo em todas paginas** | Mesmo nav (logo + ARCKHÉ AI + 4-6 trilhas + toggle), trilha ativa destacada | Nav simplificado `← Trilha X \| Curso` |
 | 14 | **Profundidade dos modulos** | 500-800 linhas, 6-8 secoes com VARIEDADE (≥2 grids ✓/✗, ≥1 timeline, ≥2 tip boxes, ≥1 code box) | 428 linhas, template repetido 6x |
 | 15 | **Bordas suavizadas (dark)** | 2 regras: `.dark .border-dark-600 {#374151}` E `.dark .divide-dark-600 > ...{#374151}` | So border, esquece divide |
 | 16 | **Divisor "Conteudo detalhado"** | `<h2 class="text-2xl font-bold mb-6">Conteudo detalhado</h2>` simples | 2 linhas horizontais com span no meio |
@@ -206,7 +206,7 @@ aprendizagem, nao em estetica — a estetica ja e forte.)
 
 ## 5. ASSETS REUTILIZAVEIS / CONVENCOES
 
-### 5.1 Paleta por trilha (identidade fixa INEMA.CLUB — manter a sequencia cromatica)
+### 5.1 Paleta por trilha (identidade fixa ARCKHÉ AI — manter a sequencia cromatica)
 | Trilha | Cor | text / bg-20 / border-30 / from-900 (dark) | Light mode (acento) | Psicologia |
 |---|---|---|---|---|
 | T1 | **Emerald** | `text-emerald-400` `bg-emerald-500/20` `border-emerald-500/30` `from-emerald-900/30` | `#059669` (-600) | crescimento / fundamentos |
@@ -222,7 +222,7 @@ aprendizagem, nao em estetica — a estetica ja e forte.)
 | Cor | Dark | Light | Uso |
 |---|---|---|---|
 | **Primary (Yellow)** | `#FACC15` / `text-primary` | `#a16207` (amber-700) | Logo, CTAs, dicas/tip box |
-| **Sky** | `#38bdf8` / `text-sky-400` | `#0369a1` (sky-700) | Link INEMA.CLUB |
+| **Sky** | `#38bdf8` / `text-sky-400` | `#0369a1` (sky-700) | Link ARCKHÉ AI |
 | **Red** | `#f87171` / `text-red-400` | — | Erros, "nao fazer", alertas |
 | **Ciano (diagramas)** | `#38bdf8` | — | Cor SECUNDARIA dos SVGs (agentes, ramo paralelo) |
 
@@ -254,7 +254,7 @@ semibold(600) labels, medium(500) menu, 400 corpo.
     │   ├── index.html               # index da trilha (Mapa + cards)
     │   ├── modulo-N-1.html ...       # modulos (-6 exercicios, -7 prompts)
     │   ├── slides/slides-N-X.html    # opcional
-    │   └── assets/img/               # PNGs do inemaimg (decorativo)
+    │   └── assets/img/               # PNGs do ARCKHÉimg (decorativo)
     ├── doc/  ref/
 ```
 - Nomes de pagina: `modulo-X-Y.html`. Ancoras: `#modulo-X-Y`, `#topico-N`.

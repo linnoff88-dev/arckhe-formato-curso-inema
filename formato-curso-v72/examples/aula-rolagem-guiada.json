@@ -97,7 +97,7 @@
               "t": "Portão humano"
             }
           ],
-          "detalhe": "O inemaccbot guarda cada pedido como tarefa, retoma do ponto onde parou e para num portão quando precisa da sua aprovação."
+          "detalhe": "O ARCKHÉccbot guarda cada pedido como tarefa, retoma do ponto onde parou e para num portão quando precisa da sua aprovação."
         },
         {
           "icone": "megafone",
@@ -161,7 +161,7 @@
           "titulo": "Já tenho um assistente",
           "sub": "Rodando no Telegram",
           "texto": [
-            "Hora da fila. Antes de instalar o <b>inemaccbot</b>, rode a fila caseira em 30 linhas para entender entrada, feito e falhou.",
+            "Hora da fila. Antes de instalar o <b>ARCKHÉccbot</b>, rode a fila caseira em 30 linhas para entender entrada, feito e falhou.",
             "Depois, liste 10 tarefas repetitivas e marque onde precisa de portão."
           ],
           "exemplo": {

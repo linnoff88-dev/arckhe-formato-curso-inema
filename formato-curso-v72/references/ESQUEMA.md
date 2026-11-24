@@ -1,4 +1,4 @@
-# Esquema do conteúdo — INEMA Learning v7.2
+# Esquema do conteúdo — ARCKHÉ Learning v7.2
 
 Tudo que o aluno vê sai de JSON. Campos de texto aceitam `<b>`, `<code>`, `<a>` e `<br>`; o conteúdo dos blocos de código é escapado pelo gerador. Exemplos reais completos em `examples/`.
 
@@ -8,11 +8,11 @@ Tudo que o aluno vê sai de JSON. Campos de texto aceitam `<b>`, `<code>`, `<a>`
 |---|---|
 | `id` | = nome da pasta/repo; prefixo das chaves do navegador (progresso, notas) |
 | `lang` | `pt-BR` |
-| `url` | `https://inematds.github.io/<id>/` (com barra no fim) |
+| `url` | `https://linnoff88-dev.github.io/ (com barra no fim) |
 | `nome`, `sub`, `icone` | nome no topo e na barra lateral; `icone` = chave de `ICONES` em `gerar.py` |
 | `volta` | `{t, href}` — link "voltar" no alto da barra lateral (área do eventos, curso-mãe…); opcional `href_en`/`href_es` (7.14.19) = destino em `en/`/`es/` quando o link não é de curso v7.x (o `traduzir.py` já localiza esses) |
 | `lado_card` | `{rot, t, texto, link, href}` — cartão no pé da barra lateral; opcional `href_en`/`href_es` (7.14.19) |
-| `rodape` | HTML do rodapé (manter "INEMA.CLUB · conteúdo aberto e gratuito · formato INEMA Learning v7.2") |
+| `rodape` | HTML do rodapé (manter "ARCKHÉ AI · conteúdo aberto e gratuito · formato ARCKHÉ Learning v7.2") |
 | `videos` | `{chave: {titulo, duracao, mp4, poster, vtt, pagina}}` — `mp4` é URL publicada (release do GitHub); `poster` e `vtt` são caminhos locais em `assets/`; opcional `idiomas {en: {mp4, vtt, duracao, pagina}, es: {…}}` (7.6.7) troca o vídeo e a legenda em `en/`/`es/`; opcional `formato: "9:16"` (7.10.12) para short/reel vertical: player estreito e centrado em vez de faixas pretas no 16:9 |
 | `inicio` | página inicial: `kicker`, `titulo`, `lead`, `cta`, `cta2 {t, href}`, `capa_alt`, `numeros [{v, t}]`, `aulas_titulo`, `aulas_sub`, `blocos [{t, itens[]}]` (ex.: "Para quem é" / "O que você sai fazendo"); opcional `cursos {titulo, sub, abrir, itens [{rot, t, l, href, href_idioma, img}]}` — cartões para os cursos completos de uma formação, logo depois dos números (7.5.4; `href_idioma: true` leva `en/`/`es/` ao curso irmão traduzido; `img` 16:9, aceita `-en`/`-es`) |
 | `ui` | textos de interface — copiar do modelo e não mexer (só traduzir em EN/ES) |

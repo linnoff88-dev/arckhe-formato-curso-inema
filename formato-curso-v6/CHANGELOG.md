@@ -2,8 +2,8 @@
 
 ## 6.5.6 — 2026-10-19
 
-- Tradutor: usa o **tradutor central** (`~/projetos/wifi/scripts/inema-traduz`); o modelo vem de `INEMA_TRADUCAO_MOTOR`/`INEMA_TRADUCAO_MODELO`
-  (`~/.config/inema/modelos.env`, hoje Sonnet 5.5 pela assinatura) em vez do `codex exec -m gpt-6-luna` fixo. `--modelo <id>` sobrescreve.
+- Tradutor: usa o **tradutor central** (`~/projetos/wifi/scripts/ARCKHÉ-traduz`); o modelo vem de `ARCKHÉ_TRADUCAO_MOTOR`/`ARCKHÉ_TRADUCAO_MODELO`
+  (`~/.config/ARCKHÉ/modelos.env`, hoje Sonnet 5.5 pela assinatura) em vez do `codex exec -m gpt-6-luna` fixo. `--modelo <id>` sobrescreve.
   `usage.jsonl` marca `tradutor-central`; reserva Groq igual (desligada por padrão).
 
 ## 6.5.5 — 2026-10-06
@@ -15,7 +15,7 @@
 ## 6.5.4 — 2026-09-29
 
 - Montagem: o rótulo "Na prática · <profissão>" só põe a primeira letra em maiúscula (antes o `capitalize()` baixava o resto:
-  "Analista de RH" virava "Analista de rh"). Achado pelo leitor simulado do curso Áreas INEMA v6.2.
+  "Analista de RH" virava "Analista de rh"). Achado pelo leitor simulado do curso Áreas ARCKHÉ v6.2.
 - Tradutor: o `en/index.html` / `es/index.html` usa o `curso_curto` do `curso.json` (antes vinha "OSWork" fixo).
 
 ## 6.5.3 — 2026-09-28
@@ -75,8 +75,8 @@ Tudo opcional pelo `curso.json`; sem os campos novos a montagem, o auditor e o t
 
 ## 6.1.0 — 2026-09-24
 
-- Cenas pelo **Codex image_gen por padrão** (`gerar-cena.py --gerador auto`), fallback inemaimg/flux2-klein.
-- Capa pela `capa-inema` com `--raw-in` da arte da trilha (evita cena inventada fora das regras).
+- Cenas pelo **Codex image_gen por padrão** (`gerar-cena.py --gerador auto`), fallback ARCKHÉimg/flux2-klein.
+- Capa pela `capa-ARCKHÉ` com `--raw-in` da arte da trilha (evita cena inventada fora das regras).
 - **Trilíngue:** `traduzir-curso.py` (EN/ES em `en/` e `es/`, nano via OpenRouter, cache, validação de tags/{n}/espaços,
   seletor de idioma no menu e na landing, estado separado por idioma). Textos do motor num bloco JSON único (`L-INICIO/L-FIM`),
   rótulo da promessa vindo do motor, rótulo "Na prática · X" gravado no HTML pela montagem.

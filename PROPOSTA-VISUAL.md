@@ -1,4 +1,4 @@
-# Proposta visual — formato-curso INEMA
+# Proposta visual — formato-curso ARCKHÉ
 
 Diretor de design chefe. Decisão sobre a próxima identidade da página de módulo, com base nos 4 mockups (`mockups/*.html`) e nas 3 bancas de jurados.
 
@@ -10,7 +10,7 @@ O visual atual (codificado em `formato-curso-v2/assets/learn.css`) é **dark pre
 
 **Visual.** Dark-âmbar + Inter + cards arredondados com sombra suave é exatamente o template que qualquer IA gera por padrão. Não tem assinatura. O âmbar saturado não pode virar texto em claro (1.53:1, o próprio CSS admite com `--primary-ink`), então a "cor de marca" só aparece como preenchimento e borda decorativos. O resultado é genérico e frio para uma coisa que pede horas de leitura: a cor é de painel de admin, não de material de curso.
 
-**Facilidade de uso.** A camada que mais importa para aprender (grifar, marcar dúvida, revisar) está atrás de seleção de texto, popover flutuante, drawer lateral e modal. O aluno tem de *descobrir* que ela existe e *abrir* algo para usá-la. Há **três** representações de progresso competindo (`.inema-bar`, `.inema-ring`, `.inema-meter-label`) sem hierarquia clara de qual olhar. Onboarding e retomada ("continuar de onde parei") existem no código mas estão soterrados dentro do drawer de jornada, fora do fluxo de leitura.
+**Facilidade de uso.** A camada que mais importa para aprender (grifar, marcar dúvida, revisar) está atrás de seleção de texto, popover flutuante, drawer lateral e modal. O aluno tem de *descobrir* que ela existe e *abrir* algo para usá-la. Há **três** representações de progresso competindo (`.ARCKHÉ-bar`, `.ARCKHÉ-ring`, `.ARCKHÉ-meter-label`) sem hierarquia clara de qual olhar. Onboarding e retomada ("continuar de onde parei") existem no código mas estão soterrados dentro do drawer de jornada, fora do fluxo de leitura.
 
 **Aderência ao conteúdo.** A estética não diz nada sobre "isto é um curso, um caderno de estudo". Dark premium é linguagem de produto SaaS, não de página de leitura longa. Inter a 16px em fundo escuro com `line-height` confortável ainda é tela de dashboard, não página de livro. A forma briga com a função: o conteúdo é texto para estudar, o cromo é de aplicativo para operar.
 
@@ -58,11 +58,11 @@ Ligando aos quatro eixos:
 - **Usabilidade.** Curar a fraqueza de onboarding importando do calmo o card **"continuar de onde parei"** no topo do fluxo de leitura e a copy acolhedora/sem-placar. E adotar o **plano de colapso mobile** do calmo (a nota de margem vira bloco inline estático abaixo de 1080px) — isso resolve o **maior risco** do textbook, que é o rail sumir no mobile.
 - **Engajamento.** Curar a sobriedade do textbook com o calor da retomada do calmo e com a ideia (e só a ideia) do terminal de que "cada seção lida avança um marcador" — aplicada aos sete ticks da lombada, em **ink-quiet, sem animação pulsante**. O vermelhão do bold entra no máximo como acento pontual de "ação agora", nunca como sistema.
 
-**Questão de marca: partir do INEMA atual ou evoluir mantendo identidade?**
+**Questão de marca: partir do ARCKHÉ atual ou evoluir mantendo identidade?**
 
-Recomendação: **partir do dark-âmbar como sistema da página de leitura, mas evoluir mantendo a identidade da marca onde ela vive.** O dark premium âmbar é a linguagem do **portal/landing** (inema.club) e dos vídeos — ali ele funciona como marca e deve permanecer. A página de **módulo/aula** é um contexto diferente (leitura longa, estudo ativo) e merece um sistema próprio, editorial e claro. Não é abandonar o INEMA: é reconhecer que **landing e sala de aula são superfícies distintas**. O fio de continuidade com a marca:
+Recomendação: **partir do dark-âmbar como sistema da página de leitura, mas evoluir mantendo a identidade da marca onde ela vive.** O dark premium âmbar é a linguagem do **portal/landing** (ARCKHÉ AI) e dos vídeos — ali ele funciona como marca e deve permanecer. A página de **módulo/aula** é um contexto diferente (leitura longa, estudo ativo) e merece um sistema próprio, editorial e claro. Não é abandonar o ARCKHÉ: é reconhecer que **landing e sala de aula são superfícies distintas**. O fio de continuidade com a marca:
 
-- O **âmbar `#FACC15` segue presente** como cor de marca no chrome de navegação (logo, "INEMA.CLUB"), não como base da página de leitura.
+- O **âmbar `#FACC15` segue presente** como cor de marca no chrome de navegação (logo, "ARCKHÉ AI"), não como base da página de leitura.
 - A **arquitetura de cor em 3 níveis** do `learn.css` (primitivos → tema → semânticos) já suporta isso: o tema escuro vira **mais um tema** (Layer 1), e o caderno editorial entra como o **default da página de aula**. Nenhuma reescrita de mecanismo, só novos valores de token.
 - O par tipográfico (Spectral/Source Serif/IBM Plex Mono) e o paper quente passam a ser a **assinatura do material de curso** — distinta o bastante para ser memorável, alinhada o bastante para não brigar com o portal.
 
@@ -70,7 +70,7 @@ Recomendação: **partir do dark-âmbar como sistema da página de leitura, mas 
 
 ## 5. Plano de execução por fases
 
-Concreto, sobre o que já existe. A arquitetura do `learn.css` (3 níveis, dois layers, componentes por `data-inema-*`) **não muda de mecanismo** — muda de valores e ganha um layout de página.
+Concreto, sobre o que já existe. A arquitetura do `learn.css` (3 níveis, dois layers, componentes por `data-ARCKHÉ-*`) **não muda de mecanismo** — muda de valores e ganha um layout de página.
 
 **Fase 0 — Decisão de tokens (sem código novo).** Travar a paleta editorial como o **tema default da página de aula**, mantendo o dark-âmbar como tema alternativo. Definir os semânticos: `--bg`=`#f4efe4` (paper), `--surface`=`#ece5d6`, `--text`=`#26211b`, `--text-muted`=`#5b5347`, `--accent`=azul-tinta, `--accent-2`/estado-dúvida=oxblood. Definir o âmbar como cor de chrome de marca, não de página.
 
@@ -80,7 +80,7 @@ Concreto, sobre o que já existe. A arquitetura do `learn.css` (3 níveis, dois 
 
 **Fase 3 — Layout do módulo (novo, o coração).** Trocar a coluna-única-com-TOC-sticky por **folha assimétrica de duas colunas**: leitura 60-75ch + **rail de margem ~300px** com regra vertical fina. Migrar a camada de aprendizagem para fora de popover/modal: grifo com nota-âncora **na margem**, dúvida **na margem**, glosa do tutor **na margem** ligada à palavra grifada por conector fino. Header com **numeral-fantasma** de módulo (enxerto do bold). Progresso = **fita-lombada com 7 ticks** (substitui as 3 barras/anel atuais; manter um único medidor textual "N de M" como rótulo acessível).
 
-**Fase 4 — Controles de aprendizado.** Manter os mecanismos (`data-inema-read-toggle`, `data-inema-doubt-toggle`, grifo via `<mark>`, jornada) — só **re-skin**: "marcar lido" desenha um check na caixa da margem; dúvida acende a nota em oxblood; sete ticks da lombada avançam ao ler (ink-quiet, sem pulse). Atalhos `[r]`/`[t]` do terminal como única importação dele. "Minha jornada" fecha a página como um livro-razão (seção/trilha/curso), não como drawer flutuante.
+**Fase 4 — Controles de aprendizado.** Manter os mecanismos (`data-ARCKHÉ-read-toggle`, `data-ARCKHÉ-doubt-toggle`, grifo via `<mark>`, jornada) — só **re-skin**: "marcar lido" desenha um check na caixa da margem; dúvida acende a nota em oxblood; sete ticks da lombada avançam ao ler (ink-quiet, sem pulse). Atalhos `[r]`/`[t]` do terminal como única importação dele. "Minha jornada" fecha a página como um livro-razão (seção/trilha/curso), não como drawer flutuante.
 
 **Fase 5 — Onboarding e retomada (enxerto do calmo).** Card **"continuar de onde parei"** no topo do fluxo de leitura (hoje preso no drawer). Copy acolhedora, sem placar. Feedback discreto "guardado no seu caderno" ao acionar um controle.
 
@@ -96,11 +96,11 @@ Concreto, sobre o que já existe. A arquitetura do `learn.css` (3 níveis, dois 
 - **Risco #2 — densidade de tinta.** Serif a ~18px/1.7 em paper é bonito mas pode intimidar o leitor casual e ficar "vazio" com texto curto. Mitigar com o card de retomada do calmo, copy gentil, e exigência de conteúdo real por seção (1 ideia/seção, como já prevê a `GANHOS-ANALISE.md`).
 - **NÃO** deixar o vermelhão do bold virar sistema. Um acento azul-tinta + oxblood reservado é a paleta. Vermelhão só "ação agora", pontual.
 - **NÃO** criar uma quarta representação de progresso. Aposentar barra+anel+chip; a lombada de 7 ticks + um rótulo "N de M" acessível é o suficiente.
-- **NÃO** reescrever a engenharia. A arquitetura de 3 níveis, os dois layers e os componentes `data-inema-*` ficam — isto é re-skin + um layout novo, não um produto novo. Manter `contract.cjs` no pipeline.
+- **NÃO** reescrever a engenharia. A arquitetura de 3 níveis, os dois layers e os componentes `data-ARCKHÉ-*` ficam — isto é re-skin + um layout novo, não um produto novo. Manter `contract.cjs` no pipeline.
 - **Marca:** não jogar fora o dark-âmbar. Ele continua sendo a marca do portal/landing/vídeos; vira tema alternativo na aula. O caderno editorial é a assinatura da **sala de aula**, não a substituição da marca.
 
 ---
 
 ## Resumo executivo
 
-Adotar **editorial-textbook** como base da página de aula: caderno editorial impresso em paper quente (`#f4efe4`, nunca branco), tinta quente, Spectral + Source Serif 4 + IBM Plex Mono, um acento azul-tinta com oxblood reservado para "tenho dúvida", e layout de duas colunas com **rail de margem** onde anotação, dúvida e progresso vivem ONDE se lê — sem popover, sem modal. Vence por aderência (10), distintividade (9) e visual (9) consolidados; é a única direção cuja estética é a própria didática. Curar sua única fraqueza (engajamento sóbrio) com dois enxertos cirúrgicos: do **calmo-notebook**, o card "continuar de onde parei" e o plano de colapso mobile (que resolve o maior risco do textbook, o rail sumir abaixo de 1080px); do **editorial-bold**, só o numeral-fantasma de módulo e o realce do item atual no header. **Descartar terminal-blueprint** por inteiro — é o dark-âmbar que o brief pede para abandonar. O dark premium âmbar não morre: permanece como marca do portal e vira tema alternativo na aula, reaproveitando a arquitetura de cor em 3 níveis já existente no `learn.css`. Execução em 6 fases de re-skin + layout, sem reescrever a engenharia, com `contract.cjs` travando contraste e ancoramento. Arquivo escrito em `/home/nmaldaner/projetos/formato-curso-inema/PROPOSTA-VISUAL.md`.
+Adotar **editorial-textbook** como base da página de aula: caderno editorial impresso em paper quente (`#f4efe4`, nunca branco), tinta quente, Spectral + Source Serif 4 + IBM Plex Mono, um acento azul-tinta com oxblood reservado para "tenho dúvida", e layout de duas colunas com **rail de margem** onde anotação, dúvida e progresso vivem ONDE se lê — sem popover, sem modal. Vence por aderência (10), distintividade (9) e visual (9) consolidados; é a única direção cuja estética é a própria didática. Curar sua única fraqueza (engajamento sóbrio) com dois enxertos cirúrgicos: do **calmo-notebook**, o card "continuar de onde parei" e o plano de colapso mobile (que resolve o maior risco do textbook, o rail sumir abaixo de 1080px); do **editorial-bold**, só o numeral-fantasma de módulo e o realce do item atual no header. **Descartar terminal-blueprint** por inteiro — é o dark-âmbar que o brief pede para abandonar. O dark premium âmbar não morre: permanece como marca do portal e vira tema alternativo na aula, reaproveitando a arquitetura de cor em 3 níveis já existente no `learn.css`. Execução em 6 fases de re-skin + layout, sem reescrever a engenharia, com `contract.cjs` travando contraste e ancoramento. Arquivo escrito em `/home/nmaldaner/projetos/formato-curso-ARCKHÉ/PROPOSTA-VISUAL.md`.

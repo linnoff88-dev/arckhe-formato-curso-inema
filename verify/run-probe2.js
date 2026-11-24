@@ -1,6 +1,6 @@
 const PW = '/home/nmaldaner/.npm/_npx/e41f203b7505f1fb/node_modules/playwright';
 const EXEC = '/home/nmaldaner/.cache/ms-playwright/chromium-1223/chrome-linux/chrome';
-const URL = 'file:///home/nmaldaner/projetos/formato-curso-inema/verify/v1-probe.html';
+const URL = 'file:///home/nmaldaner/projetos/formato-curso-ARCKHÉ/verify/v1-probe.html';
 
 (async () => {
   const { chromium } = require(PW);

@@ -1,7 +1,7 @@
 # VERIFICACAO FINAL — skill `formato-curso-v2` + curso-demo
 
 Data: 2026-06-14
-Escopo: skill `formato-curso-v2` (`/home/nmaldaner/projetos/formato-curso-inema/formato-curso-v2/`) e curso-demo (`/home/nmaldaner/projetos/formato-curso-inema/demo/`).
+Escopo: skill `formato-curso-v2` (`/home/nmaldaner/projetos/formato-curso-ARCKHÉ/formato-curso-v2/`) e curso-demo (`/home/nmaldaner/projetos/formato-curso-ARCKHÉ/demo/`).
 Metodo: testes de runtime em navegador real (Playwright/Chromium, HTTP local) + revisao adversarial de codigo + auditoria dos Erros Criticos #1-#17 + checagem de sincronia de docs.
 
 ---
@@ -28,8 +28,8 @@ _Resumo historico (pre-correcao):_
 
 | Suite | Resultado | Cobertura |
 |---|---|---|
-| Smoke (Playwright/Chromium, HTTP local) | **23/23 OK** | `window.INEMA` existe; API completa (19 metodos); 7 topicos/modulo; manifesto total curso=14 cross-modulo; `read-toggle` marca lido + alterna `aria-pressed` + persiste `.read`; lidos persistem apos reload (done=3); `toggleDoubt` registra duvida; `highlight()` cria `<mark>` via TreeWalker e persiste nota sem erro; jornada `.inema-journey role=dialog` lista modulo 1-2 estando no 1-1; `exportJSON` valido; tema sepia aplicado+persistido; cross-modulo done=3/14 e trilha:1 done=3/14; `importJSON` round-trip (0→3); **0 erros de console** |
-| Temas | **10/10 OK** | `inema-dark` `.dark`; `claro` #fff; `sepia` #fbf0d9; `contraste` #0a0e14; foco herda; fundos distintos; skip link `#conteudo`; `<main id>`; seletor de aparencia funcional (14 setters) |
+| Smoke (Playwright/Chromium, HTTP local) | **23/23 OK** | `window.ARCKHÉ` existe; API completa (19 metodos); 7 topicos/modulo; manifesto total curso=14 cross-modulo; `read-toggle` marca lido + alterna `aria-pressed` + persiste `.read`; lidos persistem apos reload (done=3); `toggleDoubt` registra duvida; `highlight()` cria `<mark>` via TreeWalker e persiste nota sem erro; jornada `.ARCKHÉ-journey role=dialog` lista modulo 1-2 estando no 1-1; `exportJSON` valido; tema sepia aplicado+persistido; cross-modulo done=3/14 e trilha:1 done=3/14; `importJSON` round-trip (0→3); **0 erros de console** |
+| Temas | **10/10 OK** | `ARCKHÉ-dark` `.dark`; `claro` #fff; `sepia` #fbf0d9; `contraste` #0a0e14; foco herda; fundos distintos; skip link `#conteudo`; `<main id>`; seletor de aparencia funcional (14 setters) |
 
 Observacao: as suites validam **API + dados + temas (que usam variaveis de token, nao o contrato quebrado)**. Nao cobrem o estado CSS dos componentes interativos cujo contrato esta rompido (ver secao 4). Por isso passaram verdes apesar dos defeitos visuais.
 
@@ -44,7 +44,7 @@ Observacao: as suites validam **API + dados + temas (que usam variaveis de token
 | 1 | **parcial (nao-critico)** | Botoes de acao funcionais (topico 7/modulo, card, nav, action-row da trilha) usam `justify-start` corretamente. Unica excecao: 4 CTAs de hero/CTA-final em `index.html` usam `justify-center`, em contexto de hero/secao centralizada deliberada — nao e o caso-falha de fileira de acao. Ajuste cosmetico opcional. |
 | 2 | ok | Zero setas ▶; indicadores de topico sao numeros em circulo (`rounded-full` flex center). |
 | 3 | ok | Modulos na via "estrutura rica" (permitida); index da trilha no template classico 3 secoes. |
-| 4 | ok | Link `https://inema.club` com `text-sky-400` nas 4 paginas (nav+footer) + override light `#0369a1`. |
+| 4 | ok | Link `https://ARCKHÉ AI` com `text-sky-400` nas 4 paginas (nav+footer) + override light `#0369a1`. |
 | 5 | ok | Light mode CSS completo nas 4 (~34-39 regras `:not(.dark)`), sem-gradiente forcado. |
 | 6 | ok | h1 `text-3xl sm:text-4xl`; h2 topico `text-2xl font-bold`. Nenhum h1/h2 em `text-lg`. |
 | 8 | ok | Cartoes de modulo na landing sao `<a>` simples clicaveis, sem botoes internos. |
@@ -67,27 +67,27 @@ Todos confirmados em `formato-curso-v2/assets/learn.js` e `learn.css` (= identic
 
 | # | Area | Defeito | Evidencia |
 |---|---|---|---|
-| A1 | Cor dos highlights | JS grava `data-inema-color` + classe `inema-hl--<cor>`; CSS so pinta via `.inema-hl[data-hl="..."]`. Nenhum highlight recebe cor; ficam invisiveis/iguais p/ yellow/green/blue/pink/doubt. Mesmo problema no swatch. | JS `learn.js:830,832,955,956`; CSS `learn.css:614-626,679-683` |
-| A2 | Indicador "tem nota" | JS marca `data-inema-hasnote="1"`; CSS desenha o ponto via `.inema-hl[data-has-note="true"]::after`. Nomes/valores divergem; ponto nunca aparece. | JS `learn.js:833,939`; CSS `learn.css:629` |
-| A3 | Popover de selecao | CSS gateia por `.inema-selpop[data-open="true"]` (base `opacity:0; pointer-events:none`); JS abre so via `style.display='flex'` e nunca seta `data-open`. Popover fica `display:flex` mas invisivel e nao-clicavel. | CSS `learn.css:646,664`; JS abre por `style.display` |
-| A4 | Drawer "Minha jornada" | CSS usa BEM + `[data-open]` (`.inema-journey[data-open="true"]`→`translateX(0)`, `.inema-journey-backdrop[data-open]`, filhos `__header/__body/...`). JS cria classes flat (`inema-journey-overlay`, `-head`, `-body`, ...) e nunca seta `data-open`. Drawer preso em `translateX(100%)` / sem visual; backdrop sem estilo. Logica (foco/ESC/inert) OK; apresentacao quebra. | JS `learn.js:1208,1274,...`; CSS `learn.css:722,731,752,758,778` |
-| A5 | Largura de linha / entrelinha | `applyPrefs` seta `--measure`/`--lh-body` inline no `<html>`, mas `.inema-prose` REDECLARA `--measure:68ch`/`--lh-body:1.7` (declaracao local vence herdado). CSS so muda via `html[data-line-width]`/`[data-leading]`, atributos que o JS nunca seta. `setPref('lineWidth'/'leading')` nao altera a prosa. | JS `learn.js:396-397`; CSS `learn.css:307,326-331` |
-| A6 | Override reduced-motion do aluno | `applyPrefs` adiciona `.inema-reduce-motion` no `<html>`; CSS so reduz via `html[data-reduced-motion="reduce"]`. Preferencia explicita do aluno nao tem efeito. | JS `learn.js:413-414`; CSS `learn.css:479-481` |
+| A1 | Cor dos highlights | JS grava `data-ARCKHÉ-color` + classe `ARCKHÉ-hl--<cor>`; CSS so pinta via `.ARCKHÉ-hl[data-hl="..."]`. Nenhum highlight recebe cor; ficam invisiveis/iguais p/ yellow/green/blue/pink/doubt. Mesmo problema no swatch. | JS `learn.js:830,832,955,956`; CSS `learn.css:614-626,679-683` |
+| A2 | Indicador "tem nota" | JS marca `data-ARCKHÉ-hasnote="1"`; CSS desenha o ponto via `.ARCKHÉ-hl[data-has-note="true"]::after`. Nomes/valores divergem; ponto nunca aparece. | JS `learn.js:833,939`; CSS `learn.css:629` |
+| A3 | Popover de selecao | CSS gateia por `.ARCKHÉ-selpop[data-open="true"]` (base `opacity:0; pointer-events:none`); JS abre so via `style.display='flex'` e nunca seta `data-open`. Popover fica `display:flex` mas invisivel e nao-clicavel. | CSS `learn.css:646,664`; JS abre por `style.display` |
+| A4 | Drawer "Minha jornada" | CSS usa BEM + `[data-open]` (`.ARCKHÉ-journey[data-open="true"]`→`translateX(0)`, `.ARCKHÉ-journey-backdrop[data-open]`, filhos `__header/__body/...`). JS cria classes flat (`ARCKHÉ-journey-overlay`, `-head`, `-body`, ...) e nunca seta `data-open`. Drawer preso em `translateX(100%)` / sem visual; backdrop sem estilo. Logica (foco/ESC/inert) OK; apresentacao quebra. | JS `learn.js:1208,1274,...`; CSS `learn.css:722,731,752,758,778` |
+| A5 | Largura de linha / entrelinha | `applyPrefs` seta `--measure`/`--lh-body` inline no `<html>`, mas `.ARCKHÉ-prose` REDECLARA `--measure:68ch`/`--lh-body:1.7` (declaracao local vence herdado). CSS so muda via `html[data-line-width]`/`[data-leading]`, atributos que o JS nunca seta. `setPref('lineWidth'/'leading')` nao altera a prosa. | JS `learn.js:396-397`; CSS `learn.css:307,326-331` |
+| A6 | Override reduced-motion do aluno | `applyPrefs` adiciona `.ARCKHÉ-reduce-motion` no `<html>`; CSS so reduz via `html[data-reduced-motion="reduce"]`. Preferencia explicita do aluno nao tem efeito. | JS `learn.js:413-414`; CSS `learn.css:479-481` |
 
 ### Media — contrato JS↔CSS rompido (feedback/estado secundario)
 
 | # | Area | Defeito | Evidencia |
 |---|---|---|---|
-| M1 | Popover de aparencia | `handleAppearanceClick` abre via `classList.toggle('is-open')`; CSS gateia por `.inema-appearance-pop[data-open="true"]`. `is-open` nao casa nada; painel fica invisivel/nao-interativo. | JS `learn.js:1950`; CSS `learn.css:1107` |
-| M2 | Barras + estado 100% dos medidores | `meterRow` cria `.inema-meter-bar`/`.inema-meter-fill`; CSS usa `.inema-bar`/`.inema-bar__fill` (sem regra p/ -meter-*). Alem disso `paintMeter` nunca seta `data-complete`, entao a "celebracao contida" `[data-inema-meter][data-complete="true"]` jamais dispara. | JS `learn.js:1469,1475` (`data-complete`=0 ocorr.); CSS `learn.css:924,975-979` |
-| M3 | Toast | CSS revela via `.inema-toast[data-open="true"]` (base `opacity:0`); JS cria com classe `inema-toast`, nunca seta `data-open`, e na saida adiciona `inema-toast--out` (inexistente no CSS). Todos os avisos ficam invisiveis. | JS `learn.js:230`; CSS `learn.css:1002` |
-| M4 | Badge da jornada | JS escreve `[data-inema-journey-badge]` + `data-doubts`; CSS estiliza `.inema-journey-badge` e esconde via `[data-count="0"]`. JS nao seta `data-count` nem garante a classe; badge zero nunca some e estilo pode nao aplicar. | JS `learn.js:2094`; CSS `learn.css:892,906` |
+| M1 | Popover de aparencia | `handleAppearanceClick` abre via `classList.toggle('is-open')`; CSS gateia por `.ARCKHÉ-appearance-pop[data-open="true"]`. `is-open` nao casa nada; painel fica invisivel/nao-interativo. | JS `learn.js:1950`; CSS `learn.css:1107` |
+| M2 | Barras + estado 100% dos medidores | `meterRow` cria `.ARCKHÉ-meter-bar`/`.ARCKHÉ-meter-fill`; CSS usa `.ARCKHÉ-bar`/`.ARCKHÉ-bar__fill` (sem regra p/ -meter-*). Alem disso `paintMeter` nunca seta `data-complete`, entao a "celebracao contida" `[data-ARCKHÉ-meter][data-complete="true"]` jamais dispara. | JS `learn.js:1469,1475` (`data-complete`=0 ocorr.); CSS `learn.css:924,975-979` |
+| M3 | Toast | CSS revela via `.ARCKHÉ-toast[data-open="true"]` (base `opacity:0`); JS cria com classe `ARCKHÉ-toast`, nunca seta `data-open`, e na saida adiciona `ARCKHÉ-toast--out` (inexistente no CSS). Todos os avisos ficam invisiveis. | JS `learn.js:230`; CSS `learn.css:1002` |
+| M4 | Badge da jornada | JS escreve `[data-ARCKHÉ-journey-badge]` + `data-doubts`; CSS estiliza `.ARCKHÉ-journey-badge` e esconde via `[data-count="0"]`. JS nao seta `data-count` nem garante a classe; badge zero nunca some e estilo pode nao aplicar. | JS `learn.js:2094`; CSS `learn.css:892,906` |
 
 ### Baixa
 
 | # | Area | Defeito | Evidencia |
 |---|---|---|---|
-| B1 | Botoes sem estilo base | JS usa `inema-btn` (+`--primary/--ghost/--danger`) e `inema-selpop-act`; nenhuma existe no CSS (que tem `.inema-selpop__action`, `.inema-filter-chip`, `.inema-journey__footer button`). Botoes saem com aparencia default do navegador. | `grep inema-btn` no CSS = 0; CSS `learn.css:700` |
+| B1 | Botoes sem estilo base | JS usa `ARCKHÉ-btn` (+`--primary/--ghost/--danger`) e `ARCKHÉ-selpop-act`; nenhuma existe no CSS (que tem `.ARCKHÉ-selpop__action`, `.ARCKHÉ-filter-chip`, `.ARCKHÉ-journey__footer button`). Botoes saem com aparencia default do navegador. | `grep ARCKHÉ-btn` no CSS = 0; CSS `learn.css:700` |
 | B2 | `innerHTML=''` no repaint | `paintDoubts/paintNotes/renderJourney/paintCheckFeedback` limpam com `innerHTML=''`. Hoje seguro (so string vazia; conteudo do usuario entra via `el()/textContent`), mas mistura o padrao "sem innerHTML" do resto, abrindo porta a regressao. **Nao e bug ativo.** Trocar por `replaceChildren()`. | `learn.js:1271,1342,1387,1813` |
 | B3 | Highlight cross-node | `highlight()` corretamente NUNCA usa `surroundContents` e restringe ao bloco via TreeWalker; selecao cross-node colapsada com aviso. Ressalva menor: `endOffset` fallback usa `startOffset+quote.length`, mas o clamp por `textContent.length` impede estouro — degradacao aceitavel. **Sem correcao obrigatoria.** | `learn.js:855-872,801-841`; zero `surroundContents` no arquivo |
 
@@ -107,14 +107,14 @@ Todos confirmados em `formato-curso-v2/assets/learn.js` e `learn.css` (= identic
 
 ## 6. Correcoes aplicadas durante a verificacao
 
-1. **Agregacao de progresso cross-pagina via manifesto do curso** — `learn.js` (`progress`/`readDone`/`manifestTotal` + jornada por manifesto) + `<script type="application/json" data-inema-manifest>` inserido nas 4 paginas do demo. Verificado em runtime: total do curso=14 cross-modulo; navegar 1-1→1-2 mantem done=3/14.
-2. **Bridge de chrome `learn.css` §3b** — mapeia `bg-dark-*`/`text-neutral-*`/`border-dark-*` para os tokens sob `data-theme=sepia/contraste`, com `claro`/`inema-dark` intactos, para sepia/contraste pintarem a pagina toda. Verificado no teste de temas (10/10).
+1. **Agregacao de progresso cross-pagina via manifesto do curso** — `learn.js` (`progress`/`readDone`/`manifestTotal` + jornada por manifesto) + `<script type="application/json" data-ARCKHÉ-manifest>` inserido nas 4 paginas do demo. Verificado em runtime: total do curso=14 cross-modulo; navegar 1-1→1-2 mantem done=3/14.
+2. **Bridge de chrome `learn.css` §3b** — mapeia `bg-dark-*`/`text-neutral-*`/`border-dark-*` para os tokens sob `data-theme=sepia/contraste`, com `claro`/`ARCKHÉ-dark` intactos, para sepia/contraste pintarem a pagina toda. Verificado no teste de temas (10/10).
 3. **Sincronia de docs (4 arquivos da skill)** — manifesto do curso + bridge de chrome documentados; consistentes com o implementado.
    - `formato-curso-v2/references/LEARN-LAYER.md` (nova §1.7 manifesto; tabela API §2.2/§2.5; markup §3.9; nota bridge §4.1)
    - `formato-curso-v2/references/MASTER_COMPLETO.md` (§11.1, §11.2, snippet §11.5.h, §12.1 bridge)
    - `formato-curso-v2/SKILL.md` (novo Erro Critico #28; contagem #18-#28)
    - `formato-curso-v2/references/CHECKLIST_REVISAO.md` (itens testaveis manifesto/ERRO #28/bridge ERRO #23; tabela #18-#28)
-4. **Reconciliacao do contrato JS↔CSS** (corrige todo o cluster da §4) — `learn.js` conformado ao `learn.css`: `data-hl` na cor do highlight + swatch; `data-has-note="true"`; `data-open` no popover de selecao/aparencia/jornada/toast; classes BEM da jornada (`__header/__body/__list/__item/__quote/__note/__footer/__resume/__section-title/__filters/__tag`) + backdrop + slide-in via `requestAnimationFrame`; `data-line-width`/`data-leading` no `<html>`; `data-reduced-motion`; `.inema-bar`/`.inema-bar__fill` + `data-complete`; badge `.inema-journey-badge`+`data-count`; estilo base `.inema-btn` (+`--primary/--ghost/--danger`) adicionado ao `learn.css`. `learn.js`/`learn.css` re-sincronizados byte-a-byte skill↔demo. Re-verificado: ver §9.
+4. **Reconciliacao do contrato JS↔CSS** (corrige todo o cluster da §4) — `learn.js` conformado ao `learn.css`: `data-hl` na cor do highlight + swatch; `data-has-note="true"`; `data-open` no popover de selecao/aparencia/jornada/toast; classes BEM da jornada (`__header/__body/__list/__item/__quote/__note/__footer/__resume/__section-title/__filters/__tag`) + backdrop + slide-in via `requestAnimationFrame`; `data-line-width`/`data-leading` no `<html>`; `data-reduced-motion`; `.ARCKHÉ-bar`/`.ARCKHÉ-bar__fill` + `data-complete`; badge `.ARCKHÉ-journey-badge`+`data-count`; estilo base `.ARCKHÉ-btn` (+`--primary/--ghost/--danger`) adicionado ao `learn.css`. `learn.js`/`learn.css` re-sincronizados byte-a-byte skill↔demo. Re-verificado: ver §9.
 
 ---
 
@@ -123,21 +123,21 @@ Todos confirmados em `formato-curso-v2/assets/learn.js` e `learn.css` (= identic
 Prioridade por severidade. **Todos afetam a skill canonica e o demo (assets identicos).**
 
 **Bloqueadores (alta) — alinhar contrato JS↔CSS:**
-- [ ] A1 — Unificar atributo de cor do highlight: `mark.setAttribute('data-hl', color)` no JS (ou CSS passa a `[data-inema-color]`). Idem swatch.
-- [ ] A2 — Padronizar `mark.setAttribute('data-has-note','true')` no JS (ou CSS `[data-inema-hasnote]`).
+- [ ] A1 — Unificar atributo de cor do highlight: `mark.setAttribute('data-hl', color)` no JS (ou CSS passa a `[data-ARCKHÉ-color]`). Idem swatch.
+- [ ] A2 — Padronizar `mark.setAttribute('data-has-note','true')` no JS (ou CSS `[data-ARCKHÉ-hasnote]`).
 - [ ] A3 — Popover de selecao: `setAttribute('data-open','true'/'false')` ao mostrar/esconder; ler `data-open` no `mousedown`.
 - [ ] A4 — Drawer da jornada: alinhar nomes (overlay→backdrop, BEM `__` nos filhos) e setar `data-open='true'` no overlay e no dialog ao abrir (proximo frame, p/ transicao) e `'false'` ao fechar.
-- [ ] A5 — `applyPrefs` setar `data-line-width`/`data-leading` no `<html>` (ou remover a redeclaracao de `--measure`/`--lh-body` em `.inema-prose`).
-- [ ] A6 — `applyPrefs` setar `data-reduced-motion='reduce'` (ou adicionar `.inema-reduce-motion` ao seletor CSS).
+- [ ] A5 — `applyPrefs` setar `data-line-width`/`data-leading` no `<html>` (ou remover a redeclaracao de `--measure`/`--lh-body` em `.ARCKHÉ-prose`).
+- [ ] A6 — `applyPrefs` setar `data-reduced-motion='reduce'` (ou adicionar `.ARCKHÉ-reduce-motion` ao seletor CSS).
 
 **Media — feedback/estado secundario:**
 - [ ] M1 — Painel de aparencia: `data-open` em vez de `is-open`.
-- [ ] M2 — `meterRow` usar `.inema-bar`/`.inema-bar__fill`; `paintMeter` setar `data-complete`.
+- [ ] M2 — `meterRow` usar `.ARCKHÉ-bar`/`.ARCKHÉ-bar__fill`; `paintMeter` setar `data-complete`.
 - [ ] M3 — Toast: `data-open='true'` no proximo frame; `'false'` na saida.
-- [ ] M4 — Badge: unificar hook (`[data-inema-journey-badge]` vs `.inema-journey-badge`) e setar `data-count`.
+- [ ] M4 — Badge: unificar hook (`[data-ARCKHÉ-journey-badge]` vs `.ARCKHÉ-journey-badge`) e setar `data-count`.
 
 **Baixa — robustez/cosmetico:**
-- [ ] B1 — Criar `.inema-btn` (+modificadores) e `inema-selpop-act` no CSS, ou trocar pelas classes existentes.
+- [ ] B1 — Criar `.ARCKHÉ-btn` (+modificadores) e `ARCKHÉ-selpop-act` no CSS, ou trocar pelas classes existentes.
 - [ ] B2 — Trocar `innerHTML=''` por `replaceChildren()` (preservar invariante "sem innerHTML"). Nao e bug ativo.
 - [ ] #1 (cosmetico) — Trocar `justify-center` por `justify-start` nas 4 CTAs de hero/CTA-final do `index.html` do demo, para aderencia literal.
 - [ ] B3 — Opcional: calcular o pedaco do quote contido no bloco inicial. Sem correcao obrigatoria.
@@ -152,7 +152,7 @@ Prioridade por severidade. **Todos afetam a skill canonica e o demo (assets iden
 
 - Logica/dados/robustez/temas: **solidos, aprovados, sem defeito real.**
 - Erros Criticos #1-#17: **0 violacoes** (1 ressalva cosmetica nao-critica no #1 — `justify-center` em CTAs de hero, nao em controles de aprendizagem).
-- Apresentacao e feedback ao usuario: **corrigidos** — `learn.js` reconciliado ao contrato do `learn.css` (cor de highlight, `data-has-note`, `data-open` no popover de selecao/aparencia/jornada/toast, BEM da jornada, `data-line-width`/`data-leading`, `data-reduced-motion`, `.inema-bar`/`data-complete`, badge `data-count`, `.inema-btn` base).
+- Apresentacao e feedback ao usuario: **corrigidos** — `learn.js` reconciliado ao contrato do `learn.css` (cor de highlight, `data-has-note`, `data-open` no popover de selecao/aparencia/jornada/toast, BEM da jornada, `data-line-width`/`data-leading`, `data-reduced-motion`, `.ARCKHÉ-bar`/`data-complete`, badge `data-count`, `.ARCKHÉ-btn` base).
 - Re-verificado em navegador real com asserts de ESTADO CSS RENDERIZADO (ver §9).
 
 ---

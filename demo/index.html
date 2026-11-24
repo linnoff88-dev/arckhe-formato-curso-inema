@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="inema-course" content="demo">
-  <script type="application/json" data-inema-manifest>
+  <meta name="ARCKHÉ-course" content="demo">
+  <script type="application/json" data-ARCKHÉ-manifest>
 {
   "course": "demo",
   "tracks": [
@@ -15,24 +15,24 @@
   ]
 }
 </script>
-  <title>Curso Demo - Engenharia de Prompts | INEMA.CLUB</title>
+  <title>Curso Demo - Engenharia de Prompts | ARCKHÉ AI</title>
 
   <!-- ===================================================================
        1) ANTI-FOUC: script BLOQUEANTE, PRIMEIRO no <head>, ANTES do Tailwind
-          e de qualquer <style>/<link>. Le inema.prefs (global) e aplica
+          e de qualquer <style>/<link>. Le ARCKHÉ.prefs (global) e aplica
           .dark + data-theme + CSS vars de leitura ANTES do primeiro paint.
-          try/catch total => default dark no erro (preserva a marca INEMA).
+          try/catch total => default dark no erro (preserva a marca ARCKHÉ).
           (Landing na RAIZ do demo: includes RELATIVOS = "./assets/...".)
        =================================================================== -->
   <script>
   (function () {
     try {
       var html = document.documentElement;
-      var DEF = { theme: 'inema-dark', font: 'inter', fontScale: 100, lineWidth: 68, leading: 1.7, accent: 'emerald' };
+      var DEF = { theme: 'ARCKHÉ-dark', font: 'inter', fontScale: 100, lineWidth: 68, leading: 1.7, accent: 'emerald' };
       function clone(o) { var r = {}; for (var x in o) r[x] = o[x]; return r; }
       var p = clone(DEF);
       try {
-        var raw = localStorage.getItem('inema.prefs');
+        var raw = localStorage.getItem('ARCKHÉ.prefs');
         if (raw) {
           var parsed = JSON.parse(raw);
           if (parsed && typeof parsed === 'object') {
@@ -41,18 +41,18 @@
         } else {
           var legacy = localStorage.getItem('theme');
           if (legacy === 'light') p.theme = 'claro';
-          else if (legacy === 'dark') p.theme = 'inema-dark';
+          else if (legacy === 'dark') p.theme = 'ARCKHÉ-dark';
         }
       } catch (e) { p = clone(DEF); }
 
       var THEMES = {
-        'inema-dark': { dark: true,  attr: null,        cs: 'dark'  },
+        'ARCKHÉ-dark': { dark: true,  attr: null,        cs: 'dark'  },
         'claro':      { dark: false, attr: null,        cs: 'light' },
         'sepia':      { dark: false, attr: 'sepia',     cs: 'light' },
         'foco':       { dark: null,  attr: 'foco',      cs: null    },
         'contraste':  { dark: true,  attr: 'contraste', cs: 'dark'  }
       };
-      var t = THEMES[p.theme] || THEMES['inema-dark'];
+      var t = THEMES[p.theme] || THEMES['ARCKHÉ-dark'];
 
       if (t.dark === true) html.classList.add('dark');
       else if (t.dark === false) html.classList.remove('dark');
@@ -67,7 +67,7 @@
 
       var s = html.style;
       var scale = (+p.fontScale || 100);
-      s.setProperty('--inema-font-scale', (scale / 100).toString());
+      s.setProperty('--ARCKHÉ-font-scale', (scale / 100).toString());
       s.setProperty('font-size', scale + '%');
       s.setProperty('--measure', (+p.lineWidth || 68) + 'ch');
       s.setProperty('--lh-body', (+p.leading || 1.7).toString());
@@ -180,7 +180,7 @@
     html:not(.dark) svg[role="img"] { filter: saturate(0.82) brightness(0.96); }
 
     /* altura real do nav -> usada pelo scroll-margin da learn.css */
-    :root { --inema-nav-h: 3.5rem; }
+    :root { --ARCKHÉ-nav-h: 3.5rem; }
   </style>
 
   <!-- 4) Folha de estilos da camada de aprendizagem (caminho RELATIVO de RAIZ) -->
@@ -194,21 +194,21 @@
 
   <!-- ===================================================================
        NAVIGATION GLOBAL (v1 completo, IDENTICO aos modulos) — MASTER §1.6 / §5.2
-       Logo + INEMA.CLUB (sky-400) + botoes de trilha + minha jornada +
+       Logo + ARCKHÉ AI (sky-400) + botoes de trilha + minha jornada +
        aparencia + theme toggle. Na landing nenhuma trilha fica "ativa".
        =================================================================== -->
   <nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex justify-between items-center h-14">
 
-        <!-- Logo + INEMA.CLUB -->
+        <!-- Logo + ARCKHÉ AI -->
         <div class="flex items-center space-x-4">
           <a href="index.html" class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300">
             <span class="text-2xl" aria-hidden="true">&#129504;</span>
             <span class="font-bold text-lg hidden sm:inline">Curso Demo</span>
           </a>
           <span class="text-neutral-600" aria-hidden="true">|</span>
-          <a href="https://inema.club" target="_blank" rel="noopener" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a>
+          <a href="https://ARCKHÉ AI" target="_blank" rel="noopener" class="text-sky-400 hover:text-sky-300 text-sm font-medium">ARCKHÉ AI</a>
         </div>
 
         <!-- Trilhas + Jornada + Aparencia + Theme Toggle -->
@@ -230,83 +230,83 @@
           </a>
 
           <!-- Minha jornada -->
-          <button type="button" data-inema-journey-open
+          <button type="button" data-ARCKHÉ-journey-open
                   class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-300 hover:text-neutral-100 hover:bg-dark-700 transition-colors ml-1">
             <span aria-hidden="true">&#9719;</span>
             <span class="hidden sm:inline">Minha jornada</span>
-            <span class="inema-journey-badge" data-inema-journey-badge data-count="0">0%</span>
+            <span class="ARCKHÉ-journey-badge" data-ARCKHÉ-journey-badge data-count="0">0%</span>
           </button>
 
           <!-- Seletor de aparencia (button-based; absorve o sol/lua) -->
           <div class="relative">
             <button type="button"
-                    data-inema-appearance-toggle="[data-inema-appearance]"
+                    data-ARCKHÉ-appearance-toggle="[data-ARCKHÉ-appearance]"
                     aria-expanded="false"
                     aria-haspopup="true"
-                    class="inema-appearance-trigger"
+                    class="ARCKHÉ-appearance-trigger"
                     title="Aparencia e leitura">
               <span aria-hidden="true">&#9681;</span>
               <span class="hidden sm:inline">Aparencia</span>
             </button>
 
-            <div data-inema-appearance class="inema-appearance-pop" role="dialog" aria-label="Preferencias de aparencia e leitura">
-              <div class="inema-pref-group">
-                <span class="inema-pref-group__label" id="pref-tema">Tema</span>
-                <div class="inema-segment" role="group" aria-labelledby="pref-tema">
-                  <button type="button" data-inema-set-theme="inema-dark" aria-pressed="false">Escuro</button>
-                  <button type="button" data-inema-set-theme="claro" aria-pressed="false">Claro</button>
-                  <button type="button" data-inema-set-theme="sepia" aria-pressed="false">Sepia</button>
+            <div data-ARCKHÉ-appearance class="ARCKHÉ-appearance-pop" role="dialog" aria-label="Preferencias de aparencia e leitura">
+              <div class="ARCKHÉ-pref-group">
+                <span class="ARCKHÉ-pref-group__label" id="pref-tema">Tema</span>
+                <div class="ARCKHÉ-segment" role="group" aria-labelledby="pref-tema">
+                  <button type="button" data-ARCKHÉ-set-theme="ARCKHÉ-dark" aria-pressed="false">Escuro</button>
+                  <button type="button" data-ARCKHÉ-set-theme="claro" aria-pressed="false">Claro</button>
+                  <button type="button" data-ARCKHÉ-set-theme="sepia" aria-pressed="false">Sepia</button>
                 </div>
-                <div class="inema-segment" role="group" aria-label="Mais temas">
-                  <button type="button" data-inema-set-theme="foco" aria-pressed="false">Foco</button>
-                  <button type="button" data-inema-set-theme="contraste" aria-pressed="false">Alto contraste</button>
-                </div>
-              </div>
-
-              <div class="inema-pref-group">
-                <span class="inema-pref-group__label" id="pref-fonte">Fonte</span>
-                <div class="inema-segment" role="group" aria-labelledby="pref-fonte">
-                  <button type="button" data-inema-set-font="inter" aria-pressed="false">Inter</button>
-                  <button type="button" data-inema-set-font="system" aria-pressed="false">Sistema</button>
-                  <button type="button" data-inema-set-font="leitura" aria-pressed="false">Leitura</button>
+                <div class="ARCKHÉ-segment" role="group" aria-label="Mais temas">
+                  <button type="button" data-ARCKHÉ-set-theme="foco" aria-pressed="false">Foco</button>
+                  <button type="button" data-ARCKHÉ-set-theme="contraste" aria-pressed="false">Alto contraste</button>
                 </div>
               </div>
 
-              <div class="inema-pref-group">
-                <span class="inema-pref-group__label" id="pref-tamanho">Tamanho</span>
-                <div class="inema-segment" role="group" aria-labelledby="pref-tamanho">
-                  <button type="button" data-inema-set-fontscale="100" aria-pressed="false">A</button>
-                  <button type="button" data-inema-set-fontscale="112" aria-pressed="false">A+</button>
-                  <button type="button" data-inema-set-fontscale="125" aria-pressed="false">A++</button>
+              <div class="ARCKHÉ-pref-group">
+                <span class="ARCKHÉ-pref-group__label" id="pref-fonte">Fonte</span>
+                <div class="ARCKHÉ-segment" role="group" aria-labelledby="pref-fonte">
+                  <button type="button" data-ARCKHÉ-set-font="inter" aria-pressed="false">Inter</button>
+                  <button type="button" data-ARCKHÉ-set-font="system" aria-pressed="false">Sistema</button>
+                  <button type="button" data-ARCKHÉ-set-font="leitura" aria-pressed="false">Leitura</button>
                 </div>
               </div>
 
-              <div class="inema-pref-group">
-                <span class="inema-pref-group__label" id="pref-medida">Largura da linha</span>
-                <div class="inema-segment" role="group" aria-labelledby="pref-medida">
-                  <button type="button" data-inema-set-linewidth="60" aria-pressed="false">Estreito</button>
-                  <button type="button" data-inema-set-linewidth="68" aria-pressed="false">Medio</button>
-                  <button type="button" data-inema-set-linewidth="75" aria-pressed="false">Largo</button>
+              <div class="ARCKHÉ-pref-group">
+                <span class="ARCKHÉ-pref-group__label" id="pref-tamanho">Tamanho</span>
+                <div class="ARCKHÉ-segment" role="group" aria-labelledby="pref-tamanho">
+                  <button type="button" data-ARCKHÉ-set-fontscale="100" aria-pressed="false">A</button>
+                  <button type="button" data-ARCKHÉ-set-fontscale="112" aria-pressed="false">A+</button>
+                  <button type="button" data-ARCKHÉ-set-fontscale="125" aria-pressed="false">A++</button>
                 </div>
               </div>
 
-              <div class="inema-pref-group">
-                <span class="inema-pref-group__label" id="pref-entrelinha">Entrelinha</span>
-                <div class="inema-segment" role="group" aria-labelledby="pref-entrelinha">
-                  <button type="button" data-inema-set-leading="1.45" aria-pressed="false">Compacto</button>
-                  <button type="button" data-inema-set-leading="1.7" aria-pressed="false">Confortavel</button>
+              <div class="ARCKHÉ-pref-group">
+                <span class="ARCKHÉ-pref-group__label" id="pref-medida">Largura da linha</span>
+                <div class="ARCKHÉ-segment" role="group" aria-labelledby="pref-medida">
+                  <button type="button" data-ARCKHÉ-set-linewidth="60" aria-pressed="false">Estreito</button>
+                  <button type="button" data-ARCKHÉ-set-linewidth="68" aria-pressed="false">Medio</button>
+                  <button type="button" data-ARCKHÉ-set-linewidth="75" aria-pressed="false">Largo</button>
                 </div>
               </div>
 
-              <div class="inema-pref-group">
-                <span class="inema-pref-group__label" id="pref-acento">Acento</span>
-                <div class="inema-accent-grid" role="group" aria-labelledby="pref-acento">
-                  <button type="button" data-inema-set-accent="emerald" aria-pressed="false" aria-label="Acento esmeralda"></button>
-                  <button type="button" data-inema-set-accent="blue" aria-pressed="false" aria-label="Acento azul"></button>
-                  <button type="button" data-inema-set-accent="purple" aria-pressed="false" aria-label="Acento roxo"></button>
-                  <button type="button" data-inema-set-accent="amber" aria-pressed="false" aria-label="Acento ambar"></button>
-                  <button type="button" data-inema-set-accent="teal" aria-pressed="false" aria-label="Acento turquesa"></button>
-                  <button type="button" data-inema-set-accent="rose" aria-pressed="false" aria-label="Acento rosa"></button>
+              <div class="ARCKHÉ-pref-group">
+                <span class="ARCKHÉ-pref-group__label" id="pref-entrelinha">Entrelinha</span>
+                <div class="ARCKHÉ-segment" role="group" aria-labelledby="pref-entrelinha">
+                  <button type="button" data-ARCKHÉ-set-leading="1.45" aria-pressed="false">Compacto</button>
+                  <button type="button" data-ARCKHÉ-set-leading="1.7" aria-pressed="false">Confortavel</button>
+                </div>
+              </div>
+
+              <div class="ARCKHÉ-pref-group">
+                <span class="ARCKHÉ-pref-group__label" id="pref-acento">Acento</span>
+                <div class="ARCKHÉ-accent-grid" role="group" aria-labelledby="pref-acento">
+                  <button type="button" data-ARCKHÉ-set-accent="emerald" aria-pressed="false" aria-label="Acento esmeralda"></button>
+                  <button type="button" data-ARCKHÉ-set-accent="blue" aria-pressed="false" aria-label="Acento azul"></button>
+                  <button type="button" data-ARCKHÉ-set-accent="purple" aria-pressed="false" aria-label="Acento roxo"></button>
+                  <button type="button" data-ARCKHÉ-set-accent="amber" aria-pressed="false" aria-label="Acento ambar"></button>
+                  <button type="button" data-ARCKHÉ-set-accent="teal" aria-pressed="false" aria-label="Acento turquesa"></button>
+                  <button type="button" data-ARCKHÉ-set-accent="rose" aria-pressed="false" aria-label="Acento rosa"></button>
                 </div>
               </div>
             </div>
@@ -337,7 +337,7 @@
         <!-- Coluna de texto -->
         <div>
           <span class="inline-block px-3 py-1 bg-emerald-500/20 text-emerald-400 text-xs font-semibold rounded-full mb-5">
-            CURSO DEMO · INEMA.CLUB
+            CURSO DEMO · ARCKHÉ AI
           </span>
           <h1 class="text-4xl sm:text-5xl font-bold leading-tight mb-5">
             <span class="text-3xl sm:text-4xl mr-2" aria-hidden="true">&#129504;</span>
@@ -368,11 +368,11 @@
           <div class="mt-10 max-w-md bg-dark-800/50 rounded-xl p-5 border border-dark-600">
             <div class="flex items-center justify-between mb-2">
               <span class="text-xs font-semibold uppercase tracking-wide text-neutral-400">Seu progresso no curso</span>
-              <span class="text-sm font-bold text-emerald-400" data-inema-meter-pct>0%</span>
+              <span class="text-sm font-bold text-emerald-400" data-ARCKHÉ-meter-pct>0%</span>
             </div>
-            <div data-inema-meter="curso" aria-label="Progresso do curso">
-              <div class="inema-bar"><div class="inema-bar__fill" data-inema-meter-fill></div></div>
-              <span class="inema-meter-label mt-2 inline-block" data-inema-meter-frac>0 de 0</span>
+            <div data-ARCKHÉ-meter="curso" aria-label="Progresso do curso">
+              <div class="ARCKHÉ-bar"><div class="ARCKHÉ-bar__fill" data-ARCKHÉ-meter-fill></div></div>
+              <span class="ARCKHÉ-meter-label mt-2 inline-block" data-ARCKHÉ-meter-frac>0 de 0</span>
             </div>
             <p class="text-xs text-neutral-500 mt-3">
               Marque os topicos como lidos dentro de cada modulo para ver esta barra avancar.
@@ -513,7 +513,7 @@
              class="inline-flex items-center justify-center gap-2 px-6 py-3 bg-emerald-600 text-white rounded-lg font-semibold hover:bg-emerald-500 transition-colors">
             Abrir o primeiro modulo <span aria-hidden="true">&#8594;</span>
           </a>
-          <button type="button" data-inema-journey-open
+          <button type="button" data-ARCKHÉ-journey-open
                   class="inline-flex items-center justify-center gap-2 px-6 py-3 bg-dark-700 text-neutral-100 rounded-lg font-semibold hover:bg-dark-600 transition-colors">
             <span aria-hidden="true">&#9719;</span> Abrir minha jornada
           </button>
@@ -527,13 +527,13 @@
   <footer class="border-t border-dark-600 py-8">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm">
       <p>Curso Demo - 2026 ·
-        <a href="https://inema.club" target="_blank" rel="noopener" class="text-sky-400 hover:text-sky-300">INEMA.CLUB</a>
+        <a href="https://ARCKHÉ AI" target="_blank" rel="noopener" class="text-sky-400 hover:text-sky-300">ARCKHÉ AI</a>
       </p>
     </div>
   </footer>
 
   <!-- ===================================================================
-       SCRIPTS — 3 funcoes-nucleo do v1 + learn.js + INEMA.init()
+       SCRIPTS — 3 funcoes-nucleo do v1 + learn.js + ARCKHÉ.init()
        =================================================================== -->
 
   <!-- 3 funcoes-nucleo do v1 (theme toggle). O learn.js absorve os icones do
@@ -547,19 +547,19 @@
           var nowDark = html.classList.toggle('dark');
           html.style.colorScheme = nowDark ? 'dark' : 'light';
           try { localStorage.setItem('theme', nowDark ? 'dark' : 'light'); } catch (e) {}
-          if (window.INEMA && typeof INEMA.setPref === 'function') {
-            INEMA.setPref('theme', nowDark ? 'inema-dark' : 'claro');
+          if (window.ARCKHÉ && typeof ARCKHÉ.setPref === 'function') {
+            ARCKHÉ.setPref('theme', nowDark ? 'ARCKHÉ-dark' : 'claro');
           }
         });
       }
     })();
   </script>
 
-  <!-- learn.js (caminho RELATIVO de RAIZ) + INEMA.init() -->
+  <!-- learn.js (caminho RELATIVO de RAIZ) + ARCKHÉ.init() -->
   <script src="./assets/learn.js"></script>
   <script>
-    if (window.INEMA && typeof window.INEMA.init === 'function') {
-      window.INEMA.init();
+    if (window.ARCKHÉ && typeof window.ARCKHÉ.init === 'function') {
+      window.ARCKHÉ.init();
 
       // GLUE da nav: os controles na <nav> (jornada + aparencia) ficam fora do
       // listener do <main> do learn.js. Aqui ligamos esses controles a API publica.
@@ -572,17 +572,17 @@
           if (!t || !t.closest) return;
 
           // abrir "minha jornada"
-          if (t.closest('[data-inema-journey-open]')) {
+          if (t.closest('[data-ARCKHÉ-journey-open]')) {
             e.preventDefault();
-            INEMA.openJourney();
+            ARCKHÉ.openJourney();
             return;
           }
 
           // toggle do painel de aparencia
-          var tgl = t.closest('[data-inema-appearance-toggle]');
+          var tgl = t.closest('[data-ARCKHÉ-appearance-toggle]');
           if (tgl) {
-            var sel = tgl.getAttribute('data-inema-appearance-toggle');
-            var panel = sel ? document.querySelector(sel) : document.querySelector('[data-inema-appearance]');
+            var sel = tgl.getAttribute('data-ARCKHÉ-appearance-toggle');
+            var panel = sel ? document.querySelector(sel) : document.querySelector('[data-ARCKHÉ-appearance]');
             if (panel) {
               var open = panel.classList.toggle('is-open');
               panel.setAttribute('data-open', open ? 'true' : 'false');
@@ -593,12 +593,12 @@
 
           // botoes de preferencia (tema/fonte/tamanho/medida/entrelinha/acento)
           var prefMap = [
-            ['data-inema-set-theme', 'theme'],
-            ['data-inema-set-font', 'font'],
-            ['data-inema-set-fontscale', 'fontScale'],
-            ['data-inema-set-linewidth', 'lineWidth'],
-            ['data-inema-set-leading', 'leading'],
-            ['data-inema-set-accent', 'accent']
+            ['data-ARCKHÉ-set-theme', 'theme'],
+            ['data-ARCKHÉ-set-font', 'font'],
+            ['data-ARCKHÉ-set-fontscale', 'fontScale'],
+            ['data-ARCKHÉ-set-linewidth', 'lineWidth'],
+            ['data-ARCKHÉ-set-leading', 'leading'],
+            ['data-ARCKHÉ-set-accent', 'accent']
           ];
           for (var i = 0; i < prefMap.length; i++) {
             var btn = t.closest('[' + prefMap[i][0] + ']');
@@ -607,7 +607,7 @@
               var key = prefMap[i][1];
               var val = (key === 'fontScale' || key === 'lineWidth') ? parseInt(raw, 10)
                 : (key === 'leading' ? parseFloat(raw) : raw);
-              INEMA.setPref(key, val);
+              ARCKHÉ.setPref(key, val);
               return;
             }
           }
@@ -615,21 +615,21 @@
 
         // fecha o painel de aparencia ao clicar fora
         document.addEventListener('mousedown', function (e) {
-          var panel = document.querySelector('[data-inema-appearance]');
+          var panel = document.querySelector('[data-ARCKHÉ-appearance]');
           if (!panel || !panel.classList.contains('is-open')) return;
-          if (e.target.closest && (e.target.closest('[data-inema-appearance]') || e.target.closest('[data-inema-appearance-toggle]'))) return;
+          if (e.target.closest && (e.target.closest('[data-ARCKHÉ-appearance]') || e.target.closest('[data-ARCKHÉ-appearance-toggle]'))) return;
           panel.classList.remove('is-open');
           panel.setAttribute('data-open', 'false');
-          var tg = document.querySelector('[data-inema-appearance-toggle]');
+          var tg = document.querySelector('[data-ARCKHÉ-appearance-toggle]');
           if (tg) tg.setAttribute('aria-expanded', 'false');
         });
 
         // mantem o badge da jornada atualizado quando o progresso/duvidas mudam
         function refreshBadge() {
           try {
-            var badges = document.querySelectorAll('[data-inema-journey-badge]');
-            var pr = INEMA.progress('curso');
-            var doubts = INEMA.listDoubts().filter(function (d) { return !d.resolved; }).length;
+            var badges = document.querySelectorAll('[data-ARCKHÉ-journey-badge]');
+            var pr = ARCKHÉ.progress('curso');
+            var doubts = ARCKHÉ.listDoubts().filter(function (d) { return !d.resolved; }).length;
             for (var i = 0; i < badges.length; i++) {
               badges[i].textContent = pr.pct + '%';
               badges[i].setAttribute('data-count', String(pr.done));
@@ -637,15 +637,15 @@
             }
           } catch (err) {}
         }
-        document.addEventListener('inema:read', refreshBadge);
-        document.addEventListener('inema:doubt', refreshBadge);
-        document.addEventListener('inema:progress', refreshBadge);
+        document.addEventListener('ARCKHÉ:read', refreshBadge);
+        document.addEventListener('ARCKHÉ:doubt', refreshBadge);
+        document.addEventListener('ARCKHÉ:progress', refreshBadge);
         refreshBadge();
       })();
 
       // ===================================================================
       // "CONTINUAR DE ONDE PAREI" (CTA do hero).
-      // Na landing nao ha topicos: INEMA.resume() so reancora dentro da pagina.
+      // Na landing nao ha topicos: ARCKHÉ.resume() so reancora dentro da pagina.
       // Aqui lemos o checkpoint (meta.lastModuleHref / lastTopicAnchor) via o
       // export do estado e NAVEGAMOS para o ultimo modulo. Se nao houver
       // checkpoint, o botao permanece oculto (so "Comecar" aparece).
@@ -656,7 +656,7 @@
 
         function readMeta() {
           try {
-            var snap = JSON.parse(INEMA.exportJSON());
+            var snap = JSON.parse(ARCKHÉ.exportJSON());
             return (snap && snap.meta) ? snap.meta : {};
           } catch (e) { return {}; }
         }

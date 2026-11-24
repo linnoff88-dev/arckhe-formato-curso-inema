@@ -83,4 +83,4 @@ Os tokens e regras de movimento do v4 (durations 250–600ms, easing suave, tipo
 
 ## 9. Zero-raster (D-01 — herdado)
 
-Motion e figuras em CSS/SVG inline, sem exceção no corpo da aula. Raster (PNG/JPG) é permitido **apenas** em hero de landing, com regra de peso (<200KB) e licença aberta registrada — nunca em curso comercial do INEMA.PRO com modelo non-commercial (ex.: FLUX klein/dev). Ver `EXEMPLOS-PROFISSOES.md` e SKILL.md §17 herdado da spec para o detalhe de licenciamento.
+Motion e figuras em CSS/SVG inline, sem exceção no corpo da aula. Raster (PNG/JPG) é permitido **apenas** em hero de landing, com regra de peso (<200KB) e licença aberta registrada — nunca em curso comercial do ARCKHÉ.PRO com modelo non-commercial (ex.: FLUX klein/dev). Ver `EXEMPLOS-PROFISSOES.md` e SKILL.md §17 herdado da spec para o detalhe de licenciamento.

@@ -2,8 +2,8 @@
 """selo-banner.py — escreve o nome do projeto/produto em azul acima do título do banner.
 
 Uso: selo-banner.py <imagem.jpg|webp> "<Nome>" [--titulo "TÍTULO DO BANNER"]
-Regra (inema-design V11, 13/10/2026): o selo só entra quando o banner cita o projeto
-e o NOME NÃO ESTÁ NO TÍTULO da imagem; se estiver (ex.: título "INEMASEO"), não faz nada.
+Regra (ARCKHÉ-design V11, 13/10/2026): o selo só entra quando o banner cita o projeto
+e o NOME NÃO ESTÁ NO TÍTULO da imagem; se estiver (ex.: título "ARCKHÉSEO"), não faz nada.
 Sora ExtraBold, azul #3B9EFF com brilho leve, canto superior esquerdo (alinhado ao título live).
 """
 import sys

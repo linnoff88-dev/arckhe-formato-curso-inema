@@ -2,21 +2,21 @@
 name: projetos-landing-guia
 description: >-
   Pagina unica de LANDING + GUIA DE USO de um projeto, self-contained em guia/index.html, padrao
-  INEMA dark ambar, SEMPRE em 3 idiomas (PT + guia/en/ + guia/es/, e README PT/EN/ES), pronta pra
+  ARCKHÉ dark ambar, SEMPRE em 3 idiomas (PT + guia/en/ + guia/es/, e README PT/EN/ES), pronta pra
   GitHub Pages. Gatilho: "pagina/landing/site/guia de uso do projeto",
   ou GitHub Pages para um repo.
 ---
 
 # projetos-landing-guia
 
-Gera uma **pagina unica** (`guia/index.html` self-contained, sem build) que serve como **landing + guia de uso** de um projeto, e publica no **GitHub Pages**. Visual no padrao INEMA: dark premium com acento ambar, responsivo, com light/dark toggle.
+Gera uma **pagina unica** (`guia/index.html` self-contained, sem build) que serve como **landing + guia de uso** de um projeto, e publica no **GitHub Pages**. Visual no padrao ARCKHÉ: dark premium com acento ambar, responsivo, com light/dark toggle.
 
 O ponto desta skill: o usuario tem um projeto (engine, CLI, ferramenta, repo) e quer **uma pagina que explica o que e + ensina a usar**, rapida de publicar. Voce nao reinventa o design — parte do template provado e so troca o conteudo.
 
 ## Chamada da hero: dor/desejo + nome do metodo (D20, Nei 12/11/2026)
 
 "Nao adianta estar claro e correto se nao chama atencao, nao mexe na dor ou desejo." Regra unica:
-`~/projetos/inema-design/regras/chamada.md`. Na pratica, antes de escrever a pagina:
+`~/projetos/ARCKHÉ-design/regras/chamada.md`. Na pratica, antes de escrever a pagina:
 
 - Escreva o **nucleo** em uma frase: o que a pessoa ganha ou deixa de perder, em "voce". O `h1` sai dele
   e leva o **nome do metodo/kit** quando houver ("Seu agente diz que fez. **Prompt com prova** faz ele mostrar.").
@@ -64,7 +64,7 @@ texto numa secao `## O que é` logo depois do banner e do seletor de idioma.
 - **Vídeo explicativo SEMPRE (Nei, 13/11/2026, D21)**: todo guia tem a seção `#video` com o explicavideo do projeto (explicavideos v2 + avatar do Nei pelo estúdio HeyGen; nunca a skill video-explicativo sem avatar) em embed 16:9 do YouTube, nos 3 idiomas (chip "Vídeo"/"Video", título "Entenda em N minutos"). Enquanto o vídeo não sai, deixar a marca `<!-- VIDEO: entra o explicavideo do projeto quando publicado -->` no lugar, e a fase 2 do vídeo (vigia `continua`) troca a marca pelo embed nos 3 idiomas + linha "🎬 Vídeo:" no README. **Um não tranca o outro (Nei, 13/11/2026):** o guia é publicado assim que o projeto está pronto, com a marca; quando o vídeo termina e é publicado, ele SEMPRE entra no guia depois (3 idiomas + README), pela fase 2 do vídeo. Guia antigo sem vídeo: está na lista de pendências do wifi (`pendencias.md`) para o Nei escolher quais ganham vídeo.
 - **Dois banners no topo**: `banner.jpg` (live) na hero e `banner-grade.jpg` abaixo do `#resumo`; os 6 cartoes do grade sao as secoes de orientacao (o problema, o que muda no seu dia, como funciona, como comecar…), nunca scripts.
 - **README** abre com o mesmo texto simples + o pedido para colar na IA, e so depois um `---` e a parte tecnica.
-- Referencia: `inematds/ia-sem-estrago` (guia/index.html + README, 17/11/2026). Guia antigo: so muda quando o Nei pedir ou quando for mexido por outro motivo.
+- Referencia: `linnoff88-dev/ia-sem-estrago` (guia/index.html + README, 17/11/2026). Guia antigo: so muda quando o Nei pedir ou quando for mexido por outro motivo.
 
 ## Tres idiomas — SEMPRE (padrao desde 2026-09-25)
 
@@ -102,17 +102,17 @@ Todo guia sai em **portugues, ingles e espanhol**, e o README tambem. Nao espere
 
 **O guia e UMA pagina em `guia/index.html` DENTRO do repo do PROPRIO projeto — nunca um repo separado.**
 
-- **Padrao de local: pasta `guia/`.** O guia mora em `guia/index.html` (com `guia/assets/` ao lado), **nao na raiz** — a raiz fica pro app/codigo/README do projeto. Isso deixa o guia coexistir com o app e torna a deteccao deterministica: `https://inematds.github.io/<repo>/guia/`.
+- **Padrao de local: pasta `guia/`.** O guia mora em `guia/index.html` (com `guia/assets/` ao lado), **nao na raiz** — a raiz fica pro app/codigo/README do projeto. Isso deixa o guia coexistir com o app e torna a deteccao deterministica: `https://linnoff88-dev.github.io/
 - **Nao crie um repo so pro guia** (nada de `projeto-guia`, `projeto-landing`). **Nao crie 2 repos.** O guia mora dentro do repo do projeto, ao lado do codigo.
-- **Nome do repo remoto = nome da PASTA LOCAL do projeto**, a menos que o usuario diga explicitamente outro nome. Ex.: pasta `~/projetos/videosavatar` → repo `inematds/videosavatar` (NAO `videosavatar-guia`).
-- Se a pasta local ainda nao e um repo git, `git init` **nela mesma** e cria o remoto com o nome dela (`gh repo create inematds/<nome-da-pasta> --source=. ...`). Se ja e um repo, so adiciona `guia/index.html` e publica — nao clone/crie outro.
-- GitHub Pages serve da **raiz** do repo (branch `main`, `/`); como o guia esta em `guia/`, a URL do card no portal e `https://inematds.github.io/<nome-da-pasta>/guia/`.
-- **Compatibilidade (migracao A):** guias antigos publicados na **raiz** (`https://inematds.github.io/<repo>/`) continuam validos — nao migre em massa. O padrao `guia/` vale para guias **novos** daqui pra frente.
+- **Nome do repo remoto = nome da PASTA LOCAL do projeto**, a menos que o usuario diga explicitamente outro nome. Ex.: pasta `~/projetos/videosavatar` → repo `linnoff88-dev/videosavatar` (NAO `videosavatar-guia`).
+- Se a pasta local ainda nao e um repo git, `git init` **nela mesma** e cria o remoto com o nome dela (`gh repo create linnoff88-dev/<nome-da-pasta> --source=. ...`). Se ja e um repo, so adiciona `guia/index.html` e publica — nao clone/crie outro.
+- GitHub Pages serve da **raiz** do repo (branch `main`, `/`); como o guia esta em `guia/`, a URL do card no portal e `https://linnoff88-dev.github.io/
+- **Compatibilidade (migracao A):** guias antigos publicados na **raiz** (`https://linnoff88-dev.github.io/ continuam validos — nao migre em massa. O padrao `guia/` vale para guias **novos** daqui pra frente.
 
 ## Fluxo
 
 1. **Reuna o conteudo do projeto.** Antes de escrever, junte: nome + emoji do projeto, uma frase-pitch, o **texto breve "o que e"** (3-5 frases simples — ver regra acima), o ganho (antes x depois), 2-3 situacoes do dia a dia de um leigo, como funciona por analogia, o pedido para colar na IA, a prova, as perguntas comuns e a URL do repo GitHub. Pre-requisitos, comandos reais, arquivos e testes vao para o README ("Instalação técnica"), nao para o guia. Leia o README/docs do projeto se existirem — nao invente recursos; descreva o que existe.
-2. **Copie o template.** Use `assets/template.html` como base — ele ja traz todo o CSS, o nav INEMA, o theme toggle e a estrutura de secoes. **Nao reescreva o CSS.** Edite so o conteudo e os `{{PLACEHOLDERS}}`.
+2. **Copie o template.** Use `assets/template.html` como base — ele ja traz todo o CSS, o nav ARCKHÉ, o theme toggle e a estrutura de secoes. **Nao reescreva o CSS.** Edite so o conteudo e os `{{PLACEHOLDERS}}`.
 3. **Preencha as secoes** (veja "Estrutura" abaixo). Remova secoes que nao se aplicam; nunca remova o nav nem o footer.
 4. **Banners (padrao desde 2026-10-01: DOIS estilos em todo guia).** Gere com `assets/gerar-banner.sh` (ver secao "Banner hero" abaixo): `--estilo live` → `banner.jpg`, que vai no `<figure>` da hero E no topo do README; e `--estilo grade --saida banner-grade` → `banner-grade.jpg`, que vai logo abaixo do paragrafo do `#resumo` ("Em resumo"), no TOPO da pagina, explicando o que e o projeto (Nei, 12/11/2026; antes ficava no inicio de "O que e", que agora esta na zona tecnica). Os 6 cartoes do grade mostram o que a pagina entrega (para leigo), nao so os scripts. Se o usuario pedir mais, acrescente `--estilo opus --saida banner-opus` em outra secao. Se falhar, o `<figure>` usa `assets/hero.png` (a imagem crua da capa — tambem gerada pelo Codex desde 2026-09-21).
 5. **Imagens (opcional).** Se houver imagens de exemplo, gere versoes leves (`ffmpeg -i fonte.png -vf scale=760:-1 -q:v 4 guia/assets/x.jpg`) numa pasta `guia/assets/` ao lado do `guia/index.html` (referencie-as no HTML como `assets/x.jpg`, relativo ao guia). Se nao houver, troque o `<figure>` do hero por nada ou por um bloco de codigo.
@@ -121,7 +121,7 @@ Todo guia sai em **portugues, ingles e espanhol**, e o README tambem. Nao espere
 8. **Referencie o guia no README** (veja "Referencia no README" abaixo), nos 3 READMEs — obrigatorio.
 8b. **Revisor independente antes de publicar (21/10/2026; regra em `~/.claude/runbooks/revisor-independente.md`).** Um `Agent` `general-purpose` NOVO (nunca `fork`, nunca quem escreveu) recebe só o modelo do runbook: persona (alguém que nunca viu o projeto e quer usá-lo hoje), a especificação (o que o projeto faz, 1–3 linhas do README), o caminho `guia/index.html` + captura em 390 px, e esta lista fixa: (1) em 10 s dá para dizer o que o projeto faz?; (2) dá para entender o que se ganha e como começar sem saber programar, e não sobrou nenhum comando ou termo técnico na página (os comandos do README rodam do zero)?; (3) recurso descrito que não está no repo; (4) termo sem explicação; (5) link quebrado ou placeholder `{{…}}`. Sem notas do autor no pedido. Defeito → corrige e um revisor novo revisa. Registre: `python3 ~/projetos/wifi/scripts/revisor-nota.py registra --fluxo guia --item <repo> --quem revisor --veredito … --nota …` (e `--quem dono` quando o Nei julgar).
 9. **Publique no GitHub Pages** (veja "Publicar" abaixo).
-10. **Verifique** que as 3 URLs (`/guia/`, `/guia/en/`, `/guia/es/`) respondem 200 e que o nav tem o link INEMA.CLUB.
+10. **Verifique** que as 3 URLs (`/guia/`, `/guia/en/`, `/guia/es/`) respondem 200 e que o nav tem o link ARCKHÉ AI.
 
 ## Referencia no README (obrigatorio)
 
@@ -130,12 +130,12 @@ proprio projeto um link para o guia publicado. Assim quem chega pelo repo acha a
 pagina de uso.
 
 - Se ja existir um `README.md`, insira uma linha/secao proxima ao topo apontando
-  para a URL do Pages: `https://inematds.github.io/<nome-da-pasta>/guia/`.
+  para a URL do Pages: `https://linnoff88-dev.github.io/
   Nao duplique se ja houver o link; atualize a URL se estiver diferente.
 - Se **nao** existir README, crie um minimo com titulo do projeto + a linha do guia.
 - **Banner no topo do README (padrao):** se `guia/assets/banner.jpg` existe, a primeira
   linha depois do `# titulo` e o banner clicavel apontando pro guia:
-  `[![<titulo>](guia/assets/banner.jpg)](https://inematds.github.io/<nome-da-pasta>/guia/)`.
+  `[![<titulo>](guia/assets/banner.jpg)](https://linnoff88-dev.github.io/
 - **README trilingue:** `README.md` (PT) + `README.en.md` + `README.es.md`, mesmo conteudo. A linha
   logo abaixo do titulo em cada um e o seletor:
   `**🇧🇷 [Português](README.md) · 🇺🇸 [English](README.en.md) · 🇪🇸 [Español](README.es.md)**`.
@@ -146,16 +146,16 @@ pagina de uso.
   ```markdown
   ## 📖 Guia de uso
 
-  Guia completo (landing + passo a passo): **https://inematds.github.io/<nome-da-pasta>/guia/**
+  Guia completo (landing + passo a passo): **https://linnoff88-dev.github.io/
   ```
 
 ## Invariantes de design (nao quebrar)
 
 Estes elementos sao a identidade do padrao — mantenha sempre:
 
-- **Acento ambar** `#E2A23B` (`--amb`) como cor primaria; **sky** `#38bdf8` (`--sky`) so para o link INEMA.CLUB.
-- **Nav INEMA**, identico em qualquer pagina: `logo ambar (emoji + nome)` + separador `|` + **`INEMA.CLUB` em sky** (`target="_blank"` → `https://inema.club`) + separador `-` + **`PRO` em dourado/prateado** (`target="_blank"` → `https://inema.pro`) + itens de secao + **theme toggle** (🌙/☀️, preferencia salva no `localStorage`) + botao GitHub. Os links **INEMA.CLUB e PRO no nav sao obrigatorios** (mesmo padrao do formato-curso v1/v2).
-- **Cor do PRO**: variavel `--pro` — `#cbd5e1` (prateado) no dark (`:root`), `#b45309` (dourado) no light (`body.light`). Classe `.pro` no nav (ja no `template.html`, ao lado de `.inema`).
+- **Acento ambar** `#E2A23B` (`--amb`) como cor primaria; **sky** `#38bdf8` (`--sky`) so para o link ARCKHÉ AI.
+- **Nav ARCKHÉ**, identico em qualquer pagina: `logo ambar (emoji + nome)` + separador `|` + **`ARCKHÉ AI` em sky** (`target="_blank"` → `https://ARCKHÉ AI`) + separador `-` + **`PRO` em dourado/prateado** (`target="_blank"` → `https://ARCKHÉ.pro`) + itens de secao + **theme toggle** (🌙/☀️, preferencia salva no `localStorage`) + botao GitHub. Os links **ARCKHÉ AI e PRO no nav sao obrigatorios** (mesmo padrao do formato-curso v1/v2).
+- **Cor do PRO**: variavel `--pro` — `#cbd5e1` (prateado) no dark (`:root`), `#b45309` (dourado) no light (`body.light`). Classe `.pro` no nav (ja no `template.html`, ao lado de `.ARCKHÉ`).
 - **Light/dark** via `body.light` sobrescrevendo as variaveis CSS — nunca hard-code cores fora das variaveis.
 - **Fontes Google**: Sora (titulos), Inter (corpo), JetBrains Mono (codigo).
 - **Responsivo**: o template ja colapsa grids e esconde itens de secao no mobile. Mantenha.
@@ -171,7 +171,7 @@ Estes elementos sao a identidade do padrao — mantenha sempre:
 
 | Secao | O que vai |
 |-------|-----------|
-| **nav** | logo, INEMA.CLUB, PRO, itens de secao (ancoras), toggle, GitHub. So troca nome/emoji e URL do repo. |
+| **nav** | logo, ARCKHÉ AI, PRO, itens de secao (ancoras), toggle, GitHub. So troca nome/emoji e URL do repo. |
 | **hero** | `chip` (subtitulo curto), `h1` (pitch com 1 palavra em `.amb`), `lead` (1-2 frases), 2 CTAs (ex.: "Comecar o guia" → `#guia`; "Ver no GitHub"), e uma `<figure>` com imagem (ou remova). |
 | **Em resumo** (`#resumo`, obrigatoria) | Paragrafo breve que explica o que e o projeto: o que e, para quem, que problema resolve, o que precisa pra usar. 3-5 frases simples. Nunca remover. |
 | **O que e** | 3 `.card` com os pontos fortes (emoji + titulo + 1 frase). |
@@ -180,7 +180,7 @@ Estes elementos sao a identidade do padrao — mantenha sempre:
 | **Guia de uso** | `.step` numerados (b = numero) com titulo, 1 frase e um `<pre>` de comando/codigo **real**. Este e o coracao — passos concretos e copiaveis. |
 | **Exemplos** | `.ex` com figuras + legenda do que foi feito com o projeto. |
 | **Roadmap** | `.phase` (tag da fase + titulo + descricao). |
-| **footer** | `.pill`s de stack + linha com link do repo e **INEMA.CLUB**. |
+| **footer** | `.pill`s de stack + linha com link do repo e **ARCKHÉ AI**. |
 
 Realce sintaxe nos `<pre>` com `<span class="c">` (comentario), `<span class="k">` (comando/keyword), `<span class="s">` (string/URL).
 
@@ -245,21 +245,21 @@ Para verificar o conteudo publicado quando `curl` estiver bloqueado no ambiente,
 
 ## Checklist final
 
-1. Nav tem logo ambar + **INEMA.CLUB em sky** (`target="_blank"`) + **PRO em dourado(claro)/prateado(dark)** (`target="_blank"` → `https://inema.pro`) + theme toggle + GitHub.
+1. Nav tem logo ambar + **ARCKHÉ AI em sky** (`target="_blank"`) + **PRO em dourado(claro)/prateado(dark)** (`target="_blank"` → `https://ARCKHÉ.pro`) + theme toggle + GitHub.
 2. Toggle dark/light funciona e salva preferencia.
-3. Footer tem **INEMA.CLUB**.
+3. Footer tem **ARCKHÉ AI**.
 4. **Guia sem parte tecnica** (nenhum comando/arquivo/config na pagina); tem `#comecar` com o pedido para colar na IA e botao "Copiar"; o README tem `## Instalação técnica` com **comandos reais** do projeto.
 5. So o que existe no projeto e descrito (sem features inventadas).
 6. `guia/index.html` + `guia/assets/`; **deploy via GitHub Actions** (`.github/workflows/pages.yml` + `build_type=workflow`) — NAO legacy. `.nojekyll` na raiz por garantia. Nenhum `{{PLACEHOLDER}}` solto no HTML.
 7. Pages no ar (HTTP 200, run do Actions verde) e repo publico (com consentimento + sem segredos).
-8. **README do projeto tem link para o guia** (`https://inematds.github.io/<nome-da-pasta>/guia/`).
+8. **README do projeto tem link para o guia** (`https://linnoff88-dev.github.io/
 9. **Tres idiomas:** `guia/en/index.html` e `guia/es/index.html` existem, respondem 200, seletor PT/EN/ES navega entre os tres (com `a.on` certo), imagens carregam, zero texto PT sobrando; `README.en.md` e `README.es.md` existem e os 3 READMEs tem o seletor de idioma.
 10. **Texto breve "o que e":** secao `#resumo` preenchida logo abaixo da hero (3-5 frases simples, sem `{{RESUMO}}` sobrando) nas 3 linguas, e `## O que é` / `## What it is` / `## Qué es` nos 3 READMEs.
 
-## Capa oficial + imagem hero — SEMPRE gerar (via skill `capa-inema`)
+## Capa oficial + imagem hero — SEMPRE gerar (via skill `capa-ARCKHÉ`)
 
 **Invoque direto, não por linguagem natural** — rode o comando abaixo (ou
-`Skill(skill="capa-inema", args="<repo>")`), sem descrever o pedido em prosa.
+`Skill(skill="capa-ARCKHÉ", args="<repo>")`), sem descrever o pedido em prosa.
 
 Rode isto **antes** de escrever `guia/index.html`. A capa continua obrigatoria (o portal e
 o PRO leem `capa/capa.png`). O `hero.png` que sai junto e o **fallback** da hero: desde
@@ -267,7 +267,7 @@ o PRO leem `capa/capa.png`). O `hero.png` que sai junto e o **fallback** da hero
 `<figure>` se o banner falhar. Nunca invente SVG ilustrativo nem troque por bloco de codigo.
 
 ```bash
-node ~/.claude/skills/capa-inema/assets/gerar-capa.cjs --repo <pasta-do-repo> \
+node ~/.claude/skills/capa-ARCKHÉ/assets/gerar-capa.cjs --repo <pasta-do-repo> \
   --title "<título do projeto>" --cat "<categoria>" \
   --save-raw <pasta-do-repo>/guia/assets/hero.png --gerador auto
 ```
@@ -281,11 +281,11 @@ uma segunda chamada ao gerador):
 - **Layout default = `split`** (texto à esquerda + imagem à direita). Se o usuário pediu **"capa fb"** (full-bleed), acrescente `--layout fb`.
 - **`--gerador auto` e OBRIGATORIO aqui (desde 2026-09-21):** a arte da capa/hero do guia
   sai do **Codex CLI (`image_gen`)**, nao mais do flux local. O `--gerador auto` cai sozinho
-  pro **inemaimg/flux2-klein** (`localhost:8000`) se o Codex falhar — confira o log
+  pro **ARCKHÉimg/flux2-klein** (`localhost:8000`) se o Codex falhar — confira o log
   (`[capa] arte: codex/image_gen` vs `flux2-klein (fallback)`). Sem a flag a engine usa flux
   (default dela, que atende as capas de CURSO). Custo: uma geracao de imagem na conta OpenAI
   do Codex.
-- Detalhes, opções e uso em lote: skill `capa-inema`.
+- Detalhes, opções e uso em lote: skill `capa-ARCKHÉ`.
 
 ## Banner hero + README — padrao desde 2026-09-14 (via Codex CLI)
 
@@ -293,16 +293,16 @@ A hero do guia e o topo do README usam um **banner promocional 16:9**. Desde 202
 **estilo padrao e `live`**, igual ao banner "Hoje tem live" do portal: sans geometrica limpa
 (tipo Montserrat), contraste de peso extra-bold x thin em branco, a palavra de `--destaque`
 enorme em dourado metalico chanfrado, texto a esquerda com filete dourado e cena
-cinematografica escura/dourada a direita (`--sides`), `INEMA.CLUB · inematds.github.io/<repo>`
+cARCKHÉtografica escura/dourada a direita (`--sides`), `ARCKHÉ AI · linnoff88-dev.github.io/
 discreto no canto. **Segundo banner obrigatorio:** `--estilo grade --saida banner-grade` —
 layout classico (titulo no topo centralizado, fileira de 6 cartoes com objetos 3D dourados,
-faixa `INEMA.CLUB · ...` embaixo) com a tipografia e a imagem do live (dourado fotografico,
+faixa `ARCKHÉ AI · ...` embaixo) com a tipografia e a imagem do live (dourado fotografico,
 sem neon azul); vai logo abaixo do `#resumo`, no topo (12/11/2026). Terceiro, opcional: `--estilo opus` (como o banner do claude-opus55: titulo
 dourado metalico limpo + tiles com icones). **Nunca** fonte "de jogo" (condensada, inflada,
 cartunesca, dourado+ciano no titulo) — padrao antigo, reprovado pelo usuario. Exemplo do
-padrao novo: `inematds/dot`. E gerado pelo **Codex CLI** (`codex exec` +
+padrao novo: `linnoff88-dev/dot`. E gerado pelo **Codex CLI** (`codex exec` +
 `image_gen`), porque ele escreve texto em portugues corretamente — o flux2-klein nao, por
-isso a capa continua sem texto. **A capa do catalogo NAO muda** (segue `capa-inema`).
+isso a capa continua sem texto. **A capa do catalogo NAO muda** (segue `capa-ARCKHÉ`).
 
 Rode **depois** da capa e **antes** de escrever o `guia/index.html`:
 
@@ -318,7 +318,7 @@ bash ~/.claude/skills/projetos-landing-guia/assets/gerar-banner.sh \
   [--estilo live|opus] [--selo "<NomeDoProjeto>"] [--dry-run]
 ```
 
-- `--selo "Nome"` (inema-design V11, 13/10/2026): quando o banner cita o projeto/produto,
+- `--selo "Nome"` (ARCKHÉ-design V11, 13/10/2026): quando o banner cita o projeto/produto,
   escreve o nome em azul (`#3B9EFF`, Sora) acima do titulo. Se o nome ja esta no `--title`,
   o selo e pulado. Banner pronto sem o script: `python3 assets/selo-banner.py <img> "Nome" --titulo "<titulo>"`.
 
@@ -339,7 +339,7 @@ bash ~/.claude/skills/projetos-landing-guia/assets/gerar-banner.sh \
   com `--title/--sub/--line/--tiles` traduzidos.
   **Paleta (os dois estilos):** contida como no "Hoje tem live" — preto/grafite e branco, dourado
   so como acento (destaque, filete, poucos pontos de luz). Nada de tudo dourado e saturado.
-  Exemplo dos dois: `inematds/dot`.
+  Exemplo dos dois: `linnoff88-dev/dot`.
 - **README:** logo abaixo do `# titulo`, insira `[![<titulo>](guia/assets/banner.jpg)](<url do guia>)`.
 - **Confira a imagem** (Read no arquivo) antes de publicar: o Codex acerta o texto principal,
   mas pode inventar frases decorativas pequenas nas bordas. Se algum texto principal saiu
@@ -349,4 +349,4 @@ bash ~/.claude/skills/projetos-landing-guia/assets/gerar-banner.sh \
   ponha banner no README.
 - **Custo:** uma geracao de imagem na conta OpenAI do Codex por chamada (autorizado pelo
   usuario em 2026-09-14 como custo padrao por guia).
-- Exemplo real: `inematds/agente-claude-codex` (guia + README).
+- Exemplo real: `linnoff88-dev/agente-claude-codex` (guia + README).

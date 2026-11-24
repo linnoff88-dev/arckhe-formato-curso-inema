@@ -1,10 +1,10 @@
-# DESIGN-SPEC — Skill `formato-curso-v2` (INEMA.CLUB · "aprendizado agradável")
+# DESIGN-SPEC — Skill `formato-curso-v2` (ARCKHÉ AI · "aprendizado agradável")
 
 - **Data:** 2026-06-14
 - **Fase:** F2 (síntese / design) — funde 3 propostas (Learnability-first, Visual/Temas-first, Robustez-first) numa única especificação implementável.
 - **Skill de REFERÊNCIA (não editar, byte-a-byte intacta):** `/home/nmaldaner/.claude/skills/formato-curso/`
-- **Skill NOVA (dev-source):** `/home/nmaldaner/projetos/formato-curso-inema/formato-curso-v2/`
-- **Curso-demo (dev-source):** `/home/nmaldaner/projetos/formato-curso-inema/demo/`
+- **Skill NOVA (dev-source):** `/home/nmaldaner/projetos/formato-curso-ARCKHÉ/formato-curso-v2/`
+- **Curso-demo (dev-source):** `/home/nmaldaner/projetos/formato-curso-ARCKHÉ/demo/`
 - **Insumos:** `BASELINE.md`, `PESQUISA.md`, `PLANO-FORMATO-CURSO-V2.md`.
 
 ---
@@ -14,7 +14,7 @@
 A v2 **NÃO é um redesign** da `formato-curso`. É a v1 (dark premium âmbar/ciano, SVG futurista, profundidade dos módulos, Erros Críticos #1–#17) com **uma camada de aprendizagem e aparência por cima**, governada por **três princípios não-negociáveis**, herdados um de cada proposta:
 
 1. **LEARNABILITY primeiro, identidade depois** (Proposta 1). O eixo é reduzir carga cognitiva e dar sensação de avanço: chunking (1 ideia/seção, contiguidade texto-gráfico), progressão visível (tópico→módulo→trilha→curso), marcação explícita de lido/dúvida, anotação no próprio texto, e um painel **"minha jornada"** como casa do progresso e do "continuar de onde parei".
-2. **VISUAL premium com temas trocáveis sobre DOIS LAYERS que não colidem** (Proposta 2). Decisão arquitetural travada: o Tailwind/`.dark` continua dirigindo o que já é utilitário; **CSS variables** governam parâmetros de leitura e temas extras (`data-theme` **ortogonal** à classe `.dark`). Identidade INEMA = **tema default** e contrato. Nada de prometer "tema novo em 10 linhas" para as partes em utilitário Tailwind.
+2. **VISUAL premium com temas trocáveis sobre DOIS LAYERS que não colidem** (Proposta 2). Decisão arquitetural travada: o Tailwind/`.dark` continua dirigindo o que já é utilitário; **CSS variables** governam parâmetros de leitura e temas extras (`data-theme` **ortogonal** à classe `.dark`). Identidade ARCKHÉ = **tema default** e contrato. Nada de prometer "tema novo em 10 linhas" para as partes em utilitário Tailwind.
 3. **ROBUSTEZ e SIMPLICIDADE acima de tudo** (Proposta 3). A camada interativa é **enhancement progressivo**: se o JS quebrar ou o `localStorage` estiver bloqueado, o curso continua 100% legível. Persistir só a **verdade mínima** (booleans + quotes), **derivar** percentuais no render. Toda I/O em wrappers `no-throw`. Falhar sempre para o estado seguro.
 
 **Regra de ouro herdada (inegociável):** HTML self-contained, Tailwind via CDN, JS inline, sem build, sem backend, sem framework. Abre em `file://`, funciona offline. Erros Críticos **#1–#17 preservados**; recursos novos viram **regras #18–#27** no SKILL.md e no CHECKLIST_REVISAO.md (espelhados na skill irmã `revisar-curso`).
@@ -25,22 +25,22 @@ A v2 **NÃO é um redesign** da `formato-curso`. É a v1 (dark premium âmbar/ci
 
 ### 1.1 Princípios
 
-- **Dois escopos.** Estado de **aprendizagem** = por curso (`inema.<courseId>.*`). Preferências de **aparência/leitura** = globais ao aluno (`inema.prefs`, cross-curso).
-- **`courseId`** derivado de `<meta name="inema-course" content="fep">`; fallback = slug da pasta. Toda chave de aprendizagem é namespaced por ele → estados de cursos diferentes não colidem.
+- **Dois escopos.** Estado de **aprendizagem** = por curso (`ARCKHÉ.<courseId>.*`). Preferências de **aparência/leitura** = globais ao aluno (`ARCKHÉ.prefs`, cross-curso).
+- **`courseId`** derivado de `<meta name="ARCKHÉ-course" content="fep">`; fallback = slug da pasta. Toda chave de aprendizagem é namespaced por ele → estados de cursos diferentes não colidem.
 - **Persistir só a verdade mínima.** Guardar booleans de "lido" e registros de nota/dúvida. **NUNCA persistir valores derivados** (percentuais, contagens, badges, "próximo módulo"): tudo derivado é função pura do estado + do DOM atual. Conteúdo mudou → as barras se autocorrigem.
 - **Ausência = não-lido.** Só persistir `read[id] = true`; nunca gravar `false` (remover a chave).
 - **Toda I/O via wrappers no-throw** (`storageGet`/`storageSet` com try/catch + `JSON.parse` defensivo). Exceção nunca chega à UI — no máximo vira `console.warn`.
 
-### 1.2 Chaves (namespace `inema.<courseId>.*`)
+### 1.2 Chaves (namespace `ARCKHÉ.<courseId>.*`)
 
 | Chave | Shape | Notas |
 |---|---|---|
-| `inema.<courseId>.read` | `{ "modulo-1-1#topico-3": true, … }` | Só booleans `true`. Topico→módulo→trilha→curso **tudo derivado** contando ids presentes no DOM. |
-| `inema.<courseId>.doubts` | `{ "modulo-1-1#topico-3": { ts, resolved:false }, … }` | Flag de dúvida em **nível de tópico** (botão rápido). Dúvida em nível de **trecho** vive em `notes` com `color:"doubt"` — canal unificado. |
-| `inema.<courseId>.notes` | `{ "<blockId>": [ { id, ts, color, quote, note, anchor, tags, orphan? }, … ], … }` | **Uma só forma** para highlight e nota: `note===null` ⇒ highlight puro. Indexado por `blockId` para localizar rápido na re-hidratação. |
-| `inema.<courseId>.checks` | `{ "modulo-1-1#q1": { choice, correct, ts }, … }` | Respostas das checagens leves **opcionais**. Separado de `read` pra não poluir o progresso. |
-| `inema.<courseId>.meta` | `{ lastTopicAnchor, lastModuleHref, lastScroll, lastVisitedTs, completedAt? }` | Alimenta "continuar de onde parei" e a celebração de 100%. |
-| `inema.prefs` *(GLOBAL)* | `{ schemaVersion, theme, font, fontScale, lineWidth, leading, accent, reducedMotionOverride? }` | Preferências visuais, **compartilhadas entre todos os cursos**. Detalhe em §3. |
+| `ARCKHÉ.<courseId>.read` | `{ "modulo-1-1#topico-3": true, … }` | Só booleans `true`. Topico→módulo→trilha→curso **tudo derivado** contando ids presentes no DOM. |
+| `ARCKHÉ.<courseId>.doubts` | `{ "modulo-1-1#topico-3": { ts, resolved:false }, … }` | Flag de dúvida em **nível de tópico** (botão rápido). Dúvida em nível de **trecho** vive em `notes` com `color:"doubt"` — canal unificado. |
+| `ARCKHÉ.<courseId>.notes` | `{ "<blockId>": [ { id, ts, color, quote, note, anchor, tags, orphan? }, … ], … }` | **Uma só forma** para highlight e nota: `note===null` ⇒ highlight puro. Indexado por `blockId` para localizar rápido na re-hidratação. |
+| `ARCKHÉ.<courseId>.checks` | `{ "modulo-1-1#q1": { choice, correct, ts }, … }` | Respostas das checagens leves **opcionais**. Separado de `read` pra não poluir o progresso. |
+| `ARCKHÉ.<courseId>.meta` | `{ lastTopicAnchor, lastModuleHref, lastScroll, lastVisitedTs, completedAt? }` | Alimenta "continuar de onde parei" e a celebração de 100%. |
+| `ARCKHÉ.prefs` *(GLOBAL)* | `{ schemaVersion, theme, font, fontScale, lineWidth, leading, accent, reducedMotionOverride? }` | Preferências visuais, **compartilhadas entre todos os cursos**. Detalhe em §3. |
 
 ### 1.3 Registro de nota / highlight (forma única)
 
@@ -81,7 +81,7 @@ A v2 **NÃO é um redesign** da `formato-curso`. É a v1 (dark premium âmbar/ci
 }
 ```
 
-- `inema.prefs` é **global** → exportado em bloco **separado/opcional**, não dentro do export por-curso.
+- `ARCKHÉ.prefs` é **global** → exportado em bloco **separado/opcional**, não dentro do export por-curso.
 - **Import defensivo (rede de segurança central):** parse em variável temporária → valida `schemaVersion` → só commita se válido. **Merge não-destrutivo por default** (união de lidos/notas/dúvidas; nada é apagado); `replace` exige confirmação. Arquivo inválido = **no-op** com mensagem; estado atual intacto. Retorna `{ok, applied, skipped, errors}`.
 - **Round-trip lossless** é critério de sucesso. Campos desconhecidos de versões futuras são **preservados** no round-trip (não descartar o que não se reconhece).
 - `migrate(state)` puro: recebe qualquer `schemaVersion <= atual`, devolve o shape corrente com defaults para campos faltantes.
@@ -99,41 +99,41 @@ A v2 **NÃO é um redesign** da `formato-curso`. É a v1 (dark premium âmbar/ci
 
 ## 2. API do módulo JS reutilizável
 
-Namespace único **`window.INEMA`** (IIFE inline), para não colidir com as 3 funções-núcleo do v1 (`toggleTopic`, theme toggle, `openModal/closeModal`, que continuam existindo). **Idempotente e re-entrant:** pode rodar em qualquer página (landing/trilha/módulo) e só ativa o que existe ali (feature-detect por presença de `data-*`). Guard por flag evita listeners duplicados. Boot em `DOMContentLoaded`; o **anti-FOUC de tema roda ANTES** (script bloqueante separado no `<head>`).
+Namespace único **`window.ARCKHÉ`** (IIFE inline), para não colidir com as 3 funções-núcleo do v1 (`toggleTopic`, theme toggle, `openModal/closeModal`, que continuam existindo). **Idempotente e re-entrant:** pode rodar em qualquer página (landing/trilha/módulo) e só ativa o que existe ali (feature-detect por presença de `data-*`). Guard por flag evita listeners duplicados. Boot em `DOMContentLoaded`; o **anti-FOUC de tema roda ANTES** (script bloqueante separado no `<head>`).
 
 ### 2.1 Boot / núcleo
 
 | Método | Assinatura | Propósito |
 |---|---|---|
-| `INEMA.init` | `init(opts?)` | Probe de storage, lê `courseId` do `<meta>`, hidrata estado, pinta lidos/dúvidas/highlights existentes, monta toggles, TOC/scrollspy, jornada e seletor de aparência. Idempotente. |
-| `INEMA.applyPrefs` | `applyPrefs()` | Aplica `inema.prefs` (tema/font/scale/lineWidth/leading/accent) via CSS vars + classe `.dark`/atributo `data-theme` no `<html>`. Chamado no anti-FOUC e no init. |
+| `ARCKHÉ.init` | `init(opts?)` | Probe de storage, lê `courseId` do `<meta>`, hidrata estado, pinta lidos/dúvidas/highlights existentes, monta toggles, TOC/scrollspy, jornada e seletor de aparência. Idempotente. |
+| `ARCKHÉ.applyPrefs` | `applyPrefs()` | Aplica `ARCKHÉ.prefs` (tema/font/scale/lineWidth/leading/accent) via CSS vars + classe `.dark`/atributo `data-theme` no `<html>`. Chamado no anti-FOUC e no init. |
 
 ### 2.2 Progresso / lido (só derivado)
 
 | Método | Assinatura | Propósito |
 |---|---|---|
-| `INEMA.markRead` | `markRead(itemId, bool)` | Escreve boolean e re-renderiza **no mesmo tick** (localStorage é síncrono ⇒ progresso instantâneo). Re-render toca só os medidores do escopo afetado. |
-| `INEMA.isRead` | `isRead(itemId) → bool` | Consulta. |
-| `INEMA.progress` | `progress(scopeId?) → {done,total,pct}` | `scope` = `'curso'`/`'trilha:N'`/`'modulo:X-Y'`. **Derivado do DOM** (conta itens reais). Exibe sempre "N de M" além do %. |
-| `INEMA.renderMeters` | `renderMeters()` | Repinta todos os anéis/barras visíveis no mesmo tick. |
+| `ARCKHÉ.markRead` | `markRead(itemId, bool)` | Escreve boolean e re-renderiza **no mesmo tick** (localStorage é síncrono ⇒ progresso instantâneo). Re-render toca só os medidores do escopo afetado. |
+| `ARCKHÉ.isRead` | `isRead(itemId) → bool` | Consulta. |
+| `ARCKHÉ.progress` | `progress(scopeId?) → {done,total,pct}` | `scope` = `'curso'`/`'trilha:N'`/`'modulo:X-Y'`. **Derivado do DOM** (conta itens reais). Exibe sempre "N de M" além do %. |
+| `ARCKHÉ.renderMeters` | `renderMeters()` | Repinta todos os anéis/barras visíveis no mesmo tick. |
 
 ### 2.3 Dúvida
 
 | Método | Assinatura | Propósito |
 |---|---|---|
-| `INEMA.toggleDoubt` | `toggleDoubt(itemId)` | Flag de dúvida em nível de tópico (botão rápido, zero digitação). |
-| `INEMA.setDoubtResolved` | `setDoubtResolved(itemId, bool)` | Toggle "resolvido" usado na jornada. |
-| `INEMA.listDoubts` | `listDoubts() → []` | Dúvidas de tópico **+** highlights `color:"doubt"`, unificados para a jornada. |
+| `ARCKHÉ.toggleDoubt` | `toggleDoubt(itemId)` | Flag de dúvida em nível de tópico (botão rápido, zero digitação). |
+| `ARCKHÉ.setDoubtResolved` | `setDoubtResolved(itemId, bool)` | Toggle "resolvido" usado na jornada. |
+| `ARCKHÉ.listDoubts` | `listDoubts() → []` | Dúvidas de tópico **+** highlights `color:"doubt"`, unificados para a jornada. |
 
 ### 2.4 Notas / highlight
 
 | Método | Assinatura | Propósito |
 |---|---|---|
-| `INEMA.highlight` | `highlight(range, {color, note?, tags?}) → id` | Cria highlight/nota. Render por **`TreeWalker`** envolvendo text nodes pedaço a pedaço — **NUNCA `Range.surroundContents()` cego** (lança `InvalidStateError` em seleção cross-node, E8). MVP pode restringir seleção ao bloco anotável. |
-| `INEMA.promoteToNote` | `promoteToNote(id, text)` | Promove highlight puro (`note:null`) a nota. |
-| `INEMA.editNote` | `editNote(id, patch)` | Edita nota/cor/tag. |
-| `INEMA.removeNote` | `removeNote(id)` | Desfaz spans (substitui por text node + `parent.normalize()`) e remove o registro. |
-| `INEMA.renderHighlights` | `renderHighlights(container)` | Re-aplica do storage no load. **Tolerante por nota:** uma que não ancora vira órfã e **não derruba as outras**. |
+| `ARCKHÉ.highlight` | `highlight(range, {color, note?, tags?}) → id` | Cria highlight/nota. Render por **`TreeWalker`** envolvendo text nodes pedaço a pedaço — **NUNCA `Range.surroundContents()` cego** (lança `InvalidStateError` em seleção cross-node, E8). MVP pode restringir seleção ao bloco anotável. |
+| `ARCKHÉ.promoteToNote` | `promoteToNote(id, text)` | Promove highlight puro (`note:null`) a nota. |
+| `ARCKHÉ.editNote` | `editNote(id, patch)` | Edita nota/cor/tag. |
+| `ARCKHÉ.removeNote` | `removeNote(id)` | Desfaz spans (substitui por text node + `parent.normalize()`) e remove o registro. |
+| `ARCKHÉ.renderHighlights` | `renderHighlights(container)` | Re-aplica do storage no load. **Tolerante por nota:** uma que não ancora vira órfã e **não derruba as outras**. |
 
 **Popover de seleção:** `mouseup`/`touchend` lê `getSelection()`; se range não-colapsado, `getBoundingClientRect()` posiciona popover (considerar `scrollX/scrollY`; reposicionar se transbordar viewport). Swatches (1 reservado = **"dúvida"**) + "Adicionar nota" + "Copiar". **Clipboard com fallback** `file://` (textarea + `execCommand`, porque `navigator.clipboard` exige secure context). Fecha em mousedown fora ou seleção vazia.
 
@@ -141,37 +141,37 @@ Namespace único **`window.INEMA`** (IIFE inline), para não colidir com as 3 fu
 
 | Método | Assinatura | Propósito |
 |---|---|---|
-| `INEMA.openJourney` | `openJourney()` | Abre painel global (modal/drawer com `role=dialog`, foco preso, ESC fecha, `inert` no resto). Reusa o padrão `openModal`/`closeModal` do v1. |
-| `INEMA.renderJourney` | `renderJourney(mountEl)` | Agrega `read`/`doubts`/`notes`/`meta` + progresso: barras (curso/trilhas/módulos), lista de dúvidas (filtrável, com link de volta via `scroll-margin-top`), notas (quote+nota+cor+tag, filtrável por cor "dúvida"), CTA "continuar de onde parei", Export/Import/Reset. **Só leitura do estado** — nunca dessincroniza, não duplica conteúdo. |
+| `ARCKHÉ.openJourney` | `openJourney()` | Abre painel global (modal/drawer com `role=dialog`, foco preso, ESC fecha, `inert` no resto). Reusa o padrão `openModal`/`closeModal` do v1. |
+| `ARCKHÉ.renderJourney` | `renderJourney(mountEl)` | Agrega `read`/`doubts`/`notes`/`meta` + progresso: barras (curso/trilhas/módulos), lista de dúvidas (filtrável, com link de volta via `scroll-margin-top`), notas (quote+nota+cor+tag, filtrável por cor "dúvida"), CTA "continuar de onde parei", Export/Import/Reset. **Só leitura do estado** — nunca dessincroniza, não duplica conteúdo. |
 
 ### 2.6 Continuar de onde parei
 
 | Método | Assinatura | Propósito |
 |---|---|---|
-| `INEMA.saveCheckpoint` | `saveCheckpoint()` | Atualiza `meta` ao marcar lido / abrir tópico. Escrito em **`visibilitychange`** (não `beforeunload`; melhor no mobile), com debounce. |
-| `INEMA.resume` | `resume()` | Restaura para a **âncora do último tópico** (`scrollIntoView` por id) — nunca `scrollY` cru (accordions colapsados). Pixel-offset só como fallback best-effort. |
+| `ARCKHÉ.saveCheckpoint` | `saveCheckpoint()` | Atualiza `meta` ao marcar lido / abrir tópico. Escrito em **`visibilitychange`** (não `beforeunload`; melhor no mobile), com debounce. |
+| `ARCKHÉ.resume` | `resume()` | Restaura para a **âncora do último tópico** (`scrollIntoView` por id) — nunca `scrollY` cru (accordions colapsados). Pixel-offset só como fallback best-effort. |
 
 ### 2.7 Export / Import
 
 | Método | Assinatura | Propósito |
 |---|---|---|
-| `INEMA.exportJSON` | `exportJSON() → string` | Sempre produz arquivo válido (mesmo com estado vazio). Download via Blob + objectURL, sem dependência. |
-| `INEMA.importJSON` | `importJSON(text, {mode}) → {ok,applied,skipped,errors}` | `mode` = `'merge'` (default, não-destrutivo) / `'replace'` (pede confirmação). Valida em var temporária; **não muta estado se inválido**. |
+| `ARCKHÉ.exportJSON` | `exportJSON() → string` | Sempre produz arquivo válido (mesmo com estado vazio). Download via Blob + objectURL, sem dependência. |
+| `ARCKHÉ.importJSON` | `importJSON(text, {mode}) → {ok,applied,skipped,errors}` | `mode` = `'merge'` (default, não-destrutivo) / `'replace'` (pede confirmação). Valida em var temporária; **não muta estado se inválido**. |
 
 ### 2.8 Tema / preferências
 
 | Método | Assinatura | Propósito |
 |---|---|---|
-| `INEMA.setPref` | `setPref(key, val)` | `theme`/`font`/`fontScale`/`lineWidth`/`leading`/`accent` → aplica CSS var + classe/atributo no `<html>` e persiste em `inema.prefs`. Tema desconhecido ⇒ dark default. |
-| `INEMA.getPrefs` | `getPrefs() → obj` | Lê prefs com defaults. |
-| `INEMA.cyclePref` | `cyclePref(key)` | Para o seletor compacto. |
+| `ARCKHÉ.setPref` | `setPref(key, val)` | `theme`/`font`/`fontScale`/`lineWidth`/`leading`/`accent` → aplica CSS var + classe/atributo no `<html>` e persiste em `ARCKHÉ.prefs`. Tema desconhecido ⇒ dark default. |
+| `ARCKHÉ.getPrefs` | `getPrefs() → obj` | Lê prefs com defaults. |
+| `ARCKHÉ.cyclePref` | `cyclePref(key)` | Para o seletor compacto. |
 
 ### 2.9 Checagem leve opcional
 
 | Método | Assinatura | Propósito |
 |---|---|---|
-| `INEMA.registerCheck` | `registerCheck(id, {q, options, answer})` | Declara uma checagem por seção-chave (opt-in). |
-| `INEMA.submitCheck` | `submitCheck(id, choice)` | Feedback imediato **explicativo por opção**; **NUNCA bloqueia avanço** (D10/B6); grava em `checks`. Erradas podem ressurgir na próxima visita. |
+| `ARCKHÉ.registerCheck` | `registerCheck(id, {q, options, answer})` | Declara uma checagem por seção-chave (opt-in). |
+| `ARCKHÉ.submitCheck` | `submitCheck(id, choice)` | Feedback imediato **explicativo por opção**; **NUNCA bloqueia avanço** (D10/B6); grava em `checks`. Erradas podem ressurgir na próxima visita. |
 
 ### 2.10 Utilitários internos blindados (não-públicos, núcleo da resiliência)
 
@@ -179,7 +179,7 @@ Namespace único **`window.INEMA`** (IIFE inline), para não colidir com as 3 fu
 
 ### 2.11 Observabilidade barata (hook para sync v2)
 
-`INEMA` dispara `CustomEvent`s: `inema:read`, `inema:note`, `inema:doubt`, `inema:progress`. UI reage desacoplada (badge da jornada na nav). São o **ponto de extensão** para o sync v2 (mesmos eventos → POST no portal) — nada de cliente HTTP/auth agora.
+`ARCKHÉ` dispara `CustomEvent`s: `ARCKHÉ:read`, `ARCKHÉ:note`, `ARCKHÉ:doubt`, `ARCKHÉ:progress`. UI reage desacoplada (badge da jornada na nav). São o **ponto de extensão** para o sync v2 (mesmos eventos → POST no portal) — nada de cliente HTTP/auth agora.
 
 ---
 
@@ -194,27 +194,27 @@ Namespace único **`window.INEMA`** (IIFE inline), para não colidir com as 3 fu
 
 ### 3.2 Anti-FOUC (item de maior confiança)
 
-Script **bloqueante minúsculo e SEPARADO** no `<head>`, **acima** do Tailwind, com try/catch: lê `inema.prefs` e seta `.dark` **E** `data-theme` **E** as classes de leitura **antes do primeiro paint**. Independente do módulo grande — se ele falhar, o tema ainda foi aplicado. Default dark no erro preserva a marca.
+Script **bloqueante minúsculo e SEPARADO** no `<head>`, **acima** do Tailwind, com try/catch: lê `ARCKHÉ.prefs` e seta `.dark` **E** `data-theme` **E** as classes de leitura **antes do primeiro paint**. Independente do módulo grande — se ele falhar, o tema ainda foi aplicado. Default dark no erro preserva a marca.
 
 ### 3.3 `color-scheme` por tema
 
 Cada `data-theme` declara `color-scheme: dark|light` → conserta scrollbars, inputs e selects nativos de graça (uma linha por tema).
 
-### 3.4 Conjunto de temas (default = identidade INEMA)
+### 3.4 Conjunto de temas (default = identidade ARCKHÉ)
 
 | `data-theme` | Nome | Valores-chave (verificados na PESQUISA) | `color-scheme` |
 |---|---|---|---|
-| *(none)* + `.dark` | **inema-dark** *(DEFAULT, = baseline intacta)* | `--bg #111827` · `--surface #1f2937` · `--surface-2 #374151` · `--text #e6e6e6` · `--text-muted #a8a8b3` · `--primary #FACC15` (âmbar) · `--accent-2 #38bdf8` (ciano) · `--border #374151`. Nunca `#000`/`#fff` puros. | dark |
+| *(none)* + `.dark` | **ARCKHÉ-dark** *(DEFAULT, = baseline intacta)* | `--bg #111827` · `--surface #1f2937` · `--surface-2 #374151` · `--text #e6e6e6` · `--text-muted #a8a8b3` · `--primary #FACC15` (âmbar) · `--accent-2 #38bdf8` (ciano) · `--border #374151`. Nunca `#000`/`#fff` puros. | dark |
 | *(none, `.dark` off)* | **claro** | `--bg #ffffff` · `--text #1a1a1a` (~16:1 AAA) · `--text-muted #6e6e6e` (piso seguro) · surfaces `#f8fafc`/`#f3f4f6` **sólidas** (nunca gradiente — regra de light-mode do baseline). **Âmbar de TEXTO → amber-700/-800**; âmbar só decorativo. | light |
 | `sepia` | **sépia / leitura** | `--bg #FBF0D9` · `--surface #F4E8CE` · `--text #5F4B32` (7.31:1 AAA) · `--text-muted #7A6650` · `--border #E0D2B0`. Acento de texto = marrom escurecido ou amber-800; âmbar saturado **só** fill/borda. | light |
 | `foco` | **foco** | Parte de dark/claro mas **reduz `--measure`** (coluna estreita), **aumenta `--leading`**, esconde cromo lateral (nav minimal, esconde stats decorativos), centraliza a prosa. **Não mexe na cor** — só densidade/medida/visibilidade. | herda |
 | `contraste` | **alto-contraste** (dark) | `--text #F5F7FA` sobre `--bg #0A0E14` (18.02:1) · âmbar `#FACC15` (12.63:1) · ciano `#38bdf8` (9.03:1) — todos AAA. Bordas visíveis em todos os cards/toggles; anel de foco reforçado. **Caminho a11y principal** (mais confiável que `forced-colors`). | dark |
 
-*Extra quase-de-graça (backlog):* **dim** — variar só L/S do hue ~215–221 da escada dark do INEMA; publicar só após re-checar contraste (fórmulas do web.dev são ilustrativas).
+*Extra quase-de-graça (backlog):* **dim** — variar só L/S do hue ~215–221 da escada dark do ARCKHÉ; publicar só após re-checar contraste (fórmulas do web.dev são ilustrativas).
 
-### 3.5 Preferências de leitura (painel separado, mesma persistência `inema.prefs`)
+### 3.5 Preferências de leitura (painel separado, mesma persistência `ARCKHÉ.prefs`)
 
-Todas em **CSS variables** num wrapper de conteúdo `.inema-prose`, em **unidades relativas** (sobrevivem a zoom 200% / overrides 1.4.12):
+Todas em **CSS variables** num wrapper de conteúdo `.ARCKHÉ-prose`, em **unidades relativas** (sobrevivem a zoom 200% / overrides 1.4.12):
 
 | Pref | CSS var / mecânica | Valores | Fonte |
 |---|---|---|---|
@@ -222,7 +222,7 @@ Todas em **CSS variables** num wrapper de conteúdo `.inema-prose`, em **unidade
 | **Largura de linha** (`lineWidth`) | `--measure` clampa **só a prosa** (`max-width:var(--measure); margin-inline:auto`), nunca code/tabelas/grids. | `60ch` \| `68ch` \| `75ch` | C1, G6 |
 | **Entrelinha** (`leading`) | `--lh-body` multiplicador **sem unidade** (herda/sobrevive a override). | compacto `1.45` \| confortável `1.7` | C3 |
 | **Fonte** (`font`) | `--font-body`. Default **Inter** (já atende). Alternativa "conforto" = sans counters abertos + letter/line-spacing maior — **escolha, nunca default nem promessa de "resolve dislexia"**; fontes extras só se embutidas/permitidas. | inter \| system \| leitura | C8, F12 |
-| **Acento** (`accent`) | `--accent-h/-s/-l` + `--accent`. Swatches = 6 cores de trilha INEMA (emerald/blue/purple/amber/teal/rose). **Travado na família INEMA** (não color-picker livre). Só afeta componentes novos / `<style>` à mão; em claro/sépia usa o degrau `-700/-800` para passar contraste. | slug de trilha | G4 |
+| **Acento** (`accent`) | `--accent-h/-s/-l` + `--accent`. Swatches = 6 cores de trilha ARCKHÉ (emerald/blue/purple/amber/teal/rose). **Travado na família ARCKHÉ** (não color-picker livre). Só afeta componentes novos / `<style>` à mão; em claro/sépia usa o degrau `-700/-800` para passar contraste. | slug de trilha | G4 |
 | **Densidade** | **REBAIXADO** — espaçamento da baseline é utilitário Tailwind fixo (`mb-16`,`p-8`), nada a multiplicar sem refactor. No MVP "densidade" = só `fontScale`/`leading`. Espaçamento real → backlog. | — | G7 |
 
 ### 3.6 Tipografia: alinhar à escala existente (não criar concorrente)
@@ -235,7 +235,7 @@ Cada par `--text`/`--text-muted` sobre cada `--bg` passa AA 4.5:1 (mirar AAA 7:1
 
 ### 3.8 Seletor de aparência
 
-Botão/popover **`<button>`-based** (não `<select>` frágil) na nav, **ao lado** do toggle sol/lua existente (que é **absorvido**, eixo claro/escuro continua). Abre painel com: 4–5 temas + tipografia/tamanho/entrelinha + medida (foco) + paleta de acento. Reflete estado por **ícone+texto, não só cor** (1.4.1). Salvo em `inema.prefs`, re-aplicado em todas as páginas no load (antes do paint).
+Botão/popover **`<button>`-based** (não `<select>` frágil) na nav, **ao lado** do toggle sol/lua existente (que é **absorvido**, eixo claro/escuro continua). Abre painel com: 4–5 temas + tipografia/tamanho/entrelinha + medida (foco) + paleta de acento. Reflete estado por **ícone+texto, não só cor** (1.4.1). Salvo em `ARCKHÉ.prefs`, re-aplicado em todas as páginas no load (antes do paint).
 
 ### 3.9 Micro-interações contidas (marca sóbria, anti-manipulação)
 
@@ -247,27 +247,27 @@ Transição curta nas CSS vars de cor, check de "lido" que preenche, toast discr
 
 ### 4.1 IDs estáveis (contrato de ancoragem — pré-requisito de TUDO)
 
-- `<meta name="inema-course" content="fep">` no `<head>` de toda página → `courseId`.
-- **Módulo:** elemento exterior com `id="modulo-X-Y"` (já existe no baseline) + `data-inema-module="X-Y"` + `data-inema-track="N"`.
-- **Tópico/seção:** `<section id="topico-N" data-inema-topic="modulo-X-Y#topico-N">` — o `data-inema-topic` é o **id estável de progresso/notas** (ex.: `modulo-1-1#topico-3`). Mudar o layout visual não quebra o estado.
-- **Bloco anotável:** `data-inema-block="m1-1-t3-p2"` (modulo-topico-parágrafo, determinístico). Sem `blockId`, o elemento simplesmente **não é anotável** (degrada, não quebra).
+- `<meta name="ARCKHÉ-course" content="fep">` no `<head>` de toda página → `courseId`.
+- **Módulo:** elemento exterior com `id="modulo-X-Y"` (já existe no baseline) + `data-ARCKHÉ-module="X-Y"` + `data-ARCKHÉ-track="N"`.
+- **Tópico/seção:** `<section id="topico-N" data-ARCKHÉ-topic="modulo-X-Y#topico-N">` — o `data-ARCKHÉ-topic` é o **id estável de progresso/notas** (ex.: `modulo-1-1#topico-3`). Mudar o layout visual não quebra o estado.
+- **Bloco anotável:** `data-ARCKHÉ-block="m1-1-t3-p2"` (modulo-topico-parágrafo, determinístico). Sem `blockId`, o elemento simplesmente **não é anotável** (degrada, não quebra).
 - Acordeão de tópico (no index) preserva `onclick="toggleTopic(this)"` do v1.
 
 ### 4.2 Atributos que ativam features (feature-detect)
 
 | Atributo | Onde | Ativa |
 |---|---|---|
-| `data-inema-course` *(via `<meta>`)* | `<head>` | namespace de estado |
-| `data-inema-module="X-Y"` | card/header de módulo | progresso do módulo |
-| `data-inema-track="N"` | header de trilha/módulo | progresso da trilha, acento |
-| `data-inema-topic="…"` | `<section>` de tópico | marcar lido, scrollspy |
-| `data-inema-block="…"` | parágrafo/bloco de prosa | seleção/highlight/nota |
-| `data-inema-read-toggle` | `<button>` em cada seção | controle "marcar como lido" |
-| `data-inema-doubt-toggle` | `<button>` por tópico | flag de dúvida rápida |
-| `data-inema-meter="scope"` | barra/anel | onde `renderMeters` pinta (`curso`/`trilha:N`/`modulo:X-Y`) |
-| `data-inema-toc` | `<nav>` lateral | TOC sticky + scrollspy |
-| `data-inema-journey-open` | botão na nav | abre "minha jornada" |
-| `data-inema-check="id"` | bloco de checagem | quiz leve opcional |
+| `data-ARCKHÉ-course` *(via `<meta>`)* | `<head>` | namespace de estado |
+| `data-ARCKHÉ-module="X-Y"` | card/header de módulo | progresso do módulo |
+| `data-ARCKHÉ-track="N"` | header de trilha/módulo | progresso da trilha, acento |
+| `data-ARCKHÉ-topic="…"` | `<section>` de tópico | marcar lido, scrollspy |
+| `data-ARCKHÉ-block="…"` | parágrafo/bloco de prosa | seleção/highlight/nota |
+| `data-ARCKHÉ-read-toggle` | `<button>` em cada seção | controle "marcar como lido" |
+| `data-ARCKHÉ-doubt-toggle` | `<button>` por tópico | flag de dúvida rápida |
+| `data-ARCKHÉ-meter="scope"` | barra/anel | onde `renderMeters` pinta (`curso`/`trilha:N`/`modulo:X-Y`) |
+| `data-ARCKHÉ-toc` | `<nav>` lateral | TOC sticky + scrollspy |
+| `data-ARCKHÉ-journey-open` | botão na nav | abre "minha jornada" |
+| `data-ARCKHÉ-check="id"` | bloco de checagem | quiz leve opcional |
 
 ### 4.3 Acessibilidade no markup (parte do contrato)
 
@@ -280,7 +280,7 @@ Transição curta nas CSS vars de cor, check de "lido" que preenche, toast discr
 
 ### 4.4 Regra de não-regressão dos Erros Críticos
 
-Os controles novos **não podem** violar #1–#17: "marcar lido" não vira botão `justify-center` (#1); marcador de nota não vira seta perto de tópico (#2); nav/INEMA.CLUB/mapa-da-trilha/SVG/profundidade intactos (#4/#12/#13/#14/#17). Recursos novos só **adicionam**.
+Os controles novos **não podem** violar #1–#17: "marcar lido" não vira botão `justify-center` (#1); marcador de nota não vira seta perto de tópico (#2); nav/ARCKHÉ AI/mapa-da-trilha/SVG/profundidade intactos (#4/#12/#13/#14/#17). Recursos novos só **adicionam**.
 
 ---
 
@@ -306,7 +306,7 @@ Aplicadas por cima do MASTER da baseline (mantendo 6–8 seções/módulo, regra
 
 ## 6. Estrutura de arquivos
 
-### 6.1 Skill nova — `/home/nmaldaner/projetos/formato-curso-inema/formato-curso-v2/`
+### 6.1 Skill nova — `/home/nmaldaner/projetos/formato-curso-ARCKHÉ/formato-curso-v2/`
 
 ```
 formato-curso-v2/
@@ -318,8 +318,8 @@ formato-curso-v2/
 │   ├── SVG-FUTURISTA.md              # copiado do baseline (biblioteca de diagramas), intacto
 │   └── LEARN-LAYER.md                # contrato detalhado: modelo de dados §1, API §2, snippets de markup §4 (copia-e-cola)
 └── assets/
-    ├── learn.js                      # módulo IIFE window.INEMA (§2) — bloco inline copia-e-cola, 1 por página
-    └── learn.css                     # CSS vars + temas (§3) + .inema-prose + estilos dos controles novos
+    ├── learn.js                      # módulo IIFE window.ARCKHÉ (§2) — bloco inline copia-e-cola, 1 por página
+    └── learn.css                     # CSS vars + temas (§3) + .ARCKHÉ-prose + estilos dos controles novos
 ```
 
 - `SKILL.md`: roteamento secao→pagina (como o v1) + **tabela de Erros Críticos #1–#27** (os 17 herdados + 10 novos: anti-FOUC, IDs estáveis obrigatórios, marcar-lido acessível, contraste por tema, popover de seleção, jornada acessível, export/import round-trip, scroll-margin nos alvos, ARIA nos accordions, modos efêmero/órfão de degradação). Instrui a **colar `learn.js` + `learn.css` inline** em cada página (mantém o padrão snippet copia-e-cola do baseline; agora há 1 bloco grande novo além das 3 funções-núcleo).
@@ -327,7 +327,7 @@ formato-curso-v2/
 - `LEARN-LAYER.md`: a fonte-de-verdade técnica do módulo — modelo de dados, API, schema export/import, snippets de markup. Separa o "como aprende" do "como parece".
 - Espelhar regras #18–#27 também no `CHECKLIST_REVISAO.md` (skill irmã `revisar-curso` consome o mesmo checklist).
 
-### 6.2 Curso-demo — `/home/nmaldaner/projetos/formato-curso-inema/demo/`
+### 6.2 Curso-demo — `/home/nmaldaner/projetos/formato-curso-ARCKHÉ/demo/`
 
 ```
 demo/
@@ -339,7 +339,7 @@ demo/
         └── modulo-1-2.html                       # 2º módulo idem — prova progresso agregando trilha→curso e "continuar de onde parei" cross-módulo
 ```
 
-- `<meta name="inema-course" content="demo">` em todas as páginas.
+- `<meta name="ARCKHÉ-course" content="demo">` em todas as páginas.
 - O demo **prova todos os recursos**: marcar lido/dúvida/notas, persiste no reload, export→import round-trip, jornada com progresso agregado real, troca de tema (claro/sépia/foco/alto-contraste) aplica e persiste entre páginas, progresso agrega tópico→módulo→trilha→curso.
 - Cada página cola `learn.css` (no `<style>`/`<head>`) + `learn.js` (inline antes de `</body>`) + o **script anti-FOUC bloqueante** no topo do `<head>`. Acento da trilha 1 = emerald (T1).
 
@@ -352,9 +352,9 @@ demo/
 | Feature | Por quê |
 |---|---|
 | Script **anti-FOUC bloqueante** no `<head>` (classe `.dark` + `data-theme`) | item mais seguro; sem ele há flash a cada navegação (G3) |
-| **CSS vars de leitura** em `.inema-prose` (`--measure`/`--fs-body`/`--lh-body`/`--font-body`), clampar só a prosa | ponto único de afinação (C-final) |
+| **CSS vars de leitura** em `.ARCKHÉ-prose` (`--measure`/`--fs-body`/`--lh-body`/`--font-body`), clampar só a prosa | ponto único de afinação (C-final) |
 | `color-scheme` por tema | conserta scrollbars/inputs, 1 linha (G2) |
-| **IDs/`data-*` estáveis** (`data-inema-topic/-module/-track/-block`, `<meta>` courseId) | pré-requisito de progresso/notas/retomar |
+| **IDs/`data-*` estáveis** (`data-ARCKHÉ-topic/-module/-track/-block`, `<meta>` courseId) | pré-requisito de progresso/notas/retomar |
 | **Marcar lido explícito** `<button aria-pressed>`; **persistir booleans, derivar %** | progresso confiável, instantâneo (D1, D2, D8, F6) |
 | **Progresso 3 granularidades** (anel/barra módulo/trilha/curso, "N de M"+%) | sensação de avanço (D1) |
 | **A11y base**: skip-link, `scroll-margin-top`, `aria-expanded`/`aria-controls`, `:focus-visible`, `prefers-reduced-motion` | contrato, não bônus (F2–F5, F7, F14) |
@@ -375,7 +375,7 @@ demo/
 | **Temas extras** (sépia/foco/alto-contraste) `data-theme` ortogonal | personalização de leitura (G2, G5, G8) |
 | **Seletor de aparência** `<button>`-based + prefs persistidas | aparência trocável (C-final) |
 | **Modais acessíveis** (foco preso, `inert`, devolução) | a11y dos modais existentes (F8) |
-| **CustomEvents** (`inema:read/note/progress`) | hook desacoplado p/ sync v2 |
+| **CustomEvents** (`ARCKHÉ:read/note/progress`) | hook desacoplado p/ sync v2 |
 
 ### BAIXA (considerar / polish; Nível 3 da PESQUISA)
 

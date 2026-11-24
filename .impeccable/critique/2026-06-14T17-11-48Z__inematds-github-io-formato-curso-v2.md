@@ -1,17 +1,17 @@
 ---
-target: "https://inematds.github.io/formato-curso-v2/ (curso-demo)"
+target: "https://linnoff88-dev.github.io/ (curso-demo)"
 total_score: 28
 p0_count: 0
 p1_count: 2
 timestamp: 2026-06-14T17-11-48Z
-slug: inematds-github-io-formato-curso-v2
+slug: linnoff88-dev-github-io-formato-curso-v2
 ---
 ## Design Health Score — formato-curso-v2 (curso-demo)
 
 | # | Heurística | Score | Issue-chave |
 |---|-----------|-------|-------------|
 | 1 | Visibilidade do status | 3 | Progresso em 3 granularidades + "N de M" + jornada são fortes; mas o controle "marcar lido" (que move tudo isso) não é visível no cabeçalho da seção |
-| 2 | Match com o mundo real | 3 | PT-BR natural (trilha/módulo/minha jornada/tenho dúvida); "trilha" é jargão INEMA mas fica claro |
+| 2 | Match com o mundo real | 3 | PT-BR natural (trilha/módulo/minha jornada/tenho dúvida); "trilha" é jargão ARCKHÉ mas fica claro |
 | 3 | Controle e liberdade | 3 | ESC fecha painéis, tema reversível, reset com confirmação; "Excluir" nota é imediato sem undo |
 | 4 | Consistência e padrões | 3 | Sistema coeso após reconciliação JS↔CSS; componentes previsíveis |
 | 5 | Prevenção de erro | 3 | Import valida, merge não-destrutivo, reset confirma, modo efêmero; delete de nota sem rede |
@@ -26,7 +26,7 @@ slug: inematds-github-io-formato-curso-v2
 
 **Avaliação LLM:** Não grita "IA fez isto" — o dark premium âmbar/ciano tem identidade e a hierarquia é real. Mas há **3 tells** que puxam pro genérico: (1) **Inter em tudo**, sem par display/corpo; (2) a **fileira de 4 chips de stat** ("7 Tópicos / 35 Minutos / Básico / Teoria") é o padrão "métrica de herói" de SaaS; (3) **3 barras de progresso quase idênticas** lado a lado no topo de todo módulo. Nenhum é fatal, mas juntos tiram o ar de "feito sob medida".
 
-**Scan determinístico (detector):** 23 achados, todos *warning* — `overused-font`/`single-font` (Inter, 12×), `gray-on-color` (9× — `text-neutral-400` sobre chips emerald/blue/purple), `pure-black-white` (2× — o tema **claro usa #ffffff puro**, que o detector e a própria lei INEMA desaconselham; tingir levemente). 0 erros bloqueantes.
+**Scan determinístico (detector):** 23 achados, todos *warning* — `overused-font`/`single-font` (Inter, 12×), `gray-on-color` (9× — `text-neutral-400` sobre chips emerald/blue/purple), `pure-black-white` (2× — o tema **claro usa #ffffff puro**, que o detector e a própria lei ARCKHÉ desaconselham; tingir levemente). 0 erros bloqueantes.
 
 **Overlay visual:** não injetado — alvo é URL remota (Pages, HTTPS); rodei o detector determinístico na fonte (`demo/*.html`) como fallback. Medições reais via Playwright na URL live.
 
@@ -46,7 +46,7 @@ A **engenharia de aprendizado é o ponto forte** (progresso agregado real, jorna
   - *Por que importa:* o aluno lê passivo e nunca ativa highlight/dúvida/jornada — exatamente o diferencial. Heurística 10 (ajuda) e 1 (status).
   - *Fix:* primeiro acesso com um coach-mark de 1 passo ("selecione um trecho para grifar / marque a seção como lida"), dica inline na 1ª seção, e botão "marcar lido" persistente no cabeçalho da seção (ao lado de "Tenho dúvida"). Referência: **web.dev/learn** (estado de lição claro) e **executeprogram.com** (afordância de interação imediata).
   - *Comando sugerido:* `/impeccable onboard`
-- **[P1] Rolagem horizontal no mobile.** A nav densa (logo + INEMA.CLUB + trilhas + jornada + aparência ≈ 39 alvos) vaza pra largura do documento (664px num viewport de 390px).
+- **[P1] Rolagem horizontal no mobile.** A nav densa (logo + ARCKHÉ AI + trilhas + jornada + aparência ≈ 39 alvos) vaza pra largura do documento (664px num viewport de 390px).
   - *Por que importa:* rolagem horizontal é "smell" de mobile quebrado; o conteúdo treme lateralmente.
   - *Fix:* conter o overflow na própria nav (`overflow-x:auto` no trilho interno + `max-inline-size:100%`), ou colapsar trilhas num menu no mobile. Referência: barra de docs do **stripe.com/docs** (nav que vira menu no mobile).
   - *Comando sugerido:* `/impeccable adapt`

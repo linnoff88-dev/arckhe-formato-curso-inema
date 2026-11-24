@@ -2,7 +2,7 @@
 name: formato-curso-v71
 disable-model-invocation: true
 description: >-
-  curso INEMA Learning v7.1 — layout de plataforma (barra lateral com aulas e progresso de estudo e de
+  curso ARCKHÉ Learning v7.1 — layout de plataforma (barra lateral com aulas e progresso de estudo e de
   prática, área central larga, tema escuro/papel) com a didática v7: objetivo em uma linha, diagrama
   clicável primeiro (rolagem guiada opcional), texto curto, simulação onde ensina, modelos com botão
   copiar, prática com "pronto quando" e teste com resposta comentada. Conteúdo em JSON → gerar.py.
@@ -11,9 +11,9 @@ description: >-
   ou para manter cursos v7.1.
 ---
 
-# Formato Curso v7.1 — INEMA Learning
+# Formato Curso v7.1 — ARCKHÉ Learning
 
-**Curso de referência:** https://inematds.github.io/do-chat-ao-agente-v71/ — repo `~/projetos/do-chat-ao-agente-v71`.
+**Curso de referência:** https://linnoff88-dev.github.io/ — repo `~/projetos/do-chat-ao-agente-v71`.
 
 Mesmo método da v7.2 (`~/.claude/skills/formato-curso-v72/SKILL.md`): leia de lá o passo a passo e as regras de escrita. Muda só isto:
 
@@ -30,6 +30,6 @@ Mesmo método da v7.2 (`~/.claude/skills/formato-curso-v72/SKILL.md`): leia de l
 1. `scripts/novo-curso.sh ~/projetos/<repo> "<Nome>"` (motor v7.1).
 2. Conteúdo em `conteudo/pt/curso.json` + `conteudo/pt/aulas/NN-<slug>.json` — esquema em `references/ESQUEMA.md` (ignore `voce.jpg` e as fotos por aula, que são da v7.2). Exemplos reais em `examples/`.
 3. Portão: `python3 gerar.py && python3 validar.py --links` e `node ~/.claude/skills/formato-curso-v71/scripts/conferir-tela.cjs .`.
-4. Publicar: autor `inematds <inematds@gmail.com>`, repo `inematds/<pasta>`, Pages da raiz da main, URL → 200.
+4. Publicar: autor `linnoff88-dev <linnoff88-dev@gmail.com>`, repo `linnoff88-dev/<pasta>`, Pages da raiz da main, URL → 200.
 
 Lições: `references/LICOES.md` (valem para as duas versões).

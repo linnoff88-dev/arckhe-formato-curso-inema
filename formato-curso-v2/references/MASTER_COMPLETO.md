@@ -49,17 +49,17 @@ Cada topico expansivel DEVE ter estas 3 secoes:
 - **Por que aprender:** Justificativa e beneficios
 - **Conceitos-chave:** Pontos principais
 
-## 1.4 INEMA.CLUB E PRO EM TODAS AS PAGINAS
+## 1.4 ARCKHÉ AI E PRO EM TODAS AS PAGINAS
 
 ```html
-<a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a>
+<a href="https://ARCKHÉ AI" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">ARCKHÉ AI</a>
 <span class="text-neutral-600">-</span>
-<a href="https://inema.pro" target="_blank" class="text-amber-700 hover:text-amber-600 dark:text-slate-300 dark:hover:text-slate-200 text-sm font-medium">PRO</a>
+<a href="https://ARCKHÉ.pro" target="_blank" class="text-amber-700 hover:text-amber-600 dark:text-slate-300 dark:hover:text-slate-200 text-sm font-medium">PRO</a>
 ```
-- **COR INEMA.CLUB:** `text-sky-400` (azul claro)
+- **COR ARCKHÉ AI:** `text-sky-400` (azul claro)
 - **COR PRO:** dourado no light mode (`text-amber-700 hover:text-amber-600`), prateado no dark mode (`dark:text-slate-300 dark:hover:text-slate-200`)
-- **POSICAO:** INEMA.CLUB ao lado do logo, separado por `|`; PRO logo em seguida, separado por `-`
-- **LINK PRO:** sempre `https://inema.pro`, `target="_blank"`
+- **POSICAO:** ARCKHÉ AI ao lado do logo, separado por `|`; PRO logo em seguida, separado por `-`
+- **LINK PRO:** sempre `https://ARCKHÉ.pro`, `target="_blank"`
 - **OBRIGATORIO:** Index, trilhas E modulos
 
 ## 1.5 LIGHT MODE CSS OBRIGATORIO
@@ -158,7 +158,7 @@ html:not(.dark) .group:hover .group-hover\:text-emerald-400 { color: #059669; }
 
 ## 1.6 NAV COMPLETO EM TODAS AS PAGINAS (NUNCA SIMPLIFICAR)
 
-O `<nav>` do landing tem o menu completo: Logo + INEMA.CLUB + 4-6 botoes de trilha + theme toggle. Esse nav DEVE aparecer IDENTICO em:
+O `<nav>` do landing tem o menu completo: Logo + ARCKHÉ AI + 4-6 botoes de trilha + theme toggle. Esse nav DEVE aparecer IDENTICO em:
 - `index.html` (landing)
 - `curso/index.html`
 - TODOS os `curso/trilhaX/index.html`
@@ -278,7 +278,7 @@ projeto/
 | Cor | Codigo | Classe | Uso |
 |-----|--------|--------|-----|
 | Primary (Yellow) | `#FACC15` | `text-primary`, `bg-primary` | Logo, CTAs, destaques, dicas |
-| Sky | `#38bdf8` | `text-sky-400` | Link INEMA.CLUB |
+| Sky | `#38bdf8` | `text-sky-400` | Link ARCKHÉ AI |
 | PRO (prateado/dourado) | dark `#cbd5e1` (slate-300) / light `#b45309` (amber-700) | `text-amber-700 dark:text-slate-300` | Link PRO |
 | Red | `#f87171` | `text-red-400` | "Nao fazer", erros, alertas |
 | Neutral 300 | `#d4d4d4` | `text-neutral-300` | Texto principal |
@@ -318,7 +318,7 @@ projeto/
 | Cor | Dark mode | Light mode |
 |-----|-----------|------------|
 | Primary (Yellow) | `#FACC15` | `#a16207` (amber-700) |
-| Sky (INEMA.CLUB) | `#38bdf8` | `#0369a1` (sky-700) |
+| Sky (ARCKHÉ AI) | `#38bdf8` | `#0369a1` (sky-700) |
 | PRO (link) | `#cbd5e1` (slate-300, prateado) | `#b45309` (amber-700, dourado) |
 | Yellow (logo) | `#facc15` | `#a16207` (amber-700) |
 
@@ -376,8 +376,8 @@ body { font-family: 'Inter', sans-serif; }
 ## 5.1 Elementos Obrigatorios
 
 1. **Logo** (emoji + nome) - `text-yellow-400`
-2. **Link INEMA.CLUB** - `text-sky-400`
-3. **Link PRO** - dourado no light (`text-amber-700`) / prateado no dark (`dark:text-slate-300`), linkando `https://inema.pro`
+2. **Link ARCKHÉ AI** - `text-sky-400`
+3. **Link PRO** - dourado no light (`text-amber-700`) / prateado no dark (`dark:text-slate-300`), linkando `https://ARCKHÉ.pro`
 4. **Trilhas** com nomes completos (mobile: T1, T2, T3...)
 5. **Theme Toggle** - botao dark/light
 
@@ -387,16 +387,16 @@ body { font-family: 'Inter', sans-serif; }
 <nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex justify-between items-center h-14">
-      <!-- Logo + INEMA.CLUB + PRO -->
+      <!-- Logo + ARCKHÉ AI + PRO -->
       <div class="flex items-center space-x-4">
         <a href="../../index.html" class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300">
           <span class="text-2xl">[EMOJI]</span>
           <span class="font-bold text-lg hidden sm:inline">[NOME DO CURSO]</span>
         </a>
         <span class="text-neutral-600">|</span>
-        <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a>
+        <a href="https://ARCKHÉ AI" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">ARCKHÉ AI</a>
         <span class="text-neutral-600">-</span>
-        <a href="https://inema.pro" target="_blank" class="text-amber-700 hover:text-amber-600 dark:text-slate-300 dark:hover:text-slate-200 text-sm font-medium">PRO</a>
+        <a href="https://ARCKHÉ.pro" target="_blank" class="text-amber-700 hover:text-amber-600 dark:text-slate-300 dark:hover:text-slate-200 text-sm font-medium">PRO</a>
       </div>
 
       <!-- Trilhas + Theme Toggle -->
@@ -445,7 +445,7 @@ body { font-family: 'Inter', sans-serif; }
 TRILHA INDEX
 ├── Navigation Global
 │   ├── Logo (emoji + nome) - yellow-400
-│   ├── INEMA.CLUB - sky-400
+│   ├── ARCKHÉ AI - sky-400
 │   ├── Trilhas (nomes completos, cor da ativa)
 │   └── Theme Toggle
 ├── Header com Gradiente
@@ -633,7 +633,7 @@ MODULO COMPLETO
 
 ## 7.4b Mapa da trilha (OBRIGATORIA no index da trilha)
 
-**Nome OFICIAL:** "Mapa da trilha". NUNCA usar "Navegacao Rapida" ou variantes — alinhamento com padrao Agentic OS / INEMA.CLUB.
+**Nome OFICIAL:** "Mapa da trilha". NUNCA usar "Navegacao Rapida" ou variantes — alinhamento com padrao Agentic OS / ARCKHÉ AI.
 
 **Localizacao:** entre o header da trilha e a secao "Conteudo detalhado".
 
@@ -1133,7 +1133,7 @@ html:not(.dark) .bg-dark-900\/95 { background-color: rgba(255, 255, 255, 0.95); 
 1. ✓ Botoes a ESQUERDA (justify-start)
 2. ✓ Numeros em circulo (nao setas)
 3. ✓ 3 secoes por topico
-4. ✓ INEMA.CLUB presente (sky-400)
+4. ✓ ARCKHÉ AI presente (sky-400)
 5. ✓ Light mode CSS incluido
 6. ✓ Titulo do modulo com text-2xl
 7. ✓ Cores corretas da trilha
@@ -1161,18 +1161,18 @@ Antes de plugar qualquer controle novo, a pagina precisa destes hooks. Eles sao 
 **contrato de ancoragem**: o estado (lido/duvida/nota) gruda nesses IDs, nao no layout
 visual. Mudar a aparencia de um topico **nao** pode quebrar o estado salvo.
 
-- `<meta name="inema-course" content="fep">` no `<head>` de **toda** pagina → deriva o
+- `<meta name="ARCKHÉ-course" content="fep">` no `<head>` de **toda** pagina → deriva o
   `courseId`. Fallback = slug da pasta. Toda chave de aprendizagem e namespaced por ele
-  (`inema.<courseId>.*`) → estados de cursos diferentes nunca colidem.
+  (`ARCKHÉ.<courseId>.*`) → estados de cursos diferentes nunca colidem.
 - **Modulo:** elemento exterior com `id="modulo-X-Y"` (ja existe no baseline) +
-  `data-inema-module="X-Y"` + `data-inema-track="N"`.
-- **Topico/secao:** `<section id="topico-N" data-inema-topic="modulo-X-Y#topico-N">`.
-  O `data-inema-topic` e o **id estavel de progresso/notas** (ex.: `modulo-1-1#topico-3`).
-- **Bloco anotavel:** `data-inema-block="m1-1-t3-p2"` (modulo-topico-paragrafo,
+  `data-ARCKHÉ-module="X-Y"` + `data-ARCKHÉ-track="N"`.
+- **Topico/secao:** `<section id="topico-N" data-ARCKHÉ-topic="modulo-X-Y#topico-N">`.
+  O `data-ARCKHÉ-topic` e o **id estavel de progresso/notas** (ex.: `modulo-1-1#topico-3`).
+- **Bloco anotavel:** `data-ARCKHÉ-block="m1-1-t3-p2"` (modulo-topico-paragrafo,
   deterministico). **Sem `blockId`, o elemento simplesmente nao e anotavel** (degrada,
   nao quebra).
 - **Manifesto do curso (OBRIGATORIO em TODA pagina):** `<script type="application/json"
-  data-inema-manifest>` com a estrutura COMPLETA do curso. E o que permite ao progresso
+  data-ARCKHÉ-manifest>` com a estrutura COMPLETA do curso. E o que permite ao progresso
   AGREGAR entre paginas — `progress('curso')`/`progress('trilha:N')` usam o `done` do
   read-map persistido sobre o `total` do manifesto. **Sem manifesto, o progresso degrada
   para o DOM da pagina atual** (so o modulo corrente). Ver snippet em 11.5.h.
@@ -1180,24 +1180,24 @@ visual. Mudar a aparencia de um topico **nao** pode quebrar o estado salvo.
 
 ## 11.2 Atributos que ativam features (feature-detect)
 
-O modulo JS (`window.INEMA`) e **idempotente e re-entrant**: roda em qualquer pagina
+O modulo JS (`window.ARCKHÉ`) e **idempotente e re-entrant**: roda em qualquer pagina
 (landing/trilha/modulo) e so ativa o que existe ali, detectando a presenca destes
 `data-*`. Nenhum atributo presente ⇒ nenhuma feature ativa; a pagina segue valida.
 
 | Atributo | Onde | Ativa |
 |---|---|---|
-| `data-inema-course` *(via `<meta>`)* | `<head>` | namespace de estado (`courseId`) |
-| `data-inema-manifest` *(em `<script type="application/json">`)* | `<head>` | estrutura completa do curso → **progresso cross-pagina** (curso/trilha) e "minha jornada" do curso inteiro |
-| `data-inema-module="X-Y"` | card/header de modulo | progresso do modulo |
-| `data-inema-track="N"` | header de trilha/modulo | progresso da trilha, acento |
-| `data-inema-topic="…"` | `<section>` de topico | marcar lido, scrollspy |
-| `data-inema-block="…"` | paragrafo/bloco de prosa | selecao/highlight/nota |
-| `data-inema-read-toggle` | `<button>` em cada secao | controle "marcar como lido" |
-| `data-inema-doubt-toggle` | `<button>` por topico | flag de duvida rapida |
-| `data-inema-meter="scope"` | barra/anel | onde `renderMeters` pinta (`curso`/`trilha:N`/`modulo:X-Y`) |
-| `data-inema-toc` | `<nav>` lateral | TOC sticky + scrollspy |
-| `data-inema-journey-open` | botao na nav | abre "minha jornada" |
-| `data-inema-check="id"` | bloco de checagem | quiz leve opcional |
+| `data-ARCKHÉ-course` *(via `<meta>`)* | `<head>` | namespace de estado (`courseId`) |
+| `data-ARCKHÉ-manifest` *(em `<script type="application/json">`)* | `<head>` | estrutura completa do curso → **progresso cross-pagina** (curso/trilha) e "minha jornada" do curso inteiro |
+| `data-ARCKHÉ-module="X-Y"` | card/header de modulo | progresso do modulo |
+| `data-ARCKHÉ-track="N"` | header de trilha/modulo | progresso da trilha, acento |
+| `data-ARCKHÉ-topic="…"` | `<section>` de topico | marcar lido, scrollspy |
+| `data-ARCKHÉ-block="…"` | paragrafo/bloco de prosa | selecao/highlight/nota |
+| `data-ARCKHÉ-read-toggle` | `<button>` em cada secao | controle "marcar como lido" |
+| `data-ARCKHÉ-doubt-toggle` | `<button>` por topico | flag de duvida rapida |
+| `data-ARCKHÉ-meter="scope"` | barra/anel | onde `renderMeters` pinta (`curso`/`trilha:N`/`modulo:X-Y`) |
+| `data-ARCKHÉ-toc` | `<nav>` lateral | TOC sticky + scrollspy |
+| `data-ARCKHÉ-journey-open` | botao na nav | abre "minha jornada" |
+| `data-ARCKHÉ-check="id"` | bloco de checagem | quiz leve opcional |
 
 ## 11.3 Acessibilidade no markup (parte do contrato, nao bonus)
 
@@ -1222,7 +1222,7 @@ Os controles novos **nao podem** violar #1-#17. Eles so **adicionam**:
   esquerda, `justify-start`).
 - Marcador de nota/duvida **nao** vira seta perto de topico — segue #1.2 (numeros em
   circulo, nunca setas).
-- Nav completo / INEMA.CLUB (sky-400) / Mapa da trilha / SVG futurista / profundidade
+- Nav completo / ARCKHÉ AI (sky-400) / Mapa da trilha / SVG futurista / profundidade
   minima dos modulos permanecem **intactos** (#1.4 / #1.6 / #1.8 / #1.10 / #7.4b).
 - As 3 secoes obrigatorias por topico (#1.3) seguem; a checagem leve e **opcional** e
   vem **alem** delas.
@@ -1232,16 +1232,16 @@ Os controles novos **nao podem** violar #1-#17. Eles so **adicionam**:
 ### a) Botao "marcar como lido" (por secao)
 
 ```html
-<!-- dentro de cada <section data-inema-topic="..."> -->
+<!-- dentro de cada <section data-ARCKHÉ-topic="..."> -->
 <div class="flex justify-start mt-6">
   <button type="button"
-          data-inema-read-toggle
+          data-ARCKHÉ-read-toggle
           aria-pressed="false"
           class="inline-flex items-center gap-2 px-4 py-2 rounded-lg
                  bg-COR-500/20 border border-COR-500/30 text-COR-400
                  hover:bg-COR-500/30 transition-colors">
-    <span class="inema-read-icon" aria-hidden="true">○</span>
-    <span class="inema-read-label">Marcar como lido</span>
+    <span class="ARCKHÉ-read-icon" aria-hidden="true">○</span>
+    <span class="ARCKHÉ-read-label">Marcar como lido</span>
   </button>
 </div>
 ```
@@ -1254,7 +1254,7 @@ Quando lido, o JS troca `aria-pressed="true"`, o icone para `●` e o label para
 ```html
 <!-- no header do topico, ao lado do titulo -->
 <button type="button"
-        data-inema-doubt-toggle
+        data-ARCKHÉ-doubt-toggle
         aria-pressed="false"
         title="Marcar duvida neste topico"
         class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg
@@ -1271,7 +1271,7 @@ notas com `color:"doubt"` (canal unificado).
 ### c) Bloco anotavel (selecao → highlight/nota)
 
 ```html
-<p data-inema-block="m1-1-t3-p2">
+<p data-ARCKHÉ-block="m1-1-t3-p2">
   Texto do paragrafo que o aluno pode selecionar para grifar ou anotar.
   O popover de selecao aparece no mouseup/touchend quando ha texto selecionado.
 </p>
@@ -1279,30 +1279,30 @@ notas com `color:"doubt"` (canal unificado).
 
 Render do highlight via **`TreeWalker`** (nunca `Range.surroundContents()` cego — lanca
 `InvalidStateError` em selecao cross-node). Texto da nota/quote renderizado SEMPRE por
-`textContent` (anti-XSS). Sem `data-inema-block` ⇒ paragrafo nao e anotavel (degrada).
+`textContent` (anti-XSS). Sem `data-ARCKHÉ-block` ⇒ paragrafo nao e anotavel (degrada).
 
 ### d) Medidores de progresso (anel/barra — so derivado)
 
-> Slots de texto: o `learn.js` aceita **atributo** (`data-inema-meter-pct` / `data-inema-meter-frac`)
-> **ou** as classes deste snippet (`.inema-meter-pct` / `.inema-meter-count`). Os dois funcionam —
+> Slots de texto: o `learn.js` aceita **atributo** (`data-ARCKHÉ-meter-pct` / `data-ARCKHÉ-meter-frac`)
+> **ou** as classes deste snippet (`.ARCKHÉ-meter-pct` / `.ARCKHÉ-meter-count`). Os dois funcionam —
 > escolha um. O mesmo vale no botao "marcar como lido": o padrao canonico sao os 4 spans
-> `.inema-ico-todo/.inema-ico-done/.inema-label-todo/.inema-label-done` (regidos por CSS via
-> `aria-pressed`); o par legado `.inema-read-icon` + `.inema-read-label` tambem e atualizado.
+> `.ARCKHÉ-ico-todo/.ARCKHÉ-ico-done/.ARCKHÉ-label-todo/.ARCKHÉ-label-done` (regidos por CSS via
+> `aria-pressed`); o par legado `.ARCKHÉ-read-icon` + `.ARCKHÉ-read-label` tambem e atualizado.
 
 ```html
 <!-- Curso (na landing) -->
-<div data-inema-meter="curso" class="inema-meter" role="progressbar"
+<div data-ARCKHÉ-meter="curso" class="ARCKHÉ-meter" role="progressbar"
      aria-valuemin="0" aria-valuemax="100" aria-label="Progresso do curso">
-  <span class="inema-meter-pct">0%</span>
-  <span class="inema-meter-count">0 de 0</span>
+  <span class="ARCKHÉ-meter-pct">0%</span>
+  <span class="ARCKHÉ-meter-count">0 de 0</span>
 </div>
 
 <!-- Trilha -->
-<div data-inema-meter="trilha:1" class="inema-meter" role="progressbar"
+<div data-ARCKHÉ-meter="trilha:1" class="ARCKHÉ-meter" role="progressbar"
      aria-valuemin="0" aria-valuemax="100" aria-label="Progresso da trilha 1"></div>
 
 <!-- Modulo -->
-<div data-inema-meter="modulo:1-1" class="inema-meter" role="progressbar"
+<div data-ARCKHÉ-meter="modulo:1-1" class="ARCKHÉ-meter" role="progressbar"
      aria-valuemin="0" aria-valuemax="100" aria-label="Progresso do modulo 1.1"></div>
 ```
 
@@ -1313,14 +1313,14 @@ exibir **"N de M" alem do %**.
 ### e) TOC sticky + scrollspy
 
 ```html
-<nav data-inema-toc aria-label="Indice da pagina"
+<nav data-ARCKHÉ-toc aria-label="Indice da pagina"
      class="hidden lg:block sticky top-24 self-start">
-  <p class="text-sm text-neutral-400 mb-2">Secao <span class="inema-toc-pos">1</span>
-     de <span class="inema-toc-total">6</span></p>
+  <p class="text-sm text-neutral-400 mb-2">Secao <span class="ARCKHÉ-toc-pos">1</span>
+     de <span class="ARCKHÉ-toc-total">6</span></p>
   <ul class="space-y-1">
-    <li><a href="#topico-1" class="inema-toc-link">1. Faca X</a></li>
-    <li><a href="#topico-2" class="inema-toc-link">2. Faca Y</a></li>
-    <!-- ... um por <section data-inema-topic> ... -->
+    <li><a href="#topico-1" class="ARCKHÉ-toc-link">1. Faca X</a></li>
+    <li><a href="#topico-2" class="ARCKHÉ-toc-link">2. Faca Y</a></li>
+    <!-- ... um por <section data-ARCKHÉ-topic> ... -->
   </ul>
 </nav>
 ```
@@ -1332,12 +1332,12 @@ Colapsa para uma coluna no mobile. Alvos com `scroll-margin-top` = altura do nav
 
 ```html
 <button type="button"
-        data-inema-journey-open
+        data-ARCKHÉ-journey-open
         class="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg
                text-neutral-300 hover:text-neutral-100 transition-colors">
   <span aria-hidden="true">◷</span>
   <span>Minha jornada</span>
-  <span class="inema-journey-badge hidden" aria-hidden="true"></span>
+  <span class="ARCKHÉ-journey-badge hidden" aria-hidden="true"></span>
 </button>
 ```
 
@@ -1348,18 +1348,18 @@ onde parei"; Export/Import/Reset. **So leitura do estado** (view pura).
 ### g) Checagem leve (NAO-bloqueante, opcional)
 
 As opcoes sao **markup real** (`learn.js` NAO as gera a partir do `registerCheck`): cada
-opcao e um `<button data-inema-check-option="N">` e o feedback vai num `[data-inema-check-feedback]`.
+opcao e um `<button data-ARCKHÉ-check-option="N">` e o feedback vai num `[data-ARCKHÉ-check-feedback]`.
 
 ```html
-<div data-inema-check="modulo-1-1#q1" class="inema-check mt-8
+<div data-ARCKHÉ-check="modulo-1-1#q1" class="ARCKHÉ-check mt-8
      bg-dark-800 border border-dark-600 rounded-xl p-6">
   <p class="font-medium mb-4">Pergunta de auto-recuperacao (opcional)</p>
-  <div class="inema-check-options space-y-2">
-    <button type="button" data-inema-check-option="0" class="block w-full text-left px-4 py-2 rounded-lg bg-dark-700 border border-dark-600 hover:bg-dark-600 transition-colors text-sm">Alternativa A</button>
-    <button type="button" data-inema-check-option="1" class="block w-full text-left px-4 py-2 rounded-lg bg-dark-700 border border-dark-600 hover:bg-dark-600 transition-colors text-sm">Alternativa B (correta)</button>
-    <button type="button" data-inema-check-option="2" class="block w-full text-left px-4 py-2 rounded-lg bg-dark-700 border border-dark-600 hover:bg-dark-600 transition-colors text-sm">Alternativa C</button>
+  <div class="ARCKHÉ-check-options space-y-2">
+    <button type="button" data-ARCKHÉ-check-option="0" class="block w-full text-left px-4 py-2 rounded-lg bg-dark-700 border border-dark-600 hover:bg-dark-600 transition-colors text-sm">Alternativa A</button>
+    <button type="button" data-ARCKHÉ-check-option="1" class="block w-full text-left px-4 py-2 rounded-lg bg-dark-700 border border-dark-600 hover:bg-dark-600 transition-colors text-sm">Alternativa B (correta)</button>
+    <button type="button" data-ARCKHÉ-check-option="2" class="block w-full text-left px-4 py-2 rounded-lg bg-dark-700 border border-dark-600 hover:bg-dark-600 transition-colors text-sm">Alternativa C</button>
   </div>
-  <div data-inema-check-feedback class="mt-4 text-sm" role="status" aria-live="polite"></div>
+  <div data-ARCKHÉ-check-feedback class="mt-4 text-sm" role="status" aria-live="polite"></div>
 </div>
 ```
 
@@ -1368,8 +1368,8 @@ E no JS da pagina (depois do `learn.js`), declare a resposta + explicacao por op
 ```html
 <script>
   window.addEventListener('DOMContentLoaded', function () {
-    if (window.INEMA && INEMA.registerCheck) {
-      INEMA.registerCheck('modulo-1-1#q1', {
+    if (window.ARCKHÉ && ARCKHÉ.registerCheck) {
+      ARCKHÉ.registerCheck('modulo-1-1#q1', {
         answer: 1,                                   // indice da opcao correta
         explain: { 0: 'Por que A erra...', 1: 'Por que B acerta...', 2: 'Por que C erra...' }
       });
@@ -1384,7 +1384,7 @@ proxima visita (recall espacado parcial).
 
 ### h) Manifesto do curso (OBRIGATORIO — inclua em TODA pagina, identico)
 
-O read-map (`inema.<courseId>.read`) atravessa as paginas, mas o **total** nao: o DOM de
+O read-map (`ARCKHÉ.<courseId>.read`) atravessa as paginas, mas o **total** nao: o DOM de
 uma pagina de modulo so tem os topicos daquele modulo. O **manifesto** declara a estrutura
 COMPLETA do curso para que `progress('curso')` e `progress('trilha:N')` AGREGUEM o `done`
 (read-map persistido) sobre o `total` (manifesto). **Sem ele, o progresso degrada para o
@@ -1394,7 +1394,7 @@ modulos). E **dado** (nao executa, nao persiste, nao entra no export/import).
 
 ```html
 <!-- no <head> de TODA pagina, identico em todas -->
-<script type="application/json" data-inema-manifest>
+<script type="application/json" data-ARCKHÉ-manifest>
 {
   "course": "fep",
   "tracks": [
@@ -1410,8 +1410,8 @@ modulos). E **dado** (nao executa, nao persiste, nao entra no export/import).
 </script>
 ```
 
-- `course` casa com `<meta name="inema-course">`; `n`/`id` casam com `data-inema-track` /
-  `data-inema-module`. `topics` e a **CONTAGEM** de `[data-inema-topic]` reais de cada
+- `course` casa com `<meta name="ARCKHÉ-course">`; `n`/`id` casam com `data-ARCKHÉ-track` /
+  `data-ARCKHÉ-module`. `topics` e a **CONTAGEM** de `[data-ARCKHÉ-topic]` reais de cada
   modulo (o "de M") — se divergir do DOM, o % do curso fica errado. `href` (opcional)
   alimenta a navegacao da "minha jornada".
 
@@ -1434,11 +1434,11 @@ modulos). E **dado** (nao executa, nao persiste, nao entra no export/import).
 - **Promessa honesta:** "tema novo barato" vale **so** para o Layer B (CSS vars). As
   partes em utilitario Tailwind **nao** trocam por variavel sem refactor.
 
-### Conjunto de temas (default = identidade INEMA)
+### Conjunto de temas (default = identidade ARCKHÉ)
 
 | `data-theme` | Nome | `color-scheme` |
 |---|---|---|
-| *(none)* + `.dark` | **inema-dark** *(DEFAULT, = baseline intacta)* | dark |
+| *(none)* + `.dark` | **ARCKHÉ-dark** *(DEFAULT, = baseline intacta)* | dark |
 | *(none, `.dark` off)* | **claro** | light |
 | `sepia` | **sepia / leitura** | light |
 | `foco` | **foco** (so densidade/medida/visibilidade — nao mexe na cor) | herda |
@@ -1452,12 +1452,12 @@ Regra de cor critica: **ambar NUNCA como TEXTO em superficie clara** (1.35:1 no 
 O chrome v1 (body/nav/cards) usa classes utilitarias Tailwind (`bg-dark-*`,
 `text-neutral-*`, `border-dark-*`) e o override binario `html:not(.dark)` — que **nao**
 consomem os tokens de tema (`var(--bg/--surface/--text/--border)`). Sem ajuda, ativar
-"sepia"/"contraste" so recoloraria a `.inema-prose` e o restante ficaria identico a
+"sepia"/"contraste" so recoloraria a `.ARCKHÉ-prose` e o restante ficaria identico a
 claro/escuro. A `learn.css` resolve isso na secao **"3b. BRIDGE DE CHROME"**: mapeia
 essas classes-chave do chrome para os tokens semanticos **apenas sob
 `html[data-theme="sepia"]` / `html[data-theme="contraste"]`** (com `!important` para
 vencer o utilitario e o override binario). Resultado: a **troca de tema transforma a
-pagina toda**. **`claro` e `inema-dark` continuam pelo mecanismo v1 intacto** (o bridge
+pagina toda**. **`claro` e `ARCKHÉ-dark` continuam pelo mecanismo v1 intacto** (o bridge
 nao os toca — Erro Critico #5). Consequencia: a `learn.css` **precisa** estar carregada
 para que sepia/contraste recolorem o chrome, nao so a prosa.
 
@@ -1470,24 +1470,24 @@ Tres pecas, nesta ordem:
 ```html
 <head>
   <meta charset="utf-8">
-  <meta name="inema-course" content="fep">
+  <meta name="ARCKHÉ-course" content="fep">
   <!-- ANTI-FOUC: script minusculo, bloqueante, SEPARADO, antes do Tailwind -->
   <script>
     (function () {
       try {
-        var p = JSON.parse(localStorage.getItem('inema.prefs') || '{}');
+        var p = JSON.parse(localStorage.getItem('ARCKHÉ.prefs') || '{}');
         var d = document.documentElement;
         // fallback ao theme legado do v1 para nao "resetar" dark/light
         var dark = p.theme ? p.theme !== 'claro' : (localStorage.getItem('theme') !== 'light');
         if (dark) d.classList.add('dark'); else d.classList.remove('dark');
-        if (p.theme && p.theme !== 'inema-dark' && p.theme !== 'claro')
+        if (p.theme && p.theme !== 'ARCKHÉ-dark' && p.theme !== 'claro')
           d.setAttribute('data-theme', p.theme);          // sepia | foco | contraste
         if (p.fontScale) d.style.setProperty('--fs-root', p.fontScale + '%');
       } catch (e) { document.documentElement.classList.add('dark'); } // default dark no erro
     })();
   </script>
   <script src="https://cdn.tailwindcss.com"></script>
-  <style> /* ... cole aqui learn.css: CSS vars + temas + .inema-prose ... */ </style>
+  <style> /* ... cole aqui learn.css: CSS vars + temas + .ARCKHÉ-prose ... */ </style>
 </head>
 ```
 
@@ -1496,28 +1496,28 @@ Independente do modulo grande — se ele falhar, o tema ja foi aplicado. **Defau
 erro** preserva a marca.
 
 **2. `learn.css`** — colado inline no `<style>` do `<head>`: CSS vars (3 niveis), blocos
-`[data-theme="…"]` com seus tokens + `color-scheme`, o wrapper `.inema-prose` (clampa
+`[data-theme="…"]` com seus tokens + `color-scheme`, o wrapper `.ARCKHÉ-prose` (clampa
 **so** a prosa: `max-width:var(--measure); margin-inline:auto`) e os estilos dos
 controles novos (read-toggle, meters, popover, jornada). Micro-interacoes **todas** sob
 `@media (prefers-reduced-motion: reduce)` (zera/encurta, preserva estado final).
 
-**3. `learn.js`** — colado inline **antes de `</body>`**: o IIFE `window.INEMA`. Boot em
-`DOMContentLoaded`; chama `INEMA.init()`. Idempotente: so ativa o que tem `data-*`.
+**3. `learn.js`** — colado inline **antes de `</body>`**: o IIFE `window.ARCKHÉ`. Boot em
+`DOMContentLoaded`; chama `ARCKHÉ.init()`. Idempotente: so ativa o que tem `data-*`.
 
 ```html
-  <script> /* ... cole aqui learn.js: IIFE window.INEMA ... */ </script>
-  <script>document.addEventListener('DOMContentLoaded', function(){ window.INEMA && INEMA.init(); });</script>
+  <script> /* ... cole aqui learn.js: IIFE window.ARCKHÉ ... */ </script>
+  <script>document.addEventListener('DOMContentLoaded', function(){ window.ARCKHÉ && ARCKHÉ.init(); });</script>
 </body>
 ```
 
 ## 12.3 Seletor de aparencia
 
 > **Contrato real do `learn.js`:** o painel de aparencia **NAO e gerado automaticamente**.
-> A pagina precisa conter o **markup do painel** com os botoes `data-inema-set-theme`,
-> `data-inema-set-font`, `data-inema-set-fontscale`, `data-inema-set-leading`,
-> `data-inema-set-accent` dentro de um container `[data-inema-appearance]`, e um gatilho
-> `data-inema-appearance-toggle="<seletor-do-painel>"` para abri-lo/fecha-lo. Um botao
-> avulso `data-inema-appearance-open` **sem** esse painel nao faz nada. Se voce nao for
+> A pagina precisa conter o **markup do painel** com os botoes `data-ARCKHÉ-set-theme`,
+> `data-ARCKHÉ-set-font`, `data-ARCKHÉ-set-fontscale`, `data-ARCKHÉ-set-leading`,
+> `data-ARCKHÉ-set-accent` dentro de um container `[data-ARCKHÉ-appearance]`, e um gatilho
+> `data-ARCKHÉ-appearance-toggle="<seletor-do-painel>"` para abri-lo/fecha-lo. Um botao
+> avulso `data-ARCKHÉ-appearance-open` **sem** esse painel nao faz nada. Se voce nao for
 > montar o painel completo, **omita o botao** e mantenha so o toggle sol/lua (que ja
 > funciona pelo nucleo v1).
 
@@ -1525,14 +1525,14 @@ controles novos (read-toggle, meters, popover, jornada). Micro-interacoes **toda
   existente — que e **absorvido** (o eixo claro/escuro continua funcionando).
 - Abre painel com: **4-5 temas** + **tipografia** (fonte) + **tamanho** (`fontScale`
   100/112/125%) + **entrelinha** (`leading` compacto/confortavel) + **medida** (largura
-  de linha, via `foco`) + **paleta de acento** (6 cores de trilha INEMA, travado na
+  de linha, via `foco`) + **paleta de acento** (6 cores de trilha ARCKHÉ, travado na
   familia — nao color-picker livre).
 - Reflete estado por **icone + texto, nao so cor** (WCAG 1.4.1).
-- Tudo salvo em `inema.prefs` (GLOBAL, cross-curso) e **re-aplicado em todas as paginas
+- Tudo salvo em `ARCKHÉ.prefs` (GLOBAL, cross-curso) e **re-aplicado em todas as paginas
   no load, antes do paint** (via anti-FOUC).
 
 ```html
-<button type="button" data-inema-appearance-open
+<button type="button" data-ARCKHÉ-appearance-open
         class="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg
                text-neutral-300 hover:text-neutral-100 transition-colors">
   <span aria-hidden="true">◑</span>
@@ -1548,7 +1548,7 @@ controles novos (read-toggle, meters, popover, jornada). Micro-interacoes **toda
 | **Largura de linha** | `--measure` clampa **so** a prosa, nunca code/tabelas/grids. | `60ch` \| `68ch` \| `75ch` |
 | **Entrelinha** | `--lh-body` multiplicador **sem unidade**. | compacto `1.45` \| confortavel `1.7` |
 | **Fonte** | `--font-body`. Default Inter. Alternativa "conforto" e **escolha, nunca default** nem promessa de "resolve dislexia". | inter \| system \| leitura |
-| **Acento** | `--accent-h/-s/-l` + `--accent`. 6 cores de trilha INEMA. So componentes novos. | slug de trilha |
+| **Acento** | `--accent-h/-s/-l` + `--accent`. 6 cores de trilha ARCKHÉ. So componentes novos. | slug de trilha |
 
 > **Densidade real NAO entra no MVP** — espacamento da baseline e utilitario Tailwind
 > fixo (`mb-16`, `p-8`), nada a multiplicar sem refactor. "Densidade" = so `fontScale`

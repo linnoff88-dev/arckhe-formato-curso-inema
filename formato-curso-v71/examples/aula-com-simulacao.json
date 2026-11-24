@@ -2,7 +2,7 @@
   "slug": "filas",
   "num": 4,
   "titulo": "Degrau 3: filas — dez tarefas e vá dormir",
-  "titulo_curto": "Filas (inemaccbot)",
+  "titulo_curto": "Filas (ARCKHÉccbot)",
   "minutos": 12,
   "lead": "Um agente sozinho faz uma coisa por vez e só enquanto você olha. Com uma fila durável, cada pedido vira uma tarefa guardada, retomada se cair, e os fluxos param num portão antes do que importa.",
   "objetivo": "decidir o que vai para a fila, onde ficam os portões e como conferir o resultado no dia seguinte.",
@@ -54,7 +54,7 @@
               "t": "Vídeo explicativo"
             }
           ],
-          "detalhe": "Cada pedido vira uma tarefa: no inemaccbot, uma mensagem no Telegram; na fila caseira, um arquivo .md na pasta entrada/."
+          "detalhe": "Cada pedido vira uma tarefa: no ARCKHÉccbot, uma mensagem no Telegram; na fila caseira, um arquivo .md na pasta entrada/."
         },
         {
           "icone": "fila",
@@ -105,7 +105,7 @@
         }
       ],
       "volta": "Rodar de novo só pega o que sobrou",
-      "legenda": "Exemplos de fluxos que viram tarefas no inemaccbot: transcrever, dublar, vídeo explicativo, curso e reel.",
+      "legenda": "Exemplos de fluxos que viram tarefas no ARCKHÉccbot: transcrever, dublar, vídeo explicativo, curso e reel.",
       "rolagem": true,
       "rolagem_fim": {
         "titulo": "Uma noite de fila",
@@ -194,7 +194,7 @@
         },
         {
           "id": "e3",
-          "titulo": "E3 · Instalar o inemaccbot",
+          "titulo": "E3 · Instalar o ARCKHÉccbot",
           "min": "1 h",
           "texto": "Siga o guia até o bot responder no Telegram. Depois teste /ajuda e /fila.",
           "pronto": "/ping responde no seu Telegram."
@@ -215,12 +215,12 @@
           "pronto": "você recusou ou corrigiu pelo menos um texto antes de aprovar."
         }
       ],
-      "fonte": "Exercícios completos e o desafio extra (uma regra nova para a tarefa que mais falhou): <a href=\"https://github.com/inematds/jornada-agentes/blob/main/exercicios/03-filas.md\" target=\"_blank\" rel=\"noopener\">jornada-agentes/exercicios/03-filas.md</a>."
+      "fonte": "Exercícios completos e o desafio extra (uma regra nova para a tarefa que mais falhou): <a href=\"https://github.com/linnoff88-dev/jornada-agentes/blob/main/exercicios/03-filas.md\" target=\"_blank\" rel=\"noopener\">jornada-agentes/exercicios/03-filas.md</a>."
     },
     {
       "tipo": "video",
       "titulo": "A sequência 3 em vídeo",
-      "sub": "A fila durável do inemaccbot e o portão de aprovação.",
+      "sub": "A fila durável do ARCKHÉccbot e o portão de aprovação.",
       "chave": "seq3-filas"
     },
     {
@@ -272,18 +272,18 @@
       "titulo": "Para aprofundar o degrau 3",
       "links": [
         {
-          "t": "inemaccbot: guia de instalação e arquitetura",
-          "href": "https://inematds.github.io/inemaccbot/guia/",
+          "t": "ARCKHÉccbot: guia de instalação e arquitetura",
+          "href": "https://linnoff88-dev.github.io/
           "icone": "fila"
         },
         {
-          "t": "Curso INEMACCBOT com Promoavatar",
-          "href": "https://eventos.inema.pro/inemaccbot.html",
+          "t": "Curso ARCKHÉCCBOT com Promoavatar",
+          "href": "https://eventos.ARCKHÉ.pro/ARCKHÉccbot.html",
           "icone": "lista"
         },
         {
           "t": "Repositório jornada-agentes (fila caseira)",
-          "href": "https://github.com/inematds/jornada-agentes",
+          "href": "https://github.com/linnoff88-dev/jornada-agentes",
           "icone": "git"
         }
       ]

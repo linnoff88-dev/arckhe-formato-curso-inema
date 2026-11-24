@@ -1,4 +1,4 @@
-# V4-DESIGN — Design Language do formato-curso INEMA v4
+# V4-DESIGN — Design Language do formato-curso ARCKHÉ v4
 
 > **Status:** spec aprovada (brainstorming) em 2026-07-03. Fatia inicial = **página de aula**.
 > **Prova viva (mockup descartável):** `mockups/v4-aula/ab-blend.html` (compare com `a-`, `b-`, `c-`).

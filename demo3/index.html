@@ -6,10 +6,10 @@
 
   <!-- ===================================================================
        1) ANTI-FOUC — script BLOQUEANTE, PRIMEIRO no <head>, ANTES das fontes
-          e do learn.css. Le inema.prefs (global, cross-curso) e aplica
+          e do learn.css. Le ARCKHÉ.prefs (global, cross-curso) e aplica
           data-theme + color-scheme + --measure/--leading/--fontscale +
           data-font/--font-disp/--font-body ANTES do primeiro paint.
-          try/catch total => default papel no erro (preserva a marca INEMA).
+          try/catch total => default papel no erro (preserva a marca ARCKHÉ).
           (REL = "." — index.html mora na raiz da pasta com assets/.)
        =================================================================== -->
   <script>
@@ -20,7 +20,7 @@
       function clone(o) { var r = {}; for (var x in o) r[x] = o[x]; return r; }
       var p = clone(DEF);
       try {
-        var raw = localStorage.getItem('inema.prefs');
+        var raw = localStorage.getItem('ARCKHÉ.prefs');
         if (raw) {
           var parsed = JSON.parse(raw);
           if (parsed && typeof parsed === 'object') {
@@ -77,8 +77,8 @@
   </script>
 
   <!-- 2) Identidade do curso + manifesto (courseId estavel + estrutura completa) -->
-  <meta name="inema-course" content="demo3" />
-  <script type="application/json" data-inema-manifest>
+  <meta name="ARCKHÉ-course" content="demo3" />
+  <script type="application/json" data-ARCKHÉ-manifest>
   {
     "course": "demo3",
     "tracks": [
@@ -90,7 +90,7 @@
   }
   </script>
 
-  <title>Engenharia de Prompts &mdash; um curso que e uma obra, nao um infoproduto | INEMA</title>
+  <title>Engenharia de Prompts &mdash; um curso que e uma obra, nao um infoproduto | ARCKHÉ</title>
 
   <!-- 3) Fontes (DEPOIS do anti-FOUC) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -163,9 +163,9 @@
       display: flex; flex-wrap: wrap; align-items: center; gap: var(--s3) var(--s5);
     }
     .stand .lbl { font-family: var(--mono); font-size: 0.74rem; letter-spacing: 0.06em; color: var(--ink-faint); }
-    .stand [data-inema-meter] { display: inline-flex; align-items: center; gap: var(--s3); }
-    .stand [data-inema-meter-frac] { font-family: var(--mono); font-size: 0.78rem; color: var(--ink-soft); }
-    .stand [data-inema-meter-frac] strong { color: var(--ink); font-weight: 600; }
+    .stand [data-ARCKHÉ-meter] { display: inline-flex; align-items: center; gap: var(--s3); }
+    .stand [data-ARCKHÉ-meter-frac] { font-family: var(--mono); font-size: 0.78rem; color: var(--ink-soft); }
+    .stand [data-ARCKHÉ-meter-frac] strong { color: var(--ink); font-weight: 600; }
     .stand .progress-line {
       width: 120px; height: 3px; border-radius: 3px;
       background: var(--paper-deep, var(--border)); overflow: hidden;
@@ -260,28 +260,28 @@
   <!-- ===================== READER BAR — controles minimos ===================== -->
   <div class="reader-bar">
     <div class="reader-inner">
-      <a class="wordmark" href="https://inema.club" target="_blank" rel="noopener">INEMA<span class="dot">.</span><span class="club">CLUB</span></a>
-      <div class="reader-controls" data-inema-appearance>
-        <span class="rc-read"><span data-inema-meter="curso"><span data-inema-meter-frac><strong>0</strong> de 14</span></span> percorrido</span>
+      <a class="wordmark" href="https://ARCKHÉ AI" target="_blank" rel="noopener">ARCKHÉ<span class="dot">.</span><span class="club">CLUB</span></a>
+      <div class="reader-controls" data-ARCKHÉ-appearance>
+        <span class="rc-read"><span data-ARCKHÉ-meter="curso"><span data-ARCKHÉ-meter-frac><strong>0</strong> de 14</span></span> percorrido</span>
         <div class="rc-group" role="group" aria-label="Tema de leitura">
-          <button type="button" class="rc-btn" data-inema-set-theme="papel" aria-pressed="true">Papel</button>
-          <button type="button" class="rc-btn" data-inema-set-theme="sepia" aria-pressed="false">Sepia</button>
-          <button type="button" class="rc-btn" data-inema-set-theme="escuro" aria-pressed="false">Escuro</button>
+          <button type="button" class="rc-btn" data-ARCKHÉ-set-theme="papel" aria-pressed="true">Papel</button>
+          <button type="button" class="rc-btn" data-ARCKHÉ-set-theme="sepia" aria-pressed="false">Sepia</button>
+          <button type="button" class="rc-btn" data-ARCKHÉ-set-theme="escuro" aria-pressed="false">Escuro</button>
         </div>
         <div class="rc-group" role="group" aria-label="Fonte de leitura">
-          <button type="button" class="rc-btn" data-inema-set-font="serif" aria-pressed="true">Serif</button>
-          <button type="button" class="rc-btn" data-inema-set-font="sans" aria-pressed="false">Sans</button>
-          <button type="button" class="rc-btn" data-inema-set-font="hyperlegible" aria-pressed="false" title="Atkinson Hyperlegible — legibilidade maxima">Aa&#8633;</button>
+          <button type="button" class="rc-btn" data-ARCKHÉ-set-font="serif" aria-pressed="true">Serif</button>
+          <button type="button" class="rc-btn" data-ARCKHÉ-set-font="sans" aria-pressed="false">Sans</button>
+          <button type="button" class="rc-btn" data-ARCKHÉ-set-font="hyperlegible" aria-pressed="false" title="Atkinson Hyperlegible — legibilidade maxima">Aa&#8633;</button>
         </div>
         <div class="rc-group" role="group" aria-label="Tamanho do texto">
-          <button type="button" class="rc-btn" data-inema-set-fontscale="100" aria-pressed="true">A</button>
-          <button type="button" class="rc-btn" data-inema-set-fontscale="112" aria-pressed="false">A+</button>
-          <button type="button" class="rc-btn" data-inema-set-fontscale="125" aria-pressed="false">A++</button>
+          <button type="button" class="rc-btn" data-ARCKHÉ-set-fontscale="100" aria-pressed="true">A</button>
+          <button type="button" class="rc-btn" data-ARCKHÉ-set-fontscale="112" aria-pressed="false">A+</button>
+          <button type="button" class="rc-btn" data-ARCKHÉ-set-fontscale="125" aria-pressed="false">A++</button>
         </div>
         <div class="rc-group" role="group" aria-label="Largura da linha">
-          <button type="button" class="rc-btn" data-inema-set-linewidth="62" aria-pressed="false">Estreito</button>
-          <button type="button" class="rc-btn" data-inema-set-linewidth="66" aria-pressed="true">Medio</button>
-          <button type="button" class="rc-btn" data-inema-set-linewidth="70" aria-pressed="false">Largo</button>
+          <button type="button" class="rc-btn" data-ARCKHÉ-set-linewidth="62" aria-pressed="false">Estreito</button>
+          <button type="button" class="rc-btn" data-ARCKHÉ-set-linewidth="66" aria-pressed="true">Medio</button>
+          <button type="button" class="rc-btn" data-ARCKHÉ-set-linewidth="70" aria-pressed="false">Largo</button>
         </div>
       </div>
     </div>
@@ -294,8 +294,8 @@
       <span class="sep">&middot;</span>
       <span>1 trilha &middot; 2 modulos</span>
       <span class="sep">&middot;</span>
-      <button type="button" data-inema-journey-open>
-        Minha jornada <span class="inema-journey-badge" data-inema-journey-badge data-count="0">0</span>
+      <button type="button" data-ARCKHÉ-journey-open>
+        Minha jornada <span class="ARCKHÉ-journey-badge" data-ARCKHÉ-journey-badge data-count="0">0</span>
       </button>
     </nav>
   </header>
@@ -330,32 +330,32 @@
           <!-- Marcador de percurso silencioso: N de M + uma barra fina. SEM 3 barras. -->
           <div class="stand">
             <span class="lbl">Seu percurso</span>
-            <span data-inema-meter="curso">
-              <span data-inema-meter-frac><strong>0</strong> de 14</span> secoes
-              <span class="progress-line"><span class="progress-line__fill" data-inema-meter-fill></span></span>
+            <span data-ARCKHÉ-meter="curso">
+              <span data-ARCKHÉ-meter-frac><strong>0</strong> de 14</span> secoes
+              <span class="progress-line"><span class="progress-line__fill" data-ARCKHÉ-meter-fill></span></span>
             </span>
-            <button type="button" data-inema-journey-open style="font-family:var(--mono);font-size:0.74rem;background:none;border:0;color:var(--accent);cursor:pointer;padding:0;text-decoration:underline;text-underline-offset:2px;">continuar de onde parei</button>
+            <button type="button" data-ARCKHÉ-journey-open style="font-family:var(--mono);font-size:0.74rem;background:none;border:0;color:var(--accent);cursor:pointer;padding:0;text-decoration:underline;text-underline-offset:2px;">continuar de onde parei</button>
           </div>
         </header>
 
         <!-- ============================= O PORQUE (curta abertura editorial) ============================= -->
         <section id="topico-porque"
-                 data-inema-topic="modulo-landing#topico-porque"
-                 data-inema-module="landing"
-                 data-inema-track="1">
+                 data-ARCKHÉ-topic="modulo-landing#topico-porque"
+                 data-ARCKHÉ-module="landing"
+                 data-ARCKHÉ-track="1">
           <div class="section-mark">
             <span class="where">Por que isto existe</span><span>&middot;</span><span>Leia antes do indice</span>
           </div>
           <h2 class="head"><span class="num">&sect;</span>Um pedido bem-feito, nao uma formula magica</h2>
 
           <div class="prose">
-            <p class="lede" data-inema-block="landing-porque-p1">A maior parte do que se vende como "engenharia
+            <p class="lede" data-ARCKHÉ-block="landing-porque-p1">A maior parte do que se vende como "engenharia
               de prompt" e uma lista de truques desconexos.<span class="sidenote-ref">1</span> Aqui a aposta e
               outra: tratar o prompt como um <em>briefing</em> &mdash; um pedido com contexto, tarefa, formato,
               exemplos e iteracao. Quando a saida vem morna, raramente o problema e a redacao; falta uma dessas
               pecas, e a propria saida aponta qual.</p>
 
-            <p data-inema-block="landing-porque-p2">Por isso o curso e curto e fundo, em vez de longo e raso. Sao
+            <p data-ARCKHÉ-block="landing-porque-p2">Por isso o curso e curto e fundo, em vez de longo e raso. Sao
               <em>dois modulos</em> numa unica trilha: o primeiro instala o modelo mental das cinco pecas; o
               segundo o leva da ideia solta ate um prompt que aguenta producao. Nenhuma promessa de atalho &mdash;
               so o laco que voce vai repetir pelo resto da vida usando esses modelos.</p>
@@ -378,9 +378,9 @@
 
         <!-- ============================= CURRICULO COMO INDICE ============================= -->
         <section id="topico-indice"
-                 data-inema-topic="modulo-landing#topico-indice"
-                 data-inema-module="landing"
-                 data-inema-track="1">
+                 data-ARCKHÉ-topic="modulo-landing#topico-indice"
+                 data-ARCKHÉ-module="landing"
+                 data-ARCKHÉ-track="1">
           <div class="section-mark">
             <span class="where">O indice</span><span>&middot;</span><span>1 trilha &middot; 2 modulos</span>
           </div>
@@ -464,7 +464,7 @@
       <aside class="margin-rail" aria-label="Margem: notas de autor, definicoes e seu painel de aprendizado">
 
         <!-- ---- SECAO "porque": painel do aluno (vazio; learn.js preenche) + sidenotes de autor ---- -->
-        <aside data-inema-rail="modulo-landing#topico-porque"></aside>
+        <aside data-ARCKHÉ-rail="modulo-landing#topico-porque"></aside>
 
         <aside class="sidenote" data-kind="definicao">
           <div class="tag">Definicao</div>
@@ -484,7 +484,7 @@
         </aside>
 
         <!-- ---- SECAO "indice" ---- -->
-        <aside data-inema-rail="modulo-landing#topico-indice"></aside>
+        <aside data-ARCKHÉ-rail="modulo-landing#topico-indice"></aside>
 
         <aside class="sidenote" data-kind="fundo">
           <div class="tag">Por que o indice e denso</div>
@@ -504,7 +504,7 @@
 
   <!-- COLOFAO -->
   <footer class="colophon">
-    <span>INEMA.CLUB &middot; Caderno do aluno</span>
+    <span>ARCKHÉ AI &middot; Caderno do aluno</span>
     <span class="pg">Engenharia de Prompts &mdash; landing</span>
     <span>Composto em Spectral &amp; Source Serif 4</span>
   </footer>
@@ -515,8 +515,8 @@
        =================================================================== -->
   <script src="./assets/learn.js"></script>
   <script>
-    if (window.INEMA && typeof window.INEMA.init === 'function') {
-      window.INEMA.init();
+    if (window.ARCKHÉ && typeof window.ARCKHÉ.init === 'function') {
+      window.ARCKHÉ.init();
     }
   </script>
 </body>

@@ -6,10 +6,10 @@
 
   <!-- ===================================================================
        1) ANTI-FOUC — script BLOQUEANTE, PRIMEIRO no <head>, ANTES das fontes
-          e do learn.css. Le inema.prefs (global, cross-curso) e aplica
+          e do learn.css. Le ARCKHÉ.prefs (global, cross-curso) e aplica
           data-theme + color-scheme + --measure/--leading/--fontscale +
           data-font/--font-disp/--font-body ANTES do primeiro paint.
-          try/catch total => default papel no erro (preserva a marca INEMA).
+          try/catch total => default papel no erro (preserva a marca ARCKHÉ).
           (REL = "../.." — caminho ate a pasta com assets/.)
        =================================================================== -->
   <script>
@@ -20,7 +20,7 @@
       function clone(o) { var r = {}; for (var x in o) r[x] = o[x]; return r; }
       var p = clone(DEF);
       try {
-        var raw = localStorage.getItem('inema.prefs');
+        var raw = localStorage.getItem('ARCKHÉ.prefs');
         if (raw) {
           var parsed = JSON.parse(raw);
           if (parsed && typeof parsed === 'object') {
@@ -77,8 +77,8 @@
   </script>
 
   <!-- 2) Identidade do curso + manifesto (courseId estavel + estrutura completa) -->
-  <meta name="inema-course" content="demo3" />
-  <script type="application/json" data-inema-manifest>
+  <meta name="ARCKHÉ-course" content="demo3" />
+  <script type="application/json" data-ARCKHÉ-manifest>
   {
     "course": "demo3",
     "tracks": [
@@ -109,28 +109,28 @@
   <!-- ===================== READER BAR — controles minimos ===================== -->
   <div class="reader-bar">
     <div class="reader-inner">
-      <a class="wordmark" href="https://inema.club" target="_blank" rel="noopener">INEMA<span class="dot">.</span><span class="club">CLUB</span></a>
-      <div class="reader-controls" data-inema-appearance>
-        <span class="rc-read"><span data-inema-meter="trilha:1"><span data-inema-meter-frac><strong>0</strong> de 14</span></span> lidas</span>
+      <a class="wordmark" href="https://ARCKHÉ AI" target="_blank" rel="noopener">ARCKHÉ<span class="dot">.</span><span class="club">CLUB</span></a>
+      <div class="reader-controls" data-ARCKHÉ-appearance>
+        <span class="rc-read"><span data-ARCKHÉ-meter="trilha:1"><span data-ARCKHÉ-meter-frac><strong>0</strong> de 14</span></span> lidas</span>
         <div class="rc-group" role="group" aria-label="Tema de leitura">
-          <button type="button" class="rc-btn" data-inema-set-theme="papel" aria-pressed="true">Papel</button>
-          <button type="button" class="rc-btn" data-inema-set-theme="sepia" aria-pressed="false">Sepia</button>
-          <button type="button" class="rc-btn" data-inema-set-theme="escuro" aria-pressed="false">Escuro</button>
+          <button type="button" class="rc-btn" data-ARCKHÉ-set-theme="papel" aria-pressed="true">Papel</button>
+          <button type="button" class="rc-btn" data-ARCKHÉ-set-theme="sepia" aria-pressed="false">Sepia</button>
+          <button type="button" class="rc-btn" data-ARCKHÉ-set-theme="escuro" aria-pressed="false">Escuro</button>
         </div>
         <div class="rc-group" role="group" aria-label="Fonte de leitura">
-          <button type="button" class="rc-btn" data-inema-set-font="serif" aria-pressed="true">Serif</button>
-          <button type="button" class="rc-btn" data-inema-set-font="sans" aria-pressed="false">Sans</button>
-          <button type="button" class="rc-btn" data-inema-set-font="hyperlegible" aria-pressed="false" title="Atkinson Hyperlegible — legibilidade maxima">Aa&#8633;</button>
+          <button type="button" class="rc-btn" data-ARCKHÉ-set-font="serif" aria-pressed="true">Serif</button>
+          <button type="button" class="rc-btn" data-ARCKHÉ-set-font="sans" aria-pressed="false">Sans</button>
+          <button type="button" class="rc-btn" data-ARCKHÉ-set-font="hyperlegible" aria-pressed="false" title="Atkinson Hyperlegible — legibilidade maxima">Aa&#8633;</button>
         </div>
         <div class="rc-group" role="group" aria-label="Tamanho do texto">
-          <button type="button" class="rc-btn" data-inema-set-fontscale="100" aria-pressed="true">A</button>
-          <button type="button" class="rc-btn" data-inema-set-fontscale="112" aria-pressed="false">A+</button>
-          <button type="button" class="rc-btn" data-inema-set-fontscale="125" aria-pressed="false">A++</button>
+          <button type="button" class="rc-btn" data-ARCKHÉ-set-fontscale="100" aria-pressed="true">A</button>
+          <button type="button" class="rc-btn" data-ARCKHÉ-set-fontscale="112" aria-pressed="false">A+</button>
+          <button type="button" class="rc-btn" data-ARCKHÉ-set-fontscale="125" aria-pressed="false">A++</button>
         </div>
         <div class="rc-group" role="group" aria-label="Largura da linha">
-          <button type="button" class="rc-btn" data-inema-set-linewidth="62" aria-pressed="false">Estreito</button>
-          <button type="button" class="rc-btn" data-inema-set-linewidth="66" aria-pressed="true">Medio</button>
-          <button type="button" class="rc-btn" data-inema-set-linewidth="70" aria-pressed="false">Largo</button>
+          <button type="button" class="rc-btn" data-ARCKHÉ-set-linewidth="62" aria-pressed="false">Estreito</button>
+          <button type="button" class="rc-btn" data-ARCKHÉ-set-linewidth="66" aria-pressed="true">Medio</button>
+          <button type="button" class="rc-btn" data-ARCKHÉ-set-linewidth="70" aria-pressed="false">Largo</button>
         </div>
       </div>
     </div>
@@ -145,8 +145,8 @@
       <span class="sep">&middot;</span>
       <span>Indice da trilha</span>
       <span class="sep">&middot;</span>
-      <button type="button" data-inema-journey-open>
-        Minha jornada <span class="inema-journey-badge" data-inema-journey-badge data-count="0">0</span>
+      <button type="button" data-ARCKHÉ-journey-open>
+        Minha jornada <span class="ARCKHÉ-journey-badge" data-ARCKHÉ-journey-badge data-count="0">0</span>
       </button>
     </nav>
   </header>
@@ -165,15 +165,15 @@
           em uma instrucao que um modelo entende de primeira &mdash; e saber consertar quando nao entende.</p>
 
         <!-- marcador de progresso discreto da trilha: "N de M" + 1 filete fino (sem 3 barras) -->
-        <p class="read-meta" data-inema-meter="trilha:1">
-          <span class="here" data-inema-meter-frac><strong>0</strong> de 14</span>
+        <p class="read-meta" data-ARCKHÉ-meter="trilha:1">
+          <span class="here" data-ARCKHÉ-meter-frac><strong>0</strong> de 14</span>
           <span>secoes lidas nesta trilha</span>
-          <span class="progress-line"><span class="progress-line__fill" data-inema-meter-fill></span></span>
+          <span class="progress-line"><span class="progress-line__fill" data-ARCKHÉ-meter-fill></span></span>
         </p>
 
         <!-- o "porque" da trilha — um paragrafo honesto, sem promessa de transformacao -->
         <div class="prose">
-          <p class="lede" data-inema-block="t1-porque-p1">A maior parte da frustracao com modelos de linguagem nao
+          <p class="lede" data-ARCKHÉ-block="t1-porque-p1">A maior parte da frustracao com modelos de linguagem nao
             vem do modelo: vem do <em>pedido</em>. Pedimos vago e recebemos vago; pedimos sem contexto e o modelo
             preenche o buraco com a media de tudo que ja viu. Esta trilha trata o prompt como aquilo que ele e &mdash;
             um <em>briefing</em> curto, com pecas que ou estao la ou estao faltando. O Modulo 1.1 nomeia essas pecas
@@ -187,22 +187,22 @@
 
         <!-- ---- ENTRADA / MODULO 1.1 ---- -->
         <section id="topico-1"
-                 data-inema-topic="modulo-1-1#indice"
-                 data-inema-module="1-1"
-                 data-inema-track="1">
+                 data-ARCKHÉ-topic="modulo-1-1#indice"
+                 data-ARCKHÉ-module="1-1"
+                 data-ARCKHÉ-track="1">
           <div class="section-mark">
             <span class="where">Modulo 1.1</span><span>&middot;</span><span>7 secoes &middot; ~16 min</span>
           </div>
           <h2 class="head"><span class="num">1.1</span>Fundamentos de Engenharia de Prompts</h2>
 
           <div class="prose">
-            <p data-inema-block="t1-m1-1-p1">Cobre a <em>anatomia</em> de um prompt: as cinco pecas que um pedido
+            <p data-ARCKHÉ-block="t1-m1-1-p1">Cobre a <em>anatomia</em> de um prompt: as cinco pecas que um pedido
               completo carrega &mdash; contexto, tarefa, formato, exemplos e iteracao &mdash; e por que a peca
               ausente, e quase nunca a redacao, e o que produz resultado morno. Voce aprende a definir papel e
               contexto, a escrever a tarefa como um pedido unico e quantificado, a pedir o formato que o destino
               consome, a ensinar com poucos exemplos e a ler a saida como diagnostico para iterar. Fecha com um
               checklist de revisao que roda antes de enviar e depois de ler.</p>
-            <p data-inema-block="t1-m1-1-p2">
+            <p data-ARCKHÉ-block="t1-m1-1-p2">
               <a class="entry-link" href="modulo-1-1.html">Ler o Modulo 1.1 &rarr;</a>
             </p>
           </div>
@@ -210,21 +210,21 @@
 
         <!-- ---- ENTRADA / MODULO 1.2 ---- -->
         <section id="topico-2"
-                 data-inema-topic="modulo-1-2#indice"
-                 data-inema-module="1-2"
-                 data-inema-track="1">
+                 data-ARCKHÉ-topic="modulo-1-2#indice"
+                 data-ARCKHÉ-module="1-2"
+                 data-ARCKHÉ-track="1">
           <div class="section-mark">
             <span class="where">Modulo 1.2</span><span>&middot;</span><span>7 secoes &middot; ~16 min</span>
           </div>
           <h2 class="head"><span class="num">1.2</span>Da ideia ao prompt em producao</h2>
 
           <div class="prose">
-            <p data-inema-block="t1-m1-2-p1">Pega o laco do Modulo 1.1 e o aplica a tarefas reais: como sair de uma
+            <p data-ARCKHÉ-block="t1-m1-2-p1">Pega o laco do Modulo 1.1 e o aplica a tarefas reais: como sair de uma
               ideia solta e chegar a um prompt estavel, congelado num <em>template</em> reutilizavel. Trata de
               testar o prompt contra casos tipicos e de borda, de fixar o esquema da saida para que outro programa
               a consuma sem parser fragil, e de versionar o que funcionou em vez de reescrever do zero a cada vez.
               E onde a habilidade deixa de ser truque pontual e vira um processo que voce repete com confianca.</p>
-            <p data-inema-block="t1-m1-2-p2">
+            <p data-ARCKHÉ-block="t1-m1-2-p2">
               <a class="entry-link" href="modulo-1-2.html">Ler o Modulo 1.2 &rarr;</a>
             </p>
           </div>
@@ -262,7 +262,7 @@
       <aside class="margin-rail" aria-label="Margem: notas de autor e seu painel de aprendizado">
 
         <!-- ---- MODULO 1.1: painel do aluno (vazio; learn.js preenche) + sidenotes de autor ---- -->
-        <aside data-inema-rail="modulo-1-1#indice"></aside>
+        <aside data-ARCKHÉ-rail="modulo-1-1#indice"></aside>
 
         <aside class="sidenote" data-kind="definicao">
           <div class="tag">Definicao</div>
@@ -276,7 +276,7 @@
         </aside>
 
         <!-- ---- MODULO 1.2 ---- -->
-        <aside data-inema-rail="modulo-1-2#indice"></aside>
+        <aside data-ARCKHÉ-rail="modulo-1-2#indice"></aside>
 
         <aside class="sidenote" data-kind="definicao">
           <div class="tag">Definicao</div>
@@ -297,7 +297,7 @@
 
   <!-- COLOFAO -->
   <footer class="colophon">
-    <span>INEMA.CLUB &middot; Caderno do aluno</span>
+    <span>ARCKHÉ AI &middot; Caderno do aluno</span>
     <span class="pg">Trilha 1 &mdash; indice</span>
     <span>Composto em Spectral &amp; Source Serif 4</span>
   </footer>
@@ -308,8 +308,8 @@
        =================================================================== -->
   <script src="../../assets/learn.js"></script>
   <script>
-    if (window.INEMA && typeof window.INEMA.init === 'function') {
-      window.INEMA.init();
+    if (window.ARCKHÉ && typeof window.ARCKHÉ.init === 'function') {
+      window.ARCKHÉ.init();
     }
   </script>
 </body>

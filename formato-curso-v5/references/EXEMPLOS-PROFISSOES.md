@@ -114,4 +114,4 @@ Cada profissão tem: **dor típica** (o incômodo real que motiva o aluno a abri
 
 ## Regras de licenciamento para imagens (quando hero/landing usar raster — D-01)
 
-Se o curso usar 1 imagem raster no hero da landing (nunca no corpo da aula): **modelos non-commercial (ex.: FLUX klein/dev) são proibidos em curso comercial do INEMA.PRO.** Prefira licença aberta registrada e peso <200KB. Zero-raster continua sendo o padrão — isto é exceção, não recomendação.
+Se o curso usar 1 imagem raster no hero da landing (nunca no corpo da aula): **modelos non-commercial (ex.: FLUX klein/dev) são proibidos em curso comercial do ARCKHÉ.PRO.** Prefira licença aberta registrada e peso <200KB. Zero-raster continua sendo o padrão — isto é exceção, não recomendação.

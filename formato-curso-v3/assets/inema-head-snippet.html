@@ -1,5 +1,5 @@
 <!--
-  INEMA · v3 · SNIPPET DE <head> (anti-FOUC + CSS)
+  ARCKHÉ · v3 · SNIPPET DE <head> (anti-FOUC + CSS)
   ================================================
   Cole isto NO TOPO do <head>, ANTES de qualquer <style>/<link>/fonte.
   O <script> e BLOQUEANTE de proposito: aplica o tema (data-theme) e as
@@ -10,8 +10,8 @@
   inteiro em data-theme = papel (default) | sepia | escuro. O ACENTO e FIXO no
   CSS (#2C5282) — nao ha pref de acento.
 
-  - Le inema.prefs (global, cross-curso). Se nao existir, usa o DEFAULT (papel).
-  - try/catch total: qualquer erro => default papel (preserva a marca INEMA).
+  - Le ARCKHÉ.prefs (global, cross-curso). Se nao existir, usa o DEFAULT (papel).
+  - try/catch total: qualquer erro => default papel (preserva a marca ARCKHÉ).
   - Independente do learn.js: se o modulo grande falhar, o tema ja foi aplicado.
   - Troque REL pelo caminho relativo da pasta assets (ex.: "." , ".." , "../..").
 -->
@@ -23,7 +23,7 @@
     function clone(o) { var r = {}; for (var x in o) r[x] = o[x]; return r; }
     var p = clone(DEF);
     try {
-      var raw = localStorage.getItem('inema.prefs');
+      var raw = localStorage.getItem('ARCKHÉ.prefs');
       if (raw) {
         var parsed = JSON.parse(raw);
         if (parsed && typeof parsed === 'object') {

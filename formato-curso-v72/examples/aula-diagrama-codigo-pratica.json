@@ -260,7 +260,7 @@
           "pronto": "você achou no original pelo menos duas das frases citadas."
         }
       ],
-      "fonte": "Exercícios completos, com o desafio extra (repetir com o outro agente): <a href=\"https://github.com/inematds/jornada-agentes/blob/main/exercicios/01-oswork.md\" target=\"_blank\" rel=\"noopener\">jornada-agentes/exercicios/01-oswork.md</a>."
+      "fonte": "Exercícios completos, com o desafio extra (repetir com o outro agente): <a href=\"https://github.com/linnoff88-dev/jornada-agentes/blob/main/exercicios/01-oswork.md\" target=\"_blank\" rel=\"noopener\">jornada-agentes/exercicios/01-oswork.md</a>."
     },
     {
       "tipo": "video",
@@ -318,22 +318,22 @@
       "links": [
         {
           "t": "OSWork Quick: o caminho curto em 7 aulas",
-          "href": "https://inematds.github.io/oswork-quick/",
+          "href": "https://linnoff88-dev.github.io/
           "icone": "terminal"
         },
         {
           "t": "OSWork v6.2: passo a passo para iniciantes",
-          "href": "https://inematds.github.io/oswork-v62/",
+          "href": "https://linnoff88-dev.github.io/
           "icone": "lista"
         },
         {
           "t": "Área OSWork no Eventos",
-          "href": "https://eventos.inema.pro/oswork/",
+          "href": "https://eventos.ARCKHÉ.pro/oswork/",
           "icone": "camadas"
         },
         {
           "t": "Vídeo: OSWork na prática, comando por comando",
-          "href": "https://inematds.github.io/oswork-terminal/videos/",
+          "href": "https://linnoff88-dev.github.io/
           "icone": "video"
         }
       ]

@@ -1,10 +1,10 @@
 ---
 name: formato-curso-v4
 disable-model-invocation: true
-description: curso INEMA v4 — PÁGINA ÚNICA (trilha + aulas como views, roteamento por hash), dark editorial COM movimento (cold-open que fisga + corpo de leitura calmo com trilho vivo na margem) e camada de aprendizagem nível 3 com RETENÇÃO. Self-contained, offline, um só estado em localStorage. Use SEMPRE que o usuário pedir para criar, editar ou revisar um curso HTML no estilo v4 — landing, trilha ou aula — e ao mencionar "pratique agora / mão na massa", reflexão/"explique com suas palavras", flashcards do grifo, revisão espaçada, "minha jornada", teste-se com feedback, mapa da aula, preferências de leitura (Aa), glossário, onboarding, temas dark/papel/sépia, "página única", "formato de curso v4". Rompe com o v1/v2 (dark âmbar) e com o papel-first do v3, costurando os dois.
+description: curso ARCKHÉ v4 — PÁGINA ÚNICA (trilha + aulas como views, roteamento por hash), dark editorial COM movimento (cold-open que fisga + corpo de leitura calmo com trilho vivo na margem) e camada de aprendizagem nível 3 com RETENÇÃO. Self-contained, offline, um só estado em localStorage. Use SEMPRE que o usuário pedir para criar, editar ou revisar um curso HTML no estilo v4 — landing, trilha ou aula — e ao mencionar "pratique agora / mão na massa", reflexão/"explique com suas palavras", flashcards do grifo, revisão espaçada, "minha jornada", teste-se com feedback, mapa da aula, preferências de leitura (Aa), glossário, onboarding, temas dark/papel/sépia, "página única", "formato de curso v4". Rompe com o v1/v2 (dark âmbar) e com o papel-first do v3, costurando os dois.
 ---
 
-# Formato Curso v4 — INEMA (página única, dark editorial com retenção)
+# Formato Curso v4 — ARCKHÉ (página única, dark editorial com retenção)
 
 O v4 é a página de curso que **fisga e é gostosa de estudar**. Costura o que o v1/v2 e o v3 acertaram: **atração na entrada** (cold-open com "uau") + **leitura calma no corpo** (serifa, coluna medida, profundidade na margem) + **camada de aprendizagem nível 3 com retenção** (teste-se, flashcards do grifo, revisão espaçada, pratique-agora, reflexão). Tudo **self-contained**: 1 documento HTML, fontes via CDN, `aula.css`/`curso.js` por caminho relativo, sem build, sem backend, abre em `file://`.
 
@@ -12,7 +12,7 @@ O v4 é a página de curso que **fisga e é gostosa de estudar**. Costura o que 
 
 **SEMPRE leia `references/V4-DESIGN.md` antes de criar ou editar.** É a fonte-de-verdade do design language: tese e princípios (P1–P6), tokens (ink `#0E0D14` · creme `#ECE6D9` · acento água-menta `#7CE0C6` · âmbar `#F2B45C` só figuras), tipografia (Newsreader serif / Inter sans / Space Mono), a arquitetura do blend (cold-open + corpo de margem viva), a camada nível 3 e o checklist de aceitação. Esta SKILL.md é o **contrato de markup**; o V4-DESIGN.md tem o **porquê**.
 
-Exemplo vivo completo (5 aulas, todas as features): `../demo4/curso.html` (+ `demo4/landing.html`). Publicado em `https://inematds.github.io/cchooks/`.
+Exemplo vivo completo (5 aulas, todas as features): `../demo4/curso.html` (+ `demo4/landing.html`). Publicado em `https://linnoff88-dev.github.io/
 
 ## Por que PÁGINA ÚNICA (constraint que definiu a arquitetura)
 
@@ -37,7 +37,7 @@ Preview web / `file://` **isolam o `localStorage` por página** — cada arquivo
 ### Barra (chrome global, estática)
 ```
 <div class="bar"><div class="bar-inner">
-  <span class="brand"><a class="mark" href="https://inema.club" ...>INEMA.CLUB</a><a class="pro" href="https://inema.pro" ...>PRO</a><a class="course" href="landing.html">Nome do curso</a></span>
+  <span class="brand"><a class="mark" href="https://ARCKHÉ AI" ...>ARCKHÉ AI</a><a class="pro" href="https://ARCKHÉ.pro" ...>PRO</a><a class="course" href="landing.html">Nome do curso</a></span>
   <a class="back" href="#trilha" style="display:none">← trilha</a>
   <button id="pill" class="pill" style="display:none">0 lido</button>
   <button id="revbtn">revisar <span id="revn">0</span></button>
@@ -113,15 +113,15 @@ Reflexão por seção · recap de fim de aula · botão copiar nos blocos · map
 ## Checklist de aceitação
 1. Cold-open cabe em ~1 tela. 2. Corpo lê calmo (≤60ch, serifa). 3. Trilho troca a fig certa por seção + mapa nomeado. 4. Progresso instantâneo na trilha (página única). 5. Teste-se com feedback elaborado. 6. Grifo → editor de cartão → revisão espaçada. 7. Pratique-agora verificável por aula. 8. Reflexão por seção salva. 9. Recap dispara revisão da aula. 10. Prefs de leitura (Aa), glossário, onboarding, mapa, atalhos, a11y (foco+aria-live) ligados. 11. Contraste AAA nos 3 temas. 12. Offline em `file://`, estado por `<meta name="curso">`.
 
-## Capa oficial — SEMPRE gerar (via skill `capa-inema`)
+## Capa oficial — SEMPRE gerar (via skill `capa-ARCKHÉ`)
 
-Ao terminar de montar o curso, gere a capa 1280×720 chamando a engine da skill `capa-inema`:
+Ao terminar de montar o curso, gere a capa 1280×720 chamando a engine da skill `capa-ARCKHÉ`:
 
 ```bash
-node ~/.claude/skills/capa-inema/assets/gerar-capa.cjs --repo <pasta-do-repo> \
+node ~/.claude/skills/capa-ARCKHÉ/assets/gerar-capa.cjs --repo <pasta-do-repo> \
   --title "<título do curso>" --cat "<categoria>"
 ```
 
 - **Layout default = `split`** (texto à esquerda + imagem à direita). Se o usuário pediu **"capa fb"** (full-bleed), acrescente `--layout fb`.
-- Requer o **inemaimg** no ar (`localhost:8000`). A capa é gravada em `<repo>/capa/capa.png`.
-- Detalhes, opções e uso em lote: skill `capa-inema`.
+- Requer o **ARCKHÉimg** no ar (`localhost:8000`). A capa é gravada em `<repo>/capa/capa.png`.
+- Detalhes, opções e uso em lote: skill `capa-ARCKHÉ`.
