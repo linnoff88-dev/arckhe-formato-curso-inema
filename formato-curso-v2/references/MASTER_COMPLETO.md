@@ -645,7 +645,7 @@ MODULO COMPLETO
 - Header com `justify-between`: numero "X.Y" (cor da trilha) na ESQUERDA, duracao "~XX min" (text-neutral-500) na DIREITA
 - NUNCA usar circulo numerado adicional (`w-8 h-8 rounded-full ...`) — o "X.Y" ja indica posicao, circulo extra e info duplicada
 - h3 com EMOJI prefixado: `🎯 Titulo curto`
-- Subtitulo PUNCHY / FRASE-MARCA (3-5 palavras max), nao descritivo. Ex: "Persistência vs sessão", "90,2% melhor que solo", "Uma chave, todos os modelos" — NAO: "Instalação, setup inicial e verificação"
+- Subtitulo PUNCHY / FRASE-MARCA (3-5 palavras max), nao descritivo. Ex: "Persistência vs sessêo", "90,2% melhor que solo", "Uma chave, todos os modelos" — NAO: "Instalaçêo, setup inicial e verificaçêo"
 
 ```html
 <section class="mb-12">

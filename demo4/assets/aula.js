@@ -1,4 +1,4 @@
-/* formato-curso v4 — motor da aula (leitura viva + retenção), self-contained.
+/* formato-curso v4 — motor da aula (leitura viva + retençêo), self-contained.
    Cada aula fornece: body[data-lesson], o hero, .layout (.col com .step + .rail),
    a barra .bar (com brand/back/botões) e um <script id="authored-cards"> JSON. */
 (function(){
@@ -9,7 +9,7 @@
   // ---- injeta a mobília comum ----
   document.body.insertAdjacentHTML('afterbegin',
     '<div class="grain"></div><div class="prog" id="prog"></div>'+
-    '<div class="seltb" id="seltb"><button data-a="hl">grifar</button><button data-a="card">grifar + cartão</button></div>');
+    '<div class="seltb" id="seltb"><button data-a="hl">grifar</button><button data-a="card">grifar + cartêo</button></div>');
   document.body.insertAdjacentHTML('beforeend',
     '<div class="scrim" id="scrim"></div>'+
     '<aside class="panel" id="jornada"><button class="close" data-close>&#10005;</button><h3>Minha jornada</h3><div class="body">'+
@@ -138,7 +138,7 @@
   }
   state.marks.forEach(function(m){ wrapFirst(m.text); });
 
-  // ---- revisão espaçada ----
+  // ---- revisêo espaçada ----
   function dueCount(){ var n=0; for(var id in state.cards){ if(state.cards[id].due<=today) n++; } return n; }
   function refreshRail(){ var r=$('revn'); if(r) r.textContent=dueCount(); }
   function grade(c,g){
@@ -152,7 +152,7 @@
   function openReview(){ revQueue=[]; for(var id in state.cards){ if(state.cards[id].due<=today) revQueue.push(id); } revIdx=0; renderReview(); openPanel('revisar'); }
   function renderReview(){
     var body=$('revbody');
-    if(revIdx>=revQueue.length){ body.innerHTML='<p class="revempty">Nada para revisar agora. Volte amanhã &mdash; ou grife mais trechos.</p>'; refreshRail(); return; }
+    if(revIdx>=revQueue.length){ body.innerHTML='<p class="revempty">Nada para revisar agora. Volte amanhê &mdash; ou grife mais trechos.</p>'; refreshRail(); return; }
     var id=revQueue[revIdx], c=state.cards[id]; body.innerHTML='';
     var card=el('div','card'); var front=el('div','side'); front.textContent=c.front; card.appendChild(front);
     var back=el('div','side back'); back.textContent=c.back; back.style.display='none'; card.appendChild(back); body.appendChild(card);

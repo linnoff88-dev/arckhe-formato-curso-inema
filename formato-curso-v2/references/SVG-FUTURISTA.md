@@ -1,6 +1,6 @@
 # SVG FUTURISTA — Biblioteca de Diagramas Ilustrativos
 
-> Diagramas vetoriais no estilo do curso para ilustrar conceitos. Um bom diagrama explica em 2 segundos o que um parágrafo não explica.
+> Diagramas vetoriais no estilo do curso para ilustrar conceitos. Um bom diagrama explica em 2 segundos o que um parágrafo nêo explica.
 > **Regra:** cada **módulo de conteúdo** tem **≥1 SVG** ilustrativo; cada **índice de trilha** tem **1 hero SVG**. Exercícios e prompts: opcional.
 
 ---
@@ -16,22 +16,22 @@
 ## 1. Princípios
 
 1. **SVG inline, nunca imagem externa.** Vetorial, nítido, leve, combina com dark/light, e você controla 100%.
-2. **Estilo do curso, não "hand-drawn".** Traços limpos, cantos arredondados, glow neon, grid de pontos. NÃO copiar decks com fonte cursiva/filtro de rabisco.
-3. **Recriar o conceito, não colar a fonte.** Se o material de origem tem um diagrama, recrie-o com estes primitivos.
+2. **Estilo do curso, nêo "hand-drawn".** Traços limpos, cantos arredondados, glow neon, grid de pontos. NêO copiar decks com fonte cursiva/filtro de rabisco.
+3. **Recriar o conceito, nêo colar a fonte.** Se o material de origem tem um diagrama, recrie-o com estes primitivos.
 4. **Responsivo:** sempre `class="w-full h-auto"` + `viewBox`. Nunca largura/altura fixas em px no elemento.
-5. **Acessível:** `role="img"` + `aria-label="<descrição do que o diagrama mostra>"`.
+5. **Acessível:** `role="img"` + `aria-label="<descriçêo do que o diagrama mostra>"`.
 6. **Movimento opcional e seguro:** animações só dentro de `@media (prefers-reduced-motion: no-preference)`.
 7. **Envolver num painel:** `<div class="rounded-2xl border border-<cor>-500/30 bg-dark-900/40 p-3 sm:p-4 mb-8 overflow-hidden">…</div>`.
-8. **Intensidade contida (PADRÃO — não "neon gritante").** O diagrama deve apoiar a leitura, não competir com ela. Regras fixas:
+8. **Intensidade contida (PADRêO — nêo "neon gritante").** O diagrama deve apoiar a leitura, nêo competir com ela. Regras fixas:
    - **Glow leve:** `feGaussianBlur stdDeviation="1.8"` (nunca 3+). E aplicar `filter="url(#ID-glow)"` **só na caixa-foco** de cada diagrama (origem/resultado/nível em destaque), nunca em todas as caixas ao mesmo tempo.
-   - **Texto em peso médio:** títulos do SVG `font-weight="600"` (não 700). Negrito 700 só se for um único rótulo-chave isolado.
-   - **Traço fino:** `stroke-width="2"` nas caixas (não 2.5); conectores `stroke-width="1.8"` com `opacity` ~0.5.
+   - **Texto em peso médio:** títulos do SVG `font-weight="600"` (nêo 700). Negrito 700 só se for um único rótulo-chave isolado.
+   - **Traço fino:** `stroke-width="2"` nas caixas (nêo 2.5); conectores `stroke-width="1.8"` com `opacity` ~0.5.
    - **Tom suave:** prefira a coluna "Primária (stroke)" da paleta (ex. emerald `#34d399`), reservando a "Primária forte" só para o gradiente de 1 caixa-foco.
    - **Adaptar ao tema claro (OBRIGATÓRIO):** sem isso o neon-sobre-fundo-escuro fica gritante no light mode. Adicione no `<style>` da página:
      ```css
      html:not(.dark) svg[role="img"] { filter: saturate(0.82) brightness(0.96); }
      ```
-     (atinge só os diagramas — os ícones do nav não têm `role="img"`.)
+     (atinge só os diagramas — os ícones do nav nêo têm `role="img"`.)
 
 ---
 
@@ -52,13 +52,13 @@
 - **Neutro:** stroke `#9ca3af`, fill `#26201a`, texto `#e5e7eb`.
 - **Texto sobre primária:** use a própria cor primária (títulos) + um tom claro dela para legendas.
 
-> Nos snippets abaixo as cores estão em **amber (T4)**. Para outra trilha, **troque `#fbbf24`/`#f59e0b`/`#1f1604`** pelos valores da tabela. O ciano permanece.
+> Nos snippets abaixo as cores estêo em **amber (T4)**. Para outra trilha, **troque `#fbbf24`/`#f59e0b`/`#1f1604`** pelos valores da tabela. O ciano permanece.
 
 ---
 
 ## 3. Tokens compartilhados (defs + CSS)
 
-Coloque os `defs` dentro do primeiro `<svg>` da página (ou repita por SVG com `id` único por arquivo para evitar colisão). Prefixe os `id` com o nº do módulo (ex.: `m41-glow`).
+Coloque os `defs` dentro do primeiro `<svg>` da página (ou repita por SVG com `id` único por arquivo para evitar colisêo). Prefixe os `id` com o nº do módulo (ex.: `m41-glow`).
 
 ```html
 <defs>
@@ -93,9 +93,9 @@ Texto SVG: sempre `font-family="Inter,sans-serif"`. Títulos `font-weight="600"`
 
 ## 4. Catálogo de primitivos
 
-Escolha pelo que o módulo precisa **mostrar**. Os exemplos canônicos renderizados estão em `curso/trilha4/` do projeto opus48 (referência viva).
+Escolha pelo que o módulo precisa **mostrar**. Os exemplos canônicos renderizados estêo em `curso/trilha4/` do projeto opus48 (referência viva).
 
-### 4.1 Fan-out / orquestração (A → N → 1) — bom para HERO
+### 4.1 Fan-out / orquestraçêo (A → N → 1) — bom para HERO
 Um nó de origem → vários nós paralelos (ciano, pulsando) → um nó de resultado. Use como hero do índice e em módulos sobre paralelismo/pipeline.
 
 ```html
@@ -131,7 +131,7 @@ Um nó de origem → vários nós paralelos (ciano, pulsando) → um nó de resu
 </svg>
 ```
 
-### 4.2 Escada de degraus (progressão crescente)
+### 4.2 Escada de degraus (progressêo crescente)
 Caixas em diagonal ascendente + linha tracejada. Bom para "níveis", "maturidade", "do simples ao complexo". Cada degrau pode ter um sub-rótulo (custo `$→$$$$$`, nível, etc.).
 
 Estrutura: 4–5 `<rect>` subindo (y decrescente, x crescente) sobre um `<path>` tracejado `stroke-dasharray="9 9"`; o último degrau com `filter="url(#ID-glow)"`. Ver `modulo-4-3.html` (escada $→$$$$$).
@@ -139,20 +139,20 @@ Estrutura: 4–5 `<rect>` subindo (y decrescente, x crescente) sobre um `<path>`
 ### 4.3 Profundidade × largura (dois painéis comparativos)
 Linha divisória tracejada vertical no meio (`x=500`). Esquerda: cadeia **vertical** (profundidade — 1 nó, vários turnos, seta pra baixo até um nó "final"). Direita: **fan-out** horizontal (largura — 1 plano → N agentes → 1 resultado). Ver `modulo-4-4.html`.
 
-### 4.4 Malha × solo (colaboração × isolamento)
-Esquerda: 4 círculos totalmente interligados (malha — todos os pares conectados). Direita: N caixas isoladas convergindo num único resultado. Bom para "conversam × não conversam", "acoplado × desacoplado". Ver `modulo-4-2.html`.
+### 4.4 Malha × solo (colaboraçêo × isolamento)
+Esquerda: 4 círculos totalmente interligados (malha — todos os pares conectados). Direita: N caixas isoladas convergindo num único resultado. Bom para "conversam × nêo conversam", "acoplado × desacoplado". Ver `modulo-4-2.html`.
 
 ### 4.5 Aninhamento (caixa-contém-caixas)
-Uma caixa grande (cor da trilha, `filter glow`) rotulada, contendo N caixas menores (ciano) lado a lado. Bom para "X roda dentro de Y", "composição", "camadas". Ver `modulo-4-2.html`.
+Uma caixa grande (cor da trilha, `filter glow`) rotulada, contendo N caixas menores (ciano) lado a lado. Bom para "X roda dentro de Y", "composiçêo", "camadas". Ver `modulo-4-2.html`.
 
-### 4.6 Equação A + B = C
-Três caixas em linha separadas por `+` e `=` grandes (cor primária, `font-size:30`). A caixa-resultado maior e com glow. Bom para "combinação de recursos/conceitos". Ver `modulo-4-5.html` (UltraCode).
+### 4.6 Equaçêo A + B = C
+Três caixas em linha separadas por `+` e `=` grandes (cor primária, `font-size:30`). A caixa-resultado maior e com glow. Bom para "combinaçêo de recursos/conceitos". Ver `modulo-4-5.html` (UltraCode).
 
-### 4.7 Fluxo de decisão (diamante/sim-não)
-Caixa-pergunta → duas setas rotuladas "sim"/"não" (verde/vermelho) → caixas-destino; encadear para árvores curtas. Bom para "quando usar X". Ver `modulo-4-6.html`.
+### 4.7 Fluxo de decisêo (diamante/sim-nêo)
+Caixa-pergunta → duas setas rotuladas "sim"/"nêo" (verde/vermelho) → caixas-destino; encadear para árvores curtas. Bom para "quando usar X". Ver `modulo-4-6.html`.
 
-### 4.8 Monitor / painel (HTML, não SVG)
-Para representar uma tela/terminal/dashboard, use um **mock HTML** estilizado (barra de título com 3 bolinhas, linhas mono com barras de progresso animáveis) — mais legível que SVG e honesto (rotule "recriação ilustrativa, não screenshot real"). Ver `modulo-4-5.html` (monitor `/workflows`).
+### 4.8 Monitor / painel (HTML, nêo SVG)
+Para representar uma tela/terminal/dashboard, use um **mock HTML** estilizado (barra de título com 3 bolinhas, linhas mono com barras de progresso animáveis) — mais legível que SVG e honesto (rotule "recriaçêo ilustrativa, nêo screenshot real"). Ver `modulo-4-5.html` (monitor `/workflows`).
 
 ---
 
@@ -163,7 +163,7 @@ Para representar uma tela/terminal/dashboard, use um **mock HTML** estilizado (b
 - [ ] `id`s de defs únicos por página (prefixados, ex.: `m41-glow`)
 - [ ] Cor primária = cor da trilha; ciano = secundária
 - [ ] Envolto em painel `rounded-2xl border border-<cor>-500/30 bg-dark-900/40`
-- [ ] Animação (se houver) só sob `prefers-reduced-motion: no-preference`
+- [ ] Animaçêo (se houver) só sob `prefers-reduced-motion: no-preference`
 - [ ] `font-family="Inter,sans-serif"` em todo `<text>`
 - [ ] **Intensidade contida (Princípio 8):** glow `stdDeviation="1.8"` e só na caixa-foco · títulos `font-weight="600"` · caixas `stroke-width="2"` · regra `html:not(.dark) svg[role="img"]{filter:saturate(.82) brightness(.96)}` no `<style>`
 - [ ] Legível no light mode (fills escuros funcionam nos dois; evite texto branco puro sobre primária clara)

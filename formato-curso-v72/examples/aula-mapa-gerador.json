@@ -5,7 +5,7 @@
   "titulo_curto": "Seu plano e o vídeo final",
   "minutos": 10,
   "lead": "Você já viu os quatro degraus. Agora é montar o plano com datas, fazer os exercícios na ordem e só subir quando o \"pronto quando\" for verdade.",
-  "objetivo": "sair com um plano de execução datado e saber medir se cada degrau ficou firme.",
+  "objetivo": "sair com um plano de execuçêo datado e saber medir se cada degrau ficou firme.",
   "competencias": [
     "planejar-jornada",
     "medir-pronto-quando",
@@ -32,7 +32,7 @@
   "secoes": [
     {
       "tipo": "mapa",
-      "titulo": "O mapa da formação",
+      "titulo": "O mapa da formaçêo",
       "sub": "Os quatro degraus, os 23 exercícios e o que cada degrau entrega. Clique num exercício para ver o \"pronto quando\".",
       "degraus": [
         {
@@ -58,8 +58,8 @@
           "icone": "fila",
           "quando": "Semana 3",
           "titulo": "Filas",
-          "sub": "ARCKHÉccbot e portão",
-          "saida": "Tarefas rodando à noite, com portão no que importa.",
+          "sub": "ARCKHÉccbot e portêo",
+          "saida": "Tarefas rodando à noite, com portêo no que importa.",
           "passo": "Requer os degraus 1 e 2. A fila no papel e a fila caseira vêm antes do bot; a noite de tarefas mostra quantas saem certas na primeira."
         },
         {
@@ -68,17 +68,17 @@
           "quando": "Semana 4 em diante",
           "titulo": "Redes",
           "sub": "r7e, promoavatar, xviral",
-          "saida": "Canal do nicho com fonte na tela e agenda com portão.",
-          "passo": "Requer os três anteriores: sem fila e sem portão, automatizar rede social vira postar errado mais rápido. Termina com uma semana de aprovação manual."
+          "saida": "Canal do nicho com fonte na tela e agenda com portêo.",
+          "passo": "Requer os três anteriores: sem fila e sem portêo, automatizar rede social vira postar errado mais rápido. Termina com uma semana de aprovaçêo manual."
         }
       ],
       "resultado": {
-        "titulo": "Ao final da formação",
+        "titulo": "Ao final da formaçêo",
         "texto": "Agente na pasta, assistente seu, fila com portões e canal com fonte na tela.",
         "total": "23 exercícios"
       },
       "rolagem_fim": {
-        "titulo": "A formação inteira",
+        "titulo": "A formaçêo inteira",
         "texto": "Quatro degraus em sequência, cada um com a sua lista de exercícios e um critério verificável. Só suba quando o \"pronto quando\" do degrau anterior for verdade."
       },
       "legenda": "Ordem obrigatória: cada degrau usa o que o anterior montou."
@@ -122,11 +122,11 @@
     },
     {
       "tipo": "resumo",
-      "titulo": "A formação em três frases",
+      "titulo": "A formaçêo em três frases",
       "itens": [
         {
           "t": "Mude de lugar",
-          "texto": "O ganho não vem de um modelo novo: vem de tirar o trabalho do chat e pôr numa pasta com regras, Git e segredos fora do texto."
+          "texto": "O ganho nêo vem de um modelo novo: vem de tirar o trabalho do chat e pôr numa pasta com regras, Git e segredos fora do texto."
         },
         {
           "t": "Um degrau por vez",
@@ -134,20 +134,20 @@
         },
         {
           "t": "Você continua decidindo",
-          "texto": "Portão antes do que importa, recusa que vira regra e fonte na tela. Automatizar não é largar."
+          "texto": "Portêo antes do que importa, recusa que vira regra e fonte na tela. Automatizar nêo é largar."
         }
       ]
     },
     {
       "tipo": "video",
-      "titulo": "Vídeo explicativo: a formação inteira",
+      "titulo": "Vídeo explicativo: a formaçêo inteira",
       "sub": "Dois minutos e meio para rever os quatro degraus antes de começar.",
       "chave": "jornada-ia"
     },
     {
       "tipo": "quiz",
       "titulo": "Teste final",
-      "sub": "Quatro perguntas sobre a formação inteira.",
+      "sub": "Quatro perguntas sobre a formaçêo inteira.",
       "perguntas": [
         {
           "p": "Qual é a ordem dos degraus?",
@@ -155,7 +155,7 @@
             "Redes, filas, assistente, terminal.",
             "Terminal, assistente, filas, redes.",
             "Assistente, terminal, redes, filas.",
-            "Qualquer ordem, são independentes."
+            "Qualquer ordem, sêo independentes."
           ],
           "certa": 1,
           "explica": "Terminal, assistente (Jarvis), filas e redes. Cada degrau usa o anterior.",
@@ -167,7 +167,7 @@
           "opcoes": [
             "Que o exercício levou o tempo indicado.",
             "Um critério verificável para saber se pode avançar.",
-            "Que o agente não vai errar.",
+            "Que o agente nêo vai errar.",
             "Que o certificado foi emitido."
           ],
           "certa": 1,
@@ -187,15 +187,15 @@
           "ref": "mapa"
         },
         {
-          "p": "Um fluxo vai publicar em nome da empresa toda madrugada. O que não pode faltar no começo?",
+          "p": "Um fluxo vai publicar em nome da empresa toda madrugada. O que nêo pode faltar no começo?",
           "opcoes": [
-            "Um portão humano antes de publicar.",
+            "Um portêo humano antes de publicar.",
             "Um modelo local.",
             "Um reel com mais de 60 segundos.",
             "Desligar os avisos de falha."
           ],
           "certa": 0,
-          "explica": "Sem fila e sem portão, automatizar rede social vira postar errado mais rápido. O portão só sai depois de dias seguidos sem recusa.",
+          "explica": "Sem fila e sem portêo, automatizar rede social vira postar errado mais rápido. O portêo só sai depois de dias seguidos sem recusa.",
           "cert": true,
           "ref": "mapa"
         }

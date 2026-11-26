@@ -22,7 +22,7 @@
 <div class="subnav"><div class="subnav-inner">
   <a href="landing.html#trilhas" class="soon">01 Fundamentos</a>
   <a href="landing.html#trilhas" class="soon">02 Fluxo</a>
-  <a href="trilha.html" class="cur">03 Automação</a>
+  <a href="trilha.html" class="cur">03 Automaçêo</a>
   <a href="landing.html#trilhas" class="soon">04 Agentes</a>
   <a href="landing.html#trilhas" class="soon">05 MCP</a>
   <a href="landing.html#trilhas" class="soon">06 Escala</a>
@@ -56,7 +56,7 @@
     <section class="step" id="s1" data-fig="1">
       <h2><span class="n">01</span> O que é um hook</h2>
       <p>Um hook é uma <b>ordem automática</b> que você dá ao Claude Code: "toda vez que acontecer <b>isto</b>, rode <b>aquilo</b>". O <b>isto</b> é um momento (um evento); o <b>aquilo</b> é um comando seu — um script, um formatador, um aviso. O Claude dispara sozinho, sem você pedir de novo.</p>
-      <p>Sem hook, você repete as mesmas instruções ("formata o código", "não roda isso") a cada sessão, e torce pra elas serem seguidas. Com hook, a regra vira <b>parte do ambiente</b>: automática, e o mesmo comportamento toda vez.</p>
+      <p>Sem hook, você repete as mesmas instruções ("formata o código", "nêo roda isso") a cada sessêo, e torce pra elas serem seguidas. Com hook, a regra vira <b>parte do ambiente</b>: automática, e o mesmo comportamento toda vez.</p>
       <div class="mobfig" data-mobfig="1"></div>
       <div class="quiz" data-answer="b">
         <p class="qk">Teste-se</p>
@@ -77,9 +77,9 @@
         <li><b>PostToolUse</b> — <i>depois</i> (ex.: formatar o arquivo assim que ele é editado).</li>
         <li><b>UserPromptSubmit</b> — quando <i>você</i> envia uma mensagem.</li>
         <li><b>Stop</b> — quando o Claude <i>termina</i> de responder.</li>
-        <li><b>SessionStart</b> — quando a sessão <i>começa</i> (ótimo pra injetar contexto do projeto).</li>
+        <li><b>SessionStart</b> — quando a sessêo <i>começa</i> (ótimo pra injetar contexto do projeto).</li>
       </ul>
-      <p>Cada evento entrega ao seu comando os <b>detalhes</b> do que está acontecendo (qual ferramenta, qual arquivo) em JSON pela entrada padrão. Seu comando lê isso e decide o que fazer.</p>
+      <p>Cada evento entrega ao seu comando os <b>detalhes</b> do que está acontecendo (qual ferramenta, qual arquivo) em JSON pela entrada padrêo. Seu comando lê isso e decide o que fazer.</p>
       <div class="mobfig" data-mobfig="2"></div>
       <button class="readbtn" data-read="s2">marcar como lido</button>
     </section>
@@ -115,11 +115,11 @@
 
     <section class="step" id="s4" data-fig="4">
       <h2><span class="n">04</span> Um hook que protege</h2>
-      <p>No <b>PreToolUse</b>, seu comando pode <b>bloquear</b> a ação antes dela rodar. Se o comando <b>sai com código 2</b>, o Claude não executa aquilo — e a mensagem que você imprime vira o <b>motivo</b> mostrado a ele. É assim que você barra o perigoso (um <code>rm -rf</code>, um push na main) antes de acontecer.</p>
+      <p>No <b>PreToolUse</b>, seu comando pode <b>bloquear</b> a açêo antes dela rodar. Se o comando <b>sai com código 2</b>, o Claude nêo executa aquilo — e a mensagem que você imprime vira o <b>motivo</b> mostrado a ele. É assim que você barra o perigoso (um <code>rm -rf</code>, um push na main) antes de acontecer.</p>
       <pre><span class="c"># bloqueia rm -rf; recebe o comando por stdin (JSON)</span>
 grep -q "rm -rf" &amp;&amp; { echo "bloqueado: comando destrutivo" &gt;&amp;2; exit 2; }
 exit 0</pre>
-      <p>Exit <code>0</code> = pode seguir. Exit <code>2</code> = barra e devolve o motivo. Simples e poderoso: você transforma "por favor não faça" numa <b>trava real</b>.</p>
+      <p>Exit <code>0</code> = pode seguir. Exit <code>2</code> = barra e devolve o motivo. Simples e poderoso: você transforma "por favor nêo faça" numa <b>trava real</b>.</p>
       <div class="mobfig" data-mobfig="4"></div>
       <div class="quiz" data-answer="c">
         <p class="qk">Teste-se</p>
@@ -134,17 +134,17 @@ exit 0</pre>
 
     <section class="step" id="s5" data-fig="5">
       <h2><span class="n">05</span> Ideias pra começar</h2>
-      <p>Você não precisa de muitos. Comece com <b>um</b> hook que te tire uma preocupação repetida da cabeça:</p>
+      <p>Você nêo precisa de muitos. Comece com <b>um</b> hook que te tire uma preocupaçêo repetida da cabeça:</p>
       <ul>
         <li><b>Formatar ao salvar</b> — PostToolUse em Edit/Write roda o formatador. Nunca mais código torto.</li>
-        <li><b>Avisar quando terminar</b> — Stop dispara uma notificação ou um som.</li>
+        <li><b>Avisar quando terminar</b> — Stop dispara uma notificaçêo ou um som.</li>
         <li><b>Registrar comandos</b> — PreToolUse em Bash grava num log tudo que foi rodado.</li>
         <li><b>Injetar as regras do projeto</b> — SessionStart imprime seu CLAUDE.md, e o Claude já começa alinhado.</li>
       </ul>
-      <p>O melhor hook é o mais chato de fazer na mão. Automatize <b>esse</b> primeiro.</p>
+      <p>O melhor hook é o mais chato de fazer na mêo. Automatize <b>esse</b> primeiro.</p>
       <details>
         <summary>Indo mais fundo</summary>
-        <p>Além do exit code, hooks podem devolver <b>JSON</b> pela saída (uma decisão de aprovar/bloquear com motivo), usar <b>matchers</b> mais finos, e existem outros eventos: <code>SubagentStop</code>, <code>Notification</code>, <code>PreCompact</code>, <code>SessionEnd</code>. Continua nas próximas aulas.</p>
+        <p>Além do exit code, hooks podem devolver <b>JSON</b> pela saída (uma decisêo de aprovar/bloquear com motivo), usar <b>matchers</b> mais finos, e existem outros eventos: <code>SubagentStop</code>, <code>Notification</code>, <code>PreCompact</code>, <code>SessionEnd</code>. Continua nas próximas aulas.</p>
       </details>
       <div class="mobfig" data-mobfig="5"></div>
       <button class="readbtn" data-read="s5">marcar como lido</button>
@@ -207,19 +207,19 @@ exit 0</pre>
     </div>
     <p class="railcap" id="cap"></p>
     <div class="steps-ind" id="ind"></div>
-    <p class="sidenote">Grife qualquer trecho do texto para virar um <b>flashcard</b> de revisão — ele aparece em "revisar".</p>
+    <p class="sidenote">Grife qualquer trecho do texto para virar um <b>flashcard</b> de revisêo — ele aparece em "revisar".</p>
   </div></aside>
 </div>
 
-<footer>Aula 1 de 5 · Trilha 03 · Automação &amp; Hooks · demo do formato-curso v4 (conteúdo sobre hooks do Claude Code — revisar antes de publicar).</footer>
+<footer>Aula 1 de 5 · Trilha 03 · Automaçêo &amp; Hooks · demo do formato-curso v4 (conteúdo sobre hooks do Claude Code — revisar antes de publicar).</footer>
 
 <script type="application/json" id="authored-cards">
 [
   {"front":"O que é um hook no Claude Code?","back":"Uma ordem automática: quando um evento acontece, roda um comando seu."},
   {"front":"Qual evento roda DEPOIS de editar um arquivo?","back":"PostToolUse."},
   {"front":"Qual evento roda ANTES de uma ferramenta ser usada?","back":"PreToolUse."},
-  {"front":"Como um hook PreToolUse bloqueia uma ação?","back":"Saindo com código 2 (exit 2); a mensagem impressa vira o motivo."},
-  {"front":"Onde os hooks são configurados?","back":"No settings.json (do projeto em .claude/ ou global em ~/.claude/)."},
+  {"front":"Como um hook PreToolUse bloqueia uma açêo?","back":"Saindo com código 2 (exit 2); a mensagem impressa vira o motivo."},
+  {"front":"Onde os hooks sêo configurados?","back":"No settings.json (do projeto em .claude/ ou global em ~/.claude/)."},
   {"front":"Qual evento é ótimo para injetar contexto do projeto?","back":"SessionStart."}
 ]
 </script>

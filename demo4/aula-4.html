@@ -22,7 +22,7 @@
 <div class="subnav"><div class="subnav-inner">
   <a href="landing.html#trilhas" class="soon">01 Fundamentos</a>
   <a href="landing.html#trilhas" class="soon">02 Fluxo</a>
-  <a href="trilha.html" class="cur">03 Automação</a>
+  <a href="trilha.html" class="cur">03 Automaçêo</a>
   <a href="landing.html#trilhas" class="soon">04 Agentes</a>
   <a href="landing.html#trilhas" class="soon">05 MCP</a>
   <a href="landing.html#trilhas" class="soon">06 Escala</a>
@@ -75,7 +75,7 @@
     <section class="step" id="s2" data-fig="2">
       <h2><span class="n">02</span> Avisar quando terminar</h2>
       <p>Você saiu pra pegar um café e o Claude terminou faz tempo. O evento <code>Stop</code> resolve: dispara um aviso quando ele acaba de responder.</p>
-      <pre><span class="c"># Stop → notificação do sistema</span>
+      <pre><span class="c"># Stop → notificaçêo do sistema</span>
 notify-send "Claude" "terminou 👋"   <span class="c"># linux</span>
 <span class="c"># osascript -e 'display notification "terminou"'  (mac)</span></pre>
       <p>Um <code>afplay</code>/<code>paplay</code> com um som curto também funciona. Pequeno, mas muda seu fluxo: você para de vigiar o terminal.</p>
@@ -89,14 +89,14 @@ notify-send "Claude" "terminou 👋"   <span class="c"># linux</span>
       <pre><span class="c"># PreToolUse, matcher "Bash" → append num log</span>
 jq -r '.tool_input.command' &gt;&gt; "$CLAUDE_PROJECT_DIR/.claude/cmd.log"
 exit 0</pre>
-      <p>Sai com <code>exit 0</code> (não barra nada, só observa). Depois você tem um diário do que a sessão fez — ótimo pra auditar ou desfazer.</p>
+      <p>Sai com <code>exit 0</code> (nêo barra nada, só observa). Depois você tem um diário do que a sessêo fez — ótimo pra auditar ou desfazer.</p>
       <div class="mobfig" data-mobfig="3"></div>
       <div class="quiz" data-answer="a">
         <p class="qk">Teste-se</p>
         <p class="q">Um hook que só registra (sem barrar) deve sair com:</p>
         <button class="opt" data-k="a">exit 0</button>
         <button class="opt" data-k="b">exit 2</button>
-        <button class="opt" data-k="c">nenhum, ele não sai</button>
+        <button class="opt" data-k="c">nenhum, ele nêo sai</button>
         <p class="qfb"></p>
       </div>
       <button class="readbtn" data-read="s3">marcar como lido</button>
@@ -104,11 +104,11 @@ exit 0</pre>
 
     <section class="step" id="s4" data-fig="4">
       <h2><span class="n">04</span> Injetar contexto no começo</h2>
-      <p>O evento <code>SessionStart</code> roda quando a sessão abre, e o que ele <b>imprime vira contexto</b> pro Claude. Use pra ele já começar sabendo do projeto:</p>
+      <p>O evento <code>SessionStart</code> roda quando a sessêo abre, e o que ele <b>imprime vira contexto</b> pro Claude. Use pra ele já começar sabendo do projeto:</p>
       <pre><span class="c"># SessionStart → estado atual entra no contexto</span>
 echo "Branch: $(git branch --show-current)"
 echo "Últimos commits:"; git log --oneline -5</pre>
-      <p>Assim o Claude abre a sessão já ciente do branch, do que mudou, das regras do projeto — sem você colar nada à mão.</p>
+      <p>Assim o Claude abre a sessêo já ciente do branch, do que mudou, das regras do projeto — sem você colar nada à mêo.</p>
       <div class="mobfig" data-mobfig="4"></div>
       <details>
         <summary>Indo mais fundo</summary>
@@ -154,11 +154,11 @@ echo "Últimos commits:"; git log --oneline -5</pre>
     </div>
     <p class="railcap" id="cap"></p>
     <div class="steps-ind" id="ind"></div>
-    <p class="sidenote">Grife qualquer trecho do texto para virar um <b>flashcard</b> de revisão.</p>
+    <p class="sidenote">Grife qualquer trecho do texto para virar um <b>flashcard</b> de revisêo.</p>
   </div></aside>
 </div>
 
-<footer>Aula 4 de 5 · Trilha 03 · Automação &amp; Hooks · demo do formato-curso v4 (revisar antes de publicar).</footer>
+<footer>Aula 4 de 5 · Trilha 03 · Automaçêo &amp; Hooks · demo do formato-curso v4 (revisar antes de publicar).</footer>
 
 <script type="application/json" id="authored-cards">
 [

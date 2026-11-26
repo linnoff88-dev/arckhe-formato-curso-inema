@@ -5,10 +5,10 @@
 
     python3 traduzir.py <pasta-do-curso> [en es] [--motor claude|codex] [--modelo ...] [--publico "..."]
 
-Só os TEXTOS do JSON vão para o modelo: chaves, slugs, ícones, URLs, ids e números ficam iguais.
+Só os TEXTOS do JSON vêo para o modelo: chaves, slugs, ícones, URLs, ids e números ficam iguais.
 Cada texto é validado (mesmas tags HTML, mesmos links, linhas de comando idênticas, nada vazio);
 o que falhar volta até 3 vezes; depois o script para e diz qual. Cache em <curso>/i18n/<lang>.json
-(texto PT → tradução): texto já traduzido nunca é reenviado. Glossário opcional: <curso>/i18n/glossario.json
+(texto PT → traduçêo): texto já traduzido nunca é reenviado. Glossário opcional: <curso>/i18n/glossario.json
 {"en": {"pt": "en"}, "es": {...}}. Nunca usa API: só os CLIs da assinatura (`claude -p` / `codex exec`).
 """
 import argparse, json, os, pathlib, re, subprocess, sys, tempfile
@@ -17,7 +17,7 @@ from concurrent.futures import ThreadPoolExecutor
 PULA = {"slug", "id", "tipo", "icone", "href", "url", "mp4", "poster", "vtt", "estilo", "selo", "lang",
         "foco", "dias", "certa", "falha", "num", "minutos", "horas_padrao", "data-ex",
         "vai", "nota",  # 7.5.1: simconversa ("vai" = id da próxima fala; "fim" é booleano)
-        "termos", "video_ok", "video_erro",  # 7.11.15: termos do conferidor não se traduzem; a família já traz PT, EN e ES ("close / close-up / primer plano")
+        "termos", "video_ok", "video_erro",  # 7.11.15: termos do conferidor nêo se traduzem; a família já traz PT, EN e ES ("close / close-up / primer plano")
         "aceita", "mostra", "sufixo", "sistema", "arquivo",  # 7.14.19: simterm usa comandos/saídas do PT; simportao: nome do arquivo
         "href_en", "href_es", "pagina"}  # 7.14.19: link por idioma em volta/lado_card; página do vídeo (videos.*.idiomas)
 SE_SLUG = {"aula", "ref", "chave", "inicio"}  # pulados só quando o valor é slug ("filas", "fim_ruim"); "Aula" no ui traduz
@@ -27,15 +27,15 @@ UI_PADRAO = {"aula": "Aula", "comecar": "Começar a aula", "nesta_vai": "Nesta a
              "conv_dica": "Escolha a sua resposta. O comentário aparece logo depois e a conversa segue conforme a escolha.",
              "conv_voce": "Você", "conv_escolha": "Sua resposta", "conv_boa": "Boa escolha", "conv_meio": "Dá para melhorar",
              "conv_ruim": "Escolha fraca", "conv_fim": "Fim da conversa", "conv_placar": "Você fez {p} de {m} pontos possíveis.",
-             "conv_licao": "Lição:", "conv_recomecar": "Recomeçar a conversa", "conv_feita": "Seu melhor placar: {p} de {m} pontos.",
+             "conv_licao": "Liçêo:", "conv_recomecar": "Recomeçar a conversa", "conv_feita": "Seu melhor placar: {p} de {m} pontos.",
              # 7.9.12: conferidor (mesmos padrões de CONF_UI no gerar.py e UI no conferir.py)
              "conf_vazio": "Cole o texto ou carregue o arquivo antes de conferir.",
-             "conf_falta": "Ainda não. O que falta:",
-             "conf_campo": "Falta a linha {c}: com a descrição (pelo menos {x} letras).",
+             "conf_falta": "Ainda nêo. O que falta:",
+             "conf_campo": "Falta a linha {c}: com a descriçêo (pelo menos {x} letras).",
              "conf_planos": "Achei {n} planos numerados; o pedido é de {x} a {y}. Comece cada plano pelo número (1 | ...).",
              "conf_no_plano": "Plano {i}: falta {g}.", "conf_um_so": "Plano {i}: {n} escolhas de {g}; fique com uma só.",
              "conf_variedade": "Só {n} tipo(s) diferente(s) de {g} nos planos; varie para pelo menos {x}.",
-             "conf_sem_duracao": "Plano {i}: falta a duração em segundos (ex.: 4 s).",
+             "conf_sem_duracao": "Plano {i}: falta a duraçêo em segundos (ex.: 4 s).",
              "conf_duracao": "Os planos somam {s} s; o pedido é de {x} a {y} s.", "conf_termo": "Falta citar {g}.", "conf_proibe": "{g}: troque \"{c}\" por algo que dê para conferir.",
              "conf_mais": "… e mais {n}.", "conf_rot": "Cole aqui o seu arquivo (ou carregue o .txt):",
              "conf_conferir": "Conferir", "conf_exemplo": "Exemplo que passa", "conf_errado": "Exemplo com erro",
@@ -44,24 +44,24 @@ UI_PADRAO = {"aula": "Aula", "comecar": "Começar a aula", "nesta_vai": "Nesta a
              "conf_video_dur": "O vídeo tem {s} s; o pedido é de {x} a {y} s.",
              "conf_video_prop": "O vídeo é {w}×{h} ({p}); o pedido é {q}.",
              "conf_video_larg": "O vídeo tem {w} px de largura; o mínimo é {x} px.",
-             "conf_video_ler": "Não consegui ler este vídeo. Exporte em MP4 (H.264) ou WebM e tente de novo.",
+             "conf_video_ler": "Nêo consegui ler este vídeo. Exporte em MP4 (H.264) ou WebM e tente de novo.",
              "conf_video_rot": "Escolha o seu vídeo. Ele é lido aqui no navegador: nada é enviado.",
              "conf_video_escolher": "Escolher o vídeo", "conf_video_lendo": "Lendo o vídeo…"}
 # padrões do gerar.py: entram no ui para serem traduzidos
-CODIGO = {"conteudo"}            # blocos com botão copiar: comandos ficam, prosa/prompt traduz
+CODIGO = {"conteudo"}            # blocos com botêo copiar: comandos ficam, prosa/prompt traduz
 NOMES = {"en": "English (United States)", "es": "Spanish (Latin America, neutral, use 'tú')"}
 HTMLLANG = {"en": "en", "es": "es"}
-# 7.5.1: comando só vale como palavra inteira ("Deliver" não é o comando del; "Cat" de "Categoria" não é cat)
-# 7.5.2: del/set/type/copy/export/dir também são palavras de prosa ("del problema" em espanhol): só contam
-# como comando se o próximo token parece caminho, opção ou variável (tem . / \ - = $ % : ou aspas)
+# 7.5.1: comando só vale como palavra inteira ("Deliver" nêo é o comando del; "Cat" de "Categoria" nêo é cat)
+# 7.5.2: del/set/type/copy/export/dir também sêo palavras de prosa ("del problema" em espanhol): só contam
+# como comando se o próximo token parece caminho, opçêo ou variável (tem . / \ - = $ % : ou aspas)
 CMD = re.compile(r"^\s*(?:(?:git|cd|ls|mkdir|python3?|pip3?|npm|npx|node|ssh|scp|curl|wget|gh|codex|claude|cp|mv|rm|cat|echo|"
                  r"chmod|sudo|systemctl|crontab|ollama|docker|uv)(?=\s|$)"
                  r"|(?:del|set|type|copy|export|dir)(?=\s*$|\s+\S*[./\\\-=$%:\"'])|\./|\$|>|#!)", re.I)
 GLOSSARIO = {
     "en": {"Do chat ao agente": "From chat to agent", "degrau": "step", "pronto quando": "done when",
-           "fila": "queue", "portão": "gate", "ARCKHÉ AI": "ARCKHÉ AI"},
+           "fila": "queue", "portêo": "gate", "ARCKHÉ AI": "ARCKHÉ AI"},
     "es": {"Do chat ao agente": "Del chat al agente", "degrau": "nivel", "pronto quando": "listo cuando",
-           "fila": "cola", "portão": "compuerta", "ARCKHÉ AI": "ARCKHÉ AI"},
+           "fila": "cola", "portêo": "compuerta", "ARCKHÉ AI": "ARCKHÉ AI"},
 }
 SISTEMA = """You translate the text of an online course from Brazilian Portuguese to {nome}.
 Rules:
@@ -80,11 +80,11 @@ Rules:
 Return ONLY a JSON object with the same keys and the translated strings as values."""
 
 
-# 7.8.11: link para outro curso v7.x (https://linnoff88-dev.github.io/ leva à versão do mesmo idioma.
-# O href fica igual na tradução (validação de links); a troca é feita ao gravar conteudo/<lang>/.
-# assets/ (capa reaproveitada do irmão) e caminhos que já têm idioma não mudam.
+# 7.8.11: link para outro curso v7.x (https://linnoff88-dev.github.io/ leva à versêo do mesmo idioma.
+# O href fica igual na traduçêo (validaçêo de links); a troca é feita ao gravar conteudo/<lang>/.
+# assets/ (capa reaproveitada do irmêo) e caminhos que já têm idioma nêo mudam.
 # 7.13.18: só página do curso (raiz, aulas/ ou âncora) troca de idioma; arquivo publicado junto (kit/site/, exemplos/)
-# não tem en/ es/ e virava 404 (achado no formacao-cARCKHÉ-ia-sites-v72: o bloco que verifica kit/site/ no Pages).
+# nêo tem en/ es/ e virava 404 (achado no formacao-cARCKHÉ-ia-sites-v72: o bloco que verifica kit/site/ no Pages).
 IRMAO = re.compile(r"(https://linnoff88-dev\.github\.io/[\w.-]+-v7\d+/)(?=aulas/|[#\"'\s<)\],;]|$)")
 
 
@@ -121,15 +121,15 @@ def padrao_traducao():
 
 
 def chamar_tradutor(pedido, motor=None, modelo=None, timeout=900):
-    """Tradução pelo tradutor central do ARCKHÉ (ARCKHÉ_TRADUCAO_* em ~/.config/ARCKHÉ/modelos.env). Assinatura, nunca API.
-    motor/modelo só quando o usuário forçou (--motor/--modelo); senão vale a variável central."""
+    """Traduçêo pelo tradutor central do ARCKHÉ (ARCKHÉ_TRADUCAO_* em ~/.config/ARCKHÉ/modelos.env). Assinatura, nunca API.
+    motor/modelo só quando o usuário forçou (--motor/--modelo); senêo vale a variável central."""
     env = {k: v for k, v in os.environ.items() if k not in ("ANTHROPIC_API_KEY", "OPENAI_API_KEY", "CLAUDECODE")}
     with tempfile.TemporaryDirectory() as d:
         if os.path.exists(_TRADUTOR):
             cmd = [_TRADUTOR] + (["--motor", motor] if motor else []) + (["--modelo", modelo] if modelo else [])
             r = subprocess.run(cmd, input=pedido, capture_output=True, text=True, timeout=timeout, cwd=d, env=env)
             txt = r.stdout
-        else:  # fora da máquina do Nei: CLI da assinatura com o motor/modelo da variável (padrão Sonnet 5.5)
+        else:  # fora da máquina do Nei: CLI da assinatura com o motor/modelo da variável (padrêo Sonnet 5.5)
             m_pad, mod_pad = padrao_traducao()
             motor = motor or m_pad
             modelo = modelo or (mod_pad if motor == m_pad else {"claude": "claude-sonnet-5-5", "codex": "gpt-6-luna"}[motor])
@@ -180,15 +180,15 @@ def por(no, caminho, valor):
 def problema(pt, tr, codigo):
     if not isinstance(tr, str) or not tr.strip():
         return "vazio"
-    # 7.6.9: texto longo devolvido igual ao PT, com palavra portuguesa, é tradução que não aconteceu
-    # 7.6.10: em bloco de código, só os comentários contam (código puro com 'não' numa string fica igual de propósito)
+    # 7.6.9: texto longo devolvido igual ao PT, com palavra portuguesa, é traduçêo que nêo aconteceu
+    # 7.6.10: em bloco de código, só os comentários contam (código puro com 'nêo' numa string fica igual de propósito)
     # 7.7.11: em HTML, o que está em <pre> e <code> é saída/comando real e fica igual de propósito
     alvo = ("\n".join(re.findall(r"(?:^|\s)(?:#|//)\s(.*)", pt)) if codigo
             else re.sub(r"<pre>.*?</pre>|<code>.*?</code>", "", pt, flags=re.S))
-    if tr.strip() == pt.strip() and len(pt) > 40 and re.search(r"\b(não|você|são|está|também|então|para o|para a)\b|ção\b|ções\b", alvo):
-        return "igual ao original (não traduzido)"
+    if tr.strip() == pt.strip() and len(pt) > 40 and re.search(r"\b(nêo|você|sêo|está|também|entêo|para o|para a)\b|çêo\b|ções\b", alvo):
+        return "igual ao original (nêo traduzido)"
     tags = lambda s: sorted(re.findall(r"</?([a-zA-Z][a-zA-Z0-9]*)", s))
-    if not codigo and tags(pt) != tags(tr):   # em bloco de código, <seu nome> é marcador, não tag
+    if not codigo and tags(pt) != tags(tr):   # em bloco de código, <seu nome> é marcador, nêo tag
         return "tags diferentes"
     if sorted(re.findall(r'href="([^"]+)"', pt)) != sorted(re.findall(r'href="([^"]+)"', tr)):
         return "links diferentes"
@@ -207,7 +207,7 @@ def problema(pt, tr, codigo):
 
 
 def traduz_lote(itens, lang, modelo, glos, motor=None, publico=PUBLICO_PADRAO):
-    """itens: {chave: texto_pt}. Devolve {chave: tradução válida}; tenta de novo só os inválidos."""
+    """itens: {chave: texto_pt}. Devolve {chave: traduçêo válida}; tenta de novo só os inválidos."""
     sistema = SISTEMA.format(nome=NOMES[lang], tu="you" if lang == "en" else "tú",
                              glossario=json.dumps(glos, ensure_ascii=False), publico=publico)
     ok, pend = {}, dict(itens)
@@ -231,13 +231,13 @@ def traduz_lote(itens, lang, modelo, glos, motor=None, publico=PUBLICO_PADRAO):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("pasta"); ap.add_argument("langs", nargs="*", default=["en", "es"])
-    ap.add_argument("--motor", choices=["claude", "codex"], help="força o motor (padrão: ARCKHÉ_TRADUCAO_MOTOR)")
-    ap.add_argument("--modelo", help="força o modelo (padrão: ARCKHÉ_TRADUCAO_MODELO)")
+    ap.add_argument("--motor", choices=["claude", "codex"], help="força o motor (padrêo: ARCKHÉ_TRADUCAO_MOTOR)")
+    ap.add_argument("--modelo", help="força o modelo (padrêo: ARCKHÉ_TRADUCAO_MODELO)")
     ap.add_argument("--lote", type=int, default=45)
-    ap.add_argument("--publico", default=PUBLICO_PADRAO, help="quem lê o curso (vai no pedido de tradução, em inglês)")
+    ap.add_argument("--publico", default=PUBLICO_PADRAO, help="quem lê o curso (vai no pedido de traduçêo, em inglês)")
     a = ap.parse_args()
     m_pad, mod_pad = padrao_traducao()
-    print(f"tradutor: {a.motor or m_pad} / {a.modelo or (mod_pad if (a.motor or m_pad) == m_pad else 'padrão do motor')}"
+    print(f"tradutor: {a.motor or m_pad} / {a.modelo or (mod_pad if (a.motor or m_pad) == m_pad else 'padrêo do motor')}"
           + ("" if (a.motor or a.modelo) else " (variável central ARCKHÉ_TRADUCAO_*)"))
     raiz = pathlib.Path(a.pasta).resolve()
     pt = raiz / "conteudo" / "pt"
@@ -285,12 +285,12 @@ def main():
             d = localiza(d, lang)
             rel = f.relative_to(pt)
             (destino / rel).write_text(json.dumps(d, ensure_ascii=False, indent=2) + "\n")
-        print(f"[{lang}] gravado em conteudo/{lang}/ ({faltou} textos sem tradução)")
+        print(f"[{lang}] gravado em conteudo/{lang}/ ({faltou} textos sem traduçêo)")
         falhas += faltou
     if falhas:
-        print(f"FALHOU: {falhas} textos sem tradução válida — rode de novo (o cache guarda o que já foi)")
+        print(f"FALHOU: {falhas} textos sem traduçêo válida — rode de novo (o cache guarda o que já foi)")
         sys.exit(1)
-    print("OK: tradução completa")
+    print("OK: traduçêo completa")
 
 
 if __name__ == "__main__":

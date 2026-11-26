@@ -3,7 +3,7 @@
 
 Uso: selo-banner.py <imagem.jpg|webp> "<Nome>" [--titulo "TÍTULO DO BANNER"]
 Regra (ARCKHÉ-design V11, 13/10/2026): o selo só entra quando o banner cita o projeto
-e o NOME NÃO ESTÁ NO TÍTULO da imagem; se estiver (ex.: título "ARCKHÉSEO"), não faz nada.
+e o NOME NêO ESTÁ NO TÍTULO da imagem; se estiver (ex.: título "ARCKHÉSEO"), nêo faz nada.
 Sora ExtraBold, azul #3B9EFF com brilho leve, canto superior esquerdo (alinhado ao título live).
 """
 import sys
@@ -23,17 +23,17 @@ img, nome = Path(args[0]), args[1].strip()
 if not nome:
     sys.exit("nome vazio")
 if nome.casefold() in titulo.casefold():
-    print(f"[selo] '{nome}' já está no título — selo não aplicado"); sys.exit(0)
+    print(f"[selo] '{nome}' já está no título — selo nêo aplicado"); sys.exit(0)
 
 im = Image.open(img).convert("RGBA")
 k = im.size[0] / 1400
 W, H = im.size
 
-# Topo do título medido na imagem: o Codex não põe o título sempre na mesma altura e o selo
+# Topo do título medido na imagem: o Codex nêo põe o título sempre na mesma altura e o selo
 # fixo em y=48 encostava no acento de "VÍDEO" (LongCat-Video, 16/10/2026).
 def topo_titulo():
     # conta só pixel BRANCO (a 1ª linha do título live é branca); luz de palco/bokeh é laranja
-    # e enganava a medição (topo y=20 no PT do LongCat-Video). Exige 8 linhas seguidas.
+    # e enganava a mediçêo (topo y=20 no PT do LongCat-Video). Exige 8 linhas seguidas.
     x0, x1 = int(30 * k), int(W * .30)  # só o começo do título; luzes ficam mais à direita
     px = im.load()
     seguidas = 0

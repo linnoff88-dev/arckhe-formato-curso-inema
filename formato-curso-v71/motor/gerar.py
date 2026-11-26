@@ -61,7 +61,7 @@ def attr(s):
 
 
 # ---------- seções ----------
-# conexão desenhada entre blocos; o ponto de luz corre quando o bloco seguinte está em foco
+# conexêo desenhada entre blocos; o ponto de luz corre quando o bloco seguinte está em foco
 CONECTOR = ('<span class="dg-seta" aria-hidden="true"><svg viewBox="0 0 48 14"><line x1="2" y1="7" x2="40" y2="7"/>'
             '<path d="M36 2 L45 7 L36 12"/></svg><i class="pulso"></i></span>')
 
@@ -97,7 +97,7 @@ def sec_diagrama(s, ui):
 
 
 def figura_rolagem(figura, passos, leg, ui, dica=True):
-    """Infográfico fixo no alto; cada etapa da explicação acende os blocos correspondentes."""
+    """Infográfico fixo no alto; cada etapa da explicaçêo acende os blocos correspondentes."""
     dica_html = f'<p class="sc-dica">{ic("seta")}{ui["role_dica"]}</p>' if dica else ""
     lis = "".join(f'<li class="sc-passo" data-foco="{",".join(map(str, p["foco"]))}"><span class="sc-n">{i + 1}/{len(passos)}</span>'
                   f'<h3>{p["titulo"]}</h3><p>{p["texto"]}</p></li>' for i, p in enumerate(passos))
@@ -113,7 +113,7 @@ def figura_rolagem(figura, passos, leg, ui, dica=True):
 
 
 def sec_mapa(s, ui, aulas):
-    """Mapa da formação: degraus em colunas, exercícios de cada aula de prática, dependências e resultado."""
+    """Mapa da formaçêo: degraus em colunas, exercícios de cada aula de prática, dependências e resultado."""
     cols = []
     for i, d in enumerate(s["degraus"]):
         aula = next(a for a in aulas if a["slug"] == d["aula"])
@@ -205,7 +205,7 @@ def sec_simfila(s, ui):
 
 
 def sec_quiz(s, ui, refs):
-    """refs: tipo de seção → (id, título), para o link "rever o conceito" de cada pergunta."""
+    """refs: tipo de seçêo → (id, título), para o link "rever o conceito" de cada pergunta."""
     itens = []
     letras = "ABCDE"
     n = len(s["perguntas"])
@@ -293,7 +293,7 @@ def cabeca(titulo, desc, prefixo, lang, canon, curso_id):
 
 
 def topo(curso, aulas, ui, prefixo, atual=""):
-    """Menu do topo no padrão dos cursos INEMA (v2): curso | INEMA.CLUB - PRO à esquerda; uma entrada por aula e Aa à direita."""
+    """Menu do topo no padrêo dos cursos INEMA (v2): curso | INEMA.CLUB - PRO à esquerda; uma entrada por aula e Aa à direita."""
     links = "".join(
         f'<a href="{prefixo}aulas/{a["slug"]}/index.html" class="tlink{" on" if a["slug"] == atual else ""}"'
         f'{" aria-current=\"page\"" if a["slug"] == atual else ""} title="{attr(a["titulo"])}">'
@@ -365,7 +365,7 @@ def pagina_aula(curso, aulas, a, idx, ui, lang):
         elif t == "texto": corpo = sec_texto(s, ui)
         elif t == "resumo": corpo = sec_resumo(s, ui)
         elif t == "links": corpo = sec_links(s, ui)
-        else: raise SystemExit(f"tipo de seção desconhecido: {t} ({a['slug']})")
+        else: raise SystemExit(f"tipo de seçêo desconhecido: {t} ({a['slug']})")
         sub = f'<p>{s["sub"]}</p>' if s.get("sub") else ""
         secs.append(f'<section class="secao" id="s{num}"><div class="sec-cab"><span class="num" aria-hidden="true">{num}</span><div><h2>{s["titulo"]}</h2>{sub}</div></div>{corpo}</section>')
     prox = aulas[idx + 1] if idx + 1 < len(aulas) else None

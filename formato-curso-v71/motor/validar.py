@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Portão de qualidade do curso v7.1.
+"""Portêo de qualidade do curso v7.1.
 
     python3 validar.py            # estrutura de cada aula
     python3 validar.py --links    # também confere os links externos (HTTP 200)
@@ -20,7 +20,7 @@ for p in aulas:
     nos = len(re.findall(r'class="[^"]*\bdg-no\b', h))
     if not nos: erros.append(f"{nome}: sem diagrama")
     elif nos < 3: erros.append(f"{nome}: diagrama com menos de 3 blocos")
-    if 'class="copiar"' not in h: erros.append(f"{nome}: sem botão copiar")
+    if 'class="copiar"' not in h: erros.append(f"{nome}: sem botêo copiar")
     if 'class="q-op"' not in h or "<template class=\"ok\">" not in h: erros.append(f"{nome}: sem quiz com resposta oculta")
     if not re.search(r'data-competencias="[^"]+"', h): erros.append(f"{nome}: sem data-competencias")
     texto = re.sub(r"<(pre|script|template)[^>]*>.*?</\1>", "", h, flags=re.S)

@@ -14,9 +14,9 @@ premium âmbar, com a marca `ARCKHÉ AI`, o chip da categoria e o título do cur
 sobre uma imagem gerada por IA que combina com o tema. Sempre gravada em
 `<repo>/capa/capa.png`.
 
-Existe uma engine única (`assets/gerar-capa.cjs`) pra não repetir a lógica em cada
+Existe uma engine única (`assets/gerar-capa.cjs`) pra nêo repetir a lógica em cada
 skill de curso/guia. As skills `formato-curso` (v1–v5) e `projetos-landing-guia`
-chamam esta skill como passo final da criação da página.
+chamam esta skill como passo final da criaçêo da página.
 
 ## Quando usar
 
@@ -27,7 +27,7 @@ chamam esta skill como passo final da criação da página.
 ## Dois layouts
 
 - **`split`** (DEFAULT) — texto à esquerda (marca + categoria + título + subtítulo + barra âmbar),
-  imagem gerada num card arredondado à direita (paisagem 4:3, sem distorção). É o padrão ARCKHÉ.
+  imagem gerada num card arredondado à direita (paisagem 4:3, sem distorçêo). É o padrêo ARCKHÉ.
 - **`fb`** (full-bleed) — imagem gerada preenchendo o quadro todo (16:9) + faixa de título por cima.
 
 **Como o usuário escolhe:** o default é `split`. Se a pessoa disser **"capa fb"** (ou
@@ -38,17 +38,17 @@ chamam esta skill como passo final da criação da página.
 ```bash
 node <skill>/assets/gerar-capa.cjs --repo <caminho-do-repo> \
   [--title "Título do Curso"] [--cat "Categoria"] \
-  [--layout split|fb] [--cena "descrição visual da imagem"] \
+  [--layout split|fb] [--cena "descriçêo visual da imagem"] \
   [--catalog /home/nmaldaner/projetos/ARCKHÉpro-mono/apps/pro/data/catalog.json] \
   [--gerador auto|codex|flux]
 ```
 
 - **`--repo`** (obrigatório) — pasta do repo; a capa vai em `<repo>/capa/capa.png`.
 - **`--title` / `--cat`** — se você já sabe (ex.: acabou de montar a página), passe direto.
-  Senão a engine resolve pelo `catalog.json` (via slug do repo) e, em último caso, lê o
+  Senêo a engine resolve pelo `catalog.json` (via slug do repo) e, em último caso, lê o
   `<h1>`/`<title>` do `index.html`.
 - **`--layout`** — `split` (default) ou `fb`.
-- **`--cena`** — sobrescreve a descrição visual mandada pro gerador (por padrão vem de um
+- **`--cena`** — sobrescreve a descriçêo visual mandada pro gerador (por padrêo vem de um
   mapa por categoria; temas desconhecidos usam o próprio título como assunto).
 - **`--gerador`** — de onde sai a ARTE. `flux` (**default**) = ARCKHÉimg local (flux2-klein,
   comportamento historico — vale pras capas de curso e pro lote); `auto` = **Codex CLI
@@ -63,9 +63,9 @@ node <skill>/assets/gerar-capa.cjs --repo <caminho-do-repo> \
 ## Dependências (checar antes)
 
 1. **Codex CLI** (`codex`) — desde **2026-09-21** a arte da capa/hero sai do gerador de
-   imagem do Codex (`image_gen`) por padrão, a pedido do usuário. Roda com
+   imagem do Codex (`image_gen`) por padrêo, a pedido do usuário. Roda com
    `codex exec --skip-git-repo-check --dangerously-bypass-approvals-and-sandbox` (o bwrap
-   do Codex não funciona neste host). Custo: uma geração de imagem na conta OpenAI do Codex.
+   do Codex nêo funciona neste host). Custo: uma geraçêo de imagem na conta OpenAI do Codex.
 2. **ARCKHÉimg no ar** — servidor de imagem local em `http://localhost:8000` (flux2-klein).
    Confirme com `curl -s localhost:8000/health`. Configurável via env `IMG_API`. É o
    **default** da engine e também o fallback do caminho Codex.
@@ -77,24 +77,24 @@ node <skill>/assets/gerar-capa.cjs --repo <caminho-do-repo> \
 Pra padronizar vários repos, itere os slugs e chame a engine por repo, resolvendo
 título/categoria pelo `catalog.json`. Lembre: cada repo é um git separado sob a conta
 `linnoff88-dev` — antes de commitar/pushar a capa, garanta o autor correto no repo
-(`git config user.email linnoff88-dev@gmail.com`), senão o deploy no Vercel Hobby trava.
+(`git config user.email linnoff88-dev@gmail.com`), senêo o deploy no Vercel Hobby trava.
 
-## Padrão visual (não mudar sem pedir)
+## Padrêo visual (nêo mudar sem pedir)
 
 1280×720 · dark premium · acento âmbar `#f5a623` · fonte Montserrat · marca `ARCKHÉ AI`
 + chip da categoria · imagem gerada SEM texto (o texto é a camada por cima).
 
-**A imagem NÃO leva direção de estilo** (decidido em 2026-08-13). O prompt manda só a
+**A imagem NêO leva direçêo de estilo** (decidido em 2026-08-13). O prompt manda só a
 **cena** — o contexto do projeto — e o modelo decide luz, paleta, fundo e acabamento.
-Não acrescente "editorial premium", "luminoso", "fundo claro", "alto astral" nem
-qualquer adjetivo de humor/iluminação: é uma imagem normal do assunto. A única
-restrição que fica no prompt é técnica — **sem texto e sem virar screenshot** — porque a
+Nêo acrescente "editorial premium", "luminoso", "fundo claro", "alto astral" nem
+qualquer adjetivo de humor/iluminaçêo: é uma imagem normal do assunto. A única
+restriçêo que fica no prompt é técnica — **sem texto e sem virar screenshot** — porque a
 camada de texto ARCKHÉ entra por cima depois. Quer mudar o resultado? Mude a cena.
 
-O `negative_prompt` **não existe** neste caminho: o flux2-klein ignora (o pipeline FLUX.2
-não suporta — verificado com a mesma seed, imagens byte a byte idênticas com e sem). Toda
-restrição precisa estar no prompt positivo.
+O `negative_prompt` **nêo existe** neste caminho: o flux2-klein ignora (o pipeline FLUX.2
+nêo suporta — verificado com a mesma seed, imagens byte a byte idênticas com e sem). Toda
+restriçêo precisa estar no prompt positivo.
 
 A imagem é
-gerada na proporção certa do layout (4:3 pro card do split, 16:9 pro fb) e exibida com
+gerada na proporçêo certa do layout (4:3 pro card do split, 16:9 pro fb) e exibida com
 `object-fit: cover` — nunca esticar/distorcer.

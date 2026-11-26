@@ -251,9 +251,9 @@ mastery do Khan: quadradinhos, nunca barra).
   <nav class="wayfind" aria-label="Onde você está">
     <span>Módulo <b>3</b> / 7 · Trilha 1 Fundamentos</span>
     <span class="sep">·</span>
-    <span>Seção <b>1</b> de 7</span>
+    <span>Seçêo <b>1</b> de 7</span>
     <span class="sep">·</span>
-    <span class="mastery" aria-label="Percurso do módulo: seção 1 de 7">
+    <span class="mastery" aria-label="Percurso do módulo: seçêo 1 de 7">
       <i class="cur"></i><i></i><i></i><i></i><i></i><i></i><i></i>
     </span>
   </nav>
@@ -270,7 +270,7 @@ mastery do Khan: quadradinhos, nunca barra).
       <p class="kicker">Módulo 3 · Trilha 1 · Fundamentos</p>
       <h1 class="module-title">Fundamentos de <em>Engenharia de Prompts</em></h1>
       <p class="deck">Escrever instruções que um modelo entende de primeira — pensando
-        o prompt como um pedido bem-feito, não como uma fórmula mágica.</p>
+        o prompt como um pedido bem-feito, nêo como uma fórmula mágica.</p>
       <p class="read-meta">
         <span class="here">Lendo agora</span>
         <span>~14 min · módulo inteiro</span>
@@ -334,15 +334,15 @@ e painel do aluno nao funcionam.
          data-ARCKHÉ-module="3-1" data-ARCKHÉ-track="3">
 
   <div class="section-mark">
-    <span class="where">Seção 1 de 7</span><span>·</span><span>Anatomia</span>
+    <span class="where">Seçêo 1 de 7</span><span>·</span><span>Anatomia</span>
   </div>
   <h2 class="head"><span class="num">1.</span>Veja a anatomia de um prompt</h2>
 
   <!-- 1) INTUICAO em prosa enxuta. dropcap so na 1a secao. -->
   <div class="prose" data-ARCKHÉ-block="3-1-b1">
-    <p class="lede dropcap">Um prompt não é uma pergunta solta: é um pequeno
+    <p class="lede dropcap">Um prompt nêo é uma pergunta solta: é um pequeno
       <span class="grif">briefing</span>. Quando o resultado vem morno, quase nunca o
-      problema é a redação — é uma <em>peça ausente</em>.</p>
+      problema é a redaçêo — é uma <em>peça ausente</em>.</p>
 
     <h3 class="sub">As cinco peças que um pedido completo carrega</h3>
     <p><strong>Contexto</strong> situa o cenário. <strong>Tarefa</strong> é o pedido
@@ -368,7 +368,7 @@ escuro automaticamente: `.ink`, `.ink-soft`, `.faint`, `.accent`, `.accent-strok
 <figure class="figure">
   <figcaption><span class="fig-n">Fig. 1</span> · As cinco peças de um <b>briefing</b></figcaption>
   <svg class="diagram" viewBox="0 0 720 232" role="img"
-       aria-label="Diagrama: Contexto, Tarefa, Formato e Exemplos compõem o pedido; a Iteração realimenta o contexto.">
+       aria-label="Diagrama: Contexto, Tarefa, Formato e Exemplos compõem o pedido; a Iteraçêo realimenta o contexto.">
     <rect x="20" y="62" width="120" height="64" class="wash accent-stroke" stroke-width="1.2" rx="3"/>
     <text x="80" y="100" text-anchor="middle" font-family="Spectral, serif" font-style="italic"
           font-size="18" class="ink">Contexto</text>
@@ -397,7 +397,7 @@ em `data-kind` e pinta o pip: `definicao` (azul/accent), `fonte` (cinza), `fundo
 ```html
 <!-- DEFINICAO -->
 <aside class="sidenote" data-kind="definicao">
-  <div class="tag">Definição</div>
+  <div class="tag">Definiçêo</div>
   <b>Briefing.</b> Documento curto que orienta um trabalho: contexto, objetivo,
   restrições e formato esperado. Pedir bem a um modelo é escrever um bom briefing.
 </aside>
@@ -413,7 +413,7 @@ em `data-kind` e pinta o pip: `definicao` (azul/accent), `fonte` (cinza), `fundo
 <!-- FUNDO ("indo mais fundo" curto, na margem) -->
 <aside class="sidenote" data-kind="fundo">
   <div class="tag">Indo mais fundo</div>
-  "Morno" tem nome técnico: contexto vago → <i>distribuição de continuações</i> larga →
+  "Morno" tem nome técnico: contexto vago → <i>distribuiçêo de continuações</i> larga →
   o modelo regride à média. Detalhe completo no bloco ao lado.
 </aside>
 ```
@@ -436,10 +436,10 @@ fica limpo no texto e a definicao abre **junto ao gatilho**, sem JS. Information
 pista deixa o leitor decidir se aprofunda sem sair do fluxo.
 
 ```html
-…uma função de quanto do
+…uma funçêo de quanto do
 <details class="dfn"><summary>contexto necessário</summary><span class="body"><b>Contexto
 necessário</b> é o conjunto mínimo de fatos e restrições sem os quais a tarefa fica
-ambígua — não "tudo o que você sabe".</span></details>
+ambígua — nêo "tudo o que você sabe".</span></details>
 você de fato colocou ali.
 ```
 
@@ -462,7 +462,7 @@ A resposta vive num `<details>` calmo dentro do `.predict`.
   <details>
     <summary>Ver uma resposta possível</summary>
     <p class="answer">Quase sempre é o <strong>contexto</strong> — ele muda a
-      interpretação de <em>todas</em> as outras peças. É o tema da Seção 2.</p>
+      interpretaçêo de <em>todas</em> as outras peças. É o tema da Seçêo 2.</p>
   </details>
 </div>
 ```
@@ -486,7 +486,7 @@ corpo e segue) e avancado (abre as camadas) — layered UX.
   <div class="inner">
     <p>O caminho-feliz acima já basta. Esta camada é o <em>porquê</em> mecânico — e pode
       ser pulada sem perda.</p>
-    <p>Um modelo é um estimador de continuação… quando o contexto é vago a distribuição
+    <p>Um modelo é um estimador de continuaçêo… quando o contexto é vago a distribuiçêo
       de continuações fica <em>larga</em> e o modelo recorre ao genérico.</p>
     <pre class="codeblock"><span class="c"># Vago — saída genérica</span>
 Escreva um email de cobrança.
@@ -518,7 +518,7 @@ duvida", e a lista de grifos/notas daquela secao. O valor do atributo = o `topic
 (igual ao `data-ARCKHÉ-topic` da secao).
 
 ```html
-<aside class="margin-rail" aria-label="Margem da Seção 1">
+<aside class="margin-rail" aria-label="Margem da Seçêo 1">
   <!-- O JS preenche este aside (marcar lida + duvida + grifos/notas). -->
   <aside data-ARCKHÉ-rail="modulo-3-1#topico-1"></aside>
 
@@ -589,9 +589,9 @@ para comparar — **sem pontuacao, sem placar** (estilo The Odin Project). Estat
   <p class="intro">Sem nota, sem placar. Responda de cabeça, depois revele para comparar.</p>
 
   <details class="q-item">
-    <summary><span class="qn">01</span><span>Por que uma instrução bem escrita ainda
+    <summary><span class="qn">01</span><span>Por que uma instruçêo bem escrita ainda
       pode produzir uma resposta ruim?</span><span class="reveal">Revelar</span></summary>
-    <div class="ans"><p>Porque a redação raramente é o problema: falta uma <em>peça</em> —
+    <div class="ans"><p>Porque a redaçêo raramente é o problema: falta uma <em>peça</em> —
       quase sempre contexto. Sem ela, o modelo preenche o buraco com o genérico.</p></div>
   </details>
   <!-- 02, 03 … -->
@@ -615,7 +615,7 @@ E **UMA** proxima acao clara (`.nextup`) — engajamento por clareza, nao por co
   <div class="journey-body">
     <div class="jstat">
       <div class="k">Neste módulo</div>
-      <div class="v">Seção <em>1</em> de 7 <span class="nm">lida</span></div>
+      <div class="v">Seçêo <em>1</em> de 7 <span class="nm">lida</span></div>
       <div class="jgrid"><i class="cur"></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
     </div>
     <div class="jstat">
@@ -634,7 +634,7 @@ E **UMA** proxima acao clara (`.nextup`) — engajamento por clareza, nao por co
 <div class="nextup">
   <div class="txt">
     <div class="k">Continuar</div>
-    <div class="t">Seção 3 — Escreva a tarefa como um pedido único</div>
+    <div class="t">Seçêo 3 — Escreva a tarefa como um pedido único</div>
   </div>
   <a class="go" href="#s3">Próxima →</a>
 </div>
@@ -678,7 +678,7 @@ LANDING (index.html)
 ├── .reader-bar (mesma — papel, tema, fonte, tamanho)
 ├── HERO TIPOGRAFICO PURO
 │     kicker (mono, discreto) · h1 enorme em Spectral · .deck (1-2 frases)
-│     headline = DIAGNOSTICO PRECISO DA DOR, nunca promessa de transformação
+│     headline = DIAGNOSTICO PRECISO DA DOR, nunca promessa de transformaçêo
 │     no maximo UMA ilustracao conceitual (SVG sobrio). Sem mockup 3D/screenshot.
 ├── O QUE E / POR QUE EXISTE
 │     2-3 paragrafos de prosa serif (a coluna 62-70ch da identidade). Sem bullets de check.
@@ -698,8 +698,8 @@ LANDING (index.html)
 <header class="masthead">
   <p class="kicker">Curso · Engenharia de Prompts</p>
   <h1 class="module-title">Pedir bem a um modelo é uma <em>habilidade</em>,
-    não um truque.</h1>
-  <p class="deck">A maioria dos prompts falha por uma peça ausente, não por redação.
+    nêo um truque.</h1>
+  <p class="deck">A maioria dos prompts falha por uma peça ausente, nêo por redaçêo.
     Este curso ensina a enxergar a peça que falta — e a colocá-la de volta.</p>
 </header>
 ```

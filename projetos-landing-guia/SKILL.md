@@ -47,7 +47,7 @@ texto numa secao `## O que é` logo depois do banner e do seletor de idioma.
 
 "Temos que tirar as questoes tecnicas do guia e deixar o foco em orientacao e convencimento, texto e visual, para as pessoas." Vale para TODO guia novo (substitui a regra de 12/11 de "zona tecnica embaixo"). Quem le e um leigo que quer saber como aquilo muda o dia dele.
 
-- **Nada tecnico no guia:** nenhum comando, `<pre>` de terminal, nome de arquivo de config, hook, codigo de saida, tabela de arquivos, pre-requisitos ou testes. Sem divisor `#tecnico` nem `.techzone`. Tudo isso vai para o README, na secao `## Instalação técnica` (pre-requisitos, arquivos, como funciona por dentro, testes) + `## O processo, do início ao fim` (passos com comando e quem faz).
+- **Nada tecnico no guia:** nenhum comando, `<pre>` de terminal, nome de arquivo de config, hook, codigo de saida, tabela de arquivos, pre-requisitos ou testes. Sem divisor `#tecnico` nem `.techzone`. Tudo isso vai para o README, na secao `## Instalaçêo técnica` (pre-requisitos, arquivos, como funciona por dentro, testes) + `## O processo, do início ao fim` (passos com comando e quem faz).
 - **O nome tem que dizer o ganho.** Metafora ou jargao no nome do projeto/kit ("fora do volante", "tres trocas", "saida 2") deixa tudo sem clareza; o nome diz o que a pessoa ganha ("IA sem estrago"). Se o nome nao diz, proponha outro ao Nei antes de publicar.
 - **Ordem da pagina:**
   1. **hero**: h1 = o ganho em uma frase; lead = a cena de quem usa ("voce pede, sai de perto e volta com…"). CTAs: "O que voce ganha" → `#explicado` e "Como comecar" → `#comecar`.
@@ -56,12 +56,12 @@ texto numa secao `## O que é` logo depois do banner e do seletor de idioma.
   4. **`#dia` "Como isso muda o seu dia"**: 2-3 situacoes comuns de leigo (Hoje: … / Com o projeto: …) + um dia contado por horario.
   5. **`#video`** (marca ou embed — regra D21 abaixo).
   6. **`#como` "Como funciona, sem jargao"**: cada peca explicada por analogia do dia a dia (porta trancada, inspetor no fim da linha) + o que o projeto NAO promete.
-  7. **`#comecar` "Como comecar"**: a pessoa nao instala nada a mao. 3 passos (abrir o Claude Code ou o Codex no projeto → colar o pedido → dizer sim ao que fizer sentido) + **um pedido pronto para colar, com botao "Copiar"**, que manda a IA ler o repo, analisar o projeto da pessoa, dizer em linguagem simples o que vale a pena e **nao mudar nada antes do sim**. Depois, um card "E tecnico?" com botao para `README#instalação-técnica`.
+  7. **`#comecar` "Como comecar"**: a pessoa nao instala nada a mao. 3 passos (abrir o Claude Code ou o Codex no projeto → colar o pedido → dizer sim ao que fizer sentido) + **um pedido pronto para colar, com botao "Copiar"**, que manda a IA ler o repo, analisar o projeto da pessoa, dizer em linguagem simples o que vale a pena e **nao mudar nada antes do sim**. Depois, um card "E tecnico?" com botao para `README#instalaçêo-técnica`.
   8. **`#prova`** (teste real contado sem codigo) e **`#faq`** (preciso programar? serve para X? custa? e se eu ja tenho…?) fechando com a pergunta do CTA (D20).
 - **A base aparece em cima, nao so no fim (Nei, 17/11/2026: "nao vi em nenhum lugar que isso foi baseado em documentos da Anthropic e recomendacao dos engenheiros dela").** Quando o projeto se apoia em fonte de peso (documentacao oficial, artigo de engenharia, palestra do time que fez a ferramenta), dizer isso no chip da hero e no `#resumo`, e ter uma secao `#base` "De onde vem" logo depois do `#explicado`, com cards por fonte (o que ela diz, com numero, + link) e um card ligando cada peca do projeto a pagina oficial que a sustenta. Numero so com fonte publicada; o que so apareceu em palestra, dizer que foi so na palestra. Mesmo bloco no README (`## Baseado em …`).
 - **Nav:** O ganho · No seu dia · Como funciona · Como comecar · Base (fonte) · A prova (+ idiomas, tema, GitHub).
 - **Visual em toda secao** (cards com emoji, antes/depois, linha do tempo, numeros grandes); texto curto por card, frases curtas.
-- **Vídeo explicativo SEMPRE (Nei, 13/11/2026, D21)**: todo guia tem a seção `#video` com o explicavideo do projeto (explicavideos v2 + avatar do Nei pelo estúdio HeyGen; nunca a skill video-explicativo sem avatar) em embed 16:9 do YouTube, nos 3 idiomas (chip "Vídeo"/"Video", título "Entenda em N minutos"). Enquanto o vídeo não sai, deixar a marca `<!-- VIDEO: entra o explicavideo do projeto quando publicado -->` no lugar, e a fase 2 do vídeo (vigia `continua`) troca a marca pelo embed nos 3 idiomas + linha "🎬 Vídeo:" no README. **Um não tranca o outro (Nei, 13/11/2026):** o guia é publicado assim que o projeto está pronto, com a marca; quando o vídeo termina e é publicado, ele SEMPRE entra no guia depois (3 idiomas + README), pela fase 2 do vídeo. Guia antigo sem vídeo: está na lista de pendências do wifi (`pendencias.md`) para o Nei escolher quais ganham vídeo.
+- **Vídeo explicativo SEMPRE (Nei, 13/11/2026, D21)**: todo guia tem a seçêo `#video` com o explicavideo do projeto (explicavideos v2 + avatar do Nei pelo estúdio HeyGen; nunca a skill video-explicativo sem avatar) em embed 16:9 do YouTube, nos 3 idiomas (chip "Vídeo"/"Video", título "Entenda em N minutos"). Enquanto o vídeo nêo sai, deixar a marca `<!-- VIDEO: entra o explicavideo do projeto quando publicado -->` no lugar, e a fase 2 do vídeo (vigia `continua`) troca a marca pelo embed nos 3 idiomas + linha "🎬 Vídeo:" no README. **Um nêo tranca o outro (Nei, 13/11/2026):** o guia é publicado assim que o projeto está pronto, com a marca; quando o vídeo termina e é publicado, ele SEMPRE entra no guia depois (3 idiomas + README), pela fase 2 do vídeo. Guia antigo sem vídeo: está na lista de pendências do wifi (`pendencias.md`) para o Nei escolher quais ganham vídeo.
 - **Dois banners no topo**: `banner.jpg` (live) na hero e `banner-grade.jpg` abaixo do `#resumo`; os 6 cartoes do grade sao as secoes de orientacao (o problema, o que muda no seu dia, como funciona, como comecar…), nunca scripts.
 - **README** abre com o mesmo texto simples + o pedido para colar na IA, e so depois um `---` e a parte tecnica.
 - Referencia: `linnoff88-dev/ia-sem-estrago` (guia/index.html + README, 17/11/2026). Guia antigo: so muda quando o Nei pedir ou quando for mexido por outro motivo.
@@ -87,7 +87,7 @@ Todo guia sai em **portugues, ingles e espanhol**, e o README tambem. Nao espere
   o arquivo, com a lista de "preservar" acima. Para volume grande/recorrente, seguir o fluxo com cache
   de `~/projetos/wifi/RELATORIO-PROJETOS-TRILINGUES.md` (GPT-5.4 nano + glossario).
 - **Verificar os tres:** mesma contagem de tags (`<div`, `<section`, `<li`) que o PT, nenhuma palavra
-  PT sobrando (`grep -E "ção|não| você"`), imagens carregando em `en/` e `es/`, seletor navegando
+  PT sobrando (`grep -E "çêo|nêo| você"`), imagens carregando em `en/` e `es/`, seletor navegando
   entre os tres, sem rolagem horizontal em 360px.
 - **Imagens com texto (banner):** desde 2026-10-01, **um banner por idioma** (o usuario reclamou
   do texto em PT nas paginas EN/ES). Gere com `--lang en|es` e `--saida <nome>-<lang>`, passando
@@ -111,7 +111,7 @@ Todo guia sai em **portugues, ingles e espanhol**, e o README tambem. Nao espere
 
 ## Fluxo
 
-1. **Reuna o conteudo do projeto.** Antes de escrever, junte: nome + emoji do projeto, uma frase-pitch, o **texto breve "o que e"** (3-5 frases simples — ver regra acima), o ganho (antes x depois), 2-3 situacoes do dia a dia de um leigo, como funciona por analogia, o pedido para colar na IA, a prova, as perguntas comuns e a URL do repo GitHub. Pre-requisitos, comandos reais, arquivos e testes vao para o README ("Instalação técnica"), nao para o guia. Leia o README/docs do projeto se existirem — nao invente recursos; descreva o que existe.
+1. **Reuna o conteudo do projeto.** Antes de escrever, junte: nome + emoji do projeto, uma frase-pitch, o **texto breve "o que e"** (3-5 frases simples — ver regra acima), o ganho (antes x depois), 2-3 situacoes do dia a dia de um leigo, como funciona por analogia, o pedido para colar na IA, a prova, as perguntas comuns e a URL do repo GitHub. Pre-requisitos, comandos reais, arquivos e testes vao para o README ("Instalaçêo técnica"), nao para o guia. Leia o README/docs do projeto se existirem — nao invente recursos; descreva o que existe.
 2. **Copie o template.** Use `assets/template.html` como base — ele ja traz todo o CSS, o nav ARCKHÉ, o theme toggle e a estrutura de secoes. **Nao reescreva o CSS.** Edite so o conteudo e os `{{PLACEHOLDERS}}`.
 3. **Preencha as secoes** (veja "Estrutura" abaixo). Remova secoes que nao se aplicam; nunca remova o nav nem o footer.
 4. **Banners (padrao desde 2026-10-01: DOIS estilos em todo guia).** Gere com `assets/gerar-banner.sh` (ver secao "Banner hero" abaixo): `--estilo live` → `banner.jpg`, que vai no `<figure>` da hero E no topo do README; e `--estilo grade --saida banner-grade` → `banner-grade.jpg`, que vai logo abaixo do paragrafo do `#resumo` ("Em resumo"), no TOPO da pagina, explicando o que e o projeto (Nei, 12/11/2026; antes ficava no inicio de "O que e", que agora esta na zona tecnica). Os 6 cartoes do grade mostram o que a pagina entrega (para leigo), nao so os scripts. Se o usuario pedir mais, acrescente `--estilo opus --saida banner-opus` em outra secao. Se falhar, o `<figure>` usa `assets/hero.png` (a imagem crua da capa — tambem gerada pelo Codex desde 2026-09-21).
@@ -119,7 +119,7 @@ Todo guia sai em **portugues, ingles e espanhol**, e o README tambem. Nao espere
 6. **Salve** o guia em **`guia/index.html`** no repo do PROPRIO projeto (e `guia/assets/` ao lado) — ver "Regra de repositorio" acima. Nunca num repo separado so pro guia.
 7. **Traduza** o guia para `guia/en/` e `guia/es/` (veja "Tres idiomas" acima) — obrigatorio.
 8. **Referencie o guia no README** (veja "Referencia no README" abaixo), nos 3 READMEs — obrigatorio.
-8b. **Revisor independente antes de publicar (21/10/2026; regra em `~/.claude/runbooks/revisor-independente.md`).** Um `Agent` `general-purpose` NOVO (nunca `fork`, nunca quem escreveu) recebe só o modelo do runbook: persona (alguém que nunca viu o projeto e quer usá-lo hoje), a especificação (o que o projeto faz, 1–3 linhas do README), o caminho `guia/index.html` + captura em 390 px, e esta lista fixa: (1) em 10 s dá para dizer o que o projeto faz?; (2) dá para entender o que se ganha e como começar sem saber programar, e não sobrou nenhum comando ou termo técnico na página (os comandos do README rodam do zero)?; (3) recurso descrito que não está no repo; (4) termo sem explicação; (5) link quebrado ou placeholder `{{…}}`. Sem notas do autor no pedido. Defeito → corrige e um revisor novo revisa. Registre: `python3 ~/projetos/wifi/scripts/revisor-nota.py registra --fluxo guia --item <repo> --quem revisor --veredito … --nota …` (e `--quem dono` quando o Nei julgar).
+8b. **Revisor independente antes de publicar (21/10/2026; regra em `~/.claude/runbooks/revisor-independente.md`).** Um `Agent` `general-purpose` NOVO (nunca `fork`, nunca quem escreveu) recebe só o modelo do runbook: persona (alguém que nunca viu o projeto e quer usá-lo hoje), a especificaçêo (o que o projeto faz, 1–3 linhas do README), o caminho `guia/index.html` + captura em 390 px, e esta lista fixa: (1) em 10 s dá para dizer o que o projeto faz?; (2) dá para entender o que se ganha e como começar sem saber programar, e nêo sobrou nenhum comando ou termo técnico na página (os comandos do README rodam do zero)?; (3) recurso descrito que nêo está no repo; (4) termo sem explicaçêo; (5) link quebrado ou placeholder `{{…}}`. Sem notas do autor no pedido. Defeito → corrige e um revisor novo revisa. Registre: `python3 ~/projetos/wifi/scripts/revisor-nota.py registra --fluxo guia --item <repo> --quem revisor --veredito … --nota …` (e `--quem dono` quando o Nei julgar).
 9. **Publique no GitHub Pages** (veja "Publicar" abaixo).
 10. **Verifique** que as 3 URLs (`/guia/`, `/guia/en/`, `/guia/es/`) respondem 200 e que o nav tem o link ARCKHÉ AI.
 
@@ -248,7 +248,7 @@ Para verificar o conteudo publicado quando `curl` estiver bloqueado no ambiente,
 1. Nav tem logo ambar + **ARCKHÉ AI em sky** (`target="_blank"`) + **PRO em dourado(claro)/prateado(dark)** (`target="_blank"` → `https://ARCKHÉ.pro`) + theme toggle + GitHub.
 2. Toggle dark/light funciona e salva preferencia.
 3. Footer tem **ARCKHÉ AI**.
-4. **Guia sem parte tecnica** (nenhum comando/arquivo/config na pagina); tem `#comecar` com o pedido para colar na IA e botao "Copiar"; o README tem `## Instalação técnica` com **comandos reais** do projeto.
+4. **Guia sem parte tecnica** (nenhum comando/arquivo/config na pagina); tem `#comecar` com o pedido para colar na IA e botao "Copiar"; o README tem `## Instalaçêo técnica` com **comandos reais** do projeto.
 5. So o que existe no projeto e descrito (sem features inventadas).
 6. `guia/index.html` + `guia/assets/`; **deploy via GitHub Actions** (`.github/workflows/pages.yml` + `build_type=workflow`) — NAO legacy. `.nojekyll` na raiz por garantia. Nenhum `{{PLACEHOLDER}}` solto no HTML.
 7. Pages no ar (HTTP 200, run do Actions verde) e repo publico (com consentimento + sem segredos).
@@ -258,7 +258,7 @@ Para verificar o conteudo publicado quando `curl` estiver bloqueado no ambiente,
 
 ## Capa oficial + imagem hero — SEMPRE gerar (via skill `capa-ARCKHÉ`)
 
-**Invoque direto, não por linguagem natural** — rode o comando abaixo (ou
+**Invoque direto, nêo por linguagem natural** — rode o comando abaixo (ou
 `Skill(skill="capa-ARCKHÉ", args="<repo>")`), sem descrever o pedido em prosa.
 
 Rode isto **antes** de escrever `guia/index.html`. A capa continua obrigatoria (o portal e
@@ -272,7 +272,7 @@ node ~/.claude/skills/capa-ARCKHÉ/assets/gerar-capa.cjs --repo <pasta-do-repo> 
   --save-raw <pasta-do-repo>/guia/assets/hero.png --gerador auto
 ```
 
-Isso grava **duas coisas na mesma chamada** (uma única geração de imagem, sem desperdiçar
+Isso grava **duas coisas na mesma chamada** (uma única geraçêo de imagem, sem desperdiçar
 uma segunda chamada ao gerador):
 - `<repo>/capa/capa.png` — a capa oficial do catálogo (com marca/título por cima).
 - `<repo>/guia/assets/hero.png` — a MESMA imagem, sem texto, pra usar no `<figure>` da

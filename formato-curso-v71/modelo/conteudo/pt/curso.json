@@ -3,13 +3,13 @@
   "lang": "pt-BR",
   "url": "https://linnoff88-dev.github.io/
   "nome": "Do chat ao agente",
-  "sub": "Visão geral da formação",
+  "sub": "Visêo geral da formaçêo",
   "volta": {
     "t": "Área Do chat ao agente",
     "href": "https://eventos.ARCKHÉ.pro/do-chat-ao-agente/"
   },
   "lado_card": {
-    "rot": "Prática desta formação",
+    "rot": "Prática desta formaçêo",
     "t": "23 exercícios com \"pronto quando\"",
     "texto": "Quatro listas, uma por sequência. Só passe para o próximo quando ele for verdade.",
     "link": "Abrir os exercícios",
@@ -18,7 +18,7 @@
   "rodape": "ARCKHÉ AI · conteúdo aberto e gratuito · formato ARCKHÉ Learning v7.1 · <a href=\"https://eventos.ARCKHÉ.pro/do-chat-ao-agente/\">eventos.ARCKHÉ.pro/do-chat-ao-agente</a> · <a href=\"https://ARCKHÉ AI/\">ARCKHÉ AI</a>",
   "videos": {
     "jornada-ia": {
-      "titulo": "Do chat ao agente: a visão geral",
+      "titulo": "Do chat ao agente: a visêo geral",
       "duracao": "2 min 27 s",
       "mp4": "https://github.com/linnoff88-dev/jornada-agentes/releases/download/video-v2.0.0/jornada-jornada-ia-16x9.mp4",
       "vtt": "assets/vtt/jornada-ia.vtt",
@@ -59,12 +59,12 @@
     }
   },
   "inicio": {
-    "kicker": "Curso · visão geral da formação · 6 aulas",
+    "kicker": "Curso · visêo geral da formaçêo · 6 aulas",
     "titulo": "Do chat ao agente: os quatro degraus para colocar IA trabalhando por você",
     "lead": "Terminal, assistente próprio, fila de tarefas e redes no automático. Em seis aulas curtas você entende cada degrau, vê como as peças se ligam e sai com o plano e os modelos para fazer na ordem certa.",
     "cta": "Começar pela aula 1",
     "cta2": {
-      "t": "Ver a área da formação",
+      "t": "Ver a área da formaçêo",
       "href": "https://eventos.ARCKHÉ.pro/do-chat-ao-agente/"
     },
     "capa_alt": "Do chat ao agente: a jornada em quatro sequências — terminal, Jarvis, filas e redes.",
@@ -87,14 +87,14 @@
       }
     ],
     "aulas_titulo": "As aulas",
-    "aulas_sub": "Uma visão geral por degrau. A prática completa de cada degrau fica nos exercícios e nos cursos de cada sequência.",
+    "aulas_sub": "Uma visêo geral por degrau. A prática completa de cada degrau fica nos exercícios e nos cursos de cada sequência.",
     "blocos": [
       {
         "t": "Para quem é",
         "itens": [
           "Quem usa ChatGPT, Claude ou Gemini e quer parar de copiar e colar.",
-          "Profissionais que querem um assistente próprio e tarefas rodando sem supervisão constante.",
-          "Quem vai orientar equipes ou clientes nessa transição e precisa do mapa completo."
+          "Profissionais que querem um assistente próprio e tarefas rodando sem supervisêo constante.",
+          "Quem vai orientar equipes ou clientes nessa transiçêo e precisa do mapa completo."
         ]
       },
       {
@@ -122,7 +122,7 @@
     "dg_dica": "Clique em cada bloco do diagrama para ver o que ele faz.",
     "copiar": "Copiar",
     "copiado": "Copiado",
-    "selo_simulacao": "Simulação: exemplo ilustrativo",
+    "selo_simulacao": "Simulaçêo: exemplo ilustrativo",
     "selo_real": "Exemplo do repositório",
     "pronto_quando": "Pronto quando:",
     "fiz": "Fiz este exercício",
@@ -131,8 +131,8 @@
     "de": "de",
     "cert_tag": "competência",
     "correto": "Correto",
-    "errado": "Não é essa",
-    "quiz_aguarda": "Escolha uma alternativa. A explicação aparece depois da sua tentativa.",
+    "errado": "Nêo é essa",
+    "quiz_aguarda": "Escolha uma alternativa. A explicaçêo aparece depois da sua tentativa.",
     "proxima_pergunta": "Próxima pergunta",
     "quiz_ver": "Ver resultado",
     "quiz_fim": "Teste concluído",
@@ -159,7 +159,7 @@
     "baixar_ics": "Baixar para o calendário (.ics)",
     "ind_estudo": "Estudo (aulas)",
     "ind_pratica": "Prática declarada",
-    "ind_nota": "Prática = exercícios que você marcou como feitos. A comprovação vem na prova da certificação."
+    "ind_nota": "Prática = exercícios que você marcou como feitos. A comprovaçêo vem na prova da certificaçêo."
   },
   "icone": "camadas"
 }

@@ -1,19 +1,19 @@
-# V6-DESIGN.md — visual do v6: mostre, não simbolize
+# V6-DESIGN.md — visual do v6: mostre, nêo simbolize
 
 ## 1. Princípio
 
 A figura mostra **a coisa real** que o aluno vai ver ou fazer: o pedido escrito, a resposta que volta,
 a pasta com os arquivos, o resultado antes e depois. Proibido o "tracinho no lugar de texto": se a figura
-é sobre um pedido, ela mostra **o pedido**. Diagrama abstrato só para mecanismo que não tem tela.
+é sobre um pedido, ela mostra **o pedido**. Diagrama abstrato só para mecanismo que nêo tem tela.
 
-Teste dos 5 segundos: tape o texto do step. Só a figura + o rótulo passam a ideia? Se não, refaça a figura.
+Teste dos 5 segundos: tape o texto do step. Só a figura + o rótulo passam a ideia? Se nêo, refaça a figura.
 
 ## 2. Tokens e temas
 
-- 3 temas: **papel** (padrão), escuro, sépia — trocados pelo `Aa`. Nunca declare cor solta: use as variáveis.
-- `--accent` (verde) = certo / feito / ação. `--warm` (âmbar) = atenção / "se travou". `--bad` (vermelho suave) =
-  o exemplo ruim / resposta errada. Nunca informação só por cor: sempre com rótulo ("Antes", "Depois", ✓, ✗).
-- Tipografia: Newsreader (títulos), Inter (texto, 18px padrão), JetBrains Mono **só** em pedido/código.
+- 3 temas: **papel** (padrêo), escuro, sépia — trocados pelo `Aa`. Nunca declare cor solta: use as variáveis.
+- `--accent` (verde) = certo / feito / açêo. `--warm` (âmbar) = atençêo / "se travou". `--bad` (vermelho suave) =
+  o exemplo ruim / resposta errada. Nunca informaçêo só por cor: sempre com rótulo ("Antes", "Depois", ✓, ✗).
+- Tipografia: Newsreader (títulos), Inter (texto, 18px padrêo), JetBrains Mono **só** em pedido/código.
 - Texto nunca abaixo de 14px; contraste ≥4,5:1 em todo texto nos 3 temas (o auditor mede).
 - Uma coluna (`.aula`, 40rem). Visuais podem usar `class="largo"` no `<figure>` para abrir até 54rem no desktop.
 
@@ -30,7 +30,7 @@ Use para qualquer pedido/resposta. Com 2+ `.tela-caso`, o motor cria botões par
         <p class="msg eu"><span class="quem">Você</span>O pedido vago, como a pessoa escreveria.</p>
         <p class="msg ia falha"><span class="quem">IA</span>A resposta genérica real (começo dela)…</p>
       </div>
-      <p class="tela-nota ruim">Por que não serve, em 1 frase.</p>
+      <p class="tela-nota ruim">Por que nêo serve, em 1 frase.</p>
     </div>
     <div class="tela-caso" data-rotulo="Com contexto">
       <div class="tela-body">
@@ -57,14 +57,14 @@ Uma tela só (sem alternância) = uma `.tela-body` direto dentro de `.tela`.
   </div>
 </figure>
 ```
-Os rótulos podem mudar ("Desejo" × "Critério", "Espalhado" × "Organizado"). O saldo é opcional só quando não há número honesto.
+Os rótulos podem mudar ("Desejo" × "Critério", "Espalhado" × "Organizado"). O saldo é opcional só quando nêo há número honesto.
 Cores dos lados: `.antes` = vermelho (o pior/errado) · `.depois` ou `.bom` = verde · `.neutro` = sem juízo.
-Quando os dois lados são corretos (ex.: "a IA confere" × "a decisão é sua"), use `.bom` + `.neutro`, nunca `.antes`.
-No texto, refira-se aos lados pelo rótulo ("o cartão Critério"), nunca por "direita/esquerda" — no celular eles empilham.
-Na `.janela`, `.item.botao` é ilustração (contorno tracejado), não botão de verdade.
+Quando os dois lados sêo corretos (ex.: "a IA confere" × "a decisêo é sua"), use `.bom` + `.neutro`, nunca `.antes`.
+No texto, refira-se aos lados pelo rótulo ("o cartêo Critério"), nunca por "direita/esquerda" — no celular eles empilham.
+Na `.janela`, `.item.botao` é ilustraçêo (contorno tracejado), nêo botêo de verdade.
 
 ### 3.3 Passo a passo sobre a tela — `.janela` + `.pin`
-Para "onde clicar", pastas, organização de arquivos. Os números em círculo (`.pin`) ficam **na tela** e na lista.
+Para "onde clicar", pastas, organizaçêo de arquivos. Os números em círculo (`.pin`) ficam **na tela** e na lista.
 ```html
 <figure class="largo">
   <div class="janela">
@@ -83,24 +83,24 @@ Para "onde clicar", pastas, organização de arquivos. Os números em círculo (
   </ol>
 </figure>
 ```
-Classes de item: `.pasta`, `.doc`, `.botao`, `.dentro` (recuo). Não imite a marca de nenhum programa — é uma tela genérica.
+Classes de item: `.pasta`, `.doc`, `.botao`, `.dentro` (recuo). Nêo imite a marca de nenhum programa — é uma tela genérica.
 
 ### 3.4 Cena ilustrada — `figure.cena` (1 por aula, na abertura)
 ```html
 <figure class="cena"><img src="assets/img/aula-N.webp" width="1280" height="720"
-  alt="Frase que descreve a situação e ensina (quem, onde, o que está acontecendo)."></figure>
+  alt="Frase que descreve a situaçêo e ensina (quem, onde, o que está acontecendo)."></figure>
 ```
-- Gerada com `scripts/gerar-cena.py`: **padrão Codex image_gen** (imagem 2.5; ~1 min por imagem; rode até 4 em paralelo),
+- Gerada com `scripts/gerar-cena.py`: **padrêo Codex image_gen** (imagem 2.5; ~1 min por imagem; rode até 4 em paralelo),
   com **fallback automático** para o ARCKHÉimg local (flux2-klein) quando o Codex falha ou fica sem crédito. Estilo
   "editorial" fixo no curso. No piloto OSWork o Codex manteve até os mesmos personagens entre aulas (sem seed).
-  Magnific com imagem de referência continua como opção para personagem recorrente exato.
+  Magnific com imagem de referência continua como opçêo para personagem recorrente exato.
 - **Nenhum texto dentro da imagem** (o PT/EN/ES traduz só o HTML). Telas na imagem = formas borradas.
-- Mostra uma pessoa da profissão-alvo na situação do exemplo principal da aula. Adultos de 30 a 60, brasileiros, diversos.
-- Proibido: robô, cérebro brilhante, circuito, holograma, aperto de mão com robô.
+- Mostra uma pessoa da profissêo-alvo na situaçêo do exemplo principal da aula. Adultos de 30 a 60, brasileiros, diversos.
+- Proibido: robô, cérebro brilhante, circuito, holograma, aperto de mêo com robô.
 - WebP 1280×720, ≤150 KB (o script já comprime), `alt` com >20 caracteres.
 - A trilha usa `assets/img/trilha.webp` (as duas profissões-alvo juntas).
 
-### 3.5 Diagrama de mecanismo — `.diag` (só quando não existe tela)
+### 3.5 Diagrama de mecanismo — `.diag` (só quando nêo existe tela)
 SVG inline simples, rótulos em palavras comuns dentro do SVG (`<text>` herda Inter 15px), no máximo 4 elementos.
 ```html
 <figure class="diag"><svg viewBox="0 0 640 220" role="img" aria-label="…">…</svg>
@@ -110,7 +110,7 @@ Use `fill="var(--accent)"` / `stroke="var(--line2)"` para seguir o tema.
 
 ### 3.6 Terminal — `.terminal` (perfil técnico)
 Visual real de comando: o que digitar e o que volta. Conta como visual real (critérios 1 e 2). Fundo escuro fixo nos 3 temas.
-Comandos ficam em `pre` (mono permitido) e **não são traduzidos** (`traduzir-curso.py` pula `pre` dentro de `.terminal`
+Comandos ficam em `pre` (mono permitido) e **nêo sêo traduzidos** (`traduzir-curso.py` pula `pre` dentro de `.terminal`
 e `pre.cmd`). Nunca mostre token/senha real.
 ```html
 <figure class="largo"><div class="terminal"><div class="tela-top"><i></i><i></i><i></i><span>Terminal</span></div>
@@ -121,13 +121,13 @@ e `pre.cmd`). Nunca mostre token/senha real.
 ```
 
 ### 3.7 Material complementar — `details.complementar` (depois do fecho)
-Aprofundamento opcional sem teto de tamanho: **não conta no tempo nem nas 900 palavras** (o auditor mede só a prosa
-dos steps, `.why` e `.promise`), mas passa pela checagem de legibilidade e de jargão. Fica **depois da `.fecho`**, antes
-do `nav.lnav`, fechado por padrão. Quando o curso vem de um curso maior (ex.: v2), o complementar segue a estrutura
+Aprofundamento opcional sem teto de tamanho: **nêo conta no tempo nem nas 900 palavras** (o auditor mede só a prosa
+dos steps, `.why` e `.promise`), mas passa pela checagem de legibilidade e de jargêo. Fica **depois da `.fecho`**, antes
+do `nav.lnav`, fechado por padrêo. Quando o curso vem de um curso maior (ex.: v2), o complementar segue a estrutura
 de lá, com o texto original: uma `.comp-sec` por bloco.
 ```html
 <details class="complementar">
-  <summary>Material complementar<small>Aprofundamento do tópico. Não conta no tempo da aula.</small></summary>
+  <summary>Material complementar<small>Aprofundamento do tópico. Nêo conta no tempo da aula.</small></summary>
   <section class="comp-sec"><h3>O que é</h3><p>…</p><h3>Por que aprender</h3><p>…</p>
     <h3>Conceitos-chave</h3><p>…</p><h4>Na prática</h4><p>…</p><h4>Experimente agora</h4><p>…</p></section>
   <section class="comp-sec"><h3>Laboratório do módulo</h3><ol><li>…</li></ol>
@@ -139,7 +139,7 @@ de lá, com o texto original: uma `.comp-sec` por bloco.
 ### 3.8 Módulos na trilha e glossário
 `"modulos": [{"titulo","resumo"?, "aulas":[…]}]` no `curso.json` agrupa os cards da trilha e da landing
 (`section.modulo` com `h2.sec-title`). Toda aula precisa estar em um módulo (a montagem falha se sobrar ou faltar).
-O glossário (`#v-glossario`, `dl.glossario`, `.gl-item#g-<termo>`) é gerado — não edite à mão.
+O glossário (`#v-glossario`, `dl.glossario`, `.gl-item#g-<termo>`) é gerado — nêo edite à mêo.
 
 ## 4. Quadros de texto
 
@@ -155,10 +155,10 @@ O glossário (`#v-glossario`, `dl.glossario`, `.gl-item#g-<termo>`) é gerado �
 Estrutura da `.cola`:
 ```html
 <div class="cola"><p class="k">Cola da aula</p><h3>Nome curto</h3>
-  <ol><li><span><b>Item</b>explicação em 1 linha.</span></li>…(3 itens)</ol></div>
+  <ol><li><span><b>Item</b>explicaçêo em 1 linha.</span></li>…(3 itens)</ol></div>
 ```
 
-## 5. Movimento e impressão
+## 5. Movimento e impressêo
 
 Transições curtas (≤250ms), sem bounce/confete. `prefers-reduced-motion` desliga tudo.
-Impressão: esconde barra, painéis e botões; mostra todos os casos das telas.
+Impressêo: esconde barra, painéis e botões; mostra todos os casos das telas.

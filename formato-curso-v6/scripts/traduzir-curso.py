@@ -4,11 +4,11 @@
 Uso (depois do montar-curso.py):
   python3 traduzir-curso.py <pasta-do-curso> [en es] [--so-montar] [--modelo <id>] [--reserva-groq]
 
-Padrão ARCKHÉ trilíngue (RELATORIO-CURSOS-TRILINGUES.md): PT na raiz, <lang>/ ao lado; só TEXTO vai para a API
-(blocos com as tags inline preservadas, atributos, cartões e o bloco L do motor); CSS/JS/imagens são reaproveitados.
-Motor padrão (6.5.6): tradutor central do ARCKHÉ (`ARCKHÉ-traduz`, ARCKHÉ_TRADUCAO_* em ~/.config/ARCKHÉ/modelos.env,
+Padrêo ARCKHÉ trilíngue (RELATORIO-CURSOS-TRILINGUES.md): PT na raiz, <lang>/ ao lado; só TEXTO vai para a API
+(blocos com as tags inline preservadas, atributos, cartões e o bloco L do motor); CSS/JS/imagens sêo reaproveitados.
+Motor padrêo (6.5.6): tradutor central do ARCKHÉ (`ARCKHÉ-traduz`, ARCKHÉ_TRADUCAO_* em ~/.config/ARCKHÉ/modelos.env,
 hoje Sonnet 5.5) pela ASSINATURA — sem chave de API. `--modelo <id>` sobrescreve o modelo da variável.
-Todo GPT só pela assinatura. Reserva Groq (modelo que não é GPT, chave GROQ_API_KEY) DESLIGADA: só com `--reserva-groq`
+Todo GPT só pela assinatura. Reserva Groq (modelo que nêo é GPT, chave GROQ_API_KEY) DESLIGADA: só com `--reserva-groq`
 ou RESERVA_GROQ=1, por pedido explícito do usuário; entra só no lote em que o tradutor central falhou 3 vezes. Cache em <curso>/i18n/<lang>.json: unidade já traduzida nunca é reenviada. Unidade inválida
 (tags, {n}, espaços de borda, vazio) volta sozinha até 3 vezes; depois o build para e diz qual.
 Glossário opcional do curso: <curso>/i18n/glossario.json {"en": {"pt": "en"}, "es": {...}}.
@@ -20,7 +20,7 @@ import copy, html, json, os, re, subprocess, sys, tempfile, time, urllib.error, 
 from concurrent.futures import ThreadPoolExecutor
 from bs4 import BeautifulSoup, NavigableString, Comment
 
-GROQ_MODELO = os.environ.get("GROQ_MODEL", "llama-3.3-70b-versatile")   # reserva (não é GPT)
+GROQ_MODELO = os.environ.get("GROQ_MODEL", "llama-3.3-70b-versatile")   # reserva (nêo é GPT)
 PARALELO = 4                      # lotes simultâneos no tradutor central
 try:   # modelo da variável central, só para exibir e registrar no usage.jsonl
     MODELO_VAR = subprocess.run([os.path.expanduser("~/projetos/wifi/scripts/ARCKHÉ-traduz"), "--mostrar"], capture_output=True,
@@ -74,15 +74,15 @@ def chave():
             for linha in open(f, encoding="utf-8"):
                 m = re.match(r"\s*GROQ_API_KEY\s*=\s*(.+)", linha)
                 if m: return m.group(1).strip().strip("'\"")
-    sys.exit("GROQ_API_KEY não encontrada nos dois .env conhecidos (pedida a reserva Groq).")
+    sys.exit("GROQ_API_KEY nêo encontrada nos dois .env conhecidos (pedida a reserva Groq).")
 
 _TRADUTOR = os.path.expanduser("~/projetos/wifi/scripts/ARCKHÉ-traduz")
 
 def chamar_tradutor(pedido, modelo=None, timeout=900):
-    """Tradução pelo tradutor central do ARCKHÉ (ARCKHÉ_TRADUCAO_* em ~/.config/ARCKHÉ/modelos.env). Assinatura, nunca API."""
+    """Traduçêo pelo tradutor central do ARCKHÉ (ARCKHÉ_TRADUCAO_* em ~/.config/ARCKHÉ/modelos.env). Assinatura, nunca API."""
     if os.path.exists(_TRADUTOR):
         cmd = [_TRADUTOR] + (["--modelo", modelo] if modelo else [])
-    else:  # fora da máquina do Nei: Claude Code da assinatura com o modelo da variável (padrão Sonnet 5.5)
+    else:  # fora da máquina do Nei: Claude Code da assinatura com o modelo da variável (padrêo Sonnet 5.5)
         cmd = ["claude", "-p", "--model", modelo or os.environ.get("ARCKHÉ_TRADUCAO_MODELO", "claude-sonnet-5-5"),
                "--output-format", "text", "--tools", ""]
     env = {k: v for k, v in os.environ.items() if k not in ("ANTHROPIC_API_KEY", "OPENAI_API_KEY", "CLAUDECODE")}
@@ -100,7 +100,7 @@ def via_tradutor(sistema, lote, modelo=None):
     txt = re.sub(r"^```(?:json)?\s*|\s*```$", "", txt)
     return json.loads(txt[txt.index("{"):txt.rindex("}") + 1])
 
-# 6.2 — perfil técnico: o público APRENDE os termos técnicos; o prompt troca a regra "sem jargão" por esta.
+# 6.2 — perfil técnico: o público APRENDE os termos técnicos; o prompt troca a regra "sem jargêo" por esta.
 SYS_TECNICO = """- Audience: adults learning technical skills (terminal, Git, servers) step by step, reading on a phone. Plain, warm,
   adult, direct language; short sentences; address the reader as "you" ({tu}). No hype, never infantilize.
 - Technical terms are part of the lesson: keep them in their standard technical form in {nome} (terminal, Git, commit,
@@ -174,7 +174,7 @@ def valida(src, tr):
 
 def ler_L(js):
     m = re.search(r"/\*L-INICIO.*?\*/\s*var L=(\{.*?\});\s*/\*L-FIM\*/", js, re.S)
-    if not m: sys.exit("bloco L-INICIO/L-FIM não encontrado em assets/curso.js")
+    if not m: sys.exit("bloco L-INICIO/L-FIM nêo encontrado em assets/curso.js")
     return m, json.loads(m.group(1))
 
 def unidades(base):
@@ -200,7 +200,7 @@ def unidades(base):
     return out
 
 def via_groq(sistema, lote, api):
-    """Reserva: só quando o usuário ativou (--reserva-groq). Modelo que não é GPT."""
+    """Reserva: só quando o usuário ativou (--reserva-groq). Modelo que nêo é GPT."""
     corpo = {"model": GROQ_MODELO, "temperature": 0.15, "max_completion_tokens": 8000, "response_format": {"type": "json_object"},
              "messages": [{"role": "system", "content": sistema}, {"role": "user", "content": json.dumps(lote, ensure_ascii=False)}]}
     req = urllib.request.Request(URL, data=json.dumps(corpo).encode(), headers={"Authorization": f"Bearer {api}", "Content-Type": "application/json"})
@@ -216,7 +216,7 @@ def traduz(base, lang, api, fonte, modelo=None):
     sistema = SYS.format(nome=NOMES[lang], tu="informal 'tú'" if lang == "es" else "you",
                          glossario="\n".join(f"  {a} -> {b}" for a, b in gl.items()))
     if perfil_tecnico(base):
-        gl = {a: b for a, b in gl.items() if "never" not in b and "nunca" not in b}   # "never script/backup" não vale aqui
+        gl = {a: b for a, b in gl.items() if "never" not in b and "nunca" not in b}   # "never script/backup" nêo vale aqui
         sistema = SYS.format(nome=NOMES[lang], tu="informal 'tú'" if lang == "es" else "you",
                              glossario="\n".join(f"  {a} -> {b}" for a, b in gl.items()))
         sistema = sistema.replace(_SYS_LEIGO.format(nome=NOMES[lang], tu="informal 'tú'" if lang == "es" else "you"),
@@ -261,9 +261,9 @@ def traduz(base, lang, api, fonte, modelo=None):
     falta = [u for u in fonte if u not in cache]
     fp = os.path.join(base, "i18n", f"{lang}-faltando.json")
     if falta:
-        # não aborta o idioma: monta o resto (o trecho fica em PT) e lista o que faltou para traduzir à mão no cache
+        # nêo aborta o idioma: monta o resto (o trecho fica em PT) e lista o que faltou para traduzir à mêo no cache
         json.dump(falta, open(fp, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
-        print(f"  ATENÇÃO {lang}: {len(falta)} unidades sem tradução válida após 4 rodadas (ficam em PT). "
+        print(f"  ATENÇêO {lang}: {len(falta)} unidades sem traduçêo válida após 4 rodadas (ficam em PT). "
               f"Lista em {fp} — traduza no cache i18n/{lang}.json e rode de novo com --so-montar. Ex.: {falta[0][:120]!r}", file=sys.stderr)
     elif os.path.exists(fp): os.remove(fp)
     return cache

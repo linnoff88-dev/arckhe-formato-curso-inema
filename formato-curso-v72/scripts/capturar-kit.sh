@@ -9,9 +9,9 @@
 # caminho por /tmp e o $HOME por ~ na saída, para a aba mostrar o que o aluno vê sem sujar o /tmp da máquina.
 # Teto por bloco: timeout ${CAPTURA_TIMEOUT:-600} s e MemoryMax=${CAPTURA_MEM:-8G} (systemd-run --user --scope),
 # para render de vídeo numa máquina carregada. Criado no piloto formacao-cinema-ia-motion-v72 (19/10/2026).
-# 7.13.17: o mktemp padrão fica em /tmp (curto: TMPDIR no scratchpad passa do limite do socket do Chromium) e a
+# 7.13.17: o mktemp padrêo fica em /tmp (curto: TMPDIR no scratchpad passa do limite do socket do Chromium) e a
 # porta de servidor local que o sistema escolheu (127.0.0.1:41234) vira 127.0.0.1:<porta> na saída, para a
-# captura não mudar a cada rodada (kit que serve a página na porta 0, como o formacao-cinema-ia-sites-v72).
+# captura nêo mudar a cada rodada (kit que serve a página na porta 0, como o formacao-cinema-ia-sites-v72).
 set -uo pipefail
 C=$(cd "${1:?uso: capturar-kit.sh <curso> [bloco…]}" && pwd); shift
 K="$C/kit"; [ -d "$K/blocos" ] || { echo "sem $K/blocos"; exit 2; }

@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="curso" content="v4hooks:curso">
-<title>Automação &amp; Hooks · Claude Code na prática · ARCKHÉ AI PRO</title>
+<title>Automaçêo &amp; Hooks · Claude Code na prática · ARCKHÉ AI PRO</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Inter:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
@@ -15,7 +15,7 @@
   .view{display:none}
   .view.active{display:block}
 
-  /* ---- navegação entre aulas (rodapé de cada aula) ---- */
+  /* ---- navegaçêo entre aulas (rodapé de cada aula) ---- */
   .lnav{max-width:1160px;margin:0 auto 5vh;padding:0 clamp(24px,5vw,60px);display:flex;justify-content:space-between;gap:12px}
   .lnav a{font-family:var(--mono);font-size:12px;color:var(--muted);text-decoration:none;border:1px solid var(--line2);border-radius:12px;padding:12px 16px;transition:border-color .2s,color .2s}
   .lnav a:hover{border-color:var(--accent);color:var(--ink)}
@@ -71,7 +71,7 @@
 <div class="subnav"><div class="subnav-inner">
   <a href="landing.html#trilhas" class="soon">01 Fundamentos</a>
   <a href="landing.html#trilhas" class="soon">02 Fluxo</a>
-  <a href="#trilha" class="cur">03 Automação</a>
+  <a href="#trilha" class="cur">03 Automaçêo</a>
   <a href="landing.html#trilhas" class="soon">04 Agentes</a>
   <a href="landing.html#trilhas" class="soon">05 MCP</a>
   <a href="landing.html#trilhas" class="soon">06 Escala</a>
@@ -82,9 +82,9 @@
 <section class="view" id="v-trilha">
   <header class="t-hero"><div class="wrap">
     <p class="crumb"><a href="landing.html">Claude Code na prática</a> / Trilha 03</p>
-    <p class="kicker">Trilha 03 · Automação</p>
-    <h1>Automação &amp; <em>Hooks</em></h1>
-    <p class="lead">Faça o Claude Code seguir suas regras sozinho: hooks em cada momento, <code style="font-family:var(--mono);font-size:.8em;color:var(--accent)">settings.json</code>, travas de segurança e integração com CI.</p>
+    <p class="kicker">Trilha 03 · Automaçêo</p>
+    <h1>Automaçêo &amp; <em>Hooks</em></h1>
+    <p class="lead">Faça o Claude Code seguir suas regras sozinho: hooks em cada momento, <code style="font-family:var(--mono);font-size:.8em;color:var(--accent)">settings.json</code>, travas de segurança e integraçêo com CI.</p>
     <div class="statcards">
       <div class="sc"><b>5</b><span>aulas</span></div>
       <div class="sc"><b>~48</b><span>minutos</span></div>
@@ -94,7 +94,7 @@
 
   <section><div class="wrap">
     <p class="eyebrow">Aulas desta trilha</p>
-    <h2>Do <em>primeiro</em> hook à automação completa</h2>
+    <h2>Do <em>primeiro</em> hook à automaçêo completa</h2>
     <div class="aulas">
 
       <a class="au on" data-aula="1" href="#aula-1">
@@ -121,7 +121,7 @@
         <div class="num">3</div>
         <div>
           <h3>Hooks que protegem</h3>
-          <p>Travas com <code style="font-family:var(--mono);font-size:.8em">exit 2</code>, ler o comando, casos reais e pedir confirmação.</p>
+          <p>Travas com <code style="font-family:var(--mono);font-size:.8em">exit 2</code>, ler o comando, casos reais e pedir confirmaçêo.</p>
           <div class="prog"><i></i></div>
         </div>
         <div class="meta">4 seções · abrir →</div>
@@ -141,7 +141,7 @@
         <div class="num">5</div>
         <div>
           <h3>Hooks em equipe e CI</h3>
-          <p>Versionar pro time, determinismo, modo headless em pipeline e a higiene pra não se machucar.</p>
+          <p>Versionar pro time, determinismo, modo headless em pipeline e a higiene pra nêo se machucar.</p>
           <div class="prog"><i></i></div>
         </div>
         <div class="meta">4 seções · abrir →</div>
@@ -155,7 +155,7 @@
     </div>
   </div></section>
 
-  <footer><div class="wrap">Trilha 03 · Automação &amp; Hooks · ARCKHÉ AI PRO</div></footer>
+  <footer><div class="wrap">Trilha 03 · Automaçêo &amp; Hooks · ARCKHÉ AI PRO</div></footer>
 </section>
 
 <!-- ===================== VIEW: AULA 1 ===================== -->
@@ -187,13 +187,13 @@
     <section class="step" data-fig="1">
       <h2><span class="n">01</span> O que é um hook</h2>
       <p>Um hook é uma <b>ordem automática</b> que você dá ao Claude Code: "toda vez que acontecer <b>isto</b>, rode <b>aquilo</b>". O <b>isto</b> é um momento (um evento); o <b>aquilo</b> é um comando seu — um script, um formatador, um aviso. O Claude dispara sozinho, sem você pedir de novo.</p>
-      <p>Sem hook, você repete as mesmas instruções ("formata o código", "não roda isso") a cada sessão, e torce pra elas serem seguidas. Com hook, a regra vira <b>parte do ambiente</b>: automática, e o mesmo comportamento toda vez.</p>
+      <p>Sem hook, você repete as mesmas instruções ("formata o código", "nêo roda isso") a cada sessêo, e torce pra elas serem seguidas. Com hook, a regra vira <b>parte do ambiente</b>: automática, e o mesmo comportamento toda vez.</p>
       <div class="mobfig" data-mobfig="1"></div>
       <div class="quiz" data-answer="b">
         <p class="qk">Teste-se</p>
         <p class="q">Um hook, na prática, é:</p>
         <button class="opt" data-k="a">um tema visual novo do editor</button>
-        <button class="opt" data-k="b" data-fb="É isso: um evento dispara um comando seu. Não é tema visual nem modelo de IA.">uma ordem automática: quando um evento acontece, roda um comando seu</button>
+        <button class="opt" data-k="b" data-fb="É isso: um evento dispara um comando seu. Nêo é tema visual nem modelo de IA.">uma ordem automática: quando um evento acontece, roda um comando seu</button>
         <button class="opt" data-k="c">um modelo de IA mais rápido</button>
         <p class="qfb"></p>
       </div>
@@ -204,13 +204,13 @@
       <h2><span class="n">02</span> Os momentos (eventos)</h2>
       <p>Cada hook se pendura num <b>evento</b> — um momento do trabalho do Claude. Os que mais importam pra começar:</p>
       <ul>
-        <li><b class="gterm" tabindex="0" data-def="Evento de hook que dispara ANTES de o Claude usar uma ferramenta. Pode barrar a ação saindo com exit 2.">PreToolUse</b> — <i>antes</i> do Claude usar uma ferramenta (ex.: antes de rodar um comando no terminal).</li>
+        <li><b class="gterm" tabindex="0" data-def="Evento de hook que dispara ANTES de o Claude usar uma ferramenta. Pode barrar a açêo saindo com exit 2.">PreToolUse</b> — <i>antes</i> do Claude usar uma ferramenta (ex.: antes de rodar um comando no terminal).</li>
         <li><b class="gterm" tabindex="0" data-def="Evento de hook que dispara DEPOIS de uma ferramenta rodar. Bom para formatar o arquivo recém-editado.">PostToolUse</b> — <i>depois</i> (ex.: formatar o arquivo assim que ele é editado).</li>
         <li><b>UserPromptSubmit</b> — quando <i>você</i> envia uma mensagem.</li>
         <li><b>Stop</b> — quando o Claude <i>termina</i> de responder.</li>
-        <li><b>SessionStart</b> — quando a sessão <i>começa</i> (ótimo pra injetar contexto do projeto).</li>
+        <li><b>SessionStart</b> — quando a sessêo <i>começa</i> (ótimo pra injetar contexto do projeto).</li>
       </ul>
-      <p>Cada evento entrega ao seu comando os <b>detalhes</b> do que está acontecendo (qual ferramenta, qual arquivo) em JSON pela entrada padrão. Seu comando lê isso e decide o que fazer.</p>
+      <p>Cada evento entrega ao seu comando os <b>detalhes</b> do que está acontecendo (qual ferramenta, qual arquivo) em JSON pela entrada padrêo. Seu comando lê isso e decide o que fazer.</p>
       <div class="mobfig" data-mobfig="2"></div>
       <button class="readbtn" data-read="s2">marcar como lido</button>
     </section>
@@ -238,7 +238,7 @@
         <p class="q">O <code>matcher</code> "Edit|Write" serve pra:</p>
         <button class="opt" data-k="a">escolher a cor do hook</button>
         <button class="opt" data-k="b">rodar o comando duas vezes</button>
-        <button class="opt" data-k="c" data-fb="O matcher filtra por ferramenta; 'Edit|Write' pega edição ou escrita de arquivo.">dizer em quais ferramentas o hook pega</button>
+        <button class="opt" data-k="c" data-fb="O matcher filtra por ferramenta; 'Edit|Write' pega ediçêo ou escrita de arquivo.">dizer em quais ferramentas o hook pega</button>
         <p class="qfb"></p>
       </div>
       <button class="readbtn" data-read="s3">marcar como lido</button>
@@ -246,18 +246,18 @@
 
     <section class="step" data-fig="4">
       <h2><span class="n">04</span> Um hook que protege</h2>
-      <p>No <b>PreToolUse</b>, seu comando pode <b>bloquear</b> a ação antes dela rodar. Se o comando <b>sai com código 2</b>, o Claude não executa aquilo — e a mensagem que você imprime vira o <b>motivo</b> mostrado a ele. É assim que você barra o perigoso (um <code>rm -rf</code>, um push na main) antes de acontecer.</p>
+      <p>No <b>PreToolUse</b>, seu comando pode <b>bloquear</b> a açêo antes dela rodar. Se o comando <b>sai com código 2</b>, o Claude nêo executa aquilo — e a mensagem que você imprime vira o <b>motivo</b> mostrado a ele. É assim que você barra o perigoso (um <code>rm -rf</code>, um push na main) antes de acontecer.</p>
       <pre><span class="c"># bloqueia rm -rf; recebe o comando por stdin (JSON)</span>
 grep -q "rm -rf" &amp;&amp; { echo "bloqueado: comando destrutivo" &gt;&amp;2; exit 2; }
 exit 0</pre>
-      <p>Exit <code>0</code> = pode seguir. Exit <code>2</code> = barra e devolve o motivo. Simples e poderoso: você transforma "por favor não faça" numa <b>trava real</b>.</p>
+      <p>Exit <code>0</code> = pode seguir. Exit <code>2</code> = barra e devolve o motivo. Simples e poderoso: você transforma "por favor nêo faça" numa <b>trava real</b>.</p>
       <div class="mobfig" data-mobfig="4"></div>
       <div class="quiz" data-answer="c">
         <p class="qk">Teste-se</p>
         <p class="q">Para o hook PreToolUse <i>barrar</i> um comando, ele deve sair com código:</p>
         <button class="opt" data-k="a">0</button>
         <button class="opt" data-k="b">1</button>
-        <button class="opt" data-k="c" data-fb="exit 2 barra a ação, e o que você imprime no stderr vira o motivo. exit 0 libera.">2</button>
+        <button class="opt" data-k="c" data-fb="exit 2 barra a açêo, e o que você imprime no stderr vira o motivo. exit 0 libera.">2</button>
         <p class="qfb"></p>
       </div>
       <button class="readbtn" data-read="s4">marcar como lido</button>
@@ -265,17 +265,17 @@ exit 0</pre>
 
     <section class="step" data-fig="5">
       <h2><span class="n">05</span> Ideias pra começar</h2>
-      <p>Você não precisa de muitos. Comece com <b>um</b> hook que te tire uma preocupação repetida da cabeça:</p>
+      <p>Você nêo precisa de muitos. Comece com <b>um</b> hook que te tire uma preocupaçêo repetida da cabeça:</p>
       <ul>
         <li><b>Formatar ao salvar</b> — PostToolUse em Edit/Write roda o formatador. Nunca mais código torto.</li>
-        <li><b>Avisar quando terminar</b> — Stop dispara uma notificação ou um som.</li>
+        <li><b>Avisar quando terminar</b> — Stop dispara uma notificaçêo ou um som.</li>
         <li><b>Registrar comandos</b> — PreToolUse em Bash grava num log tudo que foi rodado.</li>
         <li><b>Injetar as regras do projeto</b> — SessionStart imprime seu CLAUDE.md, e o Claude já começa alinhado.</li>
       </ul>
-      <p>O melhor hook é o mais chato de fazer na mão. Automatize <b>esse</b> primeiro.</p>
+      <p>O melhor hook é o mais chato de fazer na mêo. Automatize <b>esse</b> primeiro.</p>
       <details>
         <summary>Indo mais fundo</summary>
-        <p>Além do exit code, hooks podem devolver <b>JSON</b> pela saída (uma decisão de aprovar/bloquear com motivo), usar <b>matchers</b> mais finos, e existem outros eventos: <code>SubagentStop</code>, <code>Notification</code>, <code>PreCompact</code>, <code>SessionEnd</code>. Continua nas próximas aulas.</p>
+        <p>Além do exit code, hooks podem devolver <b>JSON</b> pela saída (uma decisêo de aprovar/bloquear com motivo), usar <b>matchers</b> mais finos, e existem outros eventos: <code>SubagentStop</code>, <code>Notification</code>, <code>PreCompact</code>, <code>SessionEnd</code>. Continua nas próximas aulas.</p>
       </details>
       <div class="mobfig" data-mobfig="5"></div>
       <button class="readbtn" data-read="s5">marcar como lido</button>
@@ -284,7 +284,7 @@ exit 0</pre>
     <section class="practice" data-practice="p1">
       <p class="pk">Pratique agora <span class="pcount">0/4 feito</span></p>
       <h3 class="ph">Seu primeiro hook: registrar comandos</h3>
-      <p class="pgoal">Faça o Claude gravar cada comando num arquivo — e veja funcionar. Uns 5 minutos, e seguro: o hook só <b>observa</b> (sai com <code>exit 0</code>), não bloqueia nada.</p>
+      <p class="pgoal">Faça o Claude gravar cada comando num arquivo — e veja funcionar. Uns 5 minutos, e seguro: o hook só <b>observa</b> (sai com <code>exit 0</code>), nêo bloqueia nada.</p>
       <div class="pcodewrap"><button class="pcopy" type="button">copiar</button><pre class="pcode">{
   <span class="k">"hooks"</span>: {
     <span class="k">"PreToolUse"</span>: [
@@ -363,20 +363,20 @@ exit 0</pre>
     </div>
     <p class="railcap"></p>
     <div class="steps-ind"></div>
-    <p class="sidenote">Grife qualquer trecho do texto para virar um <b>flashcard</b> de revisão — ele aparece em "revisar".</p>
+    <p class="sidenote">Grife qualquer trecho do texto para virar um <b>flashcard</b> de revisêo — ele aparece em "revisar".</p>
   </div></aside>
 </div>
 
 <nav class="lnav"><a href="#trilha">← trilha</a><a href="#aula-2">Aula 2 · settings.json a fundo →</a></nav>
-<footer>Aula 1 de 5 · Trilha 03 · Automação &amp; Hooks · ARCKHÉ AI PRO</footer>
+<footer>Aula 1 de 5 · Trilha 03 · Automaçêo &amp; Hooks · ARCKHÉ AI PRO</footer>
 
 <script type="application/json" id="cards-1">
 [
   {"front":"O que é um hook no Claude Code?","back":"Uma ordem automática: quando um evento acontece, roda um comando seu."},
   {"front":"Qual evento roda DEPOIS de editar um arquivo?","back":"PostToolUse."},
   {"front":"Qual evento roda ANTES de uma ferramenta ser usada?","back":"PreToolUse."},
-  {"front":"Como um hook PreToolUse bloqueia uma ação?","back":"Saindo com código 2 (exit 2); a mensagem impressa vira o motivo."},
-  {"front":"Onde os hooks são configurados?","back":"No settings.json (do projeto em .claude/ ou global em ~/.claude/)."},
+  {"front":"Como um hook PreToolUse bloqueia uma açêo?","back":"Saindo com código 2 (exit 2); a mensagem impressa vira o motivo."},
+  {"front":"Onde os hooks sêo configurados?","back":"No settings.json (do projeto em .claude/ ou global em ~/.claude/)."},
   {"front":"Qual evento é ótimo para injetar contexto do projeto?","back":"SessionStart."}
 ]
 </script>
@@ -418,10 +418,10 @@ exit 0</pre>
       <div class="mobfig" data-mobfig="1"></div>
       <div class="quiz" data-answer="c">
         <p class="qk">Teste-se</p>
-        <p class="q">Qual arquivo é pessoal e NÃO vai pro Git?</p>
+        <p class="q">Qual arquivo é pessoal e NêO vai pro Git?</p>
         <button class="opt" data-k="a">~/.claude/settings.json</button>
         <button class="opt" data-k="b">.claude/settings.json</button>
-        <button class="opt" data-k="c" data-fb="O .local.json fica no .gitignore, é só seu. Os outros dois vão pro time (projeto) ou pra todos (global).">.claude/settings.local.json</button>
+        <button class="opt" data-k="c" data-fb="O .local.json fica no .gitignore, é só seu. Os outros dois vêo pro time (projeto) ou pra todos (global).">.claude/settings.local.json</button>
         <p class="qfb"></p>
       </div>
       <button class="readbtn" data-read="s1">marcar como lido</button>
@@ -452,16 +452,16 @@ exit 0</pre>
       <p>Para <code>PreToolUse</code> e <code>PostToolUse</code>, o matcher casa com o <b>nome da ferramenta</b>. Três formas:</p>
       <ul>
         <li><b>Nome exato</b> — <code>"Bash"</code> pega só o terminal.</li>
-        <li><b>Alternância</b> — <code>"Edit|Write"</code> pega edição <i>ou</i> escrita de arquivo.</li>
+        <li><b>Alternância</b> — <code>"Edit|Write"</code> pega ediçêo <i>ou</i> escrita de arquivo.</li>
         <li><b>Tudo</b> — <code>"*"</code> (ou vazio) pega qualquer ferramenta.</li>
       </ul>
-      <p>Eventos que não são de ferramenta (como <code>SessionStart</code> ou <code>Stop</code>) não usam matcher de ferramenta — eles simplesmente disparam no momento.</p>
+      <p>Eventos que nêo sêo de ferramenta (como <code>SessionStart</code> ou <code>Stop</code>) nêo usam matcher de ferramenta — eles simplesmente disparam no momento.</p>
       <div class="mobfig" data-mobfig="3"></div>
       <div class="quiz" data-answer="b">
         <p class="qk">Teste-se</p>
         <p class="q">Para um hook pegar tanto Edit quanto Write, o matcher é:</p>
         <button class="opt" data-k="a">"Edit,Write"</button>
-        <button class="opt" data-k="b" data-fb="A barra vertical | é alternância: pega Edit OU Write. Vírgula ou 'e' não funcionam.">"Edit|Write"</button>
+        <button class="opt" data-k="b" data-fb="A barra vertical | é alternância: pega Edit OU Write. Vírgula ou 'e' nêo funcionam.">"Edit|Write"</button>
         <button class="opt" data-k="c">"Edit e Write"</button>
         <p class="qfb"></p>
       </div>
@@ -470,7 +470,7 @@ exit 0</pre>
 
     <section class="step" data-fig="4">
       <h2><span class="n">04</span> O que o hook recebe</h2>
-      <p>Na hora de rodar, o Claude entrega ao seu comando um <b>JSON pela entrada padrão</b> (stdin) com o contexto: qual evento, qual ferramenta, e a entrada dela.</p>
+      <p>Na hora de rodar, o Claude entrega ao seu comando um <b>JSON pela entrada padrêo</b> (stdin) com o contexto: qual evento, qual ferramenta, e a entrada dela.</p>
       <pre><span class="c"># lê o comando que o Bash ia rodar</span>
 cmd=$(jq -r '.tool_input.command')
 <span class="c"># lê o arquivo que foi editado</span>
@@ -506,7 +506,7 @@ file=$(jq -r '.tool_input.file_path')</pre>
         <li><label><input type="checkbox" data-ptask="3"> Rode <code>cat .claude/edits.log</code> no terminal.</label></li>
         <li><label><input type="checkbox" data-ptask="4"> Ache o <code>file_path</code> dentro do <code>tool_input</code> — é daí que o <code>jq</code> tira o valor.</label></li>
       </ol>
-      <p class="pdone">✓ Você viu o payload real. O matcher <code>Edit|Write</code> e o stdin deixam de ser abstração: é este JSON que o hook lê.</p>
+      <p class="pdone">✓ Você viu o payload real. O matcher <code>Edit|Write</code> e o stdin deixam de ser abstraçêo: é este JSON que o hook lê.</p>
     </section>
   </div>
 
@@ -552,19 +552,19 @@ file=$(jq -r '.tool_input.file_path')</pre>
     </div>
     <p class="railcap"></p>
     <div class="steps-ind"></div>
-    <p class="sidenote">Grife qualquer trecho do texto para virar um <b>flashcard</b> de revisão.</p>
+    <p class="sidenote">Grife qualquer trecho do texto para virar um <b>flashcard</b> de revisêo.</p>
   </div></aside>
 </div>
 
 <nav class="lnav"><a href="#aula-1">← Aula 1</a><a href="#aula-3">Aula 3 · Hooks que protegem →</a></nav>
-<footer>Aula 2 de 5 · Trilha 03 · Automação &amp; Hooks · ARCKHÉ AI PRO</footer>
+<footer>Aula 2 de 5 · Trilha 03 · Automaçêo &amp; Hooks · ARCKHÉ AI PRO</footer>
 
 <script type="application/json" id="cards-2">
 [
-  {"front":"Quais são os três lugares onde um hook pode viver?","back":"Global (~/.claude/settings.json), projeto (.claude/settings.json) e local (.claude/settings.local.json)."},
+  {"front":"Quais sêo os três lugares onde um hook pode viver?","back":"Global (~/.claude/settings.json), projeto (.claude/settings.json) e local (.claude/settings.local.json)."},
   {"front":"Em conflito de settings, qual vence?","back":"O mais específico: local > projeto > global."},
   {"front":"Qual matcher pega Edit OU Write?","back":"\"Edit|Write\" (alternância com | )."},
-  {"front":"Como o hook recebe o contexto do que vai acontecer?","back":"Um JSON pela entrada padrão (stdin); lê-se com jq (ex.: .tool_input.command)."},
+  {"front":"Como o hook recebe o contexto do que vai acontecer?","back":"Um JSON pela entrada padrêo (stdin); lê-se com jq (ex.: .tool_input.command)."},
   {"front":"Que variável aponta pra raiz do projeto?","back":"$CLAUDE_PROJECT_DIR."}
 ]
 </script>
@@ -576,7 +576,7 @@ file=$(jq -r '.tool_input.file_path')</pre>
   <div>
     <p class="kicker">Trilha 03 · Aula 3 · Iniciante</p>
     <h1>Hooks que<br><em>protegem</em></h1>
-    <p class="lead">Transformar "por favor não faça isso" numa trava de verdade: barrar o perigoso antes de acontecer, ou pedir confirmação.</p>
+    <p class="lead">Transformar "por favor nêo faça isso" numa trava de verdade: barrar o perigoso antes de acontecer, ou pedir confirmaçêo.</p>
     <p class="cue"><span class="arw">↓</span> role para estudar</p>
   </div>
   <div class="herofig">
@@ -595,16 +595,16 @@ file=$(jq -r '.tool_input.file_path')</pre>
       <p>Uma trava é um hook de <code>PreToolUse</code>: ele roda <b>antes</b> da ferramenta e decide se ela pode seguir. O sinal é o <b>código de saída</b>:</p>
       <ul>
         <li><b>exit 0</b> — tudo bem, pode rodar.</li>
-        <li><b>exit 2</b> — <b>barra</b>. O Claude não executa, e o que você imprimiu no <code>stderr</code> vira o motivo.</li>
+        <li><b>exit 2</b> — <b>barra</b>. O Claude nêo executa, e o que você imprimiu no <code>stderr</code> vira o motivo.</li>
       </ul>
-      <p>Repare: a trava não "avisa depois" — ela <b>impede antes</b>. É a diferença entre um extintor e um relatório de incêndio.</p>
+      <p>Repare: a trava nêo "avisa depois" — ela <b>impede antes</b>. É a diferença entre um extintor e um relatório de incêndio.</p>
       <div class="mobfig" data-mobfig="1"></div>
       <div class="quiz" data-answer="c">
         <p class="qk">Teste-se</p>
-        <p class="q">Qual código de saída BARRA a ação no PreToolUse?</p>
+        <p class="q">Qual código de saída BARRA a açêo no PreToolUse?</p>
         <button class="opt" data-k="a">exit 0</button>
         <button class="opt" data-k="b">exit 1</button>
-        <button class="opt" data-k="c" data-fb="No PreToolUse, exit 2 barra a ação antes de rodar; exit 0 deixa seguir.">exit 2</button>
+        <button class="opt" data-k="c" data-fb="No PreToolUse, exit 2 barra a açêo antes de rodar; exit 0 deixa seguir.">exit 2</button>
         <p class="qfb"></p>
       </div>
       <button class="readbtn" data-read="s1">marcar como lido</button>
@@ -630,16 +630,16 @@ exit 0</pre>
       <p>Três travas que salvam o dia mais cedo do que tarde:</p>
       <ul>
         <li><b>Nada de <code>rm -rf</code></b> em caminhos amplos — o clássico acidente irreversível.</li>
-        <li><b>Não tocar em segredos</b> — barrar edição de <code>.env</code>, <code>*.pem</code>, chaves.</li>
-        <li><b>Não empurrar na <code>main</code></b> — barrar <code>git push</code> direto no branch protegido.</li>
+        <li><b>Nêo tocar em segredos</b> — barrar ediçêo de <code>.env</code>, <code>*.pem</code>, chaves.</li>
+        <li><b>Nêo empurrar na <code>main</code></b> — barrar <code>git push</code> direto no branch protegido.</li>
       </ul>
-      <p>Não precisa prever tudo. Cada susto vira uma linha nova na trava — e ela fica mais esperta com o tempo.</p>
+      <p>Nêo precisa prever tudo. Cada susto vira uma linha nova na trava — e ela fica mais esperta com o tempo.</p>
       <div class="mobfig" data-mobfig="3"></div>
       <div class="quiz" data-answer="b">
         <p class="qk">Teste-se</p>
         <p class="q">Onde o hook lê o comando que o Bash ia rodar?</p>
         <button class="opt" data-k="a">numa variável de ambiente $COMMAND</button>
-        <button class="opt" data-k="b" data-fb="O comando chega no JSON do stdin; você lê com jq. Não é variável de ambiente nem o settings.json.">no JSON do stdin (ex.: .tool_input.command)</button>
+        <button class="opt" data-k="b" data-fb="O comando chega no JSON do stdin; você lê com jq. Nêo é variável de ambiente nem o settings.json.">no JSON do stdin (ex.: .tool_input.command)</button>
         <button class="opt" data-k="c">no arquivo settings.json</button>
         <p class="qfb"></p>
       </div>
@@ -647,8 +647,8 @@ exit 0</pre>
     </section>
 
     <section class="step" data-fig="4">
-      <h2><span class="n">04</span> Pedir confirmação, não só barrar</h2>
-      <p>Nem tudo é preto no branco. Às vezes você não quer <b>proibir</b>, quer <b>ser avisado</b> pra confirmar. Em vez do <code>exit 2</code>, o hook pode devolver um <b>JSON</b> pedindo confirmação:</p>
+      <h2><span class="n">04</span> Pedir confirmaçêo, nêo só barrar</h2>
+      <p>Nem tudo é preto no branco. Às vezes você nêo quer <b>proibir</b>, quer <b>ser avisado</b> pra confirmar. Em vez do <code>exit 2</code>, o hook pode devolver um <b>JSON</b> pedindo confirmaçêo:</p>
       <pre>{ "hookSpecificOutput": {
     "hookEventName": "PreToolUse",
     "permissionDecision": "ask",
@@ -657,7 +657,7 @@ exit 0</pre>
       <div class="mobfig" data-mobfig="4"></div>
       <details>
         <summary>Indo mais fundo</summary>
-        <p>O <code>exit 2</code> é o caminho rápido; a saída JSON é a versão fina, com motivo estruturado. Comece pelo exit code — migre pro JSON quando precisar de "ask" ou mensagens mais ricas.</p>
+        <p>O <code>exit 2</code> é o caminho rápido; a saída JSON é a versêo fina, com motivo estruturado. Comece pelo exit code — migre pro JSON quando precisar de "ask" ou mensagens mais ricas.</p>
       </details>
       <button class="readbtn" data-read="s4">marcar como lido</button>
     </section>
@@ -683,9 +683,9 @@ exit 0</pre>
         <li><label><input type="checkbox" data-ptask="1"> Ponha o bloco no <code>.claude/settings.json</code> e salve.</label></li>
         <li><label><input type="checkbox" data-ptask="2"> Peça ao Claude pra rodar <code>echo BLOQUEIATESTE</code>.</label></li>
         <li><label><input type="checkbox" data-ptask="3"> Veja o Claude ser <b>barrado</b> com o seu motivo ("trava: comando de teste barrado").</label></li>
-        <li><label><input type="checkbox" data-ptask="4"> Troque <code>BLOQUEIATESTE</code> pelo padrão que você quer travar de verdade.</label></li>
+        <li><label><input type="checkbox" data-ptask="4"> Troque <code>BLOQUEIATESTE</code> pelo padrêo que você quer travar de verdade.</label></li>
       </ol>
-      <p class="pdone">✓ Você transformou uma regra em <b>trava real</b>: foi barrado antes de rodar, não é sugestão que o modelo pode ignorar.</p>
+      <p class="pdone">✓ Você transformou uma regra em <b>trava real</b>: foi barrado antes de rodar, nêo é sugestêo que o modelo pode ignorar.</p>
     </section>
   </div>
 
@@ -697,7 +697,7 @@ exit 0</pre>
           <rect class="breathe" x="40" y="112" width="140" height="34" rx="8" fill="none" stroke="#F2B45C"/><text x="54" y="134" font-family="Space Mono" font-size="11" fill="#F2B45C">exit 2 → barra</text>
         </svg>
       </div>
-      <div class="fig" data-fig="2" data-cap="<b>Fig.</b> stdin → jq → grep padrão perigoso">
+      <div class="fig" data-fig="2" data-cap="<b>Fig.</b> stdin → jq → grep padrêo perigoso">
         <svg viewBox="0 0 220 200" fill="none" aria-hidden="true">
           <rect x="20" y="80" width="52" height="40" rx="8" fill="#15131d" stroke="#37324a"/><text x="46" y="104" text-anchor="middle" font-family="Space Mono" font-size="9" fill="#948DA6">stdin</text>
           <path class="breathe" d="M76 100 H104" stroke="#7CE0C6" stroke-width="2"/><path d="M104 94 l9 6 -9 6z" fill="#7CE0C6"/>
@@ -723,19 +723,19 @@ exit 0</pre>
     </div>
     <p class="railcap"></p>
     <div class="steps-ind"></div>
-    <p class="sidenote">Grife qualquer trecho do texto para virar um <b>flashcard</b> de revisão.</p>
+    <p class="sidenote">Grife qualquer trecho do texto para virar um <b>flashcard</b> de revisêo.</p>
   </div></aside>
 </div>
 
 <nav class="lnav"><a href="#aula-2">← Aula 2</a><a href="#aula-4">Aula 4 · Formatar, notificar, logar →</a></nav>
-<footer>Aula 3 de 5 · Trilha 03 · Automação &amp; Hooks · ARCKHÉ AI PRO</footer>
+<footer>Aula 3 de 5 · Trilha 03 · Automaçêo &amp; Hooks · ARCKHÉ AI PRO</footer>
 
 <script type="application/json" id="cards-3">
 [
   {"front":"Que evento se usa para uma trava (bloquear antes de rodar)?","back":"PreToolUse — roda antes da ferramenta e pode barrar."},
   {"front":"O que exit 0 e exit 2 significam numa trava?","back":"exit 0 = pode seguir; exit 2 = barra, e o stderr vira o motivo."},
   {"front":"Como o hook vê o comando que o Bash ia rodar?","back":"No JSON do stdin: jq -r '.tool_input.command'."},
-  {"front":"Além de barrar, o que um PreToolUse pode fazer?","back":"Pedir confirmação via JSON com permissionDecision: ask (allow/deny/ask)."}
+  {"front":"Além de barrar, o que um PreToolUse pode fazer?","back":"Pedir confirmaçêo via JSON com permissionDecision: ask (allow/deny/ask)."}
 ]
 </script>
 </section>
@@ -788,7 +788,7 @@ exit 0</pre>
     <section class="step" data-fig="2">
       <h2><span class="n">02</span> Avisar quando terminar</h2>
       <p>Você saiu pra pegar um café e o Claude terminou faz tempo. O evento <code>Stop</code> resolve: dispara um aviso quando ele acaba de responder.</p>
-      <pre><span class="c"># Stop → notificação do sistema</span>
+      <pre><span class="c"># Stop → notificaçêo do sistema</span>
 notify-send "Claude" "terminou 👋"   <span class="c"># linux</span>
 <span class="c"># osascript -e 'display notification "terminou"'  (mac)</span></pre>
       <p>Um <code>afplay</code>/<code>paplay</code> com um som curto também funciona. Pequeno, mas muda seu fluxo: você para de vigiar o terminal.</p>
@@ -802,14 +802,14 @@ notify-send "Claude" "terminou 👋"   <span class="c"># linux</span>
       <pre><span class="c"># PreToolUse, matcher "Bash" → append num log</span>
 jq -r '.tool_input.command' &gt;&gt; "$CLAUDE_PROJECT_DIR/.claude/cmd.log"
 exit 0</pre>
-      <p>Sai com <code>exit 0</code> (não barra nada, só observa). Depois você tem um diário do que a sessão fez — ótimo pra auditar ou desfazer.</p>
+      <p>Sai com <code>exit 0</code> (nêo barra nada, só observa). Depois você tem um diário do que a sessêo fez — ótimo pra auditar ou desfazer.</p>
       <div class="mobfig" data-mobfig="3"></div>
       <div class="quiz" data-answer="a">
         <p class="qk">Teste-se</p>
         <p class="q">Um hook que só registra (sem barrar) deve sair com:</p>
-        <button class="opt" data-k="a" data-fb="Só observar (logar) não pode bloquear: saia com exit 0 pra o comando seguir.">exit 0</button>
+        <button class="opt" data-k="a" data-fb="Só observar (logar) nêo pode bloquear: saia com exit 0 pra o comando seguir.">exit 0</button>
         <button class="opt" data-k="b">exit 2</button>
-        <button class="opt" data-k="c">nenhum, ele não sai</button>
+        <button class="opt" data-k="c">nenhum, ele nêo sai</button>
         <p class="qfb"></p>
       </div>
       <button class="readbtn" data-read="s3">marcar como lido</button>
@@ -817,11 +817,11 @@ exit 0</pre>
 
     <section class="step" data-fig="4">
       <h2><span class="n">04</span> Injetar contexto no começo</h2>
-      <p>O evento <code>SessionStart</code> roda quando a sessão abre, e o que ele <b>imprime vira contexto</b> pro Claude. Use pra ele já começar sabendo do projeto:</p>
+      <p>O evento <code>SessionStart</code> roda quando a sessêo abre, e o que ele <b>imprime vira contexto</b> pro Claude. Use pra ele já começar sabendo do projeto:</p>
       <pre><span class="c"># SessionStart → estado atual entra no contexto</span>
 echo "Branch: $(git branch --show-current)"
 echo "Últimos commits:"; git log --oneline -5</pre>
-      <p>Assim o Claude abre a sessão já ciente do branch, do que mudou, das regras do projeto — sem você colar nada à mão.</p>
+      <p>Assim o Claude abre a sessêo já ciente do branch, do que mudou, das regras do projeto — sem você colar nada à mêo.</p>
       <div class="mobfig" data-mobfig="4"></div>
       <details>
         <summary>Indo mais fundo</summary>
@@ -833,7 +833,7 @@ echo "Últimos commits:"; git log --oneline -5</pre>
     <section class="practice" data-practice="p4">
       <p class="pk">Pratique agora <span class="pcount">0/3 feito</span></p>
       <h3 class="ph">Um aviso quando o Claude terminar</h3>
-      <p class="pgoal">Deixe o Claude carimbar um arquivo toda vez que terminar de responder — o gancho do evento <code>Stop</code>. Portável: não depende de desktop.</p>
+      <p class="pgoal">Deixe o Claude carimbar um arquivo toda vez que terminar de responder — o gancho do evento <code>Stop</code>. Portável: nêo depende de desktop.</p>
       <div class="pcodewrap"><button class="pcopy" type="button">copiar</button><pre class="pcode">{
   <span class="k">"hooks"</span>: {
     <span class="k">"Stop"</span>: [
@@ -890,12 +890,12 @@ echo "Últimos commits:"; git log --oneline -5</pre>
     </div>
     <p class="railcap"></p>
     <div class="steps-ind"></div>
-    <p class="sidenote">Grife qualquer trecho do texto para virar um <b>flashcard</b> de revisão.</p>
+    <p class="sidenote">Grife qualquer trecho do texto para virar um <b>flashcard</b> de revisêo.</p>
   </div></aside>
 </div>
 
 <nav class="lnav"><a href="#aula-3">← Aula 3</a><a href="#aula-5">Aula 5 · Hooks em equipe e CI →</a></nav>
-<footer>Aula 4 de 5 · Trilha 03 · Automação &amp; Hooks · ARCKHÉ AI PRO</footer>
+<footer>Aula 4 de 5 · Trilha 03 · Automaçêo &amp; Hooks · ARCKHÉ AI PRO</footer>
 
 <script type="application/json" id="cards-4">
 [
@@ -913,7 +913,7 @@ echo "Últimos commits:"; git log --oneline -5</pre>
   <div>
     <p class="kicker">Trilha 03 · Aula 5 · Iniciante</p>
     <h1>Hooks em<br><em>equipe</em> e CI</h1>
-    <p class="lead">O que muda quando os hooks saem da sua máquina: versionar pro time, confiar no determinismo, rodar em pipeline — e a higiene pra não se machucar.</p>
+    <p class="lead">O que muda quando os hooks saem da sua máquina: versionar pro time, confiar no determinismo, rodar em pipeline — e a higiene pra nêo se machucar.</p>
     <p class="cue"><span class="arw">↓</span> role para estudar</p>
   </div>
   <div class="herofig">
@@ -936,14 +936,14 @@ echo "Últimos commits:"; git log --oneline -5</pre>
       <p>Na sua máquina, o hook ajuda você. No <b>repositório</b>, ele ajuda o time inteiro. A diferença é só o arquivo:</p>
       <ul>
         <li><code>.claude/settings.json</code> — vai pro Git. Quem clonar o projeto <b>herda os mesmos hooks</b>.</li>
-        <li><code>.claude/settings.local.json</code> — fica no <code>.gitignore</code>. É seu, não sai da máquina.</li>
+        <li><code>.claude/settings.local.json</code> — fica no <code>.gitignore</code>. É seu, nêo sai da máquina.</li>
       </ul>
-      <p>Regra: trava de segurança e formatador que <b>todos</b> deveriam ter → versione. Atalho pessoal → local. Assim o padrão do time viaja junto com o código.</p>
+      <p>Regra: trava de segurança e formatador que <b>todos</b> deveriam ter → versione. Atalho pessoal → local. Assim o padrêo do time viaja junto com o código.</p>
       <div class="mobfig" data-mobfig="1"></div>
       <div class="quiz" data-answer="a">
         <p class="qk">Teste-se</p>
         <p class="q">Onde colocar um hook para TODO o time herdar?</p>
-        <button class="opt" data-k="a" data-fb="Vai pro Git, então quem clonar herda os mesmos hooks. O .local e o global não viajam com o projeto.">.claude/settings.json (versionado)</button>
+        <button class="opt" data-k="a" data-fb="Vai pro Git, entêo quem clonar herda os mesmos hooks. O .local e o global nêo viajam com o projeto.">.claude/settings.json (versionado)</button>
         <button class="opt" data-k="b">.claude/settings.local.json</button>
         <button class="opt" data-k="c">~/.claude/settings.json</button>
         <p class="qfb"></p>
@@ -953,8 +953,8 @@ echo "Últimos commits:"; git log --oneline -5</pre>
 
     <section class="step" data-fig="2">
       <h2><span class="n">02</span> Determinismo: dá pra confiar</h2>
-      <p>Um hook é um comando comum: <b>mesma entrada, mesmo resultado</b>. Ele não "acha" nada, não varia com o humor do modelo. Roda igual na sua máquina, na do colega e no servidor.</p>
-      <p>É essa previsibilidade que deixa você <b>confiar a segurança</b> a um hook. A trava que barra <code>rm -rf</code> vai barrar sempre — não é uma sugestão que o modelo pode ignorar, é código que sempre executa.</p>
+      <p>Um hook é um comando comum: <b>mesma entrada, mesmo resultado</b>. Ele nêo "acha" nada, nêo varia com o humor do modelo. Roda igual na sua máquina, na do colega e no servidor.</p>
+      <p>É essa previsibilidade que deixa você <b>confiar a segurança</b> a um hook. A trava que barra <code>rm -rf</code> vai barrar sempre — nêo é uma sugestêo que o modelo pode ignorar, é código que sempre executa.</p>
       <div class="mobfig" data-mobfig="2"></div>
       <button class="readbtn" data-read="s2">marcar como lido</button>
     </section>
@@ -962,13 +962,13 @@ echo "Últimos commits:"; git log --oneline -5</pre>
     <section class="step" data-fig="3">
       <h2><span class="n">03</span> Rodando sem ninguém olhando</h2>
       <p>O Claude Code roda também em <b>modo headless</b> — sem interface, tocado por script (<code>claude -p "…"</code>), dentro de um pipeline de CI. E os <b>hooks continuam valendo</b>.</p>
-      <p>Ou seja: o formatador, a trava e o log que você montou pra usar no dia a dia <b>também protegem a automação</b>. O mesmo padrão vale pro humano e pro robô — você configura uma vez.</p>
+      <p>Ou seja: o formatador, a trava e o log que você montou pra usar no dia a dia <b>também protegem a automaçêo</b>. O mesmo padrêo vale pro humano e pro robô — você configura uma vez.</p>
       <div class="mobfig" data-mobfig="3"></div>
       <div class="quiz" data-answer="b">
         <p class="qk">Teste-se</p>
         <p class="q">No modo headless (CI), os hooks configurados:</p>
-        <button class="opt" data-k="a">são ignorados</button>
-        <button class="opt" data-k="b" data-fb="Hooks valem em headless (claude -p) e CI — o mesmo padrão protege humano e robô.">continuam valendo</button>
+        <button class="opt" data-k="a">sêo ignorados</button>
+        <button class="opt" data-k="b" data-fb="Hooks valem em headless (claude -p) e CI — o mesmo padrêo protege humano e robô.">continuam valendo</button>
         <button class="opt" data-k="c">só rodam se você confirmar</button>
         <p class="qfb"></p>
       </div>
@@ -977,18 +977,18 @@ echo "Últimos commits:"; git log --oneline -5</pre>
 
     <section class="step" data-fig="4">
       <h2><span class="n">04</span> Higiene: hook é poder</h2>
-      <p>Um hook roda comandos automaticamente — então trate com respeito:</p>
+      <p>Um hook roda comandos automaticamente — entêo trate com respeito:</p>
       <ul>
-        <li><b>Rápido</b> — ele entra no caminho de cada ação; um hook lento trava seu fluxo.</li>
-        <li><b>Idempotente</b> — rodar duas vezes não pode quebrar nada.</li>
-        <li><b>Sem vazar segredo</b> — não imprima tokens/chaves; o output pode ir pro contexto ou pro log.</li>
+        <li><b>Rápido</b> — ele entra no caminho de cada açêo; um hook lento trava seu fluxo.</li>
+        <li><b>Idempotente</b> — rodar duas vezes nêo pode quebrar nada.</li>
+        <li><b>Sem vazar segredo</b> — nêo imprima tokens/chaves; o output pode ir pro contexto ou pro log.</li>
         <li><b>Falhe com clareza</b> — mensagem no <code>stderr</code> dizendo o porquê.</li>
       </ul>
-      <p>Comece com um hook simples e seguro. O objetivo não é automatizar tudo — é tirar da sua cabeça as poucas coisas que você não devia precisar lembrar.</p>
+      <p>Comece com um hook simples e seguro. O objetivo nêo é automatizar tudo — é tirar da sua cabeça as poucas coisas que você nêo devia precisar lembrar.</p>
       <div class="mobfig" data-mobfig="4"></div>
       <details>
         <summary>Indo mais fundo</summary>
-        <p>Dá pra dar <b>timeout</b> aos comandos e escolher a ordem de execução quando há vários hooks no mesmo matcher. Mas isso é afinação — a base é: rápido, idempotente, silencioso sobre segredos.</p>
+        <p>Dá pra dar <b>timeout</b> aos comandos e escolher a ordem de execuçêo quando há vários hooks no mesmo matcher. Mas isso é afinaçêo — a base é: rápido, idempotente, silencioso sobre segredos.</p>
       </details>
       <button class="readbtn" data-read="s4">marcar como lido</button>
     </section>
@@ -996,19 +996,19 @@ echo "Últimos commits:"; git log --oneline -5</pre>
     <section class="practice" data-practice="p5">
       <p class="pk">Pratique agora <span class="pcount">0/4 feito</span></p>
       <h3 class="ph">Versione pro time <span style="color:var(--faint)">· capstone</span></h3>
-      <p class="pgoal">Consolide os hooks que você montou e faça o padrão <b>viajar com o repositório</b> — quem clonar herda tudo.</p>
-      <div class="pcodewrap"><button class="pcopy" type="button">copiar</button><pre class="pcode"><span class="c"># suas travas/formatadores vão no arquivo versionado</span>
+      <p class="pgoal">Consolide os hooks que você montou e faça o padrêo <b>viajar com o repositório</b> — quem clonar herda tudo.</p>
+      <div class="pcodewrap"><button class="pcopy" type="button">copiar</button><pre class="pcode"><span class="c"># suas travas/formatadores vêo no arquivo versionado</span>
 git add .claude/settings.json
 git status
 <span class="c"># o que é pessoal (só seu) fica de fora do Git:</span>
 echo ".claude/settings.local.json" &gt;&gt; .gitignore</pre></div>
       <ol class="psteps">
-        <li><label><input type="checkbox" data-ptask="1"> Garanta que a trava e o formatador estão em <code>.claude/settings.json</code> (não no <code>.local</code>).</label></li>
+        <li><label><input type="checkbox" data-ptask="1"> Garanta que a trava e o formatador estêo em <code>.claude/settings.json</code> (nêo no <code>.local</code>).</label></li>
         <li><label><input type="checkbox" data-ptask="2"> Rode <code>git add .claude/settings.json</code>.</label></li>
         <li><label><input type="checkbox" data-ptask="3"> Rode <code>git status</code> — o arquivo aparece rastreado.</label></li>
         <li><label><input type="checkbox" data-ptask="4"> Deixe seus atalhos pessoais no <code>.local.json</code> (no <code>.gitignore</code>).</label></li>
       </ol>
-      <p class="pdone">✓ O padrão do time agora viaja junto com o código — rápido, idempotente, sem vazar segredo. Vale pro humano e pro CI. Fim da trilha. 🎉</p>
+      <p class="pdone">✓ O padrêo do time agora viaja junto com o código — rápido, idempotente, sem vazar segredo. Vale pro humano e pro CI. Fim da trilha. 🎉</p>
     </section>
   </div>
 
@@ -1051,17 +1051,17 @@ echo ".claude/settings.local.json" &gt;&gt; .gitignore</pre></div>
     </div>
     <p class="railcap"></p>
     <div class="steps-ind"></div>
-    <p class="sidenote">Grife qualquer trecho do texto para virar um <b>flashcard</b> de revisão.</p>
+    <p class="sidenote">Grife qualquer trecho do texto para virar um <b>flashcard</b> de revisêo.</p>
   </div></aside>
 </div>
 
 <nav class="lnav"><a href="#aula-4">← Aula 4</a><a href="#trilha">Voltar à trilha ✓ →</a></nav>
-<footer>Aula 5 de 5 · Trilha 03 · Automação &amp; Hooks · fim da trilha · ARCKHÉ AI PRO</footer>
+<footer>Aula 5 de 5 · Trilha 03 · Automaçêo &amp; Hooks · fim da trilha · ARCKHÉ AI PRO</footer>
 
 <script type="application/json" id="cards-5">
 [
   {"front":"Onde versionar hooks para o time herdar?","back":"No .claude/settings.json (vai pro Git); o .local.json fica só na sua máquina."},
-  {"front":"Por que dá pra confiar segurança a um hook?","back":"Ele é determinístico: mesma entrada, mesmo resultado — sempre executa, não é sugestão."},
+  {"front":"Por que dá pra confiar segurança a um hook?","back":"Ele é determinístico: mesma entrada, mesmo resultado — sempre executa, nêo é sugestêo."},
   {"front":"Os hooks valem no modo headless / CI?","back":"Sim — continuam valendo em claude -p e em pipeline."},
   {"front":"Três regras de higiene de um hook?","back":"Rápido, idempotente e sem vazar segredo (e falhar com mensagem clara no stderr)."}
 ]

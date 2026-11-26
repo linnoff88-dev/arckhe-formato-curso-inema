@@ -18,7 +18,7 @@
     --plum-soft:    #5a2a4d;
     --ink:          #25101f;   /* corpo de texto, quase preto-ameixa */
     --ink-2:        #4a2b41;   /* texto secundário */
-    --accent:       #ff5a36;   /* UM acento vibrante — vermelhão */
+    --accent:       #ff5a36;   /* UM acento vibrante — vermelhêo */
     --accent-deep:  #d8401f;
     --line:         #2a0f24;
     --line-soft:    rgba(42,15,36,.22);
@@ -426,7 +426,7 @@
     display:flex; align-items:center; padding:22px 26px; border-left:2px solid var(--line);
   }
 
-  /* footer da leitura: navegação seção a seção */
+  /* footer da leitura: navegaçêo seçêo a seçêo */
   .reader-foot{
     display:flex; justify-content:space-between; align-items:center;
     margin-top:40px; padding-top:22px; border-top:2px solid var(--line);
@@ -480,7 +480,7 @@
       Fundamentos
     </span>
     <h1 class="module-title">Fundamentos de <em>Engenharia<br>de Prompts</em></h1>
-    <p class="module-sub">Como escrever instruções que um modelo entende de primeira: contexto, tarefa, formato, exemplos e iteração.</p>
+    <p class="module-sub">Como escrever instruções que um modelo entende de primeira: contexto, tarefa, formato, exemplos e iteraçêo.</p>
   </section>
 
   <!-- WAYFINDING / PROGRESSO -->
@@ -491,10 +491,10 @@
         <span class="huge">01</span>
         <span class="of">/ 07</span>
       </div>
-      <p class="way-meta">Seção <b>1 de 7</b> deste módulo<br>“Veja a anatomia de um prompt”</p>
+      <p class="way-meta">Seçêo <b>1 de 7</b> deste módulo<br>“Veja a anatomia de um prompt”</p>
     </div>
     <div class="way-cell">
-      <p class="way-label">Posição na trilha</p>
+      <p class="way-label">Posiçêo na trilha</p>
       <div class="way-big">
         <span class="huge accent">3</span>
         <span class="of">/ 7</span>
@@ -538,11 +538,11 @@
     <main class="reader">
       <div class="reader-inner" id="sec1">
 
-        <!-- cabeçalho da seção -->
+        <!-- cabeçalho da seçêo -->
         <div class="section-head">
           <div class="section-bignum">
             1
-            <span class="o">Seção · em foco</span>
+            <span class="o">Seçêo · em foco</span>
           </div>
           <div>
             <h2 class="section-title">Veja a anatomia de um prompt</h2>
@@ -563,13 +563,13 @@
 
           <div class="prose">
             <p class="lede">
-              <span class="drop">U</span>m prompt não é uma pergunta solta: é um pequeno
+              <span class="drop">U</span>m prompt nêo é uma pergunta solta: é um pequeno
               <span class="annot">
                 <span class="note-tag">nota ativa ↓</span><span class="grifo">briefing</span></span>.
               Quando o resultado vem errado, quase sempre falta uma das cinco peças que o modelo precisa para decidir o que fazer.
             </p>
             <p>
-              Pense como quem entrega um trabalho para outra pessoa: você diz o <b>contexto</b>, descreve a <b>tarefa</b>, combina o <b>formato</b>, mostra <b>exemplos</b> e ajusta na <b>iteração</b>. Tire uma peça e o resultado escorrega. Abaixo, a anatomia completa — guarde-a como mapa para todas as próximas seções.
+              Pense como quem entrega um trabalho para outra pessoa: você diz o <b>contexto</b>, descreve a <b>tarefa</b>, combina o <b>formato</b>, mostra <b>exemplos</b> e ajusta na <b>iteraçêo</b>. Tire uma peça e o resultado escorrega. Abaixo, a anatomia completa — guarde-a como mapa para todas as próximas seções.
             </p>
           </div>
 
@@ -590,7 +590,7 @@
               <span class="tag">Anatomia</span>
             </div>
             <div class="diagram-canvas">
-              <svg viewBox="0 0 980 220" width="100%" role="img" aria-label="Diagrama das cinco peças de um prompt: Contexto, Tarefa, Formato, Exemplos, Iteração">
+              <svg viewBox="0 0 980 220" width="100%" role="img" aria-label="Diagrama das cinco peças de um prompt: Contexto, Tarefa, Formato, Exemplos, Iteraçêo">
                 <defs>
                   <style>
                     .cell{ fill:#f3e9d8; stroke:#2a0f24; stroke-width:3; }
@@ -614,7 +614,7 @@
                   <rect class="cell" x="6"   y="40" width="206" height="92"/>
                   <text class="nidx" x="20" y="74">1</text>
                   <text class="ntit" x="20" y="104">Contexto</text>
-                  <text class="ndesc" x="20" y="124">quem fala, para quem, situação</text>
+                  <text class="ndesc" x="20" y="124">quem fala, para quem, situaçêo</text>
                 </g>
                 <!-- Tarefa -->
                 <g>
@@ -643,20 +643,20 @@
                 <line class="arrow" x1="460" y1="86" x2="500" y2="86" marker-end="url(#ah)"/>
                 <line class="arrow" x1="708" y1="86" x2="748" y2="86" marker-end="url(#ah)"/>
 
-                <!-- Iteração: caixa-acento embaixo, loop fechando o ciclo -->
+                <!-- Iteraçêo: caixa-acento embaixo, loop fechando o ciclo -->
                 <g>
                   <rect class="cell-accent" x="378" y="166" width="224" height="46"/>
                   <text class="nidx nidx-on" x="392" y="200">5</text>
-                  <text class="ntit" x="430" y="196">Iteração — releia &amp; ajuste</text>
+                  <text class="ntit" x="430" y="196">Iteraçêo — releia &amp; ajuste</text>
                 </g>
-                <!-- loop tracejado da iteração de volta ao começo -->
+                <!-- loop tracejado da iteraçêo de volta ao começo -->
                 <path class="loop" d="M860,132 C860,180 700,189 602,189" marker-end="url(#ah)"/>
                 <path class="loop" d="M378,189 C200,189 109,180 109,132" marker-end="url(#ah)"/>
               </svg>
             </div>
             <div class="diagram-legend">
               <span><b>→</b> fluxo de montagem do prompt</span>
-              <span><b>⤺</b> a iteração reentra no ciclo: leia a saída, corrija a peça que faltou.</span>
+              <span><b>⤺</b> a iteraçêo reentra no ciclo: leia a saída, corrija a peça que faltou.</span>
             </div>
           </figure>
 
@@ -681,10 +681,10 @@
             </div>
           </section>
 
-          <!-- NAV seção -->
+          <!-- NAV seçêo -->
           <div class="reader-foot" style="grid-column:1 / -1;">
-            <a class="navbtn prev disabled" href="#"><span class="dir">← Anterior</span><span class="ttl">Introdução</span></a>
-            <a class="navbtn next" href="#"><span class="dir">Próxima · Seção 2 →</span><span class="ttl">Defina o papel e o contexto</span></a>
+            <a class="navbtn prev disabled" href="#"><span class="dir">← Anterior</span><span class="ttl">Introduçêo</span></a>
+            <a class="navbtn next" href="#"><span class="dir">Próxima · Seçêo 2 →</span><span class="ttl">Defina o papel e o contexto</span></a>
           </div>
 
         </div><!-- /reader-body -->
@@ -694,7 +694,7 @@
 
   <footer class="footer">
     <span class="word">ARCKHÉ<span class="dot">.</span>CLUB</span>
-    <span>Engenharia de Prompts · Módulo 1.1 · Seção 1 de 7</span>
+    <span>Engenharia de Prompts · Módulo 1.1 · Seçêo 1 de 7</span>
   </footer>
 </div>
 

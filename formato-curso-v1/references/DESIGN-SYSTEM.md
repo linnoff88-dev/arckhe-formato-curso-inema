@@ -3,7 +3,7 @@
 > **Documento complementar.** O `MASTER_COMPLETO.md` diz **o que** e **como** (especificações técnicas). Este documento diz **o quê é** (vocabulário) e **quando usar** (decisões). Leia este aqui quando precisar:
 > - Explicar o estilo para um cliente, agente ou colega
 > - Decidir qual elemento visual usar em um tópico
-> - Buscar inspiração em outras fontes mantendo coerência
+> - Buscar inspiraçêo em outras fontes mantendo coerência
 > - Justificar escolhas de design
 
 ---
@@ -19,7 +19,7 @@
 |---|---|---|
 | **Estrutural** | Design system com tokens, componentes e padrões | `MASTER_COMPLETO.md` |
 | **Estética** | Visual dark-mode SaaS, "Linear-style" | Aplicada em todas as páginas |
-| **Ilustrativa** | Diagramas SVG inline (não imagens) | Codificados direto no HTML |
+| **Ilustrativa** | Diagramas SVG inline (nêo imagens) | Codificados direto no HTML |
 
 ### 1.3 Como descrever em 1 frase
 - **Para cliente leigo:** "Visual moderno tipo aplicativo SaaS, com modo escuro e ilustrações vetoriais codificadas."
@@ -30,13 +30,13 @@
 
 ## 2. FILOSOFIA VISUAL
 
-### 2.1 Princípios não-negociáveis
+### 2.1 Princípios nêo-negociáveis
 
-1. **Dark mode primeiro** — toda decisão visual nasce em dark; light é override.
+1. **Dark mode primeiro** — toda decisêo visual nasce em dark; light é override.
 2. **Zero imagens raster** — sem PNG/JPG. Tudo é texto, SVG inline, ou CSS.
 3. **Acentos de cor por contexto** — cada trilha tem sua cor; nunca misturar trilhas em uma página.
 4. **Bordas finas, cantos arredondados** — `border` (1px) + `rounded-xl` (12px). Sem sombras pesadas.
-5. **Tipografia generosa, sem decoração** — Inter, sem serifs, sem itálicos cosméticos.
+5. **Tipografia generosa, sem decoraçêo** — Inter, sem serifs, sem itálicos cosméticos.
 6. **Hover sutil** — mudança de cor de borda + background levíssimo. Nunca scale, nunca translate.
 7. **Espaçamento consistente** — `mb-6`, `p-4`, `gap-6` predominantes. Múltiplos de 4.
 
@@ -54,15 +54,15 @@
 ### 2.3 Por quê dark-first
 
 Razões pedagógicas e estéticas:
-- Cursos técnicos são lidos em sessões longas — dark cansa menos a vista
-- Comunica "ferramenta para devs/profissionais" (não "blog post")
+- Cursos técnicos sêo lidos em sessões longas — dark cansa menos a vista
+- Comunica "ferramenta para devs/profissionais" (nêo "blog post")
 - Acentos de cor explodem visualmente sobre fundo escuro
 - Diagramas SVG ficam mais impactantes em dark
-- Light mode existe para acessibilidade, não como padrão
+- Light mode existe para acessibilidade, nêo como padrêo
 
 ---
 
-## 3. INSPIRAÇÃO E REFERÊNCIAS
+## 3. INSPIRAÇêO E REFERÊNCIAS
 
 ### 3.1 Sites para consultar quando travar
 
@@ -70,14 +70,14 @@ Razões pedagógicas e estéticas:
 |---|---|---|
 | [linear.app](https://linear.app) | Tipografia, espaçamento, hierarquia em dark | Sempre que dúvida geral |
 | [vercel.com](https://vercel.com) | Hero, cards, gradientes sutis no header | Hero da landing |
-| [tailwindcss.com](https://tailwindcss.com) | Documentação como design | Layout de doc/curso |
+| [tailwindcss.com](https://tailwindcss.com) | Documentaçêo como design | Layout de doc/curso |
 | [stripe.com/docs](https://stripe.com/docs) | Diagramas técnicos inline | Diagramas SVG |
 | [supabase.com](https://supabase.com) | Dark UI com acento esverdeado | Estética geral |
 | [planetscale.com](https://planetscale.com) | Dark + roxo, cards de feature | Cards de trilhas |
 | [railway.app](https://railway.app) | Hero animado com gradient | Hero de landing |
-| [excalidraw.com](https://excalidraw.com) | Estilo "hand-drawn" | Variação para diagramas mais informais |
+| [excalidraw.com](https://excalidraw.com) | Estilo "hand-drawn" | Variaçêo para diagramas mais informais |
 
-### 3.2 O que NÃO usar como referência
+### 3.2 O que NêO usar como referência
 
 - Material Design (Google) — pesado demais, denso de sombras
 - iOS / Apple — minimalista demais, perde personalidade
@@ -90,19 +90,19 @@ Razões pedagógicas e estéticas:
 
 ### 4.1 Qual elemento visual usar em cada tópico de módulo?
 
-Cada tópico DEVE ter pelo menos 1 elemento visual além do parágrafo introdutório. **Nunca repita o mesmo tipo em 6 tópicos seguidos** — alterne. Use a tabela abaixo como guia de decisão:
+Cada tópico DEVE ter pelo menos 1 elemento visual além do parágrafo introdutório. **Nunca repita o mesmo tipo em 6 tópicos seguidos** — alterne. Use a tabela abaixo como guia de decisêo:
 
 | Tipo de conteúdo | Elemento visual ideal | Quando preferir |
 |---|---|---|
-| Comparação histórica/temporal | **SVG line chart** | Mostrar evolução, antes/depois ao longo do tempo |
+| Comparaçêo histórica/temporal | **SVG line chart** | Mostrar evoluçêo, antes/depois ao longo do tempo |
 | Comparar 2-3 abordagens | **Grid de cards 2-3 colunas** | "Vibe coding vs Agentic dev" |
 | Comparar muitos critérios | **Tabela** | Plano A vs Plano B vs Plano C com 5+ atributos |
 | Mostrar arquitetura/sistema | **SVG diagrama com caixas e setas** | Fluxo de dados, componentes |
 | Mostrar métricas/dados | **Caixa destacada com números grandes** | "70%, 4 itens, 400x" |
-| Lista do que fazer/não fazer | **Comparação 2 colunas (verde/vermelho)** | "✓ O que faz / ✗ O que não substitui" |
-| Código/configuração | **Bloco `<pre>` estilizado** | Snippets, comandos, JSON, YAML |
+| Lista do que fazer/nêo fazer | **Comparaçêo 2 colunas (verde/vermelho)** | "✓ O que faz / ✗ O que nêo substitui" |
+| Código/configuraçêo | **Bloco `<pre>` estilizado** | Snippets, comandos, JSON, YAML |
 | Insight ou dica | **Caixa colorida com ícone** | Alertas, notas, tips importantes |
-| Mockup de interface | **HTML estilizado (não SVG)** | Mostrar telas/interfaces do produto |
+| Mockup de interface | **HTML estilizado (nêo SVG)** | Mostrar telas/interfaces do produto |
 | Hierarquia ou pirâmide | **SVG geométrico simples** | Camadas, níveis, prioridade |
 
 ### 4.2 Quando usar SVG vs HTML estilizado
@@ -111,8 +111,8 @@ Cada tópico DEVE ter pelo menos 1 elemento visual além do parágrafo introdut�
 - Precisa de geometria precisa (linhas, círculos, formas)
 - Vai mostrar dados (gráficos, charts)
 - Diagrama com setas e conexões
-- Ícones decorativos não-emoji
-- Algo que "parece imagem" mas não é raster
+- Ícones decorativos nêo-emoji
+- Algo que "parece imagem" mas nêo é raster
 
 **Use HTML/Tailwind quando:**
 - Mockup de UI (cards, botões, headers)
@@ -122,7 +122,7 @@ Cada tópico DEVE ter pelo menos 1 elemento visual além do parágrafo introdut�
 
 ### 4.3 Quando usar emoji vs SVG vs ícone
 
-- **Emoji nativo** (🎯 🚀 ⚙️) — para títulos de seção, headers, indicadores rápidos. Funciona em qualquer device.
+- **Emoji nativo** (🎯 🚀 ⚙️) — para títulos de seçêo, headers, indicadores rápidos. Funciona em qualquer device.
 - **SVG inline** — para ilustrações conceituais, gráficos, diagramas técnicos. Customizável.
 - **Ícone como SVG path** — para UI (theme toggle, setas, fechar). Sempre stroke-based, nunca filled-only.
 
@@ -136,24 +136,24 @@ Cada tópico DEVE ter pelo menos 1 elemento visual além do parágrafo introdut�
 Yellow (primary #FACC15) ─ Brand, CTAs, logo, dicas
   │
   ├─ Trilha 1 Emerald  ─ Fundamentos / Iniciantes
-  ├─ Trilha 2 Blue     ─ Disciplina / Implementação
+  ├─ Trilha 2 Blue     ─ Disciplina / Implementaçêo
   ├─ Trilha 3 Purple   ─ Design / Criativo
-  ├─ Trilha 4 Amber    ─ Backend / Integração
+  ├─ Trilha 4 Amber    ─ Backend / Integraçêo
   ├─ Trilha 5 Teal     ─ Multiagente / Paralelismo
   └─ Trilha 6 Rose     ─ Escala / Negócio
   │
   ├─ Sky               ─ Links externos (ARCKHÉ AI)
-  ├─ Red               ─ Erros, "não fazer", alertas
+  ├─ Red               ─ Erros, "nêo fazer", alertas
   └─ Neutrals          ─ Texto, fundos, bordas
 ```
 
 ### 5.2 Lógica de cor por trilha
 
-Não é aleatório. Cada cor traz uma psicologia:
+Nêo é aleatório. Cada cor traz uma psicologia:
 
 - **Emerald (T1):** crescimento, base, natureza → fundamentos
 - **Blue (T2):** confiança, ordem, técnica → disciplina dos agentes
-- **Purple (T3):** criatividade, design, inovação → frontend
+- **Purple (T3):** criatividade, design, inovaçêo → frontend
 - **Amber (T4):** energia, motor, infraestrutura → backend
 - **Teal (T5):** equilíbrio, fluxo, equipe → multiagente
 - **Rose (T6):** conquista, valor, negócio → escala
@@ -164,7 +164,7 @@ Quando criar um novo curso com 6 trilhas, **mantenha a mesma sequência cromáti
 
 Em fundo claro (`#f8fafc`), as cores `-400` (que ficam ótimas em dark) viram pasteis sem contraste. Por isso o light mode usa `-600` ou `-800`:
 
-| Cor | Dark (`-400`) | Light (mais escuro) | Razão |
+| Cor | Dark (`-400`) | Light (mais escuro) | Razêo |
 |---|---|---|---|
 | Emerald | `#34d399` | `#059669` (-600) | Equilíbrio |
 | Blue | `#60a5fa` | `#2563eb` (-600) | Equilíbrio |
@@ -182,10 +182,10 @@ Em fundo claro (`#f8fafc`), as cores `-400` (que ficam ótimas em dark) viram pa
 ```
 text-4xl/5xl ─ Hero h1 da landing
 text-3xl/4xl ─ Hero h1 de trilha/módulo
-text-2xl     ─ Título de seção principal (módulo, h2)
+text-2xl     ─ Título de seçêo principal (módulo, h2)
 text-xl      ─ Título de card, subtítulo
 text-lg      ─ Parágrafo de destaque, hero subtitle
-text-base    ─ Parágrafo padrão (16px)
+text-base    ─ Parágrafo padrêo (16px)
 text-sm      ─ Texto secundário, metadata
 text-xs      ─ Pills, labels, microtypografia
 ```
@@ -199,11 +199,11 @@ text-xs      ─ Pills, labels, microtypografia
 ### 6.3 Tom de voz da copy
 
 - **Direto.** Frases curtas. Sujeito + verbo + complemento.
-- **Brasileiro.** "Você" não "tu" nem "vocês".
+- **Brasileiro.** "Você" nêo "tu" nem "vocês".
 - **Concreto.** Números, exemplos, R$, %. Nunca abstrações vazias.
 - **Sem coachzinho.** Nada de "vamos juntos", "você consegue", "incrível!".
 - **Sem floreio.** "AGENTS.md é o manual do projeto" > "AGENTS.md é uma ferramenta poderosa que pode revolucionar sua experiência".
-- **Pontuação sóbria.** Pontos finais. Sem exclamações em série.
+- **Pontuaçêo sóbria.** Pontos finais. Sem exclamações em série.
 
 ---
 
@@ -216,21 +216,21 @@ Use esta nomenclatura ao discutir o design com agentes/devs/clientes:
 | **Hero gradient** | Header com `bg-gradient-to-br` da cor da trilha | Topo de cada landing/trilha/módulo |
 | **Pill** | Tag pequena com `inline-block px-3 py-1 rounded-full` | "TRILHA 1", "MÓDULO 1.1", badges |
 | **Stat card** | Caixa com número grande + label pequeno | "6 / Trilhas", "30 / Minutos" |
-| **Trilha card** | Card grande clicável com ícone, pill, título, descrição | Landing principal |
+| **Trilha card** | Card grande clicável com ícone, pill, título, descriçêo | Landing principal |
 | **Module card simples** | Card pequeno só com número + título + tempo | Topo do índice de trilha |
 | **Module section** | Bloco extenso com header + tópicos expansíveis | Conteúdo detalhado do índice de trilha |
 | **Topic accordion** | Item expansível com number circle + título + 3 seções | Cada tópico no índice |
 | **Number circle** | Círculo colorido com número dentro (`w-6 h-6 rounded-full`) | Indicador de tópico |
 | **Insight box** | Caixa com `bg-{color}/10 border border-{color}/40` + ícone | Dicas, alertas, citações |
-| **Comparison grid** | Grid 2 colunas com verde (✓) vs vermelho (✗) | "O que faz / O que não substitui" |
+| **Comparison grid** | Grid 2 colunas com verde (✓) vs vermelho (✗) | "O que faz / O que nêo substitui" |
 | **Code block** | `<pre>` com fundo `bg-dark-700/50` | Snippets, configurações |
-| **Theme toggle** | Botão SVG sun/moon canto direito | Topo de toda página |
+| **Theme toggle** | Botêo SVG sun/moon canto direito | Topo de toda página |
 | **Breadcrumb** | "Início / Trilha X / Módulo X.Y" | Nas páginas de módulo |
-| **Resumo section** | Bloco gradient final com checklist + próximo + nav | Última seção antes do footer |
+| **Resumo section** | Bloco gradient final com checklist + próximo + nav | Última seçêo antes do footer |
 
 ---
 
-## 8. FLUXO DE DECISÃO RÁPIDO
+## 8. FLUXO DE DECISêO RÁPIDO
 
 Usuário pediu uma página nova? Siga esta árvore:
 
@@ -253,20 +253,20 @@ Usuário pediu uma página nova? Siga esta árvore:
 
 ---
 
-## 9. AO ENCONTRAR ALGO NÃO-DOCUMENTADO
+## 9. AO ENCONTRAR ALGO NêO-DOCUMENTADO
 
-Se aparecer um caso não coberto pelo `MASTER_COMPLETO.md` nem por este documento:
+Se aparecer um caso nêo coberto pelo `MASTER_COMPLETO.md` nem por este documento:
 
 1. **Olhe o 2cerebro** (`/home/nmaldaner/projetos/2cerebro/`) — primeira referência viva do sistema
 2. **Olhe o mastercodex** (`/home/nmaldaner/projetos/mastercodex/`) — referência mais recente e robusta
-3. **Pergunte ao usuário** antes de inventar um padrão novo
+3. **Pergunte ao usuário** antes de inventar um padrêo novo
 4. **Documente aqui** se virar regra recorrente
 
 ---
 
 ## 10. PALAVRAS-CHAVE PARA BUSCAR REFERÊNCIAS NA WEB
 
-Quando precisar achar inspiração externa nessa estética, use estes termos:
+Quando precisar achar inspiraçêo externa nessa estética, use estes termos:
 
 - `tailwind dark UI`
 - `SaaS landing dark mode`
@@ -279,5 +279,5 @@ Quando precisar achar inspiração externa nessa estética, use estes termos:
 
 ---
 
-**Última revisão:** 2026-05-01 (v1.0)
+**Última revisêo:** 2026-05-01 (v1.0)
 **Aplicado em:** 2cerebro, mastercodex

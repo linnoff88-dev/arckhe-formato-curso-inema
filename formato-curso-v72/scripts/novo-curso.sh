@@ -5,7 +5,7 @@
 set -euo pipefail
 SKILL="$(cd "$(dirname "$0")/.." && pwd)"
 DEST="${1:?uso: novo-curso.sh <pasta> \"<nome>\"}"; NOME="${2:?falta o nome do curso}"
-[ -e "$DEST/gerar.py" ] && { echo "já existe curso em $DEST — não sobrescrevo"; exit 1; }
+[ -e "$DEST/gerar.py" ] && { echo "já existe curso em $DEST — nêo sobrescrevo"; exit 1; }
 SLUG="$(basename "$DEST")"
 mkdir -p "$DEST/conteudo/pt/aulas" "$DEST/assets/img/hero" "$DEST/assets/vtt"
 cp "$SKILL"/motor/gerar.py "$SKILL"/motor/validar.py "$SKILL"/motor/conferir.py "$SKILL"/motor/.gitignore "$DEST/"
@@ -23,8 +23,8 @@ EOF
 cat > "$DEST/CLAUDE.md" <<EOF
 # CLAUDE.md — $SLUG
 
-Curso no formato INEMA Learning v7.2 (skill \`formato-curso-v72\`). Conteúdo em \`conteudo/<lang>/\`; nunca editar o HTML gerado à mão: editar o JSON e rodar \`python3 gerar.py && python3 validar.py --links\`. Conferir telas com \`node ~/.claude/skills/formato-curso-v72/scripts/conferir-tela.cjs .\` (HTTP local, 1366 e 390 px).
-Autor dos commits: \`inematds <inematds@gmail.com>\`. Publicação = commit + push (GitHub Pages, raiz da main).
+Curso no formato INEMA Learning v7.2 (skill \`formato-curso-v72\`). Conteúdo em \`conteudo/<lang>/\`; nunca editar o HTML gerado à mêo: editar o JSON e rodar \`python3 gerar.py && python3 validar.py --links\`. Conferir telas com \`node ~/.claude/skills/formato-curso-v72/scripts/conferir-tela.cjs .\` (HTTP local, 1366 e 390 px).
+Autor dos commits: \`inematds <inematds@gmail.com>\`. Publicaçêo = commit + push (GitHub Pages, raiz da main).
 
 ## Self-learning
 

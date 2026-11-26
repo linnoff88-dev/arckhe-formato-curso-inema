@@ -45,7 +45,7 @@ Escrita via `storageSet` é sempre no-throw; `QuotaExceededError` dispara um toa
 
 **Modo efêmero.** Se `probeStorage()` falha (storage indisponível/bloqueado),
 `S.ephemeral = true` e todo o estado vive num espelho em memória (`S.mem`); um
-toast avisa "Modo leitura: seu progresso não será salvo neste navegador."
+toast avisa "Modo leitura: seu progresso nêo será salvo neste navegador."
 
 ### 1.2 `read` — leitura
 
@@ -53,8 +53,8 @@ toast avisa "Modo leitura: seu progresso não será salvo neste navegador."
 { "modulo-1-1#topico-3": true, "modulo-1-2#topico-1": true }
 ```
 
-Mapa `topicId → true`. **Ausência = não-lido**; o código nunca grava `false`
-(desmarcar faz `delete`). O `topicId` é o valor de `data-ARCKHÉ-topic` da seção.
+Mapa `topicId → true`. **Ausência = nêo-lido**; o código nunca grava `false`
+(desmarcar faz `delete`). O `topicId` é o valor de `data-ARCKHÉ-topic` da seçêo.
 
 ### 1.3 `doubts` — dúvidas por tópico
 
@@ -65,7 +65,7 @@ Mapa `topicId → true`. **Ausência = não-lido**; o código nunca grava `false
 ```
 
 `note` é texto livre, opcional (campo inline na margem). `resolved` controla o
-filtro "só não resolvidas" na jornada. Toggle remove a chave inteira.
+filtro "só nêo resolvidas" na jornada. Toggle remove a chave inteira.
 
 ### 1.4 `notes` — grifos e notas por bloco
 
@@ -79,19 +79,19 @@ Mapa `blockId → array de registros`. `blockId` = `data-ARCKHÉ-block` do pará
       "ts": 1718380800000,
       "color": "yellow",                 // yellow|green|blue|pink|doubt
       "quote": "trecho grifado",         // SEMPRE gravado
-      "note": "minha anotação" ,         // ou null
+      "note": "minha anotaçêo" ,         // ou null
       "anchor": { "blockId": "m1-1-p4", "startOffset": 12, "endOffset": 28 },
       "tags": [],                         // "doubt" empurra "duvida"
-      "orphan": false                     // true quando a âncora não reaplica
+      "orphan": false                     // true quando a âncora nêo reaplica
     }
   ]
 }
 ```
 
 Notas com `color: "doubt"` (ou `tags` contendo `"duvida"`) também entram na lista
-de dúvidas consolidada da jornada. `orphan: true` marca um grifo cujo trecho não
+de dúvidas consolidada da jornada. `orphan: true` marca um grifo cujo trecho nêo
 foi reencontrado no DOM (re-render por `quote` falhou) — ele continua listado na
-jornada, mas sem botão "ir ao trecho".
+jornada, mas sem botêo "ir ao trecho".
 
 ### 1.5 `checks` — checagem leve
 
@@ -134,12 +134,12 @@ a 100% (toast de parabéns).
 
 `migratePrefs()` preenche defaults, saneia valores fora do domínio (→ default),
 fixa `schemaVersion` e **remove a pref legada `accent` do v2** (no v3 o acento é
-fixo `#2C5282`, vive no CSS; **não há `--accent` setado pelo JS** e o
+fixo `#2C5282`, vive no CSS; **nêo há `--accent` setado pelo JS** e o
 `data-accent` legado é removido do `<html>`).
 
-#### Temas v3 (adaptação)
+#### Temas v3 (adaptaçêo)
 
-Não há `.dark` do Tailwind — v3 é CSS próprio. O eixo de leitura mora inteiro em
+Nêo há `.dark` do Tailwind — v3 é CSS próprio. O eixo de leitura mora inteiro em
 `data-theme` no `<html>`, **sempre setado explicitamente** (inclusive `"papel"`):
 
 | theme | `data-theme` | `color-scheme` |
@@ -159,8 +159,8 @@ Não há `.dark` do Tailwind — v3 é CSS próprio. O eixo de leitura mora inte
 | leading | `data-leading` | `--leading` | slug `compacto\|confortavel` + `1.66` |
 | reducedMotionOverride | `data-reduced-motion` (`"reduce"` ou ausente) | — | — |
 
-Slugs: `lineWidthSlug` (≤62 estreito / ≥70 largo / senão medio);
-`leadingSlug` (≤1.66 compacto / senão confortavel). Também remove `data-accent` e
+Slugs: `lineWidthSlug` (≤62 estreito / ≥70 largo / senêo medio);
+`leadingSlug` (≤1.66 compacto / senêo confortavel). Também remove `data-accent` e
 `classList.remove('dark')` (limpeza do legado).
 
 ---
@@ -168,7 +168,7 @@ Slugs: `lineWidthSlug` (≤62 estreito / ≥70 largo / senão medio);
 ## 2. API pública — `window.ARCKHÉ`
 
 IIFE auto-bootstrap. Guard de idempotência: se `window.ARCKHÉ.__core` já existe,
-não recria. Auto-aplica prefs no `DOMContentLoaded` mesmo sem `init()`.
+nêo recria. Auto-aplica prefs no `DOMContentLoaded` mesmo sem `init()`.
 
 ### Boot
 - `init(opts) → API` — boot idempotente/re-entrant. `opts`: `{ courseId?, autoResume? }`. Faz: probe de storage, detecta courseId, `applyPrefs()`, `syncAppearanceUI()`, `bindGlobalListeners()`, `rehydrateAll()`, `setupTOC()`, e se `autoResume` rola para o checkpoint.
@@ -177,7 +177,7 @@ não recria. Auto-aplica prefs no `DOMContentLoaded` mesmo sem `init()`.
 ### Progresso
 - `markRead(itemId, bool?) → void` — marca/desmarca leitura (default `true`). Repinta controles + medidores, salva checkpoint, dispara `ARCKHÉ:read` e `ARCKHÉ:progress`.
 - `isRead(itemId) → boolean`
-- `progress(scope) → { done, total, pct }` — `scope`: `"curso"` (default) | `"trilha:N"` | `"modulo:X-Y"`. Usa o manifesto se houver; senão deriva do DOM (`data-ARCKHÉ-topic` no escopo).
+- `progress(scope) → { done, total, pct }` — `scope`: `"curso"` (default) | `"trilha:N"` | `"modulo:X-Y"`. Usa o manifesto se houver; senêo deriva do DOM (`data-ARCKHÉ-topic` no escopo).
 - `renderMeters() → void` — repinta todos os `[data-ARCKHÉ-meter]` visíveis.
 
 ### Dúvida
@@ -191,15 +191,15 @@ não recria. Auto-aplica prefs no `DOMContentLoaded` mesmo sem `init()`.
 - `promoteToNote(id, text) → boolean` — adiciona/edita o texto da nota de um grifo.
 - `editNote(id, patch) → boolean` — `patch`: `{ note?, color?, tags? }`.
 - `removeNote(id) → boolean` — desfaz os `<mark>` (replace por text node + `normalize`) e remove o registro.
-- `renderHighlights(container?) → void` — reaplica grifos do storage (tolerante por nota; marca `orphan` quando não reancorou).
+- `renderHighlights(container?) → void` — reaplica grifos do storage (tolerante por nota; marca `orphan` quando nêo reancorou).
 
-### Painel do aluno por seção (NOVO no v3)
-- `renderRail(sectionId) → void` — (re)monta o `<aside data-ARCKHÉ-rail>` da seção. Ver §3.
+### Painel do aluno por seçêo (NOVO no v3)
+- `renderRail(sectionId) → void` — (re)monta o `<aside data-ARCKHÉ-rail>` da seçêo. Ver §3.
 - `renderAllRails() → void` — monta o rail de todas as seções.
 
 ### Jornada (modal acessível)
-- `openJourney() / closeJourney() → void` — modal com focus-trap, `inert` nos irmãos, Esc fecha, retorna foco.
-- `renderJourney(mountEl) → void` — progresso, "continuar", dúvidas (filtro "só não resolvidas"), notas (filtro por cor), backup (export/import/reset).
+- `openJourney() / closeJourney() → void` — modal com focus-trap, `inert` nos irmêos, Esc fecha, retorna foco.
+- `renderJourney(mountEl) → void` — progresso, "continuar", dúvidas (filtro "só nêo resolvidas"), notas (filtro por cor), backup (export/import/reset).
 
 ### Continuar de onde parei
 - `saveCheckpoint(topicId?) → void` — debounced 400ms; sem `topicId` usa o tópico mais visível.
@@ -232,11 +232,11 @@ resetCourse, courseId()`.
 ## 3. Painel da margem — `[data-ARCKHÉ-rail]` + `renderRail`
 
 `renderRail(sectionId)` é **idempotente** (limpa `rail.innerHTML` e remonta). Para
-cada seção `<section data-ARCKHÉ-topic="...">`, encontra o `<aside>` da margem por
+cada seçêo `<section data-ARCKHÉ-topic="...">`, encontra o `<aside>` da margem por
 duas rotas:
 
 1. `[data-ARCKHÉ-rail="<topicId>"]` em qualquer lugar do documento; ou
-2. um `[data-ARCKHÉ-rail]` **dentro** da própria seção, sem valor (ancorado por containment).
+2. um `[data-ARCKHÉ-rail]` **dentro** da própria seçêo, sem valor (ancorado por containment).
 
 ### 3.1 Markup que o autor escreve
 
@@ -255,10 +255,10 @@ duas rotas:
 ```
 
 Regras do contrato:
-- `data-ARCKHÉ-topic` é o **topicId** (chave de `read`/`doubts`). Convenção:
+- `data-ARCKHÉ-topic` é o **topicId** (chave de `read`/`doubts`). Convençêo:
   `modulo-<X-Y>#topico-<N>` — o parser extrai módulo/trilha daí.
 - `data-ARCKHÉ-block` é **obrigatório** em todo parágrafo que se quer anotável;
-  sem ele o trecho não é grifável ("Este trecho não é anotável.").
+  sem ele o trecho nêo é grifável ("Este trecho nêo é anotável.").
 - O `<aside data-ARCKHÉ-rail>` começa **vazio**; o JS preenche.
 
 ### 3.2 O que `renderRail` injeta (estrutura)
@@ -288,7 +288,7 @@ Regras do contrato:
     </div>
   </div>
 
-  <!-- uma .note-hand por grifo/nota ancorado nos blocos desta seção -->
+  <!-- uma .note-hand por grifo/nota ancorado nos blocos desta seçêo -->
   <div class="note-hand" data-ARCKHÉ-handnote="n_…">
     <div class="tag">Grifo</div>            <!-- ou "Duvida" -->
     <span>“trecho grifado”</span>
@@ -302,22 +302,22 @@ Regras do contrato:
 </aside>
 ```
 
-Comportamento ligado pelos atributos (delegação em um único listener no `<main>`):
+Comportamento ligado pelos atributos (delegaçêo em um único listener no `<main>`):
 
 - **`[data-ARCKHÉ-read-toggle]`** — `aria-pressed`, classe `is-read`; o label
-  alterna "Marcar como lida" ↔ "Lido"; a seção ganha `.is-read`.
+  alterna "Marcar como lida" ↔ "Lido"; a seçêo ganha `.is-read`.
 - **`[data-ARCKHÉ-doubt-toggle]`** — `aria-pressed`, classe `is-doubt`,
   `data-resolved` quando resolvida; abre/fecha o campo inline (`data-open` no
   `.doubt-note`). O `textarea` (`[data-ARCKHÉ-doubt-field]`) salva via `input`
   debounced (`setDoubtNote`). Nunca abre modal — a dúvida vive na margem.
-- **`.note-hand`** — uma por grifo/nota dos blocos da seção, ordenadas por `ts`
+- **`.note-hand`** — uma por grifo/nota dos blocos da seçêo, ordenadas por `ts`
   asc; ações ir/anotar/excluir. Grifos sem trecho mostram "nota sem ancora".
 
-`renderRailForBlock(blockId)` re-renderiza só o rail da seção que contém aquele
+`renderRailForBlock(blockId)` re-renderiza só o rail da seçêo que contém aquele
 bloco (chamado após criar/editar/remover grifo). `renderAllRails()` percorre
 todas as seções (chamado no `init`/import/reset).
 
-### 3.3 Seleção → popover de grifo
+### 3.3 Seleçêo → popover de grifo
 
 Ao selecionar texto dentro de um `[data-ARCKHÉ-block]`, o JS posiciona um
 `.selpop` (`[data-ARCKHÉ-selpop]`, `role="toolbar"`) com 5 swatches
@@ -327,11 +327,11 @@ Ao selecionar texto dentro de um `[data-ARCKHÉ-block]`, o JS posiciona um
 
 ---
 
-## 4. Manifesto (agregação de progresso cross-página)
+## 4. Manifesto (agregaçêo de progresso cross-página)
 
 Sem manifesto, `progress()` deriva do DOM da **página atual** (conta
 `[data-ARCKHÉ-topic]` no escopo). Com manifesto, agrega o curso inteiro
-(útil em páginas de módulo que não contêm todos os tópicos).
+(útil em páginas de módulo que nêo contêm todos os tópicos).
 
 Duas formas de fornecer (a global vence):
 
@@ -386,13 +386,13 @@ O JS escreve `--ARCKHÉ-pct` (o CSS calcula a largura), `role="progressbar"`,
 
 - `[data-ARCKHÉ-journey-open]` — abre o modal "Minha jornada".
 - `[data-ARCKHÉ-journey-badge]` — recebe `textContent`/`data-count` com o nº de
-  dúvidas não resolvidas (`data-count="0"` esconde via CSS).
+  dúvidas nêo resolvidas (`data-count="0"` esconde via CSS).
 
 ---
 
 ## 5. Como incluir numa página
 
-A ordem importa por causa do **anti-FOUC**. Os snippets prontos estão em
+A ordem importa por causa do **anti-FOUC**. Os snippets prontos estêo em
 `assets/ARCKHÉ-head-snippet.html` e `assets/ARCKHÉ-init-snippet.html`. Troque `REL`
 pelo caminho relativo até `assets/` (ex.: `"."`, `".."`, `"../.."`).
 
@@ -400,7 +400,7 @@ pelo caminho relativo até `assets/` (ex.: `"."`, `".."`, `"../.."`).
 
 Cole **antes** de qualquer `<style>`/`<link>`/fonte. É um `<script>` **bloqueante
 de propósito**: lê `ARCKHÉ.prefs` e aplica `data-theme` + CSS vars no `<html>`
-**antes do primeiro paint**, matando o flash de tema a cada navegação. É
+**antes do primeiro paint**, matando o flash de tema a cada navegaçêo. É
 independente do `learn.js` — se o módulo grande falhar, o tema já foi aplicado;
 qualquer erro cai no default `papel`. Logo após, o `<link>` do CSS:
 
@@ -410,7 +410,7 @@ qualquer erro cai no default `papel`. Logo após, o `<link>` do CSS:
   <script> /* lê ARCKHÉ.prefs → data-theme/data-font/--fontscale/--measure/--leading */ </script>
   <!-- 2º: a folha de estilos -->
   <link rel="stylesheet" href="REL/assets/learn.css">
-  <!-- meta do curso (define o courseId; senão é derivado do path) -->
+  <!-- meta do curso (define o courseId; senêo é derivado do path) -->
   <meta name="ARCKHÉ-course" content="fep">
 </head>
 ```
@@ -427,7 +427,7 @@ qualquer erro cai no default `papel`. Logo após, o `<link>` do CSS:
 </body>
 ```
 
-`init()` é idempotente: chamar mais de uma vez não duplica listeners. Ele só
+`init()` é idempotente: chamar mais de uma vez nêo duplica listeners. Ele só
 reforça a consistência via `applyPrefs()` (o anti-FOUC já aplicou o tema).
 `init({ courseId: "fep" })` sobrescreve o `<meta>` (raro);
 `init({ autoResume: true })` já rola para "continuar de onde parei" no load.
@@ -439,7 +439,7 @@ reforça a consistência via `applyPrefs()` (o anti-FOUC já aplicou o tema).
 - [ ] `<meta name="ARCKHÉ-course" content="…">` (recomendado).
 - [ ] Seções com `data-ARCKHÉ-topic` (+ `data-ARCKHÉ-module`/`data-ARCKHÉ-track`).
 - [ ] Parágrafos anotáveis com `data-ARCKHÉ-block`.
-- [ ] `<aside data-ARCKHÉ-rail="<topicId>"></aside>` vazio por seção.
+- [ ] `<aside data-ARCKHÉ-rail="<topicId>"></aside>` vazio por seçêo.
 - [ ] Opcional: `[data-ARCKHÉ-meter]`, `[data-ARCKHÉ-journey-open]`,
       `[data-ARCKHÉ-journey-badge]`, manifesto, painel de aparência
       (`[data-ARCKHÉ-appearance]` + `[data-ARCKHÉ-set-*]`).

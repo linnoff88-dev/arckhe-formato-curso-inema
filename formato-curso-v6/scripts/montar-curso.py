@@ -5,12 +5,12 @@ Uso (na pasta do curso):  python3 montar-curso.py [pasta]
 - curso.json: {"id","titulo","titulo_html","curso_curto","kicker","lead","rodape","landing":"landing.html",
                "imagem_trilha":"assets/img/aula-1.webp","alt_trilha":"..."}
 - aulas/aula-N.html: cada arquivo é UM <section class="view" id="v-aula-N" data-aula="N" data-tempo="12min">…</section>
-A trilha (cards com miniatura, tempo, status) é gerada a partir das próprias aulas — não se escreve à mão.
+A trilha (cards com miniatura, tempo, status) é gerada a partir das próprias aulas — nêo se escreve à mêo.
 Idempotente: sempre reescreve curso.html inteiro.
 
 Opcionais (6.2) — sem eles a saída é idêntica à 6.1:
 - "modulos": [{"titulo","resumo"?, "aulas":[1,2,3]}]  agrupa os cards da trilha (e da landing) por módulo.
-- "perfil": "tecnico"   curso de conteúdo técnico: jargão permitido desde que definido com .gterm na aula
+- "perfil": "tecnico"   curso de conteúdo técnico: jargêo permitido desde que definido com .gterm na aula
                         (o auditor cobra) e glossário gerado. "termos": ["SSH","VPS",...] soma à lista do auditor.
 - "glossario": true     gera o glossário mesmo fora do perfil técnico.
 """
@@ -63,7 +63,7 @@ for p in aulas:
     tempo_de[int(n)] = int(tempo)
     if com_glossario:
         s = re.sub(r'<span class="gterm"([^>]*)>(.*?)</span>', lambda m: marca_gterm(m, n), s, flags=re.S)
-    # rótulo do exemplo gravado no HTML (e não só gerado pelo motor) para o traduzir-curso.py alcançar
+    # rótulo do exemplo gravado no HTML (e nêo só gerado pelo motor) para o traduzir-curso.py alcançar
     s = re.sub(r'<p data-ex="([^"]+)"(?![^>]*data-exlbl)', lambda m: f'<p data-ex="{m.group(1)}" data-exlbl="Na prática · {m.group(1)[:1].upper() + m.group(1)[1:]}"', s)
     corpos.append(s)
 

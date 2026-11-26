@@ -9,7 +9,7 @@
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,700;1,400&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
 <style>
   /* ============================================================
-     DIREÇÃO B — Terminal técnico / blueprint
+     DIREÇêO B — Terminal técnico / blueprint
      Escuro QUENTE e tingido. Mono de display (JetBrains Mono)
      + corpo sans (IBM Plex Sans). Um acento: âmbar dessaturado.
      Grade de blueprint sutil. Rail = checklist de build que compila.
@@ -25,7 +25,7 @@
     --ink:       #e8e2d2;   /* corpo, off-white quente (AA+ sobre --bg) */
     --ink-dim:   #b3ad9a;   /* secundário */
     --ink-fade:  #7d7864;   /* terciário / comentários */
-    /* acento: âmbar-laranja DESSATURADO, não neon */
+    /* acento: âmbar-laranja DESSATURADO, nêo neon */
     --amber:     #d9a441;
     --amber-deep:#b07d2a;
     --amber-ghost:#3a2f15;  /* fundo do realce inline */
@@ -121,7 +121,7 @@
   .rail .meta{ font-family:"JetBrains Mono",monospace; font-size:12px; color:var(--ink-dim); margin:0 0 16px; }
   .rail .meta b{ color:var(--olive); font-weight:500; }
 
-  /* barra de compilação */
+  /* barra de compilaçêo */
   .compile{
     border:1px solid var(--line); border-radius:var(--radius); background:var(--bg-2);
     padding:13px 14px; margin-bottom:22px;
@@ -179,7 +179,7 @@
   /* ---- CONTEÚDO ---- */
   main{ min-width:0; }
 
-  /* faixa de log acima da seção */
+  /* faixa de log acima da seçêo */
   .logline{
     font-family:"JetBrains Mono",monospace; font-size:12px; color:var(--ink-fade);
     letter-spacing:.3px; margin-bottom:20px; display:flex; gap:10px; align-items:center; flex-wrap:wrap;
@@ -328,7 +328,7 @@
     <div class="spacer"></div>
     <div class="build-pill mono">
       <span class="blink"></span>
-      trilha-1 · módulo <b>3/7</b> · sessão ativa
+      trilha-1 · módulo <b>3/7</b> · sessêo ativa
     </div>
   </div>
 
@@ -336,11 +336,11 @@
   <header class="module">
     <div class="crumb mono">
       ~/trilha-1/engenharia-de-prompts <span class="sep">/</span>
-      <b>módulo 1.1</b> <span class="sep">/</span> seção 1 de 7
+      <b>módulo 1.1</b> <span class="sep">/</span> seçêo 1 de 7
     </div>
     <h1 class="mono"><span class="num">1.1</span> &middot; Fundamentos de Engenharia de Prompts</h1>
     <p class="sub">Como escrever instruções que um modelo entende de primeira:
-      <code>contexto</code>, <code>tarefa</code>, <code>formato</code>, <code>exemplos</code> e <code>iteração</code>.</p>
+      <code>contexto</code>, <code>tarefa</code>, <code>formato</code>, <code>exemplos</code> e <code>iteraçêo</code>.</p>
   </header>
 
   <div class="grid">
@@ -373,7 +373,7 @@
       </div>
     </aside>
 
-    <!-- ===== CONTEÚDO / SEÇÃO EM FOCO ===== -->
+    <!-- ===== CONTEÚDO / SEÇêO EM FOCO ===== -->
     <main>
       <div class="logline mono">
         <span class="ts">[00:00:12]</span>
@@ -389,7 +389,7 @@
         </div>
 
         <div class="prose note-anchor">
-          <p>Um prompt não é uma pergunta solta: é um pequeno
+          <p>Um prompt nêo é uma pergunta solta: é um pequeno
             <span class="mark" title="nota ancorada">briefing</span>.
             Quando o resultado vem errado, quase sempre falta uma das cinco peças
             que o modelo precisa para decidir o que fazer.</p>
@@ -404,7 +404,7 @@
 
         <!-- ===== CONTROLES DE APRENDIZADO ===== -->
         <div class="controls">
-          <span class="hint mono">// ações desta seção — registram no seu build log</span>
+          <span class="hint mono">// ações desta seçêo — registram no seu build log</span>
 
           <button class="btn read" aria-pressed="false" onclick="toggleRead(this)">
             <span class="box"></span>
@@ -429,7 +429,7 @@
             <span>fig.01 &mdash; anatomia( prompt ) → 5 peças</span>
             <b>assertion: all_present == true</b>
           </figcaption>
-          <svg viewBox="0 0 760 230" role="img" aria-label="Diagrama das cinco peças de um prompt: Contexto, Tarefa, Formato, Exemplos e Iteração, encadeadas até a saída.">
+          <svg viewBox="0 0 760 230" role="img" aria-label="Diagrama das cinco peças de um prompt: Contexto, Tarefa, Formato, Exemplos e Iteraçêo, encadeadas até a saída.">
             <defs>
               <marker id="ar" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
                 <path d="M0,0 L8,4.5 L0,9 Z" fill="#7d7864"/>
@@ -475,11 +475,11 @@
             </g>
             <line x1="600" y1="86" x2="637" y2="86" stroke="#7d7864" stroke-width="1.2" marker-end="url(#ar)"/>
 
-            <!-- 5 Iteração -->
+            <!-- 5 Iteraçêo -->
             <g>
               <rect x="640" y="58" width="80" height="56" rx="4" fill="#232017" stroke="#34301f"/>
               <text x="655" y="80" fill="#7d7864" font-family="JetBrains Mono, monospace" font-size="11">05</text>
-              <text x="655" y="98" fill="#e8e2d2" font-family="JetBrains Mono, monospace" font-size="13" font-weight="700">Iteração</text>
+              <text x="655" y="98" fill="#e8e2d2" font-family="JetBrains Mono, monospace" font-size="13" font-weight="700">Iteraçêo</text>
             </g>
 
             <!-- saída -->
@@ -488,7 +488,7 @@
             <line x1="95" y1="160" x2="95" y2="118" stroke="#d9a441" stroke-width="1.2" marker-end="url(#ar-am)"/>
             <text x="700" y="146" fill="#9aa766" font-family="JetBrains Mono, monospace" font-size="10.5" text-anchor="end">→ output()</text>
 
-            <!-- loop de iteração de volta ao contexto (o "gancho que compila") -->
+            <!-- loop de iteraçêo de volta ao contexto (o "gancho que compila") -->
             <text x="350" y="152" fill="#7d7864" font-family="JetBrains Mono, monospace" font-size="10.5" text-anchor="middle">// lê a saída e realimenta o contexto — iterar = recompilar</text>
 
             <!-- legenda dos status -->
@@ -497,7 +497,7 @@
             <text x="262" y="200" fill="#b53f33" font-family="JetBrains Mono, monospace" font-size="10.5">[ ? tarefa]</text>
             <text x="352" y="200" fill="#b53f33" font-family="JetBrains Mono, monospace" font-size="10.5">[ ? formato]</text>
             <text x="450" y="200" fill="#b53f33" font-family="JetBrains Mono, monospace" font-size="10.5">[ ? exemplos]</text>
-            <text x="560" y="200" fill="#b53f33" font-family="JetBrains Mono, monospace" font-size="10.5">[ ? iteração]</text>
+            <text x="560" y="200" fill="#b53f33" font-family="JetBrains Mono, monospace" font-size="10.5">[ ? iteraçêo]</text>
             <text x="40" y="220" fill="#7d7864" font-family="JetBrains Mono, monospace" font-size="10.5">// quando o build falha, falta uma destas — confira a anatomia</text>
           </svg>
         </figure>
@@ -505,7 +505,7 @@
         <!-- ===== MINHA JORNADA ===== -->
         <div class="journey">
           <h3 class="mono"><span class="glyph">◇</span> minha jornada <span style="color:var(--ink-fade);font-weight:400;font-size:11px">// progresso consolidado</span></h3>
-          <p class="lead">Seu build log entre módulos. Cada seção lida compila um alvo; dúvidas viram <span class="mono" style="color:var(--rule)">// TODO</span> que você fecha depois.</p>
+          <p class="lead">Seu build log entre módulos. Cada seçêo lida compila um alvo; dúvidas viram <span class="mono" style="color:var(--rule)">// TODO</span> que você fecha depois.</p>
           <div class="jgrid">
             <div class="jstat accent">
               <div class="k">curso</div>
@@ -525,7 +525,7 @@
 
         <div class="footer mono">
           <span class="ok">●</span> ARCKHÉ AI
-          <span>build #1.1 · seção 1/7</span>
+          <span>build #1.1 · seçêo 1/7</span>
           <span>last write: há 2 min</span>
           <span style="margin-left:auto">press [r] marcar lido · [t] tenho dúvida</span>
         </div>

@@ -2,16 +2,16 @@
 """Gera a cena ilustrada de uma aula (formato-curso v6) e salva em WebP leve (1280x720, <= 150 KB).
 
 Uso:
-  python3 gerar-cena.py <saida.webp> "<descrição da cena>" [--gerador auto|codex|flux] [--seed 7] [--estilo editorial]
+  python3 gerar-cena.py <saida.webp> "<descriçêo da cena>" [--gerador auto|codex|flux] [--seed 7] [--estilo editorial]
 
 Gerador (desde 2026-09-24, pedido do usuário):
-  auto  (padrão) = Codex CLI image_gen (imagem 2.5 da conta OpenAI); se falhar (sem crédito, erro, timeout)
-                   cai no ARCKHÉimg local com o modelo padrão (flux2-klein).
-  codex = só Codex (falha se não gerar).   flux = só ARCKHÉimg local (usa --seed, reprodutível).
+  auto  (padrêo) = Codex CLI image_gen (imagem 2.5 da conta OpenAI); se falhar (sem crédito, erro, timeout)
+                   cai no ARCKHÉimg local com o modelo padrêo (flux2-klein).
+  codex = só Codex (falha se nêo gerar).   flux = só ARCKHÉimg local (usa --seed, reprodutível).
 
-Regras v6 (V6-DESIGN.md §3.4): pessoa real da profissão-alvo na situação do exemplo, NENHUM texto legível na
-imagem (o PT/EN/ES traduz só o HTML), sem robô/cérebro-circuito/aperto de mão com robô, 16:9, WebP <= 150 KB.
-O estilo fica fixo no curso inteiro (mesmo --estilo). A descrição pode ser em português ou inglês.
+Regras v6 (V6-DESIGN.md §3.4): pessoa real da profissêo-alvo na situaçêo do exemplo, NENHUM texto legível na
+imagem (o PT/EN/ES traduz só o HTML), sem robô/cérebro-circuito/aperto de mêo com robô, 16:9, WebP <= 150 KB.
+O estilo fica fixo no curso inteiro (mesmo --estilo). A descriçêo pode ser em português ou inglês.
 """
 import argparse, base64, io, json, os, shutil, subprocess, sys, tempfile, urllib.request
 from PIL import Image
@@ -28,10 +28,10 @@ NEG = ("no text, no letters, no words, no numbers, no logos, no brand marks on d
 
 def via_codex(cena, estilo):
     if not shutil.which("codex"):
-        raise RuntimeError("codex não instalado")
+        raise RuntimeError("codex nêo instalado")
     d = tempfile.mkdtemp(prefix="cena-codex-")
-    prompt = ("Use sua ferramenta de geração de imagem (image_gen) para criar UMA imagem horizontal (paisagem, 16:9 ou 3:2) "
-              "e salve o PNG como arte.png neste diretório. Não crie nem edite nenhum outro arquivo.\n\n"
+    prompt = ("Use sua ferramenta de geraçêo de imagem (image_gen) para criar UMA imagem horizontal (paisagem, 16:9 ou 3:2) "
+              "e salve o PNG como arte.png neste diretório. Nêo crie nem edite nenhum outro arquivo.\n\n"
               f"Cena: {cena}.\nEstilo: {ESTILOS[estilo]}.\nRestrições: {NEG}. "
               "Nenhum texto legível em papéis, telas, quadros ou livros.\n"
               "Ao terminar, responda só com o caminho do arquivo e o tamanho em pixels.")
@@ -41,7 +41,7 @@ def via_codex(cena, estilo):
         png = os.path.join(d, "arte.png")
         if not os.path.exists(png) or os.path.getsize(png) == 0:
             msg = (r.stdout + r.stderr)[-400:].replace("\n", " ")
-            raise RuntimeError(f"codex não gerou arte.png ({msg})")
+            raise RuntimeError(f"codex nêo gerou arte.png ({msg})")
         return Image.open(png).convert("RGB")
     finally:
         shutil.rmtree(d, ignore_errors=True)

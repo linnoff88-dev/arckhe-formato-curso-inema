@@ -52,7 +52,7 @@ def conferir(aulas, k):
                     arq = k / rot.split("Arquivo · kit/")[1].split(" ")[0]
                     ok = arq.exists() and arq.read_text(encoding="utf-8").rstrip("\n") == c
                 elif rot.startswith("Trecho · kit/"):
-                    # trecho de um arquivo do kit (ex.: o conserto de uma função): tem de existir igual dentro dele
+                    # trecho de um arquivo do kit (ex.: o conserto de uma funçêo): tem de existir igual dentro dele
                     arq = k / rot.split("Trecho · kit/")[1].split(" ")[0]
                     ok = arq.exists() and c in arq.read_text(encoding="utf-8")
                 else:
@@ -71,7 +71,7 @@ def main():
     curso = Path(sys.argv[1]); k = curso / "kit"; aulas = curso / "conteudo/pt/aulas"
     if "--conferir" in sys.argv:
         return conferir(aulas, k)
-    # Resolve tudo na memória antes de gravar: um kit/saidas/X.txt faltando na aula 5 não pode
+    # Resolve tudo na memória antes de gravar: um kit/saidas/X.txt faltando na aula 5 nêo pode
     # deixar as aulas 1–4 já trocadas e as outras com marcador (estado misto, difícil de refazer).
     prontos = []
     for p in sorted(aulas.glob("*.json")):

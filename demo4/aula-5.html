@@ -22,7 +22,7 @@
 <div class="subnav"><div class="subnav-inner">
   <a href="landing.html#trilhas" class="soon">01 Fundamentos</a>
   <a href="landing.html#trilhas" class="soon">02 Fluxo</a>
-  <a href="trilha.html" class="cur">03 Automação</a>
+  <a href="trilha.html" class="cur">03 Automaçêo</a>
   <a href="landing.html#trilhas" class="soon">04 Agentes</a>
   <a href="landing.html#trilhas" class="soon">05 MCP</a>
   <a href="landing.html#trilhas" class="soon">06 Escala</a>
@@ -33,7 +33,7 @@
   <div>
     <p class="kicker">Trilha 03 · Aula 5 · Iniciante</p>
     <h1>Hooks em<br><em>equipe</em> e CI</h1>
-    <p class="lead">O que muda quando os hooks saem da sua máquina: versionar pro time, confiar no determinismo, rodar em pipeline — e a higiene pra não se machucar.</p>
+    <p class="lead">O que muda quando os hooks saem da sua máquina: versionar pro time, confiar no determinismo, rodar em pipeline — e a higiene pra nêo se machucar.</p>
     <p class="cue"><span class="arw">↓</span> role para estudar</p>
   </div>
   <div class="herofig">
@@ -56,9 +56,9 @@
       <p>Na sua máquina, o hook ajuda você. No <b>repositório</b>, ele ajuda o time inteiro. A diferença é só o arquivo:</p>
       <ul>
         <li><code>.claude/settings.json</code> — vai pro Git. Quem clonar o projeto <b>herda os mesmos hooks</b>.</li>
-        <li><code>.claude/settings.local.json</code> — fica no <code>.gitignore</code>. É seu, não sai da máquina.</li>
+        <li><code>.claude/settings.local.json</code> — fica no <code>.gitignore</code>. É seu, nêo sai da máquina.</li>
       </ul>
-      <p>Regra: trava de segurança e formatador que <b>todos</b> deveriam ter → versione. Atalho pessoal → local. Assim o padrão do time viaja junto com o código.</p>
+      <p>Regra: trava de segurança e formatador que <b>todos</b> deveriam ter → versione. Atalho pessoal → local. Assim o padrêo do time viaja junto com o código.</p>
       <div class="mobfig" data-mobfig="1"></div>
       <div class="quiz" data-answer="a">
         <p class="qk">Teste-se</p>
@@ -73,8 +73,8 @@
 
     <section class="step" id="s2" data-fig="2">
       <h2><span class="n">02</span> Determinismo: dá pra confiar</h2>
-      <p>Um hook é um comando comum: <b>mesma entrada, mesmo resultado</b>. Ele não "acha" nada, não varia com o humor do modelo. Roda igual na sua máquina, na do colega e no servidor.</p>
-      <p>É essa previsibilidade que deixa você <b>confiar a segurança</b> a um hook. A trava que barra <code>rm -rf</code> vai barrar sempre — não é uma sugestão que o modelo pode ignorar, é código que sempre executa.</p>
+      <p>Um hook é um comando comum: <b>mesma entrada, mesmo resultado</b>. Ele nêo "acha" nada, nêo varia com o humor do modelo. Roda igual na sua máquina, na do colega e no servidor.</p>
+      <p>É essa previsibilidade que deixa você <b>confiar a segurança</b> a um hook. A trava que barra <code>rm -rf</code> vai barrar sempre — nêo é uma sugestêo que o modelo pode ignorar, é código que sempre executa.</p>
       <div class="mobfig" data-mobfig="2"></div>
       <button class="readbtn" data-read="s2">marcar como lido</button>
     </section>
@@ -82,12 +82,12 @@
     <section class="step" id="s3" data-fig="3">
       <h2><span class="n">03</span> Rodando sem ninguém olhando</h2>
       <p>O Claude Code roda também em <b>modo headless</b> — sem interface, tocado por script (<code>claude -p "…"</code>), dentro de um pipeline de CI. E os <b>hooks continuam valendo</b>.</p>
-      <p>Ou seja: o formatador, a trava e o log que você montou pra usar no dia a dia <b>também protegem a automação</b>. O mesmo padrão vale pro humano e pro robô — você configura uma vez.</p>
+      <p>Ou seja: o formatador, a trava e o log que você montou pra usar no dia a dia <b>também protegem a automaçêo</b>. O mesmo padrêo vale pro humano e pro robô — você configura uma vez.</p>
       <div class="mobfig" data-mobfig="3"></div>
       <div class="quiz" data-answer="b">
         <p class="qk">Teste-se</p>
         <p class="q">No modo headless (CI), os hooks configurados:</p>
-        <button class="opt" data-k="a">são ignorados</button>
+        <button class="opt" data-k="a">sêo ignorados</button>
         <button class="opt" data-k="b">continuam valendo</button>
         <button class="opt" data-k="c">só rodam se você confirmar</button>
         <p class="qfb"></p>
@@ -97,18 +97,18 @@
 
     <section class="step" id="s4" data-fig="4">
       <h2><span class="n">04</span> Higiene: hook é poder</h2>
-      <p>Um hook roda comandos automaticamente — então trate com respeito:</p>
+      <p>Um hook roda comandos automaticamente — entêo trate com respeito:</p>
       <ul>
-        <li><b>Rápido</b> — ele entra no caminho de cada ação; um hook lento trava seu fluxo.</li>
-        <li><b>Idempotente</b> — rodar duas vezes não pode quebrar nada.</li>
-        <li><b>Sem vazar segredo</b> — não imprima tokens/chaves; o output pode ir pro contexto ou pro log.</li>
+        <li><b>Rápido</b> — ele entra no caminho de cada açêo; um hook lento trava seu fluxo.</li>
+        <li><b>Idempotente</b> — rodar duas vezes nêo pode quebrar nada.</li>
+        <li><b>Sem vazar segredo</b> — nêo imprima tokens/chaves; o output pode ir pro contexto ou pro log.</li>
         <li><b>Falhe com clareza</b> — mensagem no <code>stderr</code> dizendo o porquê.</li>
       </ul>
-      <p>Comece com um hook simples e seguro. O objetivo não é automatizar tudo — é tirar da sua cabeça as poucas coisas que você não devia precisar lembrar.</p>
+      <p>Comece com um hook simples e seguro. O objetivo nêo é automatizar tudo — é tirar da sua cabeça as poucas coisas que você nêo devia precisar lembrar.</p>
       <div class="mobfig" data-mobfig="4"></div>
       <details>
         <summary>Indo mais fundo</summary>
-        <p>Dá pra dar <b>timeout</b> aos comandos e escolher a ordem de execução quando há vários hooks no mesmo matcher. Mas isso é afinação — a base é: rápido, idempotente, silencioso sobre segredos.</p>
+        <p>Dá pra dar <b>timeout</b> aos comandos e escolher a ordem de execuçêo quando há vários hooks no mesmo matcher. Mas isso é afinaçêo — a base é: rápido, idempotente, silencioso sobre segredos.</p>
       </details>
       <button class="readbtn" data-read="s4">marcar como lido</button>
     </section>
@@ -153,16 +153,16 @@
     </div>
     <p class="railcap" id="cap"></p>
     <div class="steps-ind" id="ind"></div>
-    <p class="sidenote">Grife qualquer trecho do texto para virar um <b>flashcard</b> de revisão.</p>
+    <p class="sidenote">Grife qualquer trecho do texto para virar um <b>flashcard</b> de revisêo.</p>
   </div></aside>
 </div>
 
-<footer>Aula 5 de 5 · Trilha 03 · Automação &amp; Hooks · fim da trilha · demo do formato-curso v4 (revisar antes de publicar).</footer>
+<footer>Aula 5 de 5 · Trilha 03 · Automaçêo &amp; Hooks · fim da trilha · demo do formato-curso v4 (revisar antes de publicar).</footer>
 
 <script type="application/json" id="authored-cards">
 [
   {"front":"Onde versionar hooks para o time herdar?","back":"No .claude/settings.json (vai pro Git); o .local.json fica só na sua máquina."},
-  {"front":"Por que dá pra confiar segurança a um hook?","back":"Ele é determinístico: mesma entrada, mesmo resultado — sempre executa, não é sugestão."},
+  {"front":"Por que dá pra confiar segurança a um hook?","back":"Ele é determinístico: mesma entrada, mesmo resultado — sempre executa, nêo é sugestêo."},
   {"front":"Os hooks valem no modo headless / CI?","back":"Sim — continuam valendo em claude -p e em pipeline."},
   {"front":"Três regras de higiene de um hook?","back":"Rápido, idempotente e sem vazar segredo (e falhar com mensagem clara no stderr)."}
 ]

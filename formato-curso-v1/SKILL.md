@@ -15,7 +15,7 @@ Sempre leia estes arquivos antes de criar ou editar qualquer pagina:
 1. **`references/MASTER_COMPLETO.md`** — Templates HTML completos, sistema de cores, componentes, CSS e JavaScript obrigatorios. Contem tudo que voce precisa para construir qualquer pagina.
 2. **`references/CHECKLIST_REVISAO.md`** — Checklist para verificar a pagina antes de entregar ao usuario.
 3. **`references/DESIGN-SYSTEM.md`** — Vocabulario, filosofia e decisoes visuais. Consulte quando precisar **decidir** qual elemento visual usar (SVG vs tabela vs card), **explicar** o estilo para alguem (cliente, agente, colega), ou **buscar inspiracao** mantendo coerencia. Complementa o MASTER (que diz "como") com o "porque" e o "quando".
-4. **`references/SVG-FUTURISTA.md`** — Biblioteca de diagramas SVG ilustrativos no estilo do curso (fan-out, escada, profundidade×largura, malha×solo, aninhamento, equação, fluxo de decisão, monitor mock). Leia SEMPRE que for criar um modulo de conteudo ou index de trilha — cada modulo de conteudo precisa de **≥1 SVG** e cada index de trilha de **1 hero SVG** (ver erro critico #17).
+4. **`references/SVG-FUTURISTA.md`** — Biblioteca de diagramas SVG ilustrativos no estilo do curso (fan-out, escada, profundidade×largura, malha×solo, aninhamento, equaçêo, fluxo de decisêo, monitor mock). Leia SEMPRE que for criar um modulo de conteudo ou index de trilha — cada modulo de conteudo precisa de **≥1 SVG** e cada index de trilha de **1 hero SVG** (ver erro critico #17).
 
 ## Fluxo de Trabalho
 

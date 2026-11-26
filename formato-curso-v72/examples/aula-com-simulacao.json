@@ -4,7 +4,7 @@
   "titulo": "Degrau 3: filas — dez tarefas e vá dormir",
   "titulo_curto": "Filas (ARCKHÉccbot)",
   "minutos": 12,
-  "lead": "Um agente sozinho faz uma coisa por vez e só enquanto você olha. Com uma fila durável, cada pedido vira uma tarefa guardada, retomada se cair, e os fluxos param num portão antes do que importa.",
+  "lead": "Um agente sozinho faz uma coisa por vez e só enquanto você olha. Com uma fila durável, cada pedido vira uma tarefa guardada, retomada se cair, e os fluxos param num portêo antes do que importa.",
   "objetivo": "decidir o que vai para a fila, onde ficam os portões e como conferir o resultado no dia seguinte.",
   "competencias": [
     "desenhar-fila",
@@ -23,7 +23,7 @@
     },
     {
       "icone": "portao",
-      "t": "Onde pôr o portão humano"
+      "t": "Onde pôr o portêo humano"
     },
     {
       "icone": "grafico",
@@ -34,7 +34,7 @@
     {
       "tipo": "diagrama",
       "titulo": "O caminho de uma tarefa",
-      "sub": "Do pedido ao resultado, com retomada e portão.",
+      "sub": "Do pedido ao resultado, com retomada e portêo.",
       "nos": [
         {
           "icone": "enviar",
@@ -43,7 +43,7 @@
           "itens": [
             {
               "icone": "arquivo",
-              "t": "Transcrever reunião"
+              "t": "Transcrever reuniêo"
             },
             {
               "icone": "arquivo",
@@ -59,7 +59,7 @@
         {
           "icone": "fila",
           "titulo": "Fila durável",
-          "sub": "Guardada, não na memória",
+          "sub": "Guardada, nêo na memória",
           "itens": [
             {
               "icone": "memoria",
@@ -93,15 +93,15 @@
         },
         {
           "icone": "portao",
-          "titulo": "Portão",
-          "sub": "Sua aprovação",
+          "titulo": "Portêo",
+          "sub": "Sua aprovaçêo",
           "itens": [
             {
               "icone": "usuario",
               "t": "Ler, corrigir, aprovar"
             }
           ],
-          "detalhe": "Nos fluxos que importam, o bot escreve e para. Você lê, corrige se precisar e só então aprova. É o momento em que você gerencia, em vez de fazer."
+          "detalhe": "Nos fluxos que importam, o bot escreve e para. Você lê, corrige se precisar e só entêo aprova. É o momento em que você gerencia, em vez de fazer."
         }
       ],
       "volta": "Rodar de novo só pega o que sobrou",
@@ -109,7 +109,7 @@
       "rolagem": true,
       "rolagem_fim": {
         "titulo": "Uma noite de fila",
-        "texto": "Você manda as tarefas e vai dormir. A fila guarda, o agente executa uma por vez e para no portão do que importa. De manhã, você olha feito/ e falhou/."
+        "texto": "Você manda as tarefas e vai dormir. A fila guarda, o agente executa uma por vez e para no portêo do que importa. De manhê, você olha feito/ e falhou/."
       }
     },
     {
@@ -117,7 +117,7 @@
       "titulo": "Veja a fila funcionando",
       "sub": "Rode, interrompa no meio e rode de novo. É o que a fila caseira faz.",
       "tarefas": [
-        "Transcrever a reunião de segunda",
+        "Transcrever a reuniêo de segunda",
         "Resumir os 3 PDFs do cliente",
         "Rascunho do post da semana",
         "Explicativo de 2 min do produto",
@@ -137,11 +137,11 @@
         "inicio": "5 tarefas em entrada/. Clique em \"Rodar a fila\".",
         "rodando": "Rodando: uma tarefa por vez, de entrada/ para rodando/ e depois feito/ ou falhou/.",
         "parou": "Interrompido. A tarefa do meio ficou em rodando/. Rode de novo para ver a retomada.",
-        "retoma": "Retomada: o que estava em rodando/ voltou para entrada/. O que já estava em feito/ não é refeito.",
+        "retoma": "Retomada: o que estava em rodando/ voltou para entrada/. O que já estava em feito/ nêo é refeito.",
         "fim": "Fila vazia: tudo em feito/.",
-        "fimfalha": "Fila vazia. Uma tarefa foi para falhou/ com o motivo: é ela que você olha de manhã."
+        "fimfalha": "Fila vazia. Uma tarefa foi para falhou/ com o motivo: é ela que você olha de manhê."
       },
-      "legenda": "Simulação ilustrativa no navegador: as tarefas não rodam de verdade. A falha é proposital, para mostrar a pasta falhou/."
+      "legenda": "Simulaçêo ilustrativa no navegador: as tarefas nêo rodam de verdade. A falha é proposital, para mostrar a pasta falhou/."
     },
     {
       "tipo": "codigo",
@@ -151,12 +151,12 @@
         {
           "rot": "Terminal · fila caseira (no repositório jornada-agentes)",
           "icone": "terminal",
-          "conteudo": "mkdir -p fila/entrada\necho \"Resuma em 5 linhas o que é uma fila de tarefas.\" > fila/entrada/01.md\necho \"Liste 3 riscos de deixar um agente rodando sozinho.\" > fila/entrada/02.md\n./ferramentas/fila-caseira.sh fila          # motor padrão: claude\n./ferramentas/fila-caseira.sh fila codex    # ou o codex"
+          "conteudo": "mkdir -p fila/entrada\necho \"Resuma em 5 linhas o que é uma fila de tarefas.\" > fila/entrada/01.md\necho \"Liste 3 riscos de deixar um agente rodando sozinho.\" > fila/entrada/02.md\n./ferramentas/fila-caseira.sh fila          # motor padrêo: claude\n./ferramentas/fila-caseira.sh fila codex    # ou o codex"
         },
         {
           "rot": "fila-no-papel.md",
           "icone": "arquivo",
-          "conteudo": "| Tarefa | Roda sozinha? | Precisa de portão? | Onde está o portão |\n|---|---|---|---|\n| Transcrever a reunião | sim | não | — |\n| Post da semana | sim | sim | antes de publicar |\n|  |  |  |  |\n|  |  |  |  |\n|  |  |  |  |\n|  |  |  |  |\n|  |  |  |  |\n|  |  |  |  |\n|  |  |  |  |\n|  |  |  |  |"
+          "conteudo": "| Tarefa | Roda sozinha? | Precisa de portêo? | Onde está o portêo |\n|---|---|---|---|\n| Transcrever a reuniêo | sim | nêo | — |\n| Post da semana | sim | sim | antes de publicar |\n|  |  |  |  |\n|  |  |  |  |\n|  |  |  |  |\n|  |  |  |  |\n|  |  |  |  |\n|  |  |  |  |\n|  |  |  |  |\n|  |  |  |  |"
         }
       ],
       "saida": {
@@ -164,11 +164,11 @@
         "abas": [
           {
             "rot": "Comandos do bot",
-            "html": "<ul><li><code>/ping</code>: confere se o bot responde (fim da instalação).</li><li><code>/ajuda</code>: lista os comandos.</li><li><code>/fila</code>: mostra as filas.</li><li><code>/promoavatar</code>: exemplo de fluxo com portão — o bot escreve os textos e para para você aprovar.</li></ul>"
+            "html": "<ul><li><code>/ping</code>: confere se o bot responde (fim da instalaçêo).</li><li><code>/ajuda</code>: lista os comandos.</li><li><code>/fila</code>: mostra as filas.</li><li><code>/promoavatar</code>: exemplo de fluxo com portêo — o bot escreve os textos e para para você aprovar.</li></ul>"
           },
           {
             "rot": "Como a fila caseira decide",
-            "html": "<ol><li>O que ficou em <code>rodando/</code> (queda, Ctrl+C) volta para <code>entrada/</code>.</li><li>Pega uma tarefa por vez de <code>entrada/</code>.</li><li>Resposta vazia ou erro: vai para <code>falhou/</code> com o motivo.</li><li>No fim, mostra quantas estão em entrada, feito e falhou.</li></ol>"
+            "html": "<ol><li>O que ficou em <code>rodando/</code> (queda, Ctrl+C) volta para <code>entrada/</code>.</li><li>Pega uma tarefa por vez de <code>entrada/</code>.</li><li>Resposta vazia ou erro: vai para <code>falhou/</code> com o motivo.</li><li>No fim, mostra quantas estêo em entrada, feito e falhou.</li></ol>"
           }
         ]
       }
@@ -182,15 +182,15 @@
           "id": "e1",
           "titulo": "E1 · A fila no papel",
           "min": "15 min",
-          "texto": "Liste 10 tarefas repetitivas e marque se rodam sozinhas, se precisam de portão e onde.",
-          "pronto": "as 10 linhas estão preenchidas e pelo menos duas têm portão."
+          "texto": "Liste 10 tarefas repetitivas e marque se rodam sozinhas, se precisam de portêo e onde.",
+          "pronto": "as 10 linhas estêo preenchidas e pelo menos duas têm portêo."
         },
         {
           "id": "e2",
           "titulo": "E2 · Fila caseira em 30 linhas",
           "min": "30 min",
           "texto": "Crie duas tarefas em fila/entrada e rode a fila-caseira.sh. Interrompa uma rodada com Ctrl+C.",
-          "pronto": "as duas estão em fila/feito e você viu a fila continuar de onde parou."
+          "pronto": "as duas estêo em fila/feito e você viu a fila continuar de onde parou."
         },
         {
           "id": "e3",
@@ -209,9 +209,9 @@
         },
         {
           "id": "e5",
-          "titulo": "E5 · O portão",
+          "titulo": "E5 · O portêo",
           "min": "30 min",
-          "texto": "Use um fluxo com portão, como o /promoavatar: leia, corrija e só então aprove.",
+          "texto": "Use um fluxo com portêo, como o /promoavatar: leia, corrija e só entêo aprove.",
           "pronto": "você recusou ou corrigiu pelo menos um texto antes de aprovar."
         }
       ],
@@ -220,13 +220,13 @@
     {
       "tipo": "video",
       "titulo": "A sequência 3 em vídeo",
-      "sub": "A fila durável do ARCKHÉccbot e o portão de aprovação.",
+      "sub": "A fila durável do ARCKHÉccbot e o portêo de aprovaçêo.",
       "chave": "seq3-filas"
     },
     {
       "tipo": "quiz",
       "titulo": "Teste o que aprendeu",
-      "sub": "A explicação aparece depois da sua resposta.",
+      "sub": "A explicaçêo aparece depois da sua resposta.",
       "perguntas": [
         {
           "p": "Você interrompeu a fila no meio de uma tarefa. O que acontece quando roda de novo?",
@@ -237,24 +237,24 @@
             "A fila só volta a funcionar no dia seguinte."
           ],
           "certa": 1,
-          "explica": "É o que torna a fila durável: o que ficou em rodando/ volta para entrada/, e o que já está em feito/ não é refeito.",
+          "explica": "É o que torna a fila durável: o que ficou em rodando/ volta para entrada/, e o que já está em feito/ nêo é refeito.",
           "ref": "simfila"
         },
         {
-          "p": "Em qual tarefa o portão humano é mais importante?",
+          "p": "Em qual tarefa o portêo humano é mais importante?",
           "opcoes": [
-            "Transcrever uma reunião interna.",
+            "Transcrever uma reuniêo interna.",
             "Resumir PDFs para você mesmo ler.",
             "Publicar um post em nome da empresa.",
             "Listar arquivos de uma pasta."
           ],
           "certa": 2,
-          "explica": "Portão vai antes do que tem consequência fora: publicar, enviar, gastar. Transcrever para uso interno pode rodar sozinho.",
+          "explica": "Portêo vai antes do que tem consequência fora: publicar, enviar, gastar. Transcrever para uso interno pode rodar sozinho.",
           "cert": true,
           "ref": "diagrama"
         },
         {
-          "p": "Qual é o sinal de que você está gerenciando, e não só usando?",
+          "p": "Qual é o sinal de que você está gerenciando, e nêo só usando?",
           "opcoes": [
             "Mandar mais tarefas por noite.",
             "Recusar ou corrigir um resultado antes de aprovar, e transformar a falha em regra.",
@@ -272,7 +272,7 @@
       "titulo": "Para aprofundar o degrau 3",
       "links": [
         {
-          "t": "ARCKHÉccbot: guia de instalação e arquitetura",
+          "t": "ARCKHÉccbot: guia de instalaçêo e arquitetura",
           "href": "https://linnoff88-dev.github.io/
           "icone": "fila"
         },
