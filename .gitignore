@@ -20,8 +20,8 @@ resumo-*.md
 .syslibs/
 tmp/
 node_modules/
-capa-inema/fetch-debs.js
-capa-inema/package.json
-capa-inema/package-lock.json
+capa-ARCKHÉ/fetch-debs.js
+capa-ARCKHÉ/package.json
+capa-ARCKHÉ/package-lock.json
 __pycache__/
 *.pyc

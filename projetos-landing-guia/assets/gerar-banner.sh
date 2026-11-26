@@ -10,14 +10,14 @@
 # Estilos (padrêo desde 2026-10-01: live):
 #   live — como o banner "Hoje tem live" do portal: sans geométrica limpa, contraste de peso
 #          (extra-bold × fino) em branco, a palavra de destaque enorme em dourado/âmbar,
-#          texto à esquerda e cena cinematográfica com luz quente à direita. --tiles vira rótulos discretos.
-#   grade — layout do banner antigo (título no topo, fileira de tiles com ícones, faixa INEMA.CLUB
+#          texto à esquerda e cena cARCKHÉtográfica com luz quente à direita. --tiles vira rótulos discretos.
+#   grade — layout do banner antigo (título no topo, fileira de tiles com ícones, faixa ARCKHÉ AI
 #          embaixo) com cor/luz/tipografia das referências (ícones em traço dourado, como a capa do musicavideo).
 #   live e grade anexam assets/referencias/ref-live.jpg e ref-musicavideo.jpg (codex exec -i) como referência de estilo.
 #   opus — como o banner do guia claude-opus55: título em dourado metálico limpo, tiles com ícones.
 #   --selo "Nome": escreve o nome do projeto/produto em azul (#3B9EFF, Sora) acima do título,
 #          depois da geraçêo (selo-banner.py, determinístico). Pulado se o nome já está no título.
-#          Regra inema-design V11 (13/10/2026).
+#          Regra ARCKHÉ-design V11 (13/10/2026).
 #   Nunca fonte "de jogo" (condensada, inflada, cartunesca) — era o padrêo antigo, abandonado.
 #
 # Saída: <repo>/guia/assets/<saida>.jpg (default banner.jpg) (JPG 1400px de largura, ~400-500 KB).
@@ -35,7 +35,7 @@ REPO="$(realpath "$REPO")"  # evita SLUG "." com --repo .
 LINE="${LINE:-}"; TILES="${TILES:-}"; SLUG="${SLUG:-$(basename "$REPO")}"
 ESTILO="${ESTILO:-live}"; DESTAQUE="${DESTAQUE:-${TITLE##* }}"  # default: última palavra do título
 case "$ESTILO" in live|grade|opus) ;; *) echo "--estilo deve ser live, grade ou opus"; exit 2;; esac
-SAIDA="${SAIDA:-banner}"; LANGB="${LANGB:-pt}"; RODAPE="${RODAPE:-INEMA.CLUB · inematds.github.io/$SLUG}"
+SAIDA="${SAIDA:-banner}"; LANGB="${LANGB:-pt}"; RODAPE="${RODAPE:-ARCKHÉ AI · linnoff88-dev.github.io/arckhe-$SLUG}"
 case "$LANGB" in pt) IDIOMA="português";; en) IDIOMA="inglês";; es) IDIOMA="espanhol";; *) echo "--lang deve ser pt, en ou es"; exit 2;; esac
 if [ "$ESTILO" = live ] || [ "$ESTILO" = grade ]; then
   SIDES="${SIDES:-um objeto 3D brilhante que representa o tema, sobre uma mesa ou pedestal num ambiente de estúdio escuro}"
@@ -54,7 +54,7 @@ if [ "$ESTILO" = live ]; then
   PROMPT="$HEAD_TXT
 
 As duas imagens anexadas sêo a REFERÊNCIA DE ESTILO aprovada (cores, luz, tipografia e acabamento): copie o estilo, NUNCA o conteúdo, as pessoas, os logos ou os textos delas.
-Estilo: thumbnail cinematográfica premium como 'HOJE TEM LIVE' e a capa do INEMA MUSICAVIDEO. Cor e luz como nas referências: fundo preto com luz cinematográfica quente âmbar e laranja (luzes de palco, bokeh, reflexos), cena com cor viva e contraste alto, podendo ter pontos de cor do tema (telas, luzes) — nem monocromática cinza, nem toda dourada. Letras brancas limpas e letras em dourado/âmbar com gradiente suave e brilho leve, como 'MUSICAS' e 'ESCALA' na referência; nada de letras cromadas, neon ou supersaturadas, sem neon azul, sem foto de pessoa.
+Estilo: thumbnail cARCKHÉtográfica premium como 'HOJE TEM LIVE' e a capa do ARCKHÉ MUSICAVIDEO. Cor e luz como nas referências: fundo preto com luz cARCKHÉtográfica quente âmbar e laranja (luzes de palco, bokeh, reflexos), cena com cor viva e contraste alto, podendo ter pontos de cor do tema (telas, luzes) — nem monocromática cinza, nem toda dourada. Letras brancas limpas e letras em dourado/âmbar com gradiente suave e brilho leve, como 'MUSICAS' e 'ESCALA' na referência; nada de letras cromadas, neon ou supersaturadas, sem neon azul, sem foto de pessoa.
 Tipografia: sans-serif geométrica limpa e moderna (tipo Montserrat / Gotham), NUNCA fonte de jogo, condensada, inflada ou cartunesca. Contraste de pesos: palavras em branco alternando extra-bold e fino (thin), como 'HOJE' extra-bold e 'TEM' thin. A palavra de destaque em caixa alta, enorme, em dourado metálico chanfrado com brilho sutil e reflexo de luz, ocupando a maior parte da largura do bloco de texto.
 Layout: bloco de texto alinhado à esquerda ocupando cerca de 55% da largura; à direita, cena fotorrealista com profundidade de campo: $SIDES, iluminaçêo quente âmbar/laranja de palco ou estúdio.
 
@@ -72,8 +72,8 @@ elif [ "$ESTILO" = grade ]; then
   PROMPT="$HEAD_TXT
 
 As duas imagens anexadas sêo a REFERÊNCIA DE ESTILO aprovada (cores, luz, tipografia e acabamento): copie o estilo, NUNCA o conteúdo, as pessoas, os logos ou os textos delas.
-Estilo: mesmo layout dos banners clássicos do INEMA (título no topo, subtítulo, fileira de cartões com ícones, faixa inferior), com o acabamento da capa INEMA MUSICAVIDEO e do 'HOJE TEM LIVE'.
-Cor e luz como nas referências: fundo preto com luz cinematográfica quente âmbar e laranja (luzes de palco, bokeh, reflexos), cena com cor viva e contraste alto, podendo ter pontos de cor do tema (telas, luzes) — nem monocromática cinza, nem toda dourada. Letras brancas limpas e letras em dourado/âmbar com gradiente suave e brilho leve, como 'MUSICAS' e 'ESCALA' na referência; nada de letras cromadas, neon ou supersaturadas, sem neon azul, sem foto de pessoa.
+Estilo: mesmo layout dos banners clássicos do ARCKHÉ (título no topo, subtítulo, fileira de cartões com ícones, faixa inferior), com o acabamento da capa ARCKHÉ MUSICAVIDEO e do 'HOJE TEM LIVE'.
+Cor e luz como nas referências: fundo preto com luz cARCKHÉtográfica quente âmbar e laranja (luzes de palco, bokeh, reflexos), cena com cor viva e contraste alto, podendo ter pontos de cor do tema (telas, luzes) — nem monocromática cinza, nem toda dourada. Letras brancas limpas e letras em dourado/âmbar com gradiente suave e brilho leve, como 'MUSICAS' e 'ESCALA' na referência; nada de letras cromadas, neon ou supersaturadas, sem neon azul, sem foto de pessoa.
 Tipografia: sans-serif geométrica limpa e moderna (tipo Montserrat / Gotham), NUNCA fonte de jogo, condensada, inflada ou cartunesca. Título centralizado no topo com contraste de pesos: a palavra de destaque enorme em dourado metálico chanfrado com brilho sutil, as demais palavras do título em branco extra-bold ou thin. Subtítulo em branco extra-bold; linha de apoio em branco thin.
 
 Conteúdo:
@@ -88,7 +88,7 @@ else
   TILES_TXT=""; [ -n "$TILES" ] && TILES_TXT="- Fileira de tiles quadrados com ícone 3D e legenda, um por item: $TILES."
   PROMPT="$HEAD_TXT
 
-Estilo (igual ao banner do guia Claude Opus 5.5 do INEMA): fundo azul-escuro profundo com partículas e fluxos de luz dourada e azul, aparência premium, alto contraste, sem foto de pessoa.
+Estilo (igual ao banner do guia Claude Opus 5.5 do ARCKHÉ): fundo azul-escuro profundo com partículas e fluxos de luz dourada e azul, aparência premium, alto contraste, sem foto de pessoa.
 Tipografia: título em caixa alta, dourado metálico polido com chanfro limpo e sombra, sans-serif bold de desenho limpo; NUNCA fonte de jogo, inflada ou cartunesca, e sem misturar azul no título. Subtítulo em branco bold; linha de apoio em branco regular. Tiles quadrados com ícones 3D brilhantes em molduras neon azul e legenda branca.
 
 Conteúdo:

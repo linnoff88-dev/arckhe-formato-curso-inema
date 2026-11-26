@@ -2,7 +2,7 @@
 name: formato-curso-v72
 disable-model-invocation: true
 description: >-
-  curso INEMA Learning v7.2 — layout de plataforma (barra lateral com aulas, progresso de estudo e de
+  curso ARCKHÉ Learning v7.2 — layout de plataforma (barra lateral com aulas, progresso de estudo e de
   prática, gaveta "seu estudo" com desempenho nos testes, anotações e cópia .json; área central larga;
   tema escuro/papel) com a didática v7: objetivo em uma linha, diagrama clicável primeiro (com rolagem
   guiada opcional), texto curto, simulaçêo onde ensina, modelos com botêo copiar, prática com "pronto
@@ -11,17 +11,17 @@ description: >-
   "formato v72", "curso no formato do do-chat-ao-agente". v7.1 é a base sem a camada de estudo.
 ---
 
-# Formato Curso v7.2 — INEMA Learning
+# Formato Curso v7.2 — ARCKHÉ Learning
 
 **Uma frase:** cada aula começa por um diagrama que o aluno clica para entender, lê pouco, copia o modelo pronto, faz a prática até o "pronto quando" ser verdade e confere no teste comentado — tudo num layout de plataforma que guarda o progresso no navegador.
 
-**Curso de referência (publicado):** https://inematds.github.io/do-chat-ao-agente-v72/ — repo `~/projetos/do-chat-ao-agente-v72`. Na dúvida sobre como algo fica, abra lá.
+**Curso de referência (publicado):** https://linnoff88-dev.github.io/arckhe-/ — repo `~/projetos/do-chat-ao-agente-v72`. Na dúvida sobre como algo fica, abra lá.
 
 ## Antes de escrever
 1. `references/ESQUEMA.md` — campos de `curso.json`, de cada aula e de cada tipo de seçêo.
 2. `references/LICOES.md` — o que já foi reprovado.
 3. `examples/*.json` — aulas reais (diagrama+código+prática, simulaçêo de fila, conversa simulada com cliente, rolagem guiada, mapa+gerador).
-4. `~/projetos/inema-design/DESIGN.md` — design INEMA (cores, fontes, imagem).
+4. `~/projetos/ARCKHÉ-design/DESIGN.md` — design ARCKHÉ (cores, fontes, imagem).
 
 ## Passo a passo
 1. **Criar a pasta:** `scripts/novo-curso.sh ~/projetos/<repo> "<Nome>"` — copia o motor (`gerar.py`, `validar.py`, `assets/v71.*`, `assets/v72.*`, `assets/v72-conversa.*`), um `curso.json` modelo com `ui` pronto e o `CLAUDE.md` com as lições. Nome da pasta = nome do repo.
@@ -37,7 +37,7 @@ description: >-
    ```
    `validar.py` cobra: objetivo ≤ 160 caracteres, diagrama com ≥ 3 blocos, botêo copiar, quiz com resposta oculta, `data-competencias`, lead ≤ 70 palavras, parágrafo ≤ 75, nenhum `TODO`/`[Nome`/`undefined`, arquivos locais e imagens presentes, links externos 200. `conferir-tela.cjs` serve por HTTP local e abre início + cada aula em 1366 e 390 px: sem transbordo horizontal, diagrama e quiz respondem, sem erro de JS; capturas em `.telas/` (olhe pelo menos a página inicial e uma aula no celular).
 6b. **Revisor independente (21/10/2026; regra em `~/.claude/runbooks/revisor-independente.md`):** depois do portêo, um `Agent` `general-purpose` NOVO (nunca `fork`, nunca quem escreveu) recebe só o modelo do runbook: persona do público do curso, a especificaçêo (público + promessa do curso, 1–5 linhas), os caminhos `.telas/` (início + todas as aulas em 390 px) e `conteudo/*.json`, e esta lista fixa: (1) em 5 s, figura + título dizem a ideia da aula? (2) onde travou (palavra, frase, passo); (3) consegue fazer a prática sem ajuda?; (4) quiz tem uma resposta certa defensável e só uma?; (5) termo técnico sem explicaçêo; (6) promessa da aula cumprida? Sem notas do autor no pedido. Defeito → corrige e um revisor novo revisa de novo. Registre: `python3 ~/projetos/wifi/scripts/revisor-nota.py registra --fluxo curso-v72 --item <repo> --quem revisor --veredito … --nota …`; quando o Nei aprovar/reprovar, a mesma linha com `--quem dono`. EN/ES: um revisor por idioma, mesma lista, persona do mercado (ES = América Latina).
-7. **Publicar:** autor local do repo `inematds <inematds@gmail.com>`; `gh repo create inematds/<repo> --public --source . --push`; Pages da raiz da main; conferir `https://inematds.github.io/<repo>/` → 200. Portal só quando pedido (skill `atualiza-portal`).
+7. **Publicar:** autor local do repo `linnoff88-dev <linnoff88-dev@gmail.com>`; `gh repo create linnoff88-dev/<repo> --public --source . --push`; Pages da raiz da main; conferir `https://linnoff88-dev.github.io/arckhe-<repo>/` → 200. Portal só quando pedido (skill `atualiza-portal`).
 
 ## Regras de escrita (didática v7)
 - **Objetivo** em uma linha, com verbo, que o aluno consiga dizer se atingiu.
@@ -47,11 +47,11 @@ description: >-
 - **Modelos com copiar**: todo comando/prompt/arquivo que o aluno vai usar está num bloco `codigo`.
 - **Prática com "pronto quando"** verificável pelo próprio aluno (um arquivo existe, um comando responde X, um post saiu com fonte).
 - **Teste comentado**: cada pergunta explica a certa e o erro comum; `ref` aponta a seçêo para rever.
-- Conteúdo aberto e gratuito (INEMA.CLUB); nada de "compre", "oferta".
+- Conteúdo aberto e gratuito (ARCKHÉ AI); nada de "compre", "oferta".
 
 ## Outros idiomas (EN/ES) — 7.3
 PT fica na raiz; EN e ES em `en/` e `es/`, reaproveitando `assets/` da raiz. O topo ganha o seletor PT · EN · ES e cada página ganha `hreflang`; o progresso do aluno fica separado por idioma.
-1. `python3 ~/.claude/skills/formato-curso-v72/scripts/traduzir.py . en es --publico "<quem lê, em inglês>"` — traduz só os textos do JSON pelo **tradutor central** (`inema-traduz`, variável `INEMA_TRADUCAO_*` em `~/.config/inema/modelos.env`, hoje Sonnet 5.5 da assinatura; `--motor`/`--modelo` só se pedido; nunca API), em lotes, com validaçêo por texto (tags, links, comandos dos blocos de código) e cache em `i18n/<lang>.json`. Grava `conteudo/en/` e `conteudo/es/`. Glossário extra opcional em `i18n/glossario.json`.
+1. `python3 ~/.claude/skills/formato-curso-v72/scripts/traduzir.py . en es --publico "<quem lê, em inglês>"` — traduz só os textos do JSON pelo **tradutor central** (`ARCKHÉ-traduz`, variável `ARCKHÉ_TRADUCAO_*` em `~/.config/ARCKHÉ/modelos.env`, hoje Sonnet 5.5 da assinatura; `--motor`/`--modelo` só se pedido; nunca API), em lotes, com validaçêo por texto (tags, links, comandos dos blocos de código) e cache em `i18n/<lang>.json`. Grava `conteudo/en/` e `conteudo/es/`. Glossário extra opcional em `i18n/glossario.json`.
 2. Imagem com texto desenhado (a capa, às vezes a foto de abertura): versêo por idioma `capa-en.jpg`, `hero/inicio-es.jpg`… pelo Codex image_gen editando a original; o gerador usa sozinho quando existir. Conferir o texto com zoom.
 3. `python3 gerar.py && python3 gerar.py --lang en && python3 gerar.py --lang es`, depois `python3 validar.py --links` + `--lang en` + `--lang es` e `conferir-tela.cjs .` (ele abre também `en/` e `es/`).
 4. Varredura de sobras: nenhuma palavra PT comum ("você", "nêo", "aula") no texto visível de `en/` e `es/`.

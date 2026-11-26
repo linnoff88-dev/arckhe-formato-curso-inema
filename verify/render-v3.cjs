@@ -1,7 +1,7 @@
 const PW='/home/nmaldaner/.npm/_npx/e41f203b7505f1fb/node_modules/playwright';
 const {chromium}=require(PW);
 (async()=>{let br;try{br=await chromium.launch({headless:true})}catch(e){br=await chromium.launch({headless:true,executablePath:require('os').homedir()+'/.cache/ms-playwright/chromium-1223/chrome-linux/chrome'})}
-const f='file:///home/nmaldaner/projetos/formato-curso-inema/mockups/v3-prototipo.html';
+const f='file:///home/nmaldaner/projetos/formato-curso-ARCKHÉ/mockups/v3-prototipo.html';
 // desktop topo
 const c1=await br.newContext({viewport:{width:1280,height:1180},deviceScaleFactor:1.5});const p1=await c1.newPage();
 await p1.goto(f,{waitUntil:'networkidle'});await p1.waitForTimeout(1300);

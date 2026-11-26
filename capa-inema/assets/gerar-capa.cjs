@@ -1,7 +1,7 @@
 #!/usr/bin/env node
-/* gerar-capa.cjs — capa INEMA 1280x720 pra um repo de curso/projeto.
+/* gerar-capa.cjs — capa ARCKHÉ 1280x720 pra um repo de curso/projeto.
  * Dois layouts: split (default) e fb (full-bleed). A ARTE vem do gerador de
- * imagem do Codex CLI (image_gen) por padrão desde 2026-09-21; o inemaimg local
+ * imagem do Codex CLI (image_gen) por padrão desde 2026-09-21; o ARCKHÉimg local
  * (flux2-klein) só entra como FALLBACK se o Codex falhar. Título/marca são
  * renderizados por cima via Playwright.
  *
@@ -11,13 +11,13 @@
  *        [--raw-in <arte.png>] [--gerador auto|codex|flux]
  *
  * --gerador: auto (default) = Codex e cai pro flux se falhar; codex = só Codex
- * (falha dura); flux = só o inemaimg local (comportamento antigo).
+ * (falha dura); flux = só o ARCKHÉimg local (comportamento antigo).
  *
  * Resolução de título/categoria: --title/--cat vencem; senão tenta catalog.json
  * pelo slug (basename do repo); senão lê <title>/<h1> do index.html do repo.
  * Saída: <repo>/capa/capa.png
  *
- * Requer: codex CLI (arte) e Playwright/chromium; inemaimg no ar
+ * Requer: codex CLI (arte) e Playwright/chromium; ARCKHÉimg no ar
  * (IMG_API, default http://localhost:8000/generate) só pro fallback. Playwright (tenta node_modules local, depois o do timesmkt3). */
 const fs = require('fs');
 const path = require('path');
@@ -32,7 +32,7 @@ function loadChromium() {
   const cands = [
     'playwright',
     path.join(os.homedir(), 'projetos/timesmkt3/node_modules/playwright'),
-    path.join(os.homedir(), 'projetos/formato-curso-inema/capa-inema/node_modules/playwright'),
+    path.join(os.homedir(), 'projetos/formato-curso-ARCKHÉ/capa-ARCKHÉ/node_modules/playwright'),
   ];
   for (const c of cands) { try { return require(c).chromium; } catch {} }
   throw new Error('Playwright não encontrado. Instale com: npm i -D playwright && npx playwright install chromium');
@@ -82,7 +82,7 @@ function resolveMeta(repo, args) {
     try {
       const cj = JSON.parse(fs.readFileSync(args.catalog, 'utf8'));
       const all = [...(cj.courses||[]), ...(cj.projects||[])];
-      const m = /inematds\.github\.io\/([^\/]+)/;
+      const m = /linnoff88-dev\.github\.io\/([^\/]+)/;
       const e = all.find(x => (String(x.url||'').match(m)||[])[1] === slug);
       if (e) { title = title || e.title; cat = cat || e.cat; }
     } catch {}
@@ -104,7 +104,7 @@ function seedFrom(s){ let h=0; for(const c of String(s)) h=(h*31+c.charCodeAt(0)
 function splitTitle(t){ const p=String(t).split(/\s+—\s+|\s+–\s+|\s+-\s+/); return p.length>=2?{main:p[0].trim(),sub:p.slice(1).join(' — ').trim()}:{main:String(t).trim(),sub:''}; }
 
 // ATENÇÃO: o flux2-klein IGNORA `negative_prompt` — o pipeline FLUX.2 não suporta (ver
-// inemaimg/loaders/flux2_klein.py, que recebe o campo e não repassa). Mandar negative
+// ARCKHÉimg/loaders/flux2_klein.py, que recebe o campo e não repassa). Mandar negative
 // aqui é no-op: verificado em 2026-08-13, a mesma seed com e sem negative gerou imagens
 // byte a byte idênticas. Por isso TODA restrição — sem texto, sem escuro/triste, sem
 // estouro — precisa estar no prompt POSITIVO abaixo.
@@ -112,7 +112,7 @@ async function gerarImagem(cena, seed, w, h) {
   // SEM direção de estilo (decidido em 2026-08-13): nada de "editorial premium", luz,
   // fundo claro, humor ou paleta. A imagem é só o CONTEXTO do projeto — o modelo escolhe
   // o resto. A única restrição que fica é a técnica: sem texto e sem virar screenshot,
-  // porque a camada de texto INEMA entra por cima depois.
+  // porque a camada de texto ARCKHÉ entra por cima depois.
   // A ÚNICA licença artística permitida é ÓPTICA, não de estilo: lente clara e foco raso.
   // Dá profundidade e destaca o sujeito (a capa é vista pequena, num card ao lado do texto)
   // sem ditar luz, cor nem humor. Não acrescente nada além disto aqui.
@@ -122,7 +122,7 @@ async function gerarImagem(cena, seed, w, h) {
     + `no user interface, not a screenshot.`;
   const body = { model:'flux2-klein', prompt, width:w, height:h, seed };
   const r = await fetch(IMG_API, { method:'POST', headers:{'content-type':'application/json'}, body:JSON.stringify(body) });
-  if (!r.ok) throw new Error(`inemaimg ${r.status}: ${(await r.text()).slice(0,180)}`);
+  if (!r.ok) throw new Error(`ARCKHÉimg ${r.status}: ${(await r.text()).slice(0,180)}`);
   return (await r.json()).image; // base64 PNG
 }
 
@@ -189,7 +189,7 @@ function htmlSplit(meta, b64){
   .card img{width:100%;height:100%;object-fit:cover;display:block}
   .card::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 60%,rgba(8,8,12,.3))}
   </style></head><body><div class="stage"><div class="grid">
-    <div><div class="eyebrow"><span class="brand">INEMA<b>.CLUB</b></span><span class="chip">${meta.cat}</span></div>
+    <div><div class="eyebrow"><span class="brand">ARCKHÉ<b>.CLUB</b></span><span class="chip">${meta.cat}</span></div>
       <div class="main">${main}</div>${sub?`<div class="sub">${sub}</div>`:''}<div class="bar"></div></div>
     <div class="card"><img src="data:image/png;base64,${b64}"/></div>
   </div></div></body></html>`;
@@ -214,7 +214,7 @@ function htmlFB(meta, b64){
   .sub{margin-top:18px;font-weight:600;font-size:32px;color:#e7e2d8;opacity:.92;max-width:1000px}
   </style></head><body><div class="stage">
     <img class="bg" src="data:image/png;base64,${b64}"/><div class="scrim"></div>
-    <div class="eyebrow"><span class="brand">INEMA<b>.CLUB</b></span><span class="chip">${meta.cat}</span></div>
+    <div class="eyebrow"><span class="brand">ARCKHÉ<b>.CLUB</b></span><span class="chip">${meta.cat}</span></div>
     <div class="titlewrap"><div class="bar"></div><div class="main">${main}</div>${sub?`<div class="sub">${sub}</div>`:''}</div>
   </div></body></html>`;
 }
@@ -232,7 +232,7 @@ async function main(){
   console.log(`[capa] ${meta.slug} | layout=${layout} | cat=${meta.cat} | "${meta.title}"`);
   const [iw, ih] = layout === 'fb' ? [W, H] : [1024, 768];
   // --raw-in: a arte ja existe (gerada por outro modelo/ferramenta) e so falta a
-  // camada de texto INEMA por cima. Sem a flag nada muda: gera no inemaimg.
+  // camada de texto ARCKHÉ por cima. Sem a flag nada muda: gera no ARCKHÉimg.
   const rawIn = args['raw-in'] && args['raw-in'] !== true ? path.resolve(String(args['raw-in'])) : null;
   if (rawIn && !fs.existsSync(rawIn)) { console.error('--raw-in nao existe:', rawIn); process.exit(2); }
   // Ordem da arte com --gerador auto: --raw-in > Codex (image_gen) > flux2-klein (fallback).

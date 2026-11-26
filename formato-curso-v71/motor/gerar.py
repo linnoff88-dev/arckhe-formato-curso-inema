@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""INEMA Learning v7.1 — gera o curso a partir de conteudo/.
+"""ARCKHÉ Learning v7.1 — gera o curso a partir de conteudo/.
 
     python3 gerar.py            # PT (raiz)
     python3 gerar.py --lang en  # quando existir conteudo/en/
@@ -293,7 +293,7 @@ def cabeca(titulo, desc, prefixo, lang, canon, curso_id):
 
 
 def topo(curso, aulas, ui, prefixo, atual=""):
-    """Menu do topo no padrêo dos cursos INEMA (v2): curso | INEMA.CLUB - PRO à esquerda; uma entrada por aula e Aa à direita."""
+    """Menu do topo no padrêo dos cursos ARCKHÉ (v2): curso | ARCKHÉ AI - PRO à esquerda; uma entrada por aula e Aa à direita."""
     links = "".join(
         f'<a href="{prefixo}aulas/{a["slug"]}/index.html" class="tlink{" on" if a["slug"] == atual else ""}"'
         f'{" aria-current=\"page\"" if a["slug"] == atual else ""} title="{attr(a["titulo"])}">'
@@ -307,8 +307,8 @@ def topo(curso, aulas, ui, prefixo, atual=""):
     return (f'<a class="skip" href="#conteudo">{ui["pular"]}</a><header class="topo"><div class="esq">'
             f'<button type="button" class="menu-btn" aria-expanded="false" aria-controls="lado">{ic("menu")}<span class="sr">{ui["aulas"]}</span></button>'
             f'<a class="marca" href="{prefixo}index.html">{ic(curso["icone"])}<span>{curso["nome"]}</span></a>'
-            f'<span class="sep">|</span><a class="club" href="https://inema.club" target="_blank" rel="noopener">INEMA.CLUB</a>'
-            f'<span class="tr">-</span><a class="pro" href="https://inema.pro" target="_blank" rel="noopener">PRO</a></div>'
+            f'<span class="sep">|</span><a class="club" href="https://ARCKHÉ AI" target="_blank" rel="noopener">ARCKHÉ AI</a>'
+            f'<span class="tr">-</span><a class="pro" href="https://ARCKHÉ.pro" target="_blank" rel="noopener">PRO</a></div>'
             f'<nav class="dir" aria-label="{attr(ui["aulas"])}">{links}{aa}</nav></header>')
 
 
@@ -378,7 +378,7 @@ def pagina_aula(curso, aulas, a, idx, ui, lang):
     nav_fim = (f'<div class="fim-aula">{btn_ant}'
                f'<button type="button" class="btn neutro concluir" aria-pressed="false">{ic("check")}{ui["marcar_concluida"]}</button>{btn_prox_cheio}</div>')
     canon = f'{curso["url"]}aulas/{a["slug"]}/'
-    titulo = f'{a["titulo"]} · {curso["nome"]} · INEMA'
+    titulo = f'{a["titulo"]} · {curso["nome"]} · ARCKHÉ'
     return (cabeca(titulo, a["lead"], prefixo, lang, canon, curso["id"])
             + f'<body data-curso="{curso["id"]}" data-aula="{a["slug"]}" data-total="{len(aulas)}" data-total-ex="{total_ex(aulas)}">'
             + topo(curso, aulas, ui, prefixo, a["slug"])
@@ -398,7 +398,7 @@ def pagina_inicio(curso, aulas, ui, lang):
                     f'<p>{a["lead"]}</p><span class="m">{a["minutos"]} min</span></a>' for a in aulas)
     numeros = "".join(f'<div><b>{n["v"]}</b>{n["t"]}</div>' for n in p["numeros"])
     duas = "".join(f'<div class="painel"><h3>{b["t"]}</h3><ul>{"".join(f"<li>{i}</li>" for i in b["itens"])}</ul></div>' for b in p["blocos"])
-    return (cabeca(f'{curso["nome"]} · INEMA', p["lead"], prefixo, lang, curso["url"], curso["id"])
+    return (cabeca(f'{curso["nome"]} · ARCKHÉ', p["lead"], prefixo, lang, curso["url"], curso["id"])
             + f'<body data-curso="{curso["id"]}" data-total="{len(aulas)}" data-total-ex="{total_ex(aulas)}">' + topo(curso, aulas, ui, prefixo)
             + '<div class="casca">' + lado(curso, aulas, ui, prefixo, "")
             + '<main class="principal" id="conteudo"><div class="miolo">'

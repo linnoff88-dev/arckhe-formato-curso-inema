@@ -1,8 +1,8 @@
 #!/usr/bin/env node
-/* rodar-capas-lote.mjs — driver de lote pra capa-inema.
+/* rodar-capas-lote.mjs — driver de lote pra capa-ARCKHÉ.
  * Itera cursos e/ou projetos do catalog.json, clona o que falta, roda
  * gerar-capa.cjs por repo (que auto-resolve título/categoria pelo catalog),
- * e commita+pusha cada repo com autor inematds.
+ * e commita+pusha cada repo com autor linnoff88-dev.
  *
  * Uso:
  *   node rodar-capas-lote.mjs --fonte cursos|projetos|todos [--limite N] [--force] [--dry-run]
@@ -17,10 +17,10 @@ import { execSync, spawnSync } from 'child_process';
 
 const HOME = os.homedir();
 const PROJETOS = path.join(HOME, 'projetos');
-const CATALOG = path.join(PROJETOS, 'inemapro-mono/apps/pro/data/catalog.json');
-const GERAR_CAPA = path.join(PROJETOS, 'formato-curso-inema/capa-inema/assets/gerar-capa.cjs');
-const AUTOR_EMAIL = 'inematds@gmail.com';
-const AUTOR_NOME = 'inematds';
+const CATALOG = path.join(PROJETOS, 'ARCKHÉpro-mono/apps/pro/data/catalog.json');
+const GERAR_CAPA = path.join(PROJETOS, 'formato-curso-ARCKHÉ/capa-ARCKHÉ/assets/gerar-capa.cjs');
+const AUTOR_EMAIL = 'linnoff88-dev@gmail.com';
+const AUTOR_NOME = 'linnoff88-dev';
 const EXCLUDE_SLUGS = new Set(['book-genesis']); // não é repo do usuário
 
 function parseArgs(argv) {
@@ -36,7 +36,7 @@ function parseArgs(argv) {
 }
 
 function slugFromUrl(url) {
-  const m = String(url || '').match(/inematds\.github\.io\/([^/]+)/);
+  const m = String(url || '').match(/linnoff88-dev\.github\.io\/([^/]+)/);
   return m ? m[1] : null;
 }
 
@@ -74,7 +74,7 @@ function garantirClone(slug) {
     return { repoDir, clonado: false };
   }
   try {
-    sh(`gh repo clone inematds/${slug} -- --quiet`, { cwd: PROJETOS });
+    sh(`gh repo clone linnoff88-dev/${slug} -- --quiet`, { cwd: PROJETOS });
     return { repoDir, clonado: true };
   } catch (e) {
     return { repoDir: null, erro: `clone falhou: ${e.message.split('\n')[0]}` };
@@ -102,7 +102,7 @@ function commitEPush(repoDir, slug, temHero) {
   const diff = spawnSync('git', ['diff', '--cached', '--quiet'], { cwd: repoDir });
   if (diff.status === 0) return { status: 'sem-mudanca' };
 
-  sh(`git commit -q -m "chore: capa oficial do catalogo (capa-inema)"`, { cwd: repoDir });
+  sh(`git commit -q -m "chore: capa oficial do catalogo (capa-ARCKHÉ)"`, { cwd: repoDir });
   const branch = branchDefault(repoDir);
   try {
     sh(`git push origin ${branch}`, { cwd: repoDir });
@@ -126,7 +126,7 @@ function commitEPush(repoDir, slug, temHero) {
       const remoteUrl = sh('git remote get-url origin', { cwd: repoDir }).trim();
       const sshUrl = remoteUrl.startsWith('git@')
         ? remoteUrl
-        : `git@github.com:inematds/${slug}.git`;
+        : `git@github.com:linnoff88-dev/${slug}.git`;
       sh(`git push ${sshUrl} ${branch}`, { cwd: repoDir });
       return { status: 'ok (via ssh)' };
     } catch (e2) {

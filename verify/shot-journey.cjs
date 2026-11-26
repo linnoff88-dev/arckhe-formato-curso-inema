@@ -4,14 +4,14 @@ const {chromium}=require(PW);
 const p=await(await b.newContext({viewport:{width:1200,height:850}})).newPage();
 await p.goto('http://127.0.0.1:8137/curso/trilha1/modulo-1-1.html',{waitUntil:'networkidle'});
 await p.waitForTimeout(400);
-await p.evaluate(()=>{Object.keys(localStorage).filter(k=>k.startsWith('inema.')).forEach(k=>localStorage.removeItem(k));
-  const ids=[...document.querySelectorAll('[data-inema-topic]')].map(e=>e.getAttribute('data-inema-topic'));
-  window.INEMA.markRead(ids[0],true); window.INEMA.markRead(ids[1],true); window.INEMA.markRead(ids[2],true);
-  window.INEMA.toggleDoubt(ids[3]);
-  const blocks=[...document.querySelectorAll('[data-inema-block]')];
-  function hl(blk,c,note){const tn=[...blk.childNodes].find(n=>n.nodeType===3&&n.textContent.trim().length>15)||blk.firstChild;const r=document.createRange();r.setStart(tn,0);r.setEnd(tn,Math.min(30,tn.textContent.length));window.INEMA.highlight(r,{color:c,note});}
+await p.evaluate(()=>{Object.keys(localStorage).filter(k=>k.startsWith('ARCKHÉ.')).forEach(k=>localStorage.removeItem(k));
+  const ids=[...document.querySelectorAll('[data-ARCKHÉ-topic]')].map(e=>e.getAttribute('data-ARCKHÉ-topic'));
+  window.ARCKHÉ.markRead(ids[0],true); window.ARCKHÉ.markRead(ids[1],true); window.ARCKHÉ.markRead(ids[2],true);
+  window.ARCKHÉ.toggleDoubt(ids[3]);
+  const blocks=[...document.querySelectorAll('[data-ARCKHÉ-block]')];
+  function hl(blk,c,note){const tn=[...blk.childNodes].find(n=>n.nodeType===3&&n.textContent.trim().length>15)||blk.firstChild;const r=document.createRange();r.setStart(tn,0);r.setEnd(tn,Math.min(30,tn.textContent.length));window.ARCKHÉ.highlight(r,{color:c,note});}
   hl(blocks[0],'yellow',null); hl(blocks[1],'doubt','revisar isso depois');
-  window.INEMA.openJourney();
+  window.ARCKHÉ.openJourney();
 });
 await p.waitForTimeout(600);
 await p.screenshot({path:'verify/final-journey.png'});

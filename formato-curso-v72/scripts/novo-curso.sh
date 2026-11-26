@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Cria um curso INEMA Learning v7.2 novo a partir do motor da skill.
+# Cria um curso ARCKHÉ Learning v7.2 novo a partir do motor da skill.
 # Uso: novo-curso.sh <pasta-do-curso> "<Nome do curso>"
 # Ex.: novo-curso.sh ~/projetos/meu-curso-v72 "Meu curso"
 set -euo pipefail
@@ -15,7 +15,7 @@ python3 - "$SKILL/modelo/conteudo/pt/curso.json" "$DEST/conteudo/pt/curso.json" 
 import json, sys
 src, dst, slug, nome = sys.argv[1:]
 c = json.load(open(src))
-c["id"], c["nome"], c["url"] = slug, nome, f"https://inematds.github.io/{slug}/"
+c["id"], c["nome"], c["url"] = slug, nome, f"https://linnoff88-dev.github.io/arckhe-{slug}/"
 c["videos"] = {}  # cada curso declara os seus vídeos
 c["inicio"]["numeros"], c["inicio"]["blocos"] = [], []
 json.dump(c, open(dst, "w"), ensure_ascii=False, indent=2)
@@ -23,8 +23,8 @@ EOF
 cat > "$DEST/CLAUDE.md" <<EOF
 # CLAUDE.md — $SLUG
 
-Curso no formato INEMA Learning v7.2 (skill \`formato-curso-v72\`). Conteúdo em \`conteudo/<lang>/\`; nunca editar o HTML gerado à mêo: editar o JSON e rodar \`python3 gerar.py && python3 validar.py --links\`. Conferir telas com \`node ~/.claude/skills/formato-curso-v72/scripts/conferir-tela.cjs .\` (HTTP local, 1366 e 390 px).
-Autor dos commits: \`inematds <inematds@gmail.com>\`. Publicaçêo = commit + push (GitHub Pages, raiz da main).
+Curso no formato ARCKHÉ Learning v7.2 (skill \`formato-curso-v72\`). Conteúdo em \`conteudo/<lang>/\`; nunca editar o HTML gerado à mêo: editar o JSON e rodar \`python3 gerar.py && python3 validar.py --links\`. Conferir telas com \`node ~/.claude/skills/formato-curso-v72/scripts/conferir-tela.cjs .\` (HTTP local, 1366 e 390 px).
+Autor dos commits: \`linnoff88-dev <linnoff88-dev@gmail.com>\`. Publicaçêo = commit + push (GitHub Pages, raiz da main).
 
 ## Self-learning
 

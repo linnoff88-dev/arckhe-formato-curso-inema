@@ -10,18 +10,18 @@ const ok = (c, m) => (c ? R.pass : R.fail).push((c ? 'OK  ' : 'XX  ') + m);
   const errs = []; p.on('pageerror', e => errs.push(e.message));
   await p.goto(M1, { waitUntil: 'networkidle' });
   await p.waitForTimeout(300);
-  await p.evaluate(() => Object.keys(localStorage).filter(k=>k.startsWith('inema.')).forEach(k=>localStorage.removeItem(k)));
+  await p.evaluate(() => Object.keys(localStorage).filter(k=>k.startsWith('ARCKHÉ.')).forEach(k=>localStorage.removeItem(k)));
 
   // cada tema aplica os atributos/classe esperados no <html>
   const themes = {
-    'inema-dark': { dark: true,  dt: null },
+    'ARCKHÉ-dark': { dark: true,  dt: null },
     'claro':      { dark: false, dt: null },
     'sepia':      { dark: false, dt: 'sepia' },
     'foco':       { dark: null,  dt: 'foco' },     // foco herda eixo claro/escuro; so checa data-theme
     'contraste':  { dark: true,  dt: 'contraste' },
   };
   for (const [t, exp] of Object.entries(themes)) {
-    const got = await p.evaluate((th) => { window.INEMA.setPref('theme', th); const h = document.documentElement; return { dark: h.classList.contains('dark'), dt: h.getAttribute('data-theme'), bg: getComputedStyle(document.body).backgroundColor }; }, t);
+    const got = await p.evaluate((th) => { window.ARCKHÉ.setPref('theme', th); const h = document.documentElement; return { dark: h.classList.contains('dark'), dt: h.getAttribute('data-theme'), bg: getComputedStyle(document.body).backgroundColor }; }, t);
     const darkOk = exp.dark === null ? true : got.dark === exp.dark;
     const dtOk = (exp.dt || null) === (got.dt || null);
     ok(darkOk && dtOk, `tema "${t}": .dark=${got.dark} data-theme=${got.dt} bg=${got.bg}`);
@@ -29,8 +29,8 @@ const ok = (c, m) => (c ? R.pass : R.fail).push((c ? 'OK  ' : 'XX  ') + m);
 
   // contraste muda o fundo de fato (sépia != dark)
   const bgs = {};
-  for (const t of ['inema-dark','claro','sepia','contraste']) {
-    await p.evaluate((th)=>window.INEMA.setPref('theme', th), t);
+  for (const t of ['ARCKHÉ-dark','claro','sepia','contraste']) {
+    await p.evaluate((th)=>window.ARCKHÉ.setPref('theme', th), t);
     await p.waitForTimeout(300); // deixa o recalc/observer do Tailwind CDN assentar
     bgs[t] = await p.evaluate(()=>getComputedStyle(document.body).backgroundColor);
   }
@@ -49,10 +49,10 @@ const ok = (c, m) => (c ? R.pass : R.fail).push((c ? 'OK  ' : 'XX  ') + m);
 
   // seletor de aparencia abre (role=dialog) e tem controles de tema
   const appe = await p.evaluate(() => {
-    const t = document.querySelector('[data-inema-appearance-toggle]');
+    const t = document.querySelector('[data-ARCKHÉ-appearance-toggle]');
     if (t) t.click();
-    const pop = document.querySelector('.inema-appearance-pop, [data-inema-appearance]');
-    const setters = document.querySelectorAll('[data-inema-set-theme], [data-inema-set-accent], [data-inema-set-fontscale]').length;
+    const pop = document.querySelector('.ARCKHÉ-appearance-pop, [data-ARCKHÉ-appearance]');
+    const setters = document.querySelectorAll('[data-ARCKHÉ-set-theme], [data-ARCKHÉ-set-accent], [data-ARCKHÉ-set-fontscale]').length;
     return { toggle: !!t, pop: !!pop, setters };
   });
   ok(appe.toggle && appe.pop && appe.setters >= 3, 'seletor de aparencia funcional (toggle/pop/setters=' + appe.setters + ')');

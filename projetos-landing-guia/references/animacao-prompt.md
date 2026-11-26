@@ -49,4 +49,4 @@ quique". A estrutura numerada vira um painel de controle.
 
 ## Exemplos
 
-Cinco prompts reais escritos com este molde (e as peças que geraram): https://github.com/inematds/inema-motion-lab/tree/main/pecas
+Cinco prompts reais escritos com este molde (e as peças que geraram): https://github.com/linnoff88-dev/ARCKHÉ-motion-lab/tree/main/pecas
